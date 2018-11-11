@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="Q_hni3P-vHx54LrzJF41dKO2saUFOfcmkCA6nJg8_Mo">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="flask, nginx 和 supervisor的尝试。知其然而不知其所以然。">
+<meta name="keywords" content="ubuntu,flask">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Ubuntu服务器上部署flask程序">
+<meta property="og:url" content="http://deepanalysis.xyz/Install-flask-on-ubuntu.html">
+<meta property="og:site_name" content="DeepAnalysis">
+<meta property="og:description" content="flask, nginx 和 supervisor的尝试。知其然而不知其所以然。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-12T15:38:50.481Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Ubuntu服务器上部署flask程序">
+<meta name="twitter:description" content="flask, nginx 和 supervisor的尝试。知其然而不知其所以然。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://deepanalysis.xyz/Install-flask-on-ubuntu.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>在Ubuntu服务器上部署flask程序 | DeepAnalysis</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DeepAnalysis</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Mathematics, Computer Science ...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://deepanalysis.xyz/Install-flask-on-ubuntu.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeepAnalysis">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在Ubuntu服务器上部署flask程序
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-11 22:57:52" itemprop="dateCreated datePublished" datetime="2018-10-11T22:57:52+08:00">2018-10-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                <time title="修改时间：2018-10-12 23:38:50" itemprop="dateModified" datetime="2018-10-12T23:38:50+08:00">2018-10-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/计算机/个人网站/" itemprop="url" rel="index"><span itemprop="name">个人网站</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>flask, nginx 和 supervisor的尝试。知其然而不知其所以然。</p>
+<a id="more"></a>
+<h1 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h1><h2 id="pip3的安装与升级"><a href="#pip3的安装与升级" class="headerlink" title="pip3的安装与升级"></a>pip3的安装与升级</h2><p>安装pip3：<code>sudo apt-get install python3-pip</code></p>
+<p>升级pip3：<code>sudo pip install --upgrade pip</code></p>
+<p>查看pip版本：<code>pip -V</code></p>
+<p>使用 pip 的话，用命令<code>pip3</code></p>
+<h2 id="virtualenv-安装"><a href="#virtualenv-安装" class="headerlink" title="virtualenv 安装"></a>virtualenv 安装</h2><p>安装<code>sudo pip3 install virtualenv</code></p>
+<h1 id="安装项目"><a href="#安装项目" class="headerlink" title="安装项目"></a>安装项目</h1><h2 id="创建项目文件"><a href="#创建项目文件" class="headerlink" title="创建项目文件"></a>创建项目文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/project</span><br><span class="line">cd /home/project</span><br></pre></td></tr></table></figure>
+<h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><p>执行<code>virtualenv venv</code></p>
+<p>启动虚拟环境<code>source /venv/bin/activate</code>.</p>
+<p>启动后会在命令提示符的左面出现(venv).</p>
+<p>想要结束虚拟环境，只需要执行<code>deactivate</code>即可。</p>
+<h2 id="在虚拟环境中搞事情"><a href="#在虚拟环境中搞事情" class="headerlink" title="在虚拟环境中搞事情"></a>在虚拟环境中搞事情</h2><p>虚拟环境中安装flask和uwsgi, <code>pip install uwsgi flask</code>.</p>
+<h3 id="将文件上传到服务器"><a href="#将文件上传到服务器" class="headerlink" title="将文件上传到服务器"></a>将文件上传到服务器</h3><p>以Ubuntu服务器为例。</p>
+<p>打开本地的<code>Xshell</code>，安装<code>lrzsz</code>.便可以在本地和服务器间互传文件。命令为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lrzsz</span><br></pre></td></tr></table></figure>
+<p>要将本地文件上传到ubuntu, 只需要输入<code>sudo rz</code>并回车，（下载是<code>sz</code>）即可弹出本地路径窗口，选择文件上传即可.</p>
+<h3 id="直接编写一个最简单的Flask-app"><a href="#直接编写一个最简单的Flask-app" class="headerlink" title="直接编写一个最简单的Flask app."></a>直接编写一个最简单的Flask app.</h3><p>执行<code>sudo nano myproject.py</code> 并输入一下代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="验证是否一切正常"><a href="#验证是否一切正常" class="headerlink" title="验证是否一切正常"></a>验证是否一切正常</h3><p>执行<code>python app.py</code>观察是否安装成功. </p>
+<p>也可以在自己电脑的浏览器上输入网址<code>ip.ip.ip.ip:5000</code>观察是否能正确运行。注意将5000换成Flask启动的端口，并且保证该端口是开放的，可以用<code>iptables</code>开放端口。</p>
+<h3 id="配置uWsgi"><a href="#配置uWsgi" class="headerlink" title="配置uWsgi"></a>配置uWsgi</h3><p>在项目目录下创建config.ini, 内容如下</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[uwsgi]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># uwsgi 启动时所使用的地址与端口</span></span><br><span class="line"><span class="attr">socket</span> = <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8000</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 指向网站目录</span></span><br><span class="line"><span class="attr">chdir</span> = /home/project/ </span><br><span class="line"></span><br><span class="line"><span class="comment"># python 启动程序文件</span></span><br><span class="line"><span class="attr">wsgi-file</span> = myproject.py </span><br><span class="line"></span><br><span class="line"><span class="comment"># python 程序内用以启动的 application 变量名</span></span><br><span class="line"><span class="attr">callable</span> = app </span><br><span class="line"></span><br><span class="line"><span class="comment"># 处理器数</span></span><br><span class="line"><span class="attr">processes</span> = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 线程数</span></span><br><span class="line"><span class="attr">threads</span> = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#状态检测地址</span></span><br><span class="line"><span class="attr">stats</span> = <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9191</span></span><br></pre></td></tr></table></figure>
+<p>运行 uWSGI.<code>uwsgi config.ini</code>得到如下输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(venv)ubuntu@ ubuntu$ uwsgi config.ini</span><br><span class="line"></span><br><span class="line">  [uWSGI] getting INI configuration from config.ini</span><br><span class="line"></span><br><span class="line">  *** Starting uWSGI 2.0.8 (64bit) on [Fri Dec 19 14:34:11 2014] ***</span><br><span class="line">  // 此处略去那些无用的启动信息 </span><br><span class="line">  *** Stats server enabled on 127.0.0.1:9191 fd: 15 ***</span><br></pre></td></tr></table></figure>
+<p>按<code>ctrl+c</code>关闭程序.</p>
+<h2 id="安装Supervisor"><a href="#安装Supervisor" class="headerlink" title="安装Supervisor"></a>安装Supervisor</h2><p><code>sudo apt-get install supervisor</code></p>
+<p>新建Supervisor的配置文件<code>sudo nano /etc/supervisor/conf.d/flaskCfg.conf</code></p>
+<p>输入以下内容<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[program:my_flask]</span></span><br><span class="line"><span class="comment"># 启动命令入口</span></span><br><span class="line"><span class="attr">command</span>=/home/project/venv/bin/uwsgi /home/project/config.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># 命令程序所在目录</span></span><br><span class="line"><span class="attr">directory</span>=/home/project</span><br><span class="line"><span class="comment">#运行命令的用户名</span></span><br><span class="line"><span class="attr">user</span>=ubuntu</span><br><span class="line">        </span><br><span class="line"><span class="attr">autostart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 日志地址</span></span><br><span class="line"><span class="attr">stdout_logfile</span>=/home/project/logs/uwsgi_supervisor.log</span><br></pre></td></tr></table></figure></p>
+<p>你需要在<code>/home/project/logs/</code>位置创建一个<code>uwsgi_supervisor.log</code>文件</p>
+<h3 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h3><p>只需要如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service supervisor start</span><br><span class="line">sudo service supervisor stop</span><br></pre></td></tr></table></figure>
+<h1 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h1><p>由于博客本身也是托管到Nginx上的，所以我们需要侦听一个新的端口。</p>
+<p>执行<code>sudo nano /etc/nginx/sites-availble/project</code>, 并且将其软连接<code>sudo ln /etc/nginx/sites-availble/project /etc/nginx/sites-enable/project</code></p>
+<p>或者可以直接copy<code>default</code>的内容进行修改.</p>
+<p>输入如下配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">      listen  876;</span><br><span class="line">      server_name XXX.XXX.XXX; #公网地址</span><br><span class="line">    </span><br><span class="line">      location / &#123;</span><br><span class="line">        include      uwsgi_params;</span><br><span class="line">        uwsgi_pass   127.0.0.1:8000;  # 指向uwsgi 所应用的内部地址,所有请求将转发给uwsgi 处理</span><br><span class="line">        uwsgi_param UWSGI_PYHOME /home/project/venv; # 指向虚拟环境目录</span><br><span class="line">        uwsgi_param UWSGI_CHDIR  /home/project; # 指向网站根目录</span><br><span class="line">        uwsgi_param UWSGI_SCRIPT myproject:app; # 指定启动程序</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong> 侦听端口不能是<code>8000</code>。 </p>
+<p><strong>注意</strong> <code>location</code>字段中不要出现<code>try_files $uri $uri/ /index.html</code></p>
+<p>这会导致令人崩溃的错误，并且耗费一整天的时间来排查.</p>
+<p>最后执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -t</span><br><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure>
+<p>即可享受你的第一个<code>web python</code>项目.</p>
+<h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><p>如果想用一个域名加后缀的方法调用<code>myproject</code>, 最简单的方法是在<code>Nginx</code>的配置文件中进行转发. </p>
+<p>在<code>default</code>中，输入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /domain &#123;</span><br><span class="line">  proxy_pass http://localhost:<span class="number">876</span>/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意这段必须出现在<code>location / {}</code>前，以保证能够准确定位到<code>domain</code>. </p>
+<p>注意地址后的反斜杠是关键，加上反斜杠，则最后转发过去的地址不包括<code>/domain</code>, 反之则包括<code>/domain</code>.</p>
+<h1 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h1><h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><p>debug 时，可以停掉supervisor，并使用<code>uwsgi config.ini</code>命令来单独对uwsgi进行故障排除.</p>
+<p>注意配置uWsgi时，项目地址一定要是myproject.py所在的地址。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          
+            <a href="/tags/flask/" rel="tag"># flask</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Must a good person be extroverted.html" rel="next" title="Must a good person be extroverted">
+                <i class="fa fa-chevron-left"></i> Must a good person be extroverted
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wang Yu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="wangyu.analysis@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://math.stackexchange.com/users/560304/yu-wang" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装环境"><span class="nav-number">1.</span> <span class="nav-text">安装环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pip3的安装与升级"><span class="nav-number">1.1.</span> <span class="nav-text">pip3的安装与升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virtualenv-安装"><span class="nav-number">1.2.</span> <span class="nav-text">virtualenv 安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装项目"><span class="nav-number">2.</span> <span class="nav-text">安装项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建项目文件"><span class="nav-number">2.1.</span> <span class="nav-text">创建项目文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建虚拟环境"><span class="nav-number">2.2.</span> <span class="nav-text">创建虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在虚拟环境中搞事情"><span class="nav-number">2.3.</span> <span class="nav-text">在虚拟环境中搞事情</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将文件上传到服务器"><span class="nav-number">2.3.1.</span> <span class="nav-text">将文件上传到服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接编写一个最简单的Flask-app"><span class="nav-number">2.3.2.</span> <span class="nav-text">直接编写一个最简单的Flask app.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证是否一切正常"><span class="nav-number">2.3.3.</span> <span class="nav-text">验证是否一切正常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置uWsgi"><span class="nav-number">2.3.4.</span> <span class="nav-text">配置uWsgi</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Supervisor"><span class="nav-number">2.4.</span> <span class="nav-text">安装Supervisor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动和停止"><span class="nav-number">2.4.1.</span> <span class="nav-text">启动和停止</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-Nginx"><span class="nav-number">3.</span> <span class="nav-text">配置 Nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化"><span class="nav-number">4.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bug"><span class="nav-number">5.</span> <span class="nav-text">Bug</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#debug"><span class="nav-number">5.1.</span> <span class="nav-text">debug</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Yu</span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">  蜀ICP备18015724号-1 </span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010702001048" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom:0px;">
+    <img src="../images/beianbgs.png" style="float:left;width: 20px;height:auto;">
+    <span style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#666;">
+    川公网安备 51010702001048号</span></a>
+	</span>
+		 
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/pangu/3.3.0/pangu.js"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

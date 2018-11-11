@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="Q_hni3P-vHx54LrzJF41dKO2saUFOfcmkCA6nJg8_Mo">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="简单介绍了极限与无穷的发展历程。">
+<meta name="keywords" content="数学科普">
+<meta property="og:type" content="article">
+<meta property="og:title" content="极限与无穷的思想简史">
+<meta property="og:url" content="http://deepanalysis.xyz/limit-infinite-history.html">
+<meta property="og:site_name" content="DeepAnalysis">
+<meta property="og:description" content="简单介绍了极限与无穷的发展历程。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-25T01:42:13.809Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="极限与无穷的思想简史">
+<meta name="twitter:description" content="简单介绍了极限与无穷的发展历程。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://deepanalysis.xyz/limit-infinite-history.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>极限与无穷的思想简史 | DeepAnalysis</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DeepAnalysis</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Mathematics, Computer Science ...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://deepanalysis.xyz/limit-infinite-history.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeepAnalysis">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">极限与无穷的思想简史
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-25 09:39:18 / 修改时间：09:42:13" itemprop="dateCreated datePublished" datetime="2018-06-25T09:39:18+08:00">2018-06-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>简单介绍了极限与无穷的发展历程。</p>
+<a id="more"></a>
+<p>数学是一门研究数量和结构的科学。从远古时期的结绳计数开始，直到希腊人建立了现代数学所依托的公理体系，再到牛顿和莱布尼茨共同创立的微积分的出现，再到上个世纪微分几何在描述时空的广义相对论中的应用。数学一路伴随着人类的发展而壮大，逐渐成为了一门逻辑最为严谨，结构最为清晰的学科，也成为了人类想要探索世界认知自我最有力的工具。</p>
+<p>数学一开始是形象直观的。给我一只鸡再给我一只鸡，那我就拥有了两只鸡。连接两点的曲线中，确实直线最短。长度分别为3、4和5的线段确实可以构成一个直角三角形。于是，一群善于思考的希腊人，即毕达哥拉斯（Pythagoras）学派，提出了世界万物都可以由整数来描述的观点。然而，数学的发展也是曲折的，希腊人希帕索斯（Hippasus，约公元前500年）发现直角边长为1的直角三角形的斜边长不能表示成整数的比（有理数）。这一发现使得毕达哥拉斯学派的人大为恐慌，随后把希帕索斯沉入江中喂鱼。但是随着数学的进一步发展，类似的数越来越多，数学逐渐变的不那么直观形象。事实上，形象的思维在数学中甚至是有害的。这一点在另一个希腊人，芝诺（Zeno<br>of Elea）那里得到了充分的表现。</p>
+<p>芝诺发明了4个非常微妙和精巧的悖论，可惜在发明之后的两千年的时间中，芝诺的悖论被各种哲学家斥为诡辩，连带着芝诺本人都被批判了两千多年。芝诺悖论的一个表述如下：想象一支射出的箭矢，如果这支箭矢飞过1米路程的时间需要1秒，那么这支箭矢飞过$1/2$路程的时间就需要$1/2$秒，同样，这支箭矢飞过$1/4$米路程的时间就需要$1/4$秒。于是可以得到结论，这支箭矢飞过1米路程的时间共需要$\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots$秒。那么芝诺提出，这是无穷多个不为零的正数相加，答案是无穷，所以射出的箭矢会在原地不动。</p>
+<p>从我们日常经验来看，这当然是不可能的。但是如何解释无穷多个不为零的正数相加不是无穷呢？直观上看，往一个沙堆上面不停的倒沙子，沙子的数量只会越来越多。为什么无穷多个不为零的正数相加反而是个有限数呢？</p>
+<p>芝诺悖论是为了驳斥毕达哥拉斯学派提出的$0.9999\ldots = 1$的说法而提出来的。然而之后我们会知道，$0.9999\ldots = 1$确实是对的.</p>
+<p>事实上，古希腊时期，已经有很多人在思考这个现象了。作为一名优秀的数学家（以及一名热爱洗澡的洁癖），阿基米德提出了很多几何体表面积和体积的计算方法。阿基米德思考过一个问题，如何求抛物线下方的面积。用现代数学的语言描述的话，就是求$y = x^{2},\ y = 0,\ x = 1$这三条曲线围成的曲边三角形的面积。阿基米德提出了一种特殊的计算技巧，将这个曲边三角形的底边等分成$n$份，对每一个分点作$x$轴的垂线，与$y = x^{2}$交与一点，连接该交点和原来的分点，得到了平行$y$轴的一条线段。然后以之前每个等分出来的长为$\frac{1}{n}$的线段为短边，上述做出来的平行$y$轴的线段为长边，做一个长方形。这样就得到了$n$个长方形。这$n$个长方形的面积加起来，就只比原来曲边三角形的面积大一点点。当$n$非常大时，这些长方形的面积的和，就是要求的曲边三角形的面积。</p>
+<p>上面说的过程总结起来，就是要求数列</p>
+<p>$$\frac{1^{2}}{n^{3}} + \frac{2^{2}}{n^{3}} + \frac{3^{2}}{n^{3}} + \frac{4^{2}}{n^{3}} + \cdots$$</p>
+<p>当$n$非常大时的取值。数学符号到此位置，我们将目光投向东方。</p>
+<p>我国古代的思想家庄子也曾提出过极限的思想，《庄子·天下篇》中说：”一尺之捶,日取其半,万世不竭。”<br>我国古代的数学家祖冲之曾用割圆术求圆周率（圆的周长和直径的比值）。割圆术的思想就是用圆的内接正多边形的周长去近似圆的边长，”割之弥细，所失弥少，割之又割以至于不可割，则与圆合体而无所失矣”。这些都是我国古代体现极限思想的极其优秀的作品。</p>
+<p>然而，任何一门学科的发展都离不开外部力量的推动，数学也不例外。这些涉及到无穷的玄之又玄的思考，一直都没有得到真正的重视，直到一位人类历史上最优秀的数学家和物理学家牛顿改变了这一现状。当时已经有非常多的物理现象被发现，也有很多规律被前人总结出来。然而却没有人可以提出一套综合的理论总结这些规律，解释这些现象。才华横溢的牛顿在前人的基础上，创造性的建立了动力学和运动学，用著名的牛顿三大定律，一举将各类工程物理乃至天文现象统一到了力与物体的运动这一框架之下。在建立力学体系的过程中，牛顿不可避免的遇到了大量艰难的运算。比如在计算月球的运动轨道时，就需要考虑地球作为一个球体，对月球的引力是多少。牛顿在他的名著《自然哲学的数学原理》中创立了”流数法”，将这些艰难的运算中涉及到的各种极限或者是无穷的概念统一到了几何的框架之下。在《自然哲学的数学原理》一书中，大量出现了诸如”夹在两个可以无限靠近的向量间的两个向量必然相等”之类的表述。虽然牛顿本人不甚理解这些表述的本质是什么，但是应用这套理论确实能够解决非常多的物理或者工程问题。当时的工程学家和物理学家就开始广泛的应用这一套方法，但是数学家由于他们天生对严谨的追求，一直对这种非常不严谨的表述耿耿于怀。</p>
+<p>在那个时代，有些数学家重新提出了一个古老的问题，无穷小是不是零？不管是不是零，都能从现有的数学框架下推出很多矛盾。这个问题和极限本质上是一样的，说一列数$\ { x_{n}\ }$的极限是$x$<br>,<br>就是说这列数$\ x_{n}$与$x$的差在$n$趋于无穷大时是无穷小。虽然”流数法”或者说用现在的名字”微积分”，已经被大量的应用，数学家依旧没能找到这个问题的回答。无穷小到底是不是零？</p>
+<p>这个问题并非看上去的这么轻描淡写，几百年后，罗素在总结数学发展史的过程中，将这个问题称为”第二次数学危机”。因为这一问题的存在，导致了数学赖以生存的土壤——自洽性出现了问题。数学从内部居然能推出矛盾，这在当时的人们看起来是不可想象的。当时的人们围绕无穷小是不是零，提出了一系列直观反应这个矛盾的问题。比如之前一直提到的无穷级数的求和问题。级数就是把无穷多个数排列起来，然后相加，级数可求和，就是说这无穷多个数加起来是个有限数。本文之前提到了两个无穷级数，其中第一个级数在芝诺悖论中被导出来，即为</p>
+<p>$$\frac{1}{2} + \frac{1}{2^{2}} + \frac{1}{2^{3}} + \frac{1}{2^{4}} + \cdots$$</p>
+<p>这个级数是确定可以求和的。事实上，<br>$\left{ \frac{1}{2^{n}} \right}$是一个首项为$\frac{1}{2}$,<br>公比为$\frac{1}{2}$的等比数列，用公式$S_{n} = \frac{a_{1}\left( 1 - q^{n} \right)}{1 - q}\ ,\ $即可直到这个级数的和是$1$。第二个级数求和比较麻烦，需要用到自然数平方的前$n$项和公式，但也是纯粹的计算就知道和是$\frac{1}{2}$<br>。 那么是否所有的级数都是可以求和的呢？不是这样，一个直观的反例就是</p>
+<p>$$1 + 1 + 1 + 1 + \cdots$$</p>
+<p>这个级数求和是无穷大。那么是否末尾加的数越来越小的级数就是可以求和的呢？考虑一个级数</p>
+<p>$$1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots$$</p>
+<p>这以看到这个级数就是加的数越来越小的级数，和前面提到的两个可以求和的级数没什么本质的区别，然而这个级数却是不可求和的。事实上，这个级数的求和也是无穷大。这个反例说明，虽然$\frac{1}{2^{n}}$和$\frac{1}{n}$都在$n$趋于无穷大时是无穷小，但这二者有本质的区别。为了搞清楚这些问题，或者说为了准确的区分出到底哪些级数可以求和，哪些级数不可以求和，就需要对无穷小或者说极限这个概念本身有更清楚的认识。</p>
+<p>这个问题直到几百年后，到了18世纪时才真正意义上的被解决。一位德国数学家维尔斯特拉斯，也被称为”现代分析之父”，天才地提出了$\delta - \varepsilon$语言，真正意义上的给出了无穷小或者极限的严格定义。一扫几百上千年笼罩在数学之上的”无穷小幽灵”。从此之后，”第二次数学危机”真正意义上的被解决，数学重新作为一门完备和自洽的学科成为了人类智慧的巅峰造物。希尔伯特曾评价道：”魏尔斯特拉斯以其酷爱批判的精神和深邃的洞察力，为数学分析建立了坚实的基础。通过澄清极小、极大、函数、导数等概念，他排除了在微积分中仍在出现的各种错误提法，扫清了关于无穷大、无穷小等各种混乱观念，决定性地克服了源于无穷大、无穷小朦胧思想的困难。今天，分析学能达到这样和谐可靠和完美的程度本质上应归功于魏尔斯特拉斯的科学活动。”</p>
+<p>我无法用简单的篇幅严格介绍$\delta - \varepsilon$语言，但是这个语言本质上基于一个很朴素的想法。无穷小并不是一个数，而是一个过程。如何刻画一个过程是无穷小，只需要知道这个过程可以比任意一个给定的正数都小就可以了。或者说，如何知道两个数是否相等，只需要知道这两个数的差可以比任意给定的正数小就可以了。用这个思想，就可以回答之前提出的一个问题，无限循环小数$0.9999\ldots$是否等于$1$。<br>事实上，这两个数之间的差可以写成（不严格）$0.000\ldots 01$,<br>而这个小数当然比任何给定的正数都要小。</p>
+<p>至此，数学发展的过程中，极限的思想从朴素的萌芽，到微积分创立后大展身手，到极限和无穷小摧毁了整个数学的根基，再到18世纪维尔斯特拉斯确立严格的极限概念的过程就简述到此。可以看出，数学的发展并非是线性的，或者是推倒重建式的，而是呈现一种螺旋发展的结构。随着科学技术的发展，无数的数学问题被提出，也有无数的理论被建立，数学本身也在不停的进步。在无数聪明且勤奋的数学工作者手中，数学作为人类史上最成功的学科，正在变得更加恢弘壮丽。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学科普/" rel="tag"># 数学科普</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/breif-fistory-of-numbers.html" rel="next" title="数的发展简史">
+                <i class="fa fa-chevron-left"></i> 数的发展简史
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/travel-xian.html" rel="prev" title="西安旅游规划">
+                西安旅游规划 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wang Yu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="wangyu.analysis@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://math.stackexchange.com/users/560304/yu-wang" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Yu</span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">  蜀ICP备18015724号-1 </span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010702001048" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom:0px;">
+    <img src="../images/beianbgs.png" style="float:left;width: 20px;height:auto;">
+    <span style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#666;">
+    川公网安备 51010702001048号</span></a>
+	</span>
+		 
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    CommonHTML: { linebreaks: { automatic: true, width: "container", } },
+    "HTML-CSS": { linebreaks: { automatic: true, width: "container",} },
+    SVG: { linebreaks: { automatic: true, width: "container",} }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/pangu/3.3.0/pangu.js"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

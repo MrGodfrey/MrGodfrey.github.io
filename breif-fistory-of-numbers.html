@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="Q_hni3P-vHx54LrzJF41dKO2saUFOfcmkCA6nJg8_Mo">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="简要的介绍数的发展历程，力求用最少的数学符号，用最基本的数学概念讲清楚每一次数的变革。">
+<meta name="keywords" content="数学科普">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数的发展简史">
+<meta property="og:url" content="http://deepanalysis.xyz/breif-fistory-of-numbers.html">
+<meta property="og:site_name" content="DeepAnalysis">
+<meta property="og:description" content="简要的介绍数的发展历程，力求用最少的数学符号，用最基本的数学概念讲清楚每一次数的变革。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://deepanalysis.xyz/images/knot-1292956_640.png">
+<meta property="og:image" content="http://deepanalysis.xyz/images/notebook-2260675_640.jpg">
+<meta property="og:updated_time" content="2018-06-25T01:35:24.060Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数的发展简史">
+<meta name="twitter:description" content="简要的介绍数的发展历程，力求用最少的数学符号，用最基本的数学概念讲清楚每一次数的变革。">
+<meta name="twitter:image" content="http://deepanalysis.xyz/images/knot-1292956_640.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://deepanalysis.xyz/breif-fistory-of-numbers.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数的发展简史 | DeepAnalysis</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DeepAnalysis</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Mathematics, Computer Science ...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://deepanalysis.xyz/breif-fistory-of-numbers.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeepAnalysis">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数的发展简史
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-25 09:25:12 / 修改时间：09:35:24" itemprop="dateCreated datePublished" datetime="2018-06-25T09:25:12+08:00">2018-06-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>简要的介绍数的发展历程，力求用最少的数学符号，用最基本的数学概念讲清楚每一次数的变革。</p>
+<a id="more"></a>
+<p>数学是一门研究数量和结构的科学。现代数学已经发展出了庞大又有着令人惊叹的细节的体系结构，然而不管怎么变化，处于研究的核心地位的就是数本身。数的诞生、发展以及最后的完备，可以说是一部波澜壮阔的历史。我将在这篇文章中简要的介绍数的发展历程，力求用最少的数学符号，用最基本的数学概念讲清楚每一次数的变革。</p>
+<p>人类历史上最早出现的数，应该追溯到远古时代的记数方法。包括周易中提到的结绳记数，以及希腊罗马之类的书契记数等等形式。这个时候的数，只局限在自然数之中。即$1,2,3,\ldots$等等。数之间的运算也局限在加减乘除之类的简单运算。</p>
+<p><img src="../images/knot-1292956_640.png" alt="绳结"></p>
+<p>自然数对加法和减法本身是封闭的（不考虑减出负数的情况），也就是说两个数相加相减，结果还是自然数。这个事实对乘法是没问题的，但问题出现在除法中，当两个数相除，结果不一定还是个自然数。于是为了能够说清楚除法的概念，人类引入了一类新的数，分数。</p>
+<p>这是人类历史上第一次数的扩充，自然数作为人的感官直接能感受到的存在，却导出了分数这种很不显然的概念。之后的几次数的扩充，事实上也是遵循了这次扩充的思路，原有的数在某种运算或者操作下不再封闭，使得人们不得不引入新的数来表达运算或者操作的结果。分数在不同文明之中有着不同的表达形式，比如巴比伦文明中的60进位分数，或者阿拉伯人用的复分数，中国古人用的算筹之类。值得一提的是，在描述自然现象这个目的来说，引入分数后的数集（现在称之为正有理数）已经足够好了，不管是描述事物的多少，或者是量之间准确的比例，都能用正的分数表示出来。古希腊的毕达哥拉斯学派认识到这一点，所以将整数作为世界的基石，世界上的任何事物或者事物之间的关系都可以由整数或者整数之比（分数）描述出来。</p>
+<p>然而印度人更进了一步。人类远古的记数法中，数本身和每个字符的位置是有关系的，比如采用10进制的文明，就需要区分11和101，于是就需要用一个记号来辨识这种两个字符间”空位”，印度人用了一个圈来表示，这个记号在8世纪的时候经由阿拉伯人之手被传入了欧洲，也就是著名的阿拉伯数字。这个时候，数由正有理数（自然数加上分数）变为了非负有理数（自然数、分数和0）。</p>
+<p>目光投向古老的中国，中国人由于特有的算法或者说筹算的机械化特点，很早就引入了负数的概念，并且明确的指出了负数和正数拥有相同的运算法则。这是很勇敢的一步，因为此时数不再是描述自然界客观存在的实际事物的多少或大小，而是纯粹成为了人理性的造物，是为了计算的方便而存在的。所以当负数被阿拉伯人传入欧洲的时候，欧洲的数学家并不承认它们是数，乃至到了16和17世纪，仍有数学家斥责负数是荒谬的数，诸如0减去5之类的运算是胡说八道。</p>
+<p>但是负数是否引入数的概念之中，并不是很影响人们继续探索自然的脚步。仍然回到古希腊，这个时候人类的数仍然只有有理数（0，自然数，分数），毕达哥拉斯学派认为这些数已经足够描述世界上的一切了。但是，就像人类每次宣布征服自然都会失败一样，噩梦降临在毕达哥拉斯学派的身上。古希腊一位名叫希帕索斯的年轻人，发现两直角边长为1的直角三角形的斜边长是不可公约量（可以理解为不能写成分数的数）。现在，每位高中生都会严格证明$\sqrt{2}\ $不是有理数，这个事实的证明是反证法优秀的应用。但是当时候的人们无法接受这个事实，最终选择了封住发现真理的人的嘴巴。毕达哥拉斯学派的人们残忍的将希帕索斯绑上了石块丢进了大海。</p>
+<p>但是真理无法磨灭，不可公约量的存在广泛的被人们知晓。虽然当时候的人们不清楚不可公约量到底有多少，是只有很少，还是和已知的数一样多，还是多得多？但是即使人们不知道不可公约量的本质是什么，人们依旧开发出了一套严格的方法来处理这些量。也就是欧几里得在《几何原本》一书中使用的比例法，用一些线段来表示这些不可公约量。当使用比例法时，人类过去所以来的加减乘除就不能再使用了，因为不可公约量没法用整数表示出来，也没法写成计位制。所以人们只能借助与几何的方法，通过三角形的相似，全等之类的几何性质来处理这些不可公约量。从这里开始也导致了数学分出了代数和几何这两门泾渭分明的分支。值得一提的是，由于几何法可以处理不可公约量，而代数法无能为力，长久以来几何一致被作为正统的纯粹的数学，直到近代牛顿的《自然哲学的数学原理》一书中所有的计算也是用的几何法。</p>
+<p><img src="..\images\notebook-2260675_640.jpg" alt="Newton"></p>
+<p>这些不可公约量被达芬奇成为无理的数，而这个称呼也被人们沿袭下来，这类数现在被成为无理数。注意我们谈到这里的时候，人们依然不知道无理数到底满不满足加减乘除的代数运算，或者说，无理数有没有和有理数一样的性质？</p>
+<p>时间飞逝，欧洲漫长的中世纪不仅带来了黑暗和腐败，也带来了科学发展的停滞。直到15世纪，欧洲人依然在痛苦地纠结于什么是无理数，什么是负数，这个时候另外一个怪物又出现了。</p>
+<p>之前说过，代数被当作旁支末流一直被人们忽视。但仍然有一些问题用代数的方法更容易的做出来，最卓有成效的就是解方程。这时候人们用来理解自然的工具仍然只有有理数和一知半解的无理数，这已经足够得到一些很奇怪的方程。有一个问题表述如下，把10分成两个部分，使其乘积为40。用现在的语言描述，就是要解方程$x\left( 10 - x \right) = 40$。这个方程在现代人看来，初中的知识已经足够。但是对当时的人们而言，只有代数和几何两种方法。几何法繁琐的作图暂且不论，在使用代数法解这个方程时，一位名为卡丹的数学家发现，若记两个部分分别为$5 + \sqrt{- 15}$<br>和 $5 - \sqrt{- 15}$ , 于是这两个部分之和为10,他们的乘积形式上为<br>$25 - \left( - 15 \right) = 40$ ，恰好满足这个方程。</p>
+<p>卡丹自己并不认为这有什么意义，他只是从代数的本身出发得到了这个结论。另一个数学家笛卡尔造出了”虚数”这个词（现在叫复数）来称呼这些没有实际意义，只存在于计算的中间步骤中的幽灵。人们虽然也不清楚复数的实际意义是什么，但是令人惊异的是，所有在数（有理数和无理数）上成立的运算都在复数上成立。而且让复数得到更广泛应用的，是著名数学家高斯证明的代数学基本定理。这个定理严格的数学陈述我不打算说明，这个定理通俗的理解就是，在可以接受根为复数的时候，所有的方程都是有解的。这个时候已经是18世纪初了。</p>
+<p>这个定理在代数学中所处的地位正如它名字所说的那样，直接成为了代数学的根基。代数学因此，成为了一门比几何更加广泛的学科。毕竟代数也能保证自身的完备性了，无需去考虑繁琐的几何证明。然而人们依旧不清楚复数到底能不能算一个数，毕竟人们现在知道有理数和无理数都可以用线段的长度来表示，加减乘除都有着直观的图景，复数是什么，它们的运算表示了什么含义？这种心理的迷惑直到18世纪末，瑞士人阿甘达给出的将复数解释为复平面上的一点，把复数的加减解释为向量的加减，把复数的乘法也赋予了几何意义。至此之后，笼罩在复数上神秘莫测的面纱被彻底解开了，复数再也不是在方程中出现的”上帝神秘的造物”，而只是自然规律的另一种体现。</p>
+<p>于是到此为止，人类所能处理的数包括了有理数，无理数和复数。目前不在会出现诸如不可公约量之类奇怪的数，或者某个方程在这些数中没有解的情况。但是不要忘记，人类目前对无理数的认识还是停留在可能满足有理数的加减乘除之上，根本无法明确的给出无理数的确切定义。这一问题直到微积分的广泛应用开始，才真正得到了清晰的回答。</p>
+<p>微积分在历史上的发展，可以说是摸着石头过河的典范。在微积分的发展过程中，笼罩在其上的阴霾除了无穷小的确切定义之外，就是极限运算是否对所有数封闭。当时人们已经确切的清楚，可以构造一列有理数，使得它们的极限不是有理数。一个简单的例子就是$\sqrt{2} = 1.414\ldots$.<br>$1,\ \ 1.4,\ \ 1.41,\ \cdots$就是一列趋向于不是有理数的数的有理数列。但是人们不清楚是否极限运算对无理数封闭。这一问题直到18世纪末，才真正的得以回答。这部分理论已经远远超出了高中数学的知识，事实上，现在只有数学专业的数学分析教材中才会对这个问题给与肯定的回答，这部分理论也被称为”实数完备定理”。这个定理用一句最简单的话说明，就是对于实数（有理数和无理数的全体）来说，做任何运算（加减乘除乘方开方）得到的结果依然是实数。实数是稠密的，在实数之间不再有任何”空隙”，也就是说任给一条线段，它的长度都能用实数来表示。</p>
+<p>从公元前五六千年，到18世纪末，人类对真理的不断渴求，就体现在数系的不断的扩充之上。直到18世纪末完备定理发布之后，人类才真正意义上完成了对数本身完备性的探索。我们现在可以确切的说实数（复数）就是我们进行代数运算所需要的全部的数，我们完成了古希腊人对理性的数的渴求。数学的发展从此进入了更高的层次，在对更复杂的现象的理解之中，完备的数就像是扎实的根基，支撑着人类认知世界的梦想。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学科普/" rel="tag"># 数学科普</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Using-CSS-to-Add-numbers-to-titles.html" rel="next" title="利用CSS给Hexo博客自动加标题编号">
+                <i class="fa fa-chevron-left"></i> 利用CSS给Hexo博客自动加标题编号
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/limit-infinite-history.html" rel="prev" title="极限与无穷的思想简史">
+                极限与无穷的思想简史 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wang Yu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="wangyu.analysis@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://math.stackexchange.com/users/560304/yu-wang" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Yu</span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">  蜀ICP备18015724号-1 </span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010702001048" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom:0px;">
+    <img src="../images/beianbgs.png" style="float:left;width: 20px;height:auto;">
+    <span style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#666;">
+    川公网安备 51010702001048号</span></a>
+	</span>
+		 
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    CommonHTML: { linebreaks: { automatic: true, width: "container", } },
+    "HTML-CSS": { linebreaks: { automatic: true, width: "container",} },
+    SVG: { linebreaks: { automatic: true, width: "container",} }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/pangu/3.3.0/pangu.js"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

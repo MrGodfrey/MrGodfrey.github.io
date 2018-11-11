@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="Q_hni3P-vHx54LrzJF41dKO2saUFOfcmkCA6nJg8_Mo">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="介绍了强连续线性算子半群的定义,以及无穷小生成元的简单性质.">
+<meta name="keywords" content="泛函分析,量子控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强连续线性算子半群的定义与无穷小生成元">
+<meta property="og:url" content="http://deepanalysis.xyz/C0-operator-semigroup-generator.html">
+<meta property="og:site_name" content="DeepAnalysis">
+<meta property="og:description" content="介绍了强连续线性算子半群的定义,以及无穷小生成元的简单性质.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-22T03:48:13.105Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="强连续线性算子半群的定义与无穷小生成元">
+<meta name="twitter:description" content="介绍了强连续线性算子半群的定义,以及无穷小生成元的简单性质.">
+
+
+
+
+
+
+  <link rel="canonical" href="http://deepanalysis.xyz/C0-operator-semigroup-generator.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>强连续线性算子半群的定义与无穷小生成元 | DeepAnalysis</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DeepAnalysis</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Mathematics, Computer Science ...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://deepanalysis.xyz/C0-operator-semigroup-generator.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeepAnalysis">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">强连续线性算子半群的定义与无穷小生成元
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-14 09:45:53" itemprop="dateCreated datePublished" datetime="2018-06-14T09:45:53+08:00">2018-06-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                <time title="修改时间：2018-06-22 11:48:13" itemprop="dateModified" datetime="2018-06-22T11:48:13+08:00">2018-06-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/泛函分析/" itemprop="url" rel="index"><span itemprop="name">泛函分析</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>介绍了强连续线性算子半群的定义,以及无穷小生成元的简单性质.</p>
+<a id="more"></a>
+<h1 id="算子半群"><a href="#算子半群" class="headerlink" title="算子半群"></a>算子半群</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>单参数算子群和算子半群的概念来源于微分方程的Cauchy问题,以及微分方程的平移不变性（本质上是物理的因果律,现在可以完全决定未来）.</p>
+<p>考虑线性常微分方程$\frac{dx(t)}{dt} = Ax(t)$在初值条件$x(0)=x_0$下的解$x(t;x_0) = e^{At}x_0$解的存在区间为$(-\infty,\infty)$.其中$x_0\in R^n, A\in \mathscr M_n(R)$.</p>
+<p>在$R^n$中引入算子$T_t$,定义为$T_t(x_0) \triangleq x(t;x_0)$其中$t\in R, x_0 \in R^n$</p>
+<p>由常微分方程解对初值的连续依赖性,这些算子是连续的,同样也是线性的.</p>
+<p>由解的连续性,可知这个算子是强连续的,即$\forall x\in R^n, \lim\limits_{t\rightarrow t_0}|T_{t}x-T_{t_0} x|=0$</p>
+<blockquote>
+<p>有待补充常微分方程解的存在和唯一性,解对初值和参数的连续依赖性,以及解的连续性？</p>
+</blockquote>
+<blockquote>
+<p>一般形式的常微分方程的解也构成一个半群,可以构造类似的算子半群吗？不行,只能是时不变（自洽）系统才行,换句话说方程的右边$f$与$t$无关.</p>
+</blockquote>
+<p>于是由解的唯一性以及$A$与时间无关,可知$T_{t_1+t_2} (x_0) = T_{t_1} (T_{t_2} (x_0))$.</p>
+<p>将$T_t$看作变量$t$的算子值函数,定义乘法为算子的复合,则${T_t|-\infty&lt;t&lt;\infty}$成为一个交换群.</p>
+<p>若$t$限制只能取非负数,则成为一个半群（对应于物理中一些不可逆的过程,比如热传导）.</p>
+<blockquote>
+<p>偏微分方程的半群性质</p>
+</blockquote>
+<blockquote>
+<p>半群的定义, 一个集合上有满足结合律的二元运算（称之为乘法）,则称这个集合为半群.注意半群不要求有幺元.</p>
+</blockquote>
+<p>将这个算子半群推广到无穷维空间上,就得到</p>
+<p><strong>定义</strong>  设${T_t}$是Banach空间$X$上一族有界线性算子, 若对一切$0 \leq t, s &lt; +\infty$(也可不取$0$), 都有$T_{t+s}=T_{t}T_{s}$,则称${T_t|t\geq 0}$为单参数算子半群.</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="C-0-infty-上的平移半群"><a href="#C-0-infty-上的平移半群" class="headerlink" title="$C[0,+\infty)$上的平移半群"></a>$C[0,+\infty)$上的平移半群</h3><p>设$C[0,+\infty)$为$[0,+\infty)$上有界且一致连续的函数$x(t)$全体,规定$|x|=\sup{|x(t)| |t\in[0,+\infty)}$, 则$C[0,+\infty)$是Banach空间,且按范数收敛为函数的一致收敛.</p>
+<blockquote>
+<p>考虑下这个空间得对偶空间</p>
+</blockquote>
+<blockquote>
+<p>补充Banach空间的证明</p>
+</blockquote>
+<p>用$T_t$表示坐标平移,即$T_t x(s)=x(t+s)$,则$T_t$构成算子半群.</p>
+<p>这个算子半群成立</p>
+<ol>
+<li>$|T_t|=1$<ol>
+<li>小于等于1显然,取$x=1$即可说明范数等于1.这里的范数是指算子范数</li>
+</ol>
+</li>
+<li>向量值函数$t\mapsto T_t x$强连续,即按范数连续<ol>
+<li>由$x(t)$的一致连续性,直接验证</li>
+</ol>
+</li>
+<li>不按算子范数连续,事实上对于任意$t\neq r\in R,|T_{t+r}-T_t|=2$<ol>
+<li>小于等于2由三角不等式得到,取$x(t)=1,x(t+r)=-1, |x|=1$的函数就得到大于等于.</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>有没有按算子范数连续的算子半群？有限维一定成立,无穷维怎么找？有没有既不强连续也不按算子范数连续的算子半群？再举一个弱连续但不强连续得例子,考虑$L^2$中得平移算子.</p>
+<ol>
+<li>将所有元素映成自身的线性算子半群是按算子范数连续的,之前给的$e^{At}$作为算子半群也是按算子范数连续的,无穷维空间上也有例子.对于Banach空间上的有界线性泛函$A$, 定义算子半群为$e^{At}$,则该算子半群为按算子范数连续的半群. 事实上,若一个算子半群是按算子范数连续的,那么可以推出其无穷小生成元为有界算子.</li>
+<li>对$C(0,+\infty)$中有界的连续函数全体,赋上确界范数,成为Banach空间.对函数$x(s)=\sin(\frac{1}{s})$来看,$T_t$在零点不强连续.</li>
+</ol>
+</blockquote>
+<h3 id="L-p-infty-infty-上的平移算子群"><a href="#L-p-infty-infty-上的平移算子群" class="headerlink" title="$L^p (-\infty,+\infty)$上的平移算子群"></a>$L^p (-\infty,+\infty)$上的平移算子群</h3><p>同样定义为$T_t x(s)=x(t+s)$.</p>
+<p>范数同样等于1, 有点区别的地方是证明强连续性.</p>
+<ol>
+<li>证明在零点强连续,由$|x(s+t)-x(s)|_{p} \rightarrow 0 (t\rightarrow 0)$可知<ol>
+<li>首先对$g$是有紧支集的连续函数,则$|g(s+t)-g(s)|<em>{p}\leq |g(s+t)-g(s)|</em>{\infty} m(K) \rightarrow 0$</li>
+<li>若$x\in L^p,$ 则有$C_c$函数$g$满足$|x-g|_{p} &lt; \varepsilon$, 利用三角不等式即得结论</li>
+</ol>
+</li>
+<li>对任意点$t_0$,分$t\geq t_0, t&lt;t_0$两种情况讨论,注意利用范数等于1</li>
+</ol>
+<blockquote>
+<p>为什么$L^p$函数可以由紧支集连续函数按范数逼近？事实上可以由紧支集无穷次可微函数逼近,这是卷积的一个应用,参见Brezis的泛函分析第四章.</p>
+</blockquote>
+<blockquote>
+<p>是否按算子范数连续？不是,至少能够证明$|T_t-T|= 2$.</p>
+</blockquote>
+<p><strong>Remark</strong> 对于$L^2$, $T_t$是酉算子.事实上,直接计算即可知道$T_t^* =T_{-t}$.</p>
+<blockquote>
+<p>这些平移算子和$l^2$上的平移算子什么关系？</p>
+</blockquote>
+<h2 id="强连续线性算子半群"><a href="#强连续线性算子半群" class="headerlink" title="强连续线性算子半群"></a>强连续线性算子半群</h2><p><strong>定义</strong> 设${T_t |t\geq 0}$是一个线性算子半群,且$T_0=I$. 若对每个$T_0 \geq 0, x\in X$, 都有<br>$$ \lim_{t \rightarrow t_0} |T_t x- T_{t_0} x| =0, $$<br>则称${T_t |t\geq 0}$是一个强连续线性算子半群.</p>
+<p><strong>Remark</strong> 强连续算子半群,在零处的强连续性等价于在任意点处的强连续性.</p>
+<ol>
+<li>充分性显然,需证明必要性.</li>
+<li>必要性的证明中,关键是左连续性.事实上可以证明更强的结论, $\forall L&gt;0, \sup\limits_{t\in[0,L]} |T_t|&lt;\infty$</li>
+<li>上述那个更强的结论,事实上可以得到强连续算子半群的范数是小于指数增长的</li>
+</ol>
+<blockquote>
+<p>这个指数递增是算子半群范数最好的估计吗？能不能证明？不，不是最好的估计。一般的强连续线性算子半群有个名为群的特征的概念。</p>
+</blockquote>
+<p><strong>Remark</strong> 正如之前证明的,$\frac{dx(t)}{dt} = Ax(t)$诱导出强连续线性算子半群.</p>
+<h2 id="群的特征"><a href="#群的特征" class="headerlink" title="群的特征"></a>群的特征</h2><p>命$\omega_0=\inf_{t&gt;0} \frac{\log |T_t|}{t}$, 则$\omega_0 \in [-\infty,+\infty)$. 于是$\omega_0$被称为群的特征。</p>
+<p>从定义来看，特征就是满足$|T_t| \leq C e^{\omega t}$，其中$C$与$\omega$有关，的最小的$\omega$. 从之前指数递增的估计，可知至少可以找到一个有限的$\omega$使得上式成立。所以强连续算子半群的特征必然是小于正无穷的数。</p>
+<h3 id="特征为负无穷的例子"><a href="#特征为负无穷的例子" class="headerlink" title="特征为负无穷的例子"></a>特征为负无穷的例子</h3><p>考虑集合$X={x\in C[0,1]; x(0)=0,x’(0)=0 }$, 在上确界范数下形成的Banach空间。考虑右平移算子$T_t(x)(s)=x(s-t)$, 其中将$s&lt;t$的部分补充定义为$0$. 于是这族平移算子构成强连续算子半群，这个算子半群的无穷小生成元$A$为求导算子的相反数。由常微分方程解的存在性，可以证明对于任意复数$\Lambda$, $(A-\Lambda I)$是有界可逆的，于是无穷小生成元没有谱，也就是说，它的特征是$-\infty$. 这里的论述需要用到Hille-Yosida定理，将在之后的文章中细说。</p>
+<h2 id="可积性"><a href="#可积性" class="headerlink" title="可积性"></a>可积性</h2><p>之后的证明会用到形如$\int_{0}^{s} T_t(x) dt$这样的积分式,所以有必要说明这样的向量值积分是有意义的,挥着用之前提到的概念, $T_t x$是Bochner可积的.</p>
+<blockquote>
+<p>夏道行的书上有算子半群强连续等价于强可测的证明.</p>
+</blockquote>
+<p>由Bochner积分的性质,我们只需要验证</p>
+<ol>
+<li>$T_t (x)$是强可测的</li>
+<li>$| T_t (x)|$是可积的</li>
+</ol>
+<blockquote>
+<p>需要完善强连续可以推出强可测的证明.</p>
+</blockquote>
+<p><strong>强连续可推出强可测</strong>  只证明了$[0,+\infty)$上定义的向量值函数强连续可推出强可测. 证明的思路是经典的,所以记录在此.</p>
+<ul>
+<li>先对$[0,1]$上证明, 若$x(s)$是强连续的,$\forall n \in \mathbb{N}$, 可找到有限值函数$x_n(s)$使得$\forall s \in [0,1], | x(s) - x_n (s)| &lt; \frac{1}{n}$.</li>
+</ul>
+<p>事实上,紧集上强连续的函数一定是一致强连续的,即$\forall n &gt;0$,$\exists \delta &gt;0$使$\forall |t-t_1| &lt; \delta,$成立$|x(t)-x(t_1)| &lt; \frac{1}{n}$. 于是取$N_n$充分大,使得$\frac{1}{N_n}&lt; \delta$, 于是$\forall s \in [\frac{i}{N_n},\frac{i+1}{N_n})$,成立$| x(s) - x(\frac{i}{N_n} | &lt; \frac{1}{n}$. 于是命<br>$$ x_n(s)= \sum_{i=0}^{N_n-1} x(\frac{i}{N_n}) \chi_{[\frac{i}{N_n},\frac{i+1}{N_n})} $$<br>对$1$那个点可以补充定义为$x(1)$. 于是这样的$x_n$满足要求.</p>
+<ul>
+<li>对于$[0,\infty)$, 由于$[0,\infty)= \bigcup_{n=0}^{\infty} [0,n]$. 利用1. 对每个$n$, 都可以找到有限值函数$x_n$使得$\forall s \in [0,n]$, $| x(s) - x_n(s) | &lt; \frac{1}{n}$. 于是找到了所需要的有限值函数强收敛到$x(s)$</li>
+</ul>
+<p><strong>$T_tx$可积</strong> 这由$T_t$ 的函数是小于指数增长的,而指数函数在有限区间上是可积的,所以$T(t)x$在有限区间上是可积的.</p>
+<h1 id="无穷小生成元"><a href="#无穷小生成元" class="headerlink" title="无穷小生成元"></a>无穷小生成元</h1><p>之后为了方便,记$T(t) \triangleq T_t$</p>
+<h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>设$X$是Banach空间, ${T(t)| t\geq 0}$是其上的强连续线性算子半群.</p>
+<p>受到一开始提到的$\frac{dx(t)}{dt} = Ax(t)$诱导的强连续算子半群$T_t=e^{At}$的启发,对一般的强连续算子半群$T(t)$,我们想找到一个线性算子$A$使得$T(t)=e^{At}$.</p>
+<p>同样由于形式上$\frac{dT(t)x_0}{dt} \bigg |<em>{t=0} = \lim\limits</em>{t\rightarrow 0} \frac{T(t)-I}{t} x_0 = Ax_0$, 我们可以设算子$A_t$为<br>$$ A_{t}=t^{-1}(T(t)-I) , \forall t&gt;0$$<br>并定义算子$A$为</p>
+<p><strong>定义</strong> </p>
+<p>$$ D(A) \triangleq { x \in X | \exists x^<em> \in X, \lim\limits_{t\rightarrow 0^+} A_t x=x^</em>} $$</p>
+<p>$$ A: x\mapsto x^* $$</p>
+<p>这样的算子$A$成为强连续算子半群${T(t)| t\geq 0}$的无穷小生成元.</p>
+<blockquote>
+<p>为什么不直接定义算子的极限？可以举出反例吗？</p>
+</blockquote>
+<h2 id="简单的性质"><a href="#简单的性质" class="headerlink" title="简单的性质"></a>简单的性质</h2><p><strong>1. $A$是线性的</strong></p>
+<p>由$A_t$是线性的,以及$A$是$A_t$的极限立刻知道.</p>
+<p><strong>2. $T(t)$将$D(A)$映为自身</strong></p>
+<p>由$A_s T(t)x= s^{-1} (T(t+s)-T(t))x = T(t)A_s x$, 以及$x\in D(A),\lim\limits_{s\rightarrow 0^+} A_s x = Ax$.可知$\lim\limits_{s\rightarrow 0^+} A_s T(t) x$存在,且为$T(t)A x$. 故$T(t)x\in D(A)$</p>
+<p><strong>3. $\frac{d}{dt} T(t) x=AT(t)x=T(t)Ax,  \forall x\in D(A)$</strong></p>
+<ol>
+<li>$\frac{d^+T(t)x}{dt}=\lim\limits_{s\rightarrow 0^+}s^{-1} (T(t+s)-T(t))x=T(t)Ax=AT(t)x$, 这些等于是从2.的证明中得到的</li>
+<li>只需证明$\frac{d^+T(t)x}{dt}=\frac{d^-T(t)x}{dt}$,而这只需注意到$\forall \delta &gt;0$,$|\frac{T(t)x-T(t-\delta)x}{\delta}- T(t)Ax|\leq | T(t-\delta)||\delta^{-1}(T(\delta)-I)x -Ax| + | T(t-\delta)| |Ax-T(\delta)Ax|$, 以及之前提到的强连续算子半群范数小于指数递增即可.</li>
+</ol>
+<p><strong>4. $A$稠定</strong></p>
+<blockquote>
+<p>证明可以参考张恭庆的泛函分析下</p>
+</blockquote>
+<p>证明的关键是$\forall x \in X$, 设$x_s= \frac{1}{s} \int_{0}^{s} T(t) x dt$, 并且用$| \frac{1}{r} \int_{0}^{r} T(t) x dt - x | \rightarrow 0$若$(r\rightarrow 0)$, 证明$x_s \in D(A)$且$x_s \rightarrow x$.</p>
+<p><strong>5. $A$是闭算子</strong></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>现在的问题在于,满足什么样性质的算子会成为某个强连续线性算子半群的无穷小生成元？这个问题的回答,即是之后将提到的Hille-Yosida定理.</p>
+<blockquote>
+<p>之前提到的平移算子,它们作为强连续线性算子半群,无穷小生成元为动量算子（求导）.试证明一下.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/泛函分析/" rel="tag"># 泛函分析</a>
+          
+            <a href="/tags/量子控制/" rel="tag"># 量子控制</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/leshan-travel-notes.html" rel="next" title="乐山旅游规划">
+                <i class="fa fa-chevron-left"></i> 乐山旅游规划
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Hille-Yosida-Stone-theorem.html" rel="prev" title="Hille-Yosida定理和Stone定理">
+                Hille-Yosida定理和Stone定理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wang Yu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="wangyu.analysis@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://math.stackexchange.com/users/560304/yu-wang" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算子半群"><span class="nav-number">1.</span> <span class="nav-text">算子半群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">1.2.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C-0-infty-上的平移半群"><span class="nav-number">1.2.1.</span> <span class="nav-text">$C[0,+\infty)$上的平移半群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L-p-infty-infty-上的平移算子群"><span class="nav-number">1.2.2.</span> <span class="nav-text">$L^p (-\infty,+\infty)$上的平移算子群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强连续线性算子半群"><span class="nav-number">1.3.</span> <span class="nav-text">强连续线性算子半群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#群的特征"><span class="nav-number">1.4.</span> <span class="nav-text">群的特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特征为负无穷的例子"><span class="nav-number">1.4.1.</span> <span class="nav-text">特征为负无穷的例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可积性"><span class="nav-number">1.5.</span> <span class="nav-text">可积性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无穷小生成元"><span class="nav-number">2.</span> <span class="nav-text">无穷小生成元</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的性质"><span class="nav-number">2.2.</span> <span class="nav-text">简单的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.3.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Yu</span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">  蜀ICP备18015724号-1 </span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010702001048" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom:0px;">
+    <img src="../images/beianbgs.png" style="float:left;width: 20px;height:auto;">
+    <span style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#666;">
+    川公网安备 51010702001048号</span></a>
+	</span>
+		 
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    CommonHTML: { linebreaks: { automatic: true, width: "container", } },
+    "HTML-CSS": { linebreaks: { automatic: true, width: "container",} },
+    SVG: { linebreaks: { automatic: true, width: "container",} }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/pangu/3.3.0/pangu.js"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

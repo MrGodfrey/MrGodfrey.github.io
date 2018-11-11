@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="Q_hni3P-vHx54LrzJF41dKO2saUFOfcmkCA6nJg8_Mo">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.">
+<meta name="keywords" content="泛函分析,量子控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hille-Yosida定理和Stone定理">
+<meta property="og:url" content="http://deepanalysis.xyz/Hille-Yosida-Stone-theorem.html">
+<meta property="og:site_name" content="DeepAnalysis">
+<meta property="og:description" content="关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-22T03:50:05.207Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hille-Yosida定理和Stone定理">
+<meta name="twitter:description" content="关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.">
+
+
+
+
+
+
+  <link rel="canonical" href="http://deepanalysis.xyz/Hille-Yosida-Stone-theorem.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hille-Yosida定理和Stone定理 | DeepAnalysis</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DeepAnalysis</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Mathematics, Computer Science ...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://deepanalysis.xyz/Hille-Yosida-Stone-theorem.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeepAnalysis">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hille-Yosida定理和Stone定理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-22 08:47:47 / 修改时间：11:50:05" itemprop="dateCreated datePublished" datetime="2018-06-22T08:47:47+08:00">2018-06-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/泛函分析/" itemprop="url" rel="index"><span itemprop="name">泛函分析</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.</p>
+<a id="more"></a>
+<p>算子半群系列文章回顾</p>
+<ol>
+<li><a href=".\vector-value-function-integral.html">向量值函数的积分</a></li>
+<li><a href=".\C0-operator-semigroup-generator.html">强连续线性算子半群的定义与无穷小生成元</a></li>
+</ol>
+<h1 id="Hille-Yosida定理"><a href="#Hille-Yosida定理" class="headerlink" title="Hille-Yosida定理"></a>Hille-Yosida定理</h1><p>本文的主要参考书目为<em>张恭庆的泛函分析讲义下</em>.</p>
+<h2 id="叙述"><a href="#叙述" class="headerlink" title="叙述"></a>叙述</h2><p>定理有两个叙述,分别为压缩半群的版本和一般强连续算子半群的版本. 符号的记法与之前的<a href=".\C0-operator-semigroup-generator.html">强连续线性算子半群的定义与无穷小生成元</a>相同.</p>
+<p><strong>压缩半群</strong>  为了一个线性稠定闭算子$A$是一个压缩半群的生成元,必须且仅需以下两条成立</p>
+<ul>
+<li>$(0,\infty) \subset \rho(A)$;</li>
+<li>$|R_{\lambda} (A)| \leq 1/\lambda, \forall \lambda &gt;0$</li>
+</ul>
+<p><strong>一般半群</strong> 为了一个线性稠定闭算子$A$是一个强连续算子半群的生成元,必须且仅需以下两条成立</p>
+<ul>
+<li>$\exists \omega_0 &gt;0$使得$(\omega_0,\infty) \subset \rho(A)$;</li>
+<li>$\exists M &gt;0$使得当$\lambda&gt;\omega&gt;\omega_0$时,$|(\lambda-A)^{-n}| \leq M/(\lambda-\omega)^n,$ $n=1,2,\cdots$</li>
+</ul>
+<h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><p>上述的定理表明,当稠定闭算子$A$满足定理的条件后,算子微分方程<br>$$<br>\left{<br>\begin{aligned}<br>&amp;\frac{d}{dt} x(t)=Ax(t)\<br>&amp;x(0)=x_0 \in D(A)<br>\end{aligned}<br>\right.<br>$$<br>有解$x(t)=T(t)x_0$. 事实上,可以证明在函数空间$C(\mathbb{R}<em>{+};D(A)) \cap C^1(\mathbb{R}</em>{+};X)$中,方程的解是唯一的.</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>叙述的证明以压缩半群为例,一般的算子半群与压缩半群的证明完全类似.</p>
+<p>证明分为必要性和充分性,对压缩半群,是否无穷小生成元满足那两个条件.反过来,满足那两个条件,如何构造对应的压缩半群.</p>
+<h3 id="必要性"><a href="#必要性" class="headerlink" title="必要性"></a>必要性</h3><p>为了研究生成元$A$的正则点(预解集中的点),需要想办法研究生成元的预解式.</p>
+<p><strong>用Laplace变换研究生成元预解式</strong> 收到常微分方程的启发,考虑积分<br>$$ R_\lambda = \int_0^\infty e^{-\lambda t} T(t) dt $$</p>
+<p>这个积分就是$T(t)$的Laplace变换,形式上若$T(t)=e^{At}$, 则$R_\lambda$就是$A$的预解式.</p>
+<p>事实上,只需要用定义验证,很容易知道这个结论是成立的.而且顺便得到了$|R_\lambda| \leq \frac{1}{Re \lambda}$的结论.</p>
+<h3 id="充分性"><a href="#充分性" class="headerlink" title="充分性"></a>充分性</h3><p>构造算子半群的方法,基本上是用有界线性算子逼近$A$, 再用有界线性算子生成的算子半群逼近所需的算子半群.</p>
+<p>具体来说,考虑算子$B_\lambda= \lambda^2(\lambda-A)^{-1} -\lambda$. 事实上如果只考虑$D(A)$中的情况,则这个算子可通分为$\lambda(\lambda-A)^{-1} A$. 当$\lambda \rightarrow \infty$时,这个算子应当强收敛到$A$. </p>
+<p>定义$T_\lambda (t)= e^{B_\lambda t}$, 可以证明这列算子是强收敛的,并且每一个都是压缩半群. 于是可以定义极限$T(t)$, 可以证明其为压缩半群且$A$是它的生成元.</p>
+<p>证明过程基本是用上面给出的Laplace变换的形式,将复杂的泛函问题转化为对积分的估计.</p>
+<h1 id="Stone定理"><a href="#Stone定理" class="headerlink" title="Stone定理"></a>Stone定理</h1><h2 id="叙述-1"><a href="#叙述-1" class="headerlink" title="叙述"></a>叙述</h2><p>Stone定理阐述了,一个算子满足什么条件时可以成为强连续酉算子群的生成元,反过来,强连续酉算子群的生成元一定长成什么样子.</p>
+<p>首先,强连续酉算子群是指满足三个条件的算子群</p>
+<ul>
+<li>对每个$t \in \mathbb{R}$, $U(t)$是$H$上的酉算子</li>
+<li>$U(t+s)=U(t)U(s)$</li>
+<li>$U(t)$强连续</li>
+</ul>
+<p><strong>Remark</strong> 可以看到如果给了一个强连续算子半群$T(t)$,如果它的共轭算子半群(就是$T^*(t)$)是强连续的,则可以自然构成一个酉算子群.至于何时共轭算子半群依然是强连续的,有个结论说若空间是自反的Banach空间就可以.值得一提的是,共轭算子半群的生成元大致是原来半群生成元的共轭.</p>
+<p><strong>Remark</strong> 在可分的Banach空间中,强连续与弱可测是等价的.</p>
+<p><strong>Stone定理</strong> 若${U(t); t\in \mathbb{R}}$是一个弱可测酉算子群,则必有一个自伴算子$A$,使得$iA$是它的生成元.更进一步,若有一个自伴算子$A$, 则有一个弱可测酉算子群$U(t)=e^{i tA}$的生成元为$iA$.</p>
+<p>上述的指数形式是算符演算给出的.用$A$的谱分解给出的话应是<br>$$ U(t) = \int_{-\infty}^{+\infty} e^{it\lambda}dE_\lambda $$</p>
+<h2 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h2><p>这个定理的证明是直接的,只需要用生成元的定义即可知道.</p>
+<h2 id="意义-1"><a href="#意义-1" class="headerlink" title="意义"></a>意义</h2><p>在量子力学中,基本方程是薛定谔方程<br>$$ i \hbar \frac{\partial}{\partial t} \psi(x,t) = H \psi(x,t)  $$<br>其中$H$是Hamilton算子,一般是无界线性算子,先假设$H$与时间无关,定义域是$L^2$的某个闭子空间.</p>
+<p>波函数$\psi(x,t)$的物理意义是在时刻$t$, 粒子出现在点$x$处的概率密度,由概率守恒可知道$\int_{\mathbb{R}^3} | \psi(x,t) | ^2 dx=1$.</p>
+<p>考虑传播子$U(t)$, 定义为初始时刻的波函数$\psi(0,t)$到$t$时刻波函数$\psi(x,t)$的变换.于是由物理过程的时不变性, $U(t+s)=U(t)U(s)$, 并且由概率守恒可以知道$U(t)$是个保范算子,于是可以得到$U(t)$应当是个酉算子群.而且物理过程可以要求$U(t)$是弱可测的.</p>
+<p>于是由上述的Stone定理,可以知道$H$必然是自伴算子,并且$U(t)$的具体形式也可以写出来.事实上有<br>$$ \psi(x,t) = U(t)\psi(x,0) = e^{-i Ht /\hbar} \psi(x,0)$$</p>
+<p>于是我们给出了薛定谔方程的解,而且还断定算子$H$必须要是自伴算子.相较于原来的方程,显然给出了更多有意义的信息.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/泛函分析/" rel="tag"># 泛函分析</a>
+          
+            <a href="/tags/量子控制/" rel="tag"># 量子控制</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/C0-operator-semigroup-generator.html" rel="next" title="强连续线性算子半群的定义与无穷小生成元">
+                <i class="fa fa-chevron-left"></i> 强连续线性算子半群的定义与无穷小生成元
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Using-CSS-to-Add-numbers-to-titles.html" rel="prev" title="利用CSS给Hexo博客自动加标题编号">
+                利用CSS给Hexo博客自动加标题编号 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wang Yu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="wangyu.analysis@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://math.stackexchange.com/users/560304/yu-wang" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hille-Yosida定理"><span class="nav-number">1.</span> <span class="nav-text">Hille-Yosida定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#叙述"><span class="nav-number">1.1.</span> <span class="nav-text">叙述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义"><span class="nav-number">1.2.</span> <span class="nav-text">意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明"><span class="nav-number">1.3.</span> <span class="nav-text">证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必要性"><span class="nav-number">1.3.1.</span> <span class="nav-text">必要性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#充分性"><span class="nav-number">1.3.2.</span> <span class="nav-text">充分性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stone定理"><span class="nav-number">2.</span> <span class="nav-text">Stone定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#叙述-1"><span class="nav-number">2.1.</span> <span class="nav-text">叙述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明-1"><span class="nav-number">2.2.</span> <span class="nav-text">证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义-1"><span class="nav-number">2.3.</span> <span class="nav-text">意义</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Yu</span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">  蜀ICP备18015724号-1 </span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010702001048" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom:0px;">
+    <img src="../images/beianbgs.png" style="float:left;width: 20px;height:auto;">
+    <span style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#666;">
+    川公网安备 51010702001048号</span></a>
+	</span>
+		 
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    CommonHTML: { linebreaks: { automatic: true, width: "container", } },
+    "HTML-CSS": { linebreaks: { automatic: true, width: "container",} },
+    SVG: { linebreaks: { automatic: true, width: "container",} }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/pangu/3.3.0/pangu.js"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
