@@ -1223,7 +1223,8 @@ pre .javascript .function {
 }
 @media screen and (max-width: 767px) {
   .menu .menu-item {
-    margin-top: 10px;
+    display: inline-block !important;
+    margin: 1px 1vw 1px 1vw !important;
   }
 }
 .menu .menu-item a {
@@ -1859,7 +1860,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d095ff;
+  background: #988b85;
 }
 .links-of-blogroll {
   font-size: 13px;
