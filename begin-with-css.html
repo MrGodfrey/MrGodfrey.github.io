@@ -101,7 +101,7 @@
 
 
   <meta name="description" content="CSS初探，包括CSS的基本语法以及各类选择器。">
-<meta name="keywords" content="前端之旅,新手向,CSS">
+<meta name="keywords" content="CSS,前端之旅,新手向">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端之旅-CSS初探">
 <meta property="og:url" content="https://deepanalysis.xyz/begin-with-css.html">
@@ -409,13 +409,15 @@
       
         <p>CSS初探，包括CSS的基本语法以及各类选择器。</p>
 <a id="more"></a>
-<h1 id="CSS是什么"><a href="#CSS是什么" class="headerlink" title="CSS是什么"></a>CSS是什么</h1><p>简而言之，CSS(层叠样式表)就是通过规定一些规则，来描述HTML中的各个元素应当如何显示在各种媒体之上（包括屏幕、纸张甚至是声音）。</p>
+<h1 id="css是什么">CSS是什么</h1>
+<p>简而言之，CSS(层叠样式表)就是通过规定一些规则，来描述HTML中的各个元素应当如何显示在各种媒体之上（包括屏幕、纸张甚至是声音）。</p>
 <p>你可以把CSS用<code>style</code>元素内联到HTML的<code>head</code>元素中，但是出于易用性以及可维护性，将CSS独立成另外一个文件，并在HTML中加以引用，是一个更好的选择。</p>
 <p>在HTML的<code>head</code>元素中加入代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LINK</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"bach.css"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>即可引用名为<code>bach.css</code>的文件定义的CSS。</p>
-<h1 id="CSS的作用过程"><a href="#CSS的作用过程" class="headerlink" title="CSS的作用过程"></a>CSS的作用过程</h1><p>CSS的官方文档给出了一个CSS作用的概念模型: </p>
-<ol>
+<h1 id="css的作用过程">CSS的作用过程</h1>
+<p>CSS的官方文档给出了一个CSS作用的概念模型:</p>
+<ol type="1">
 <li>解析原文档并创建文档树(给出了文档中各个元素的关系)</li>
 <li>确定目标的媒体类型(屏幕、纸张还是声音)</li>
 <li>检索与为目标媒体类型指定的文档关联的所有样式表</li>
@@ -427,40 +429,51 @@
 <p>一个CSS文件的部分如下:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个的意思是说，将所有<code>h1</code>元素的字体大小设成10像素。</p>
-<h1 id="CSS的语法"><a href="#CSS的语法" class="headerlink" title="CSS的语法"></a>CSS的语法</h1><p>CSS是由一些规则(rule)组成的文件，每个规则包括选择器组和声明块。选择器组中制定了将要描述样式的元素，而声明块中包括了数条用分号分隔的声明，每个声明语句格式为<code>property-name: value</code>。</p>
-<h1 id="值"><a href="#值" class="headerlink" title="值"></a>值</h1><p>某个属性可能是字体大小，内边距宽度或者字体颜色，那么它的值是什么呢？</p>
-<h2 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h2><p>长度单位包括了绝对单位(absolute units)和相对单位(Relative units)</p>
+<h1 id="css的语法">CSS的语法</h1>
+<p>CSS是由一些规则(rule)组成的文件，每个规则包括选择器组和声明块。选择器组中制定了将要描述样式的元素，而声明块中包括了数条用分号分隔的声明，每个声明语句格式为<code>property-name: value</code>。</p>
+<h1 id="值">值</h1>
+<p>某个属性可能是字体大小，内边距宽度或者字体颜色，那么它的值是什么呢？</p>
+<h2 id="长度">长度</h2>
+<p>长度单位包括了绝对单位(absolute units)和相对单位(Relative units)</p>
 <p>绝对单位是指那些不会跟随其他设置改变的单位。比如像素<code>px</code>或者一般的长度单位<code>cm</code>,<code>mm</code>,<code>in</code>.</p>
 <p>相对单位是指相对于当前元素的字号或者视口的尺寸的单位。</p>
-<ol>
+<ol type="1">
 <li><code>em</code> 单位是指一个大写字母<code>m</code>的宽度。比如网页设置的默认字体中<code>m</code>宽16像素，则<code>2em</code>就是32像素。注意这里相对的是父元素的字体大小，如果层层嵌套下去可能会非常复杂。</li>
 <li><code>rem</code>单位总是相对于默认字体的大小<code>root em</code></li>
 <li><code>vw</code> 单位相当于视口宽度(viewport width)的1/100, <code>vh</code>相当于视口高度(viewport height)的1/100</li>
 </ol>
 <p>使用相对单位可以让你的网页在大小屏幕上都享有良好的表现。</p>
-<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>可以用标准预先设定的颜色名字，如<code>red</code>。或者用RGB值等来直接给定颜色。</p>
+<h2 id="颜色">颜色</h2>
+<p>可以用标准预先设定的颜色名字，如<code>red</code>。或者用RGB值等来直接给定颜色。</p>
 <p>还有一些整值，时间等等不再细说。</p>
-<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>CSS用模式匹配(pattern matching)选择元素，这些模式被称为选择器(selector), 类型从简单的元素名到复杂的上下文模式都有。如果一个元素匹配到模式中的每个条件，则选择器匹配(matches)到了这个元素。</p>
+<h1 id="选择器">选择器</h1>
+<p>CSS用模式匹配(pattern matching)选择元素，这些模式被称为选择器(selector), 类型从简单的元素名到复杂的上下文模式都有。如果一个元素匹配到模式中的每个条件，则选择器匹配(matches)到了这个元素。</p>
 <p>简单地说，选择器就是指定那些元素将被选取。</p>
 <p>我将提到的选择器包括</p>
-<ol>
+<ol type="1">
 <li>简单选择器</li>
 <li>属性选择器</li>
 <li>伪类与伪元素</li>
 <li>组合器</li>
 </ol>
-<h2 id="简单选择器"><a href="#简单选择器" class="headerlink" title="简单选择器"></a>简单选择器</h2><p>简单选择器(simple selector)之所以简单，是因为她们直接用元素的类型或者id来匹配元素。</p>
-<h3 id="类型选择器"><a href="#类型选择器" class="headerlink" title="类型选择器"></a>类型选择器</h3><p>直接将元素名作为选择器，比如</p>
+<h2 id="简单选择器">简单选择器</h2>
+<p>简单选择器(simple selector)之所以简单，是因为她们直接用元素的类型或者id来匹配元素。</p>
+<h3 id="类型选择器">类型选择器</h3>
+<p>直接将元素名作为选择器，比如</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    font-size= 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p><code>.Class-name</code> 注意类的名字可以自己选择，比如</p>
-<p>HTML文件中<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"first name"</span>&gt;</span>MrGodfrey<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="类选择器">类选择器</h3>
+<p><code>.Class-name</code> 注意类的名字可以自己选择，比如</p>
+<p>HTML文件中 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"first name"</span>&gt;</span>MrGodfrey<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>指定了<code>MrGodfrey</code>是一个类为<code>first</code>和<code>name</code>的段落。可以用CSS样式</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.first</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>来修改它的颜色</p>
-<h3 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h3><p><code>#id-name</code> 注意id可以自己选择，但是每个id都是唯一的。</p>
-<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><p>属性选择器(attribute selector)根据元素的属性和属性值来匹配元素。包括两种类型，存在与值(Presence and value)属性选择器和子字符串(substring)属性选择器。</p>
-<h3 id="存在与值选择器"><a href="#存在与值选择器" class="headerlink" title="存在与值选择器"></a>存在与值选择器</h3><p>匹配精确的属性值。</p>
-<ol>
+<h3 id="id选择器">ID选择器</h3>
+<p><code>#id-name</code> 注意id可以自己选择，但是每个id都是唯一的。</p>
+<h2 id="属性选择器">属性选择器</h2>
+<p>属性选择器(attribute selector)根据元素的属性和属性值来匹配元素。包括两种类型，存在与值(Presence and value)属性选择器和子字符串(substring)属性选择器。</p>
+<h3 id="存在与值选择器">存在与值选择器</h3>
+<p>匹配精确的属性值。</p>
+<ol type="1">
 <li>[att] 选择包含属性<code>att</code>的所有元素，不管属性的值是什么</li>
 <li>[att=val] 选择属性<code>att</code>的值恰好是<code>val</code>的所有元素</li>
 <li>[att~=val] 若元素的属性<code>att</code>的值是数个以空格分隔的值，则选择那些值中包括<code>val</code>的元素。注意<code>val</code>本身若有空格，则不会选取任何元素。</li>
@@ -468,8 +481,9 @@
 <p>比如</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span><span class="selector-attr">[title]</span> &#123;<span class="attribute">color</span>:blue;&#125;</span><br></pre></td></tr></table></figure>
 <p>就选取了所有包含<code>title</code>属性的<code>h1</code>元素</p>
-<h3 id="子字符串选择器"><a href="#子字符串选择器" class="headerlink" title="子字符串选择器"></a>子字符串选择器</h3><p>可以更为模糊的通过属性选择元素。</p>
-<ol>
+<h3 id="子字符串选择器">子字符串选择器</h3>
+<p>可以更为模糊的通过属性选择元素。</p>
+<ol type="1">
 <li>[att|=val] 若元素的属性<code>att</code>的值恰好是<code>val</code>或者以<code>val-</code>开头的，则选取这个元素。</li>
 <li>[att^=val] 选择<code>att</code>属性以<code>val</code>开头的元素</li>
 <li>[att$=val] 选择<code>att</code>属性以<code>val</code>结尾的元素</li>
@@ -477,21 +491,26 @@
 </ol>
 <p>比如选择语言的经典用法</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[lang|="fr"]</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="伪类与伪元素选择器"><a href="#伪类与伪元素选择器" class="headerlink" title="伪类与伪元素选择器"></a>伪类与伪元素选择器</h2><p>在CSS中，样式匹配元素，通常是根据这个元素在文档树中的位置来匹配的。但是在碰到一些不在文档树中的结构，一般的方法就很难匹配到了。比如说段落的第一行之类的结构。</p>
+<h2 id="伪类与伪元素选择器">伪类与伪元素选择器</h2>
+<p>在CSS中，样式匹配元素，通常是根据这个元素在文档树中的位置来匹配的。但是在碰到一些不在文档树中的结构，一般的方法就很难匹配到了。比如说段落的第一行之类的结构。</p>
 <p>CSS 引入了伪元素(pseudo-elements)和伪类(pseudo-classes)的概念来选择这些不在文档树中的结构。</p>
 <p>伪类可以出现在选择器中的任意位置，但是伪元素只能附在最近的那个简单选择器之后。伪类和伪元素都是大小写无关的。</p>
-<h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><p>伪类是以<code>:</code>为前缀的关键字，一般的作用包括</p>
+<h3 id="伪类">伪类</h3>
+<p>伪类是以<code>:</code>为前缀的关键字，一般的作用包括</p>
 <blockquote>
 <p>你可能希望某个元素在处于某种状态下呈现另一种样式，例如当鼠标悬停在元素上面时，或者当一个复选框被禁用或被勾选时，又或者当一个元素是它在 DOM 树中父元素的第一个孩子元素时。</p>
 </blockquote>
 <p>比如对一个链接，可以用<code>a:visited</code>来定义当这个链接访问过后的样式，用<code>a:hover</code>定义链接在鼠标悬停时的样式。</p>
 <p>顺便说一句，可以用这几个伪类制作一个好看的按钮。</p>
-<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3><p>伪元素的前缀是<code>::</code>, 添加到选择器后面去选择某个元素的某个部分。比如第一个字母<code>::first-letter</code>或者第一行<code>::first-line</code>等等。</p>
-<h2 id="组合器和选择器组"><a href="#组合器和选择器组" class="headerlink" title="组合器和选择器组"></a>组合器和选择器组</h2><p>可以将几个选择器组合在一起，并按照元素间的相互关联关系来选择元素。比如<code>section h1</code>就选择了<code>section</code>中包含的<code>h1</code>元素（或者说<code>h1</code>是<code>section</code>的子节点）。</p>
+<h3 id="伪元素">伪元素</h3>
+<p>伪元素的前缀是<code>::</code>, 添加到选择器后面去选择某个元素的某个部分。比如第一个字母<code>::first-letter</code>或者第一行<code>::first-line</code>等等。</p>
+<h2 id="组合器和选择器组">组合器和选择器组</h2>
+<p>可以将几个选择器组合在一起，并按照元素间的相互关联关系来选择元素。比如<code>section h1</code>就选择了<code>section</code>中包含的<code>h1</code>元素（或者说<code>h1</code>是<code>section</code>的子节点）。</p>
 <blockquote>
 <p>可以参看文档来搞清楚各中组合器的概念。</p>
 </blockquote>
-<h1 id="层叠和继承"><a href="#层叠和继承" class="headerlink" title="层叠和继承"></a>层叠和继承</h1><p>这部分内容描述了多个选择器作用在同一个元素上，将最终应用哪个规则。留待之后的文章补充</p>
+<h1 id="层叠和继承">层叠和继承</h1>
+<p>这部分内容描述了多个选择器作用在同一个元素上，将最终应用哪个规则。留待之后的文章补充</p>
 
       
     </div>
@@ -512,14 +531,14 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="\Begin-with-Front-end-techology.html" rel="bookmark">前端之旅_如何开始</a></div>
+      <div class="popular-posts-title"><a href="\Using-CSS-to-Add-numbers-to-titles.html" rel="bookmark">利用CSS给Hexo博客自动加标题编号</a></div>
       
     </li>
   
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="\Using-CSS-to-Add-numbers-to-titles.html" rel="bookmark">利用CSS给Hexo博客自动加标题编号</a></div>
+      <div class="popular-posts-title"><a href="\Begin-with-Front-end-techology.html" rel="bookmark">前端之旅_如何开始</a></div>
       
     </li>
   
@@ -542,11 +561,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
             <a href="/tags/前端之旅/" rel="tag"># 前端之旅</a>
           
             <a href="/tags/新手向/" rel="tag"># 新手向</a>
-          
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -650,7 +669,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -752,7 +771,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -802,7 +827,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS是什么"><span class="nav-number">1.</span> <span class="nav-text">CSS是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS的作用过程"><span class="nav-number">2.</span> <span class="nav-text">CSS的作用过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS的语法"><span class="nav-number">3.</span> <span class="nav-text">CSS的语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值"><span class="nav-number">4.</span> <span class="nav-text">值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#长度"><span class="nav-number">4.1.</span> <span class="nav-text">长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色"><span class="nav-number">4.2.</span> <span class="nav-text">颜色</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单选择器"><span class="nav-number">5.1.</span> <span class="nav-text">简单选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型选择器"><span class="nav-number">5.1.1.</span> <span class="nav-text">类型选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类选择器"><span class="nav-number">5.1.2.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID选择器"><span class="nav-number">5.1.3.</span> <span class="nav-text">ID选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器"><span class="nav-number">5.2.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存在与值选择器"><span class="nav-number">5.2.1.</span> <span class="nav-text">存在与值选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子字符串选择器"><span class="nav-number">5.2.2.</span> <span class="nav-text">子字符串选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类与伪元素选择器"><span class="nav-number">5.3.</span> <span class="nav-text">伪类与伪元素选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类"><span class="nav-number">5.3.1.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素"><span class="nav-number">5.3.2.</span> <span class="nav-text">伪元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合器和选择器组"><span class="nav-number">5.4.</span> <span class="nav-text">组合器和选择器组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#层叠和继承"><span class="nav-number">6.</span> <span class="nav-text">层叠和继承</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css是什么"><span class="nav-number">1.</span> <span class="nav-text">CSS是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css的作用过程"><span class="nav-number">2.</span> <span class="nav-text">CSS的作用过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css的语法"><span class="nav-number">3.</span> <span class="nav-text">CSS的语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值"><span class="nav-number">4.</span> <span class="nav-text">值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#长度"><span class="nav-number">4.1.</span> <span class="nav-text">长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色"><span class="nav-number">4.2.</span> <span class="nav-text">颜色</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单选择器"><span class="nav-number">5.1.</span> <span class="nav-text">简单选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型选择器"><span class="nav-number">5.1.1.</span> <span class="nav-text">类型选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类选择器"><span class="nav-number">5.1.2.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id选择器"><span class="nav-number">5.1.3.</span> <span class="nav-text">ID选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器"><span class="nav-number">5.2.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存在与值选择器"><span class="nav-number">5.2.1.</span> <span class="nav-text">存在与值选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子字符串选择器"><span class="nav-number">5.2.2.</span> <span class="nav-text">子字符串选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类与伪元素选择器"><span class="nav-number">5.3.</span> <span class="nav-text">伪类与伪元素选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类"><span class="nav-number">5.3.1.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪元素"><span class="nav-number">5.3.2.</span> <span class="nav-text">伪元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合器和选择器组"><span class="nav-number">5.4.</span> <span class="nav-text">组合器和选择器组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#层叠和继承"><span class="nav-number">6.</span> <span class="nav-text">层叠和继承</span></a></li></ol></div>
             
 
           </div>

@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="简要介绍向量值函数积分的一些性质.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-22T03:48:03.703Z">
+<meta property="og:updated_time" content="2018-11-13T15:57:51.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="向量值函数的积分">
 <meta name="twitter:description" content="简要介绍向量值函数积分的一些性质.">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-06-22 11:48:03" itemprop="dateModified" datetime="2018-06-22T11:48:03+08:00">2018-06-22</time>
+                <time title="修改时间：2018-11-13 23:57:51" itemprop="dateModified" datetime="2018-11-13T23:57:51+08:00">2018-11-13</time>
               
             
           </span>
@@ -383,7 +383,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/泛函分析/" itemprop="url" rel="index"><span itemprop="name">泛函分析</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
 
                 
                 
@@ -420,73 +420,79 @@
         <p>简要介绍向量值函数积分的一些性质.</p>
 <a id="more"></a>
 <p>量子力学中极重要的Stone定理的表述需要用到算子半群（强连续线性算子半群）的概念.而这一概念需要一些向量值函数积分的知识，这里就是一些简单的性质的汇总。</p>
-<h1 id="向量值函数的可测性"><a href="#向量值函数的可测性" class="headerlink" title="向量值函数的可测性"></a>向量值函数的可测性</h1><blockquote>
+<h1 id="向量值函数的可测性">向量值函数的可测性</h1>
+<blockquote>
 <p>参考Yosida <em>Functional Analysis P130</em></p>
 </blockquote>
-<p>设$(S,\mathscr{B},m)$为测度空间, $x(s)$是定义在$S$上取值在Banach空间$X$中的向量值函数. 于是可以定义弱可测和强可测的概念.</p>
-<p><strong>弱可测</strong> $x(s)$是弱可测的,若对于任意$f\in X’$, 数值函数$f(x(s))$是$\mathscr{B}$可测函数.</p>
+<p>设<span class="math inline">\((S,\mathscr{B},m)\)</span>为测度空间, <span class="math inline">\(x(s)\)</span>是定义在<span class="math inline">\(S\)</span>上取值在Banach空间<span class="math inline">\(X\)</span>中的向量值函数. 于是可以定义弱可测和强可测的概念.</p>
+<p><strong>弱可测</strong> <span class="math inline">\(x(s)\)</span>是弱可测的,若对于任意<span class="math inline">\(f\in X&#39;\)</span>, 数值函数<span class="math inline">\(f(x(s))\)</span>是<span class="math inline">\(\mathscr{B}\)</span>可测函数.</p>
 <p>在有限个测度有限的不交可测集上取值为非零常向量,在其他地方取值为零的函数被称为有限值函数.</p>
-<p><strong>强可测</strong> 若存在一列有限值函数在$S$中$m-a.e.$强收敛到$x(s)$, 则称$x(s)$为强可测函数.</p>
+<p><strong>强可测</strong> 若存在一列有限值函数在<span class="math inline">\(S\)</span>中<span class="math inline">\(m-a.e.\)</span>强收敛到<span class="math inline">\(x(s)\)</span>, 则称<span class="math inline">\(x(s)\)</span>为强可测函数.</p>
 <p>关于强可测和弱可测之间的关系,有个重要的结论</p>
-<p><strong>Pettis定理</strong> 测度空间$(S,\mathscr{B},m)$上的向量值函数$x(s)$强可测的充要条件是$x(t)$是弱可测的且是几乎处处可分值的.</p>
-<p>几乎处处可分值是指存在$\Omega \in \mathscr{B}, m(\Omega)=0$, 使得${x(t) | t \in S-\Omega}$是$X$的可分子集.</p>
+<p><strong>Pettis定理</strong> 测度空间<span class="math inline">\((S,\mathscr{B},m)\)</span>上的向量值函数<span class="math inline">\(x(s)\)</span>强可测的充要条件是<span class="math inline">\(x(t)\)</span>是弱可测的且是几乎处处可分值的.</p>
+<p>几乎处处可分值是指存在<span class="math inline">\(\Omega \in \mathscr{B}, m(\Omega)=0\)</span>, 使得<span class="math inline">\(\{x(t) | t \in S-\Omega\}\)</span>是<span class="math inline">\(X\)</span>的可分子集.</p>
 <p>这个定理的充分性证明非常有意思，之后也会多次用到这种思想。所以需要留意一下。</p>
 <p><strong>强连续推出强可测</strong> 对强连续的函数来说，一定是弱连续的，所以一定是弱可测的。（连续的数值函数当然是可测的）。所以只需要说明强连续的函数一定是几乎处处可分值的。</p>
-<p>若$S$是紧的Hausdoff空间，则任意开覆盖都有有限子覆盖。于是由强连续性, $\forall n \in \mathbb{N}$, 有有限个$f^{-1}(B(f(a_{i,n}),\frac{1}{n}))$覆盖$S$, 于是把这些$a_{i,n}$并起来，即为值空间的可数稠子集.</p>
-<p>同样，如果$S$能满足Lindelof性质，即任意开覆盖都有可数子覆盖，同样可以找到值空间的可数稠子集。而一个度量空间是Lindelof空间当且仅当可分。所以不可分的Banach空间不是Lindelof空间.</p>
-<p>对于一般的可分空间$S$，强连续函数同样也是可分值的。对不可分的空间$S$，可以适当选择测度，使得强连续函数是几乎处处可分值的。</p>
+<p>若<span class="math inline">\(S\)</span>是紧的Hausdoff空间，则任意开覆盖都有有限子覆盖。于是由强连续性, <span class="math inline">\(\forall n \in \mathbb{N}\)</span>, 有有限个<span class="math inline">\(f^{-1}(B(f(a_{i,n}),\frac{1}{n}))\)</span>覆盖<span class="math inline">\(S\)</span>, 于是把这些<span class="math inline">\(a_{i,n}\)</span>并起来，即为值空间的可数稠子集.</p>
+<p>同样，如果<span class="math inline">\(S\)</span>能满足Lindelof性质，即任意开覆盖都有可数子覆盖，同样可以找到值空间的可数稠子集。而一个度量空间是Lindelof空间当且仅当可分。所以不可分的Banach空间不是Lindelof空间.</p>
+<p>对于一般的可分空间<span class="math inline">\(S\)</span>，强连续函数同样也是可分值的。对不可分的空间<span class="math inline">\(S\)</span>，可以适当选择测度，使得强连续函数是几乎处处可分值的。</p>
 <blockquote>
 <p>那么对于一般的测度空间，怎么证明强连续一定强可测呢？这个是不一定的，比如取不可分空间上的恒等算子，测度选的不好的话，不可分值。当然强连续不是强可测.</p>
 </blockquote>
-<p><strong>强可测的函数几乎处处收敛的极限也是强可测的</strong>  </p>
+<p><strong>强可测的函数几乎处处收敛的极限也是强可测的</strong></p>
 <blockquote>
-<p>注意强可测还可以定义为可数值函数的几乎处处收敛的极限。这种定义和之前的定义在测度空间是全有限的情况(finite measure space)是等价的，甚至会等价于可数值函数几乎处处一致收敛. 但是对测度空间是$\sigma$-finite的情况,则可以证明也是等价的。对于测度空间不是$\sigma$-finite的情况，就不是很清楚了. </p>
+<p>注意强可测还可以定义为可数值函数的几乎处处收敛的极限。这种定义和之前的定义在测度空间是全有限的情况(finite measure space)是等价的，甚至会等价于可数值函数几乎处处一致收敛. 但是对测度空间是<span class="math inline">\(\sigma\)</span>-finite的情况,则可以证明也是等价的。对于测度空间不是<span class="math inline">\(\sigma\)</span>-finite的情况，就不是很清楚了.</p>
 </blockquote>
 <p>可测函数几乎处处收敛的极限也是强可测的，证明可以依托于Pettis定理，但Yosida那本书上的Pettis定理的证明用到了这个结论，所以只能用夏道行的那本书上的Pettis定理的证明得到可测函数几乎处处收敛的极限也是强可测的这个结论.</p>
-<p>对于Yosida的定义，即有限值函数几乎处处收敛的极限是可测的，那么可测函数的极限可测这个结论只能在全有限的测度空间上证明。如果对$\sigma$有限的情况，就只能先证明若对于每一个测度有限的子集上，都是可测函数，则在全空间上也是可测函数，然后才能用Yosida的Pettis定理的证明.</p>
+<p>对于Yosida的定义，即有限值函数几乎处处收敛的极限是可测的，那么可测函数的极限可测这个结论只能在全有限的测度空间上证明。如果对<span class="math inline">\(\sigma\)</span>有限的情况，就只能先证明若对于每一个测度有限的子集上，都是可测函数，则在全空间上也是可测函数，然后才能用Yosida的Pettis定理的证明.</p>
 <blockquote>
 <p>以上关于Bochner可测的诸多细节，如有时间可以另外开一篇来讲，这里就不再赘述了。</p>
 </blockquote>
 <p><strong>弱可测但非强可测之例</strong></p>
-<p>记$l^2([0,1])$为满足以下条件的复值函数$x(t)$全体</p>
-<ol>
+<p>记<span class="math inline">\(l^2([0,1])\)</span>为满足以下条件的复值函数<span class="math inline">\(x(t)\)</span>全体</p>
+<ol type="1">
 <li>x(t)在至多可列个点处非零</li>
-<li>$\sum_{t} |x(t)|^2 &lt; + \infty$</li>
+<li><span class="math inline">\(\sum_{t} |x(t)|^2 &lt; + \infty\)</span></li>
 </ol>
-<p>定义范数为$|x| = \sqrt{\sum_{t} |x(t)| ^2}$. 于是$l^2([0,1])$为Banach空间. 赋予内积$(x,y)= \sum x(t) \bar{y(t)}$, 则其成为Hilbert空间. 注意完备性的证明只需注意到可数个可数集之并依然是可数个即可.</p>
-<p>这样定义的$l^2([0,1])$是不可分的, 这只需要注意到$\chi_$在$l^2([0,1])$中,且$s_1 \neq s_2  \Rightarrow |\chi_ - \chi_ |=2$即可.</p>
-<p>于是考虑函数$F: [0,1] \rightarrow l^2([0,1]),  F(s) = \chi_$. 其不是强可测函数,但是弱可测函数.弱可测性由$l^2([0,1])$是Hilbert空间,对偶空间是它本身即可得到.</p>
+<p>定义范数为<span class="math inline">\(\|x\| = \sqrt{\sum_{t} |x(t)| ^2}\)</span>. 于是<span class="math inline">\(l^2([0,1])\)</span>为Banach空间. 赋予内积<span class="math inline">\((x,y)= \sum x(t) \bar{y(t)}\)</span>, 则其成为Hilbert空间. 注意完备性的证明只需注意到可数个可数集之并依然是可数个即可.</p>
+<p>这样定义的<span class="math inline">\(l^2([0,1])\)</span>是不可分的, 这只需要注意到<span class="math inline">\(\chi_{\{s\}}\)</span>在<span class="math inline">\(l^2([0,1])\)</span>中,且<span class="math inline">\(s_1 \neq s_2 \Rightarrow \|\chi_{\{s_1\}} - \chi_{\{s_2\}} \|=2\)</span>即可.</p>
+<p>于是考虑函数<span class="math inline">\(F: [0,1] \rightarrow l^2([0,1]), F(s) = \chi_{\{s\}}\)</span>. 其不是强可测函数,但是弱可测函数.弱可测性由<span class="math inline">\(l^2([0,1])\)</span>是Hilbert空间,对偶空间是它本身即可得到.</p>
 <p><strong>强可测和Borel可测的关系</strong></p>
 <p>一个函数若满足开集的原象是可测集,那么说这个函数Borel可测.</p>
-<p>在$X$是可分的Banach空间时, Borel可测等价于强可测. 这个结论可由Pettis定理简单的得到.</p>
+<p>在<span class="math inline">\(X\)</span>是可分的Banach空间时, Borel可测等价于强可测. 这个结论可由Pettis定理简单的得到.</p>
 <p>而一般的Banach空间,强可测可以推出Borel可测.这是由强可测时一列有限值函数几乎处处收敛的极限,而有限值函数是Borel可测的,Borel可测的函数几乎处处收敛的极限也是Borel可测的可以得到.</p>
 <p>但是一般的Banach空间,Borel可测不一定强可测.比如一个不可分Banach空间上的恒等算子,自然是Borel可测的,但不是强可测的.因为它的值域是不可分的,由Pettis定理知道不是强可测的.</p>
-<h1 id="向量值函数的Bochner积分"><a href="#向量值函数的Bochner积分" class="headerlink" title="向量值函数的Bochner积分"></a>向量值函数的Bochner积分</h1><p>先对有限值函数$x(s)$定义积分. 若$x(s)$在不交的测度有限集$B_i$上取值为非零向量$x_i$, 且在$S-\sum B_i$上取值为$0$. 则定义$S$上的积分为<br>$$ \int_{S} x(s) m(ds) = \sum_{i=1}^{n} x_i m(B_i) $$</p>
+<h1 id="向量值函数的bochner积分">向量值函数的Bochner积分</h1>
+<p>先对有限值函数<span class="math inline">\(x(s)\)</span>定义积分. 若<span class="math inline">\(x(s)\)</span>在不交的测度有限集<span class="math inline">\(B_i\)</span>上取值为非零向量<span class="math inline">\(x_i\)</span>, 且在<span class="math inline">\(S-\sum B_i\)</span>上取值为<span class="math inline">\(0\)</span>. 则定义<span class="math inline">\(S\)</span>上的积分为 <span class="math display">\[ \int_{S} x(s) m(ds) = \sum_{i=1}^{n} x_i m(B_i) \]</span></p>
 <p>通过取极限,可以定义对更一般的函数的积分.</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>定义在测度空间$(S,\mathscr{B},m)$且取值在Banach空间$X$中的函数$x(s)$是Bochner可积的, 若存在一列有限值函数${x_n(s)} m-a.e.$强收敛到$x(s)$, 并且<br>$$ \lim_{n\rightarrow \infty} \int_{S} | x(s)-x_n(s) | m(ds) = 0<br>$$</p>
-<p>对于任意可测集$B \in \mathscr{B}$, 定义$x(s)$在$B$上的Bochner m-积分为<br>$$ \int_{B} x(s) m(ds) = s-\lim_{n\rightarrow \infty} \int_{S} \chi_B (s) x_n(s) m(ds)  $$<br>其中$\chi_B (s)$是集合$B$的特征函数.</p>
+<h2 id="定义">定义</h2>
+<p>定义在测度空间<span class="math inline">\((S,\mathscr{B},m)\)</span>且取值在Banach空间<span class="math inline">\(X\)</span>中的函数<span class="math inline">\(x(s)\)</span>是Bochner可积的, 若存在一列有限值函数<span class="math inline">\(\{x_n(s)\} m-a.e.\)</span>强收敛到<span class="math inline">\(x(s)\)</span>, 并且 <span class="math display">\[ \lim_{n\rightarrow \infty} \int_{S} \| x(s)-x_n(s) \| m(ds) = 0
+\]</span></p>
+<p>对于任意可测集<span class="math inline">\(B \in \mathscr{B}\)</span>, 定义<span class="math inline">\(x(s)\)</span>在<span class="math inline">\(B\)</span>上的Bochner m-积分为 <span class="math display">\[ \int_{B} x(s) m(ds) = s-\lim_{n\rightarrow \infty} \int_{S} \chi_B (s) x_n(s) m(ds)  \]</span> 其中<span class="math inline">\(\chi_B (s)\)</span>是集合<span class="math inline">\(B\)</span>的特征函数.</p>
 <p>定义的合理性需要说明几点.</p>
-<ol>
-<li>$(1)$右侧的积分要有意义</li>
-<li>$(2)$右侧的极限存在</li>
-<li>$(2)$右侧极限与$x_n$的取法无关</li>
+<ol type="1">
+<li><span class="math inline">\((1)\)</span>右侧的积分要有意义</li>
+<li><span class="math inline">\((2)\)</span>右侧的极限存在</li>
+<li><span class="math inline">\((2)\)</span>右侧极限与<span class="math inline">\(x_n\)</span>的取法无关</li>
 </ol>
-<p><strong>1.</strong> 要说明该积分有意义,只需要说明$| x(s)-x_n(s) |$是可测的. </p>
+<p><strong>1.</strong> 要说明该积分有意义,只需要说明<span class="math inline">\(\| x(s)-x_n(s) \|\)</span>是可测的.</p>
 <blockquote>
 <p>夏道行 <em>泛函分析第二教程 P10</em> 有个简单证明</p>
 </blockquote>
-<p><strong>2.</strong> 对有限值函数$f$, 成立$|\int_B f m(ds) |  \leq \int_B | f| m(ds)$, 于是可以知道极限存在.</p>
+<p><strong>2.</strong> 对有限值函数<span class="math inline">\(f\)</span>, 成立<span class="math inline">\(\|\int_B f m(ds) \| \leq \int_B \| f\| m(ds)\)</span>, 于是可以知道极限存在.</p>
 <p><strong>3.</strong> 任意两个收敛序列可以重新组合成新的收敛序列.</p>
-<h2 id="重要的性质"><a href="#重要的性质" class="headerlink" title="重要的性质"></a>重要的性质</h2><p><strong>定理</strong>  强$\mathscr{B}$可测的函数$x(s)$Bochner$m$可积当且仅当$|x(s)|$是$m$可积的.</p>
+<h2 id="重要的性质">重要的性质</h2>
+<p><strong>定理</strong> 强<span class="math inline">\(\mathscr{B}\)</span>可测的函数<span class="math inline">\(x(s)\)</span>Bochner<span class="math inline">\(m\)</span>可积当且仅当<span class="math inline">\(\|x(s)\|\)</span>是<span class="math inline">\(m\)</span>可积的.</p>
 <blockquote>
 <p>之所以可积和绝对可积等价,是因为在定义Bochner积分的过程中,和定义Lebsgue积分一样要求任意趋向于被积函数的简单函数的积分都有相同的极限.这种要求就如同级数中任意重排序都是收敛的一样,这个级数必须是绝对收敛的才行.而Riemann积分的定义过程,是固定顺序的级数求和,自然可积和绝对可积不一定等价了.</p>
 </blockquote>
-<p>一个简单的证明参见Yosida的书,必要性是容易的,充分性证明的关键叙述如下.由$x(s)$强可测, 可知有一列有限值函数$x_n(s)$几乎处处强收敛到$x(s)$. 基于$x_n$,重新构造一列简单函数列$y_n$几乎处处强收敛到$x_n$, 并且满足$|x(s)-y_n (s)| \leq |x(s)| ( 2+ 2^{-1})$, 再利用Lebsgue控制收敛定理就可以得到$x(s)$Bochner可积的结论.</p>
-<p><strong>推论</strong>  $|\int_B x(s) m(ds) \leq \int_B | x(s)| m(ds)|$</p>
-<p><strong>推论</strong>  有界线性算子与积分号可以交换次序.</p>
-<p>这个结论对闭线性算子都是成立的，hille定理，参见 <em>Vector measure  Diestel. P47</em>.</p>
-<h2 id="反例"><a href="#反例" class="headerlink" title="反例"></a>反例</h2><p><strong>不是Bochner可积的例子</strong></p>
-<p>设$C_0$是收敛于$0$的数列${x_n}$的全体,范数为上确界范数, 于是形成Banach空间. 对$[0,\infty)$上的Lebsgue测度, 定义向量值函数$x:[0,\infty) \rightarrow C_0$定义为<br>$$ x(t) = \frac{1}{n} e_n , t \in [n-1 , n)$$<br>于是$x(t)$是强可测的,但是不是Bochner可积的,因为<br>$$ \int_{0}^{\infty} | x(t) | dt = \sum_{n=1}^{\infty} \frac{1}{n} \rightarrow \infty $$<br>于是由Bochner可积等价于范数绝对可积就知道结论.</p>
+<p>一个简单的证明参见Yosida的书,必要性是容易的,充分性证明的关键叙述如下.由<span class="math inline">\(x(s)\)</span>强可测, 可知有一列有限值函数<span class="math inline">\(x_n(s)\)</span>几乎处处强收敛到<span class="math inline">\(x(s)\)</span>. 基于<span class="math inline">\(x_n\)</span>,重新构造一列简单函数列<span class="math inline">\(y_n\)</span>几乎处处强收敛到<span class="math inline">\(x_n\)</span>, 并且满足<span class="math inline">\(\|x(s)-y_n (s)\| \leq \|x(s)\| ( 2+ 2^{-1})\)</span>, 再利用Lebsgue控制收敛定理就可以得到<span class="math inline">\(x(s)\)</span>Bochner可积的结论.</p>
+<p><strong>推论</strong> <span class="math inline">\(\|\int_B x(s) m(ds) \leq \int_B \| x(s)\| m(ds)\|\)</span></p>
+<p><strong>推论</strong> 有界线性算子与积分号可以交换次序.</p>
+<p>这个结论对闭线性算子都是成立的，hille定理，参见 <em>Vector measure Diestel. P47</em>.</p>
+<h2 id="反例">反例</h2>
+<p><strong>不是Bochner可积的例子</strong></p>
+<p>设<span class="math inline">\(C_0\)</span>是收敛于<span class="math inline">\(0\)</span>的数列<span class="math inline">\(\{x_n\}\)</span>的全体,范数为上确界范数, 于是形成Banach空间. 对<span class="math inline">\([0,\infty)\)</span>上的Lebsgue测度, 定义向量值函数<span class="math inline">\(x:[0,\infty) \rightarrow C_0\)</span>定义为 <span class="math display">\[ x(t) = \frac{1}{n} e_n , t \in [n-1 , n)\]</span> 于是<span class="math inline">\(x(t)\)</span>是强可测的,但是不是Bochner可积的,因为 <span class="math display">\[ \int_{0}^{\infty} \| x(t) \| dt = \sum_{n=1}^{\infty} \frac{1}{n} \rightarrow \infty \]</span> 于是由Bochner可积等价于范数绝对可积就知道结论.</p>
 
       
     </div>
@@ -643,7 +649,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -745,7 +751,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -795,7 +807,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#向量值函数的可测性"><span class="nav-number">1.</span> <span class="nav-text">向量值函数的可测性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#向量值函数的Bochner积分"><span class="nav-number">2.</span> <span class="nav-text">向量值函数的Bochner积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的性质"><span class="nav-number">2.2.</span> <span class="nav-text">重要的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反例"><span class="nav-number">2.3.</span> <span class="nav-text">反例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#向量值函数的可测性"><span class="nav-number">1.</span> <span class="nav-text">向量值函数的可测性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#向量值函数的bochner积分"><span class="nav-number">2.</span> <span class="nav-text">向量值函数的Bochner积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的性质"><span class="nav-number">2.2.</span> <span class="nav-text">重要的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反例"><span class="nav-number">2.3.</span> <span class="nav-text">反例</span></a></li></ol></li></ol></div>
             
 
           </div>

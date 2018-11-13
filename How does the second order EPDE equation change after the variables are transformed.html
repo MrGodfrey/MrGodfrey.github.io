@@ -100,18 +100,18 @@
 
 
 
-  <meta name="description" content="When I was reading Gilberd’s Elliptic partial differential equation of second order chapter 6, I found this technique very useful. How does the second order EPDE equation change after the variables ar">
+  <meta name="description" content="When I was reading Gilberd&apos;s Elliptic partial differential equation of second order chapter 6, I found this technique very useful. How does the second order EPDE equation change after the variables ar">
 <meta name="keywords" content="PDE,Tips">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How does the second order EPDE equation change after the variables are transformed">
 <meta property="og:url" content="https://deepanalysis.xyz/How does the second order EPDE equation change after the variables are transformed.html">
 <meta property="og:site_name" content="DeepAnalysis">
-<meta property="og:description" content="When I was reading Gilberd’s Elliptic partial differential equation of second order chapter 6, I found this technique very useful. How does the second order EPDE equation change after the variables ar">
+<meta property="og:description" content="When I was reading Gilberd&apos;s Elliptic partial differential equation of second order chapter 6, I found this technique very useful. How does the second order EPDE equation change after the variables ar">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-31T13:16:10.093Z">
+<meta property="og:updated_time" content="2018-11-13T15:58:35.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How does the second order EPDE equation change after the variables are transformed">
-<meta name="twitter:description" content="When I was reading Gilberd’s Elliptic partial differential equation of second order chapter 6, I found this technique very useful. How does the second order EPDE equation change after the variables ar">
+<meta name="twitter:description" content="When I was reading Gilberd&apos;s Elliptic partial differential equation of second order chapter 6, I found this technique very useful. How does the second order EPDE equation change after the variables ar">
 
 
 
@@ -346,12 +346,22 @@
                 
               
 
-              <time title="创建时间：2018-05-31 20:30:40 / 修改时间：21:16:10" itemprop="dateCreated datePublished" datetime="2018-05-31T20:30:40+08:00">2018-05-31</time>
+              <time title="创建时间：2018-05-31 20:30:40" itemprop="dateCreated datePublished" datetime="2018-05-31T20:30:40+08:00">2018-05-31</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                <time title="修改时间：2018-11-13 23:58:35" itemprop="dateModified" datetime="2018-11-13T23:58:35+08:00">2018-11-13</time>
               
             
           </span>
@@ -373,7 +383,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/偏微分方程/" itemprop="url" rel="index"><span itemprop="name">偏微分方程</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/小问题/" itemprop="url" rel="index"><span itemprop="name">小问题</span></a></span>
 
                 
                 
@@ -407,16 +417,18 @@
       
 
       
-        <p>When I was reading Gilberd’s <em>Elliptic partial differential equation of second order</em> chapter 6, I found this technique very useful. How does the second order EPDE equation change after the variables are transformed? It can be used to simplify equation.</p>
+        <p>When I was reading Gilberd's <em>Elliptic partial differential equation of second order</em> chapter 6, I found this technique very useful. How does the second order EPDE equation change after the variables are transformed? It can be used to simplify equation.</p>
 <a id="more"></a>
-<h1 id="question"><a href="#question" class="headerlink" title="question"></a>question</h1><p>In the equation<br>$$ A^{ij} D_{ij} u=f(x), \quad A^T=A, $$<br>let ${A^{ij}}$ be a constant matrix.</p>
-<p>Let $P$ be a constant matrix which defines a nonsingular linear transformation $y=xP$ from $\mathbb{R}^n$ onto $\mathbb{R}^n$. Letting $u(x) \rightarrow \tilde{u}(y)$ under this transformation, one verifies easily that<br>$$ A^{ij} D_{ij} u(x) = \tilde{A}^{ij} D_{ij} \tilde{u}(y) $$<br>where $\tilde{A}= P^T AP$. Why?</p>
-<h1 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h1><p>Using Einstein summation convention. Let $x=(x^1,\cdots,x^n)$,$y=(y^1,\cdots,y^n)$.</p>
-<p>$\begin{aligned}<br>    D_{ij} u &amp;= D_i(D_k \tilde{u}(y) y^k_j)\<br>          &amp;=D_{lk} \tilde{u}(y) y^k_j y^l_i<br>\end{aligned}$</p>
-<p>And from the question, </p>
-<p>$\begin{aligned}<br>    A^{ij}  D_{ij} u &amp;= A^{ij} y^k_j y^l_i D_{lk} \tilde{u}(y)\<br>    &amp;= \tilde{A}^{lk} D_{lk} \tilde{u}(y)<br>\end{aligned}$</p>
-<p>we has $\tilde{A}^{lk} =A^{ij} y^k_j y^l_i$.</p>
-<p>Notice that $y=xP$, so $y^k_j =P_{jk}$ and $\tilde{A}^{lk} =A^{ij} P_{jk} P_{il}$.  From it, we have $\tilde{A}=P^T AP$.</p>
+<h1 id="question">question</h1>
+<p>In the equation <span class="math display">\[ A^{ij} D_{ij} u=f(x), \quad A^T=A, \]</span> let <span class="math inline">\(\{A^{ij}\}\)</span> be a constant matrix.</p>
+<p>Let <span class="math inline">\(P\)</span> be a constant matrix which defines a nonsingular linear transformation <span class="math inline">\(y=xP\)</span> from <span class="math inline">\(\mathbb{R}^n\)</span> onto <span class="math inline">\(\mathbb{R}^n\)</span>. Letting <span class="math inline">\(u(x) \rightarrow \tilde{u}(y)\)</span> under this transformation, one verifies easily that <span class="math display">\[ A^{ij} D_{ij} u(x) = \tilde{A}^{ij} D_{ij} \tilde{u}(y) \]</span> where <span class="math inline">\(\tilde{A}= P^T AP\)</span>. Why?</p>
+<h1 id="solution">solution</h1>
+<p>Using Einstein summation convention. Let <span class="math inline">\(x=(x^1,\cdots,x^n)\)</span>,<span class="math inline">\(y=(y^1,\cdots,y^n)\)</span>.</p>
+<p><span class="math inline">\(\begin{aligned}  D_{ij} u &amp;= D_i(D_k \tilde{u}(y) y^k_j)\\  &amp;=D_{lk} \tilde{u}(y) y^k_j y^l_i \end{aligned}\)</span></p>
+<p>And from the question,</p>
+<p><span class="math inline">\(\begin{aligned}  A^{ij} D_{ij} u &amp;= A^{ij} y^k_j y^l_i D_{lk} \tilde{u}(y)\\  &amp;= \tilde{A}^{lk} D_{lk} \tilde{u}(y) \end{aligned}\)</span></p>
+<p>we has <span class="math inline">\(\tilde{A}^{lk} =A^{ij} y^k_j y^l_i\)</span>.</p>
+<p>Notice that <span class="math inline">\(y=xP\)</span>, so <span class="math inline">\(y^k_j =P_{jk}\)</span> and <span class="math inline">\(\tilde{A}^{lk} =A^{ij} P_{jk} P_{il}\)</span>. From it, we have <span class="math inline">\(\tilde{A}=P^T AP\)</span>.</p>
 
       
     </div>
@@ -547,7 +559,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -649,7 +661,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

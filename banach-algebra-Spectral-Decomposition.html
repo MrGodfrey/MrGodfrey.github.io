@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="为了周三讨论班，准备的背景知识。本意是想总结有界算子如何谱分解，之后的工作包括如何将有界算子谱分解推广到无界算子中，以及如何将谱分解定理与量子力学联系起来。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-11T06:50:27.000Z">
+<meta property="og:updated_time" content="2018-11-13T15:58:01.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Banach 代数与有界正则算子的谱分解">
 <meta name="twitter:description" content="为了周三讨论班，准备的背景知识。本意是想总结有界算子如何谱分解，之后的工作包括如何将有界算子谱分解推广到无界算子中，以及如何将谱分解定理与量子力学联系起来。">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-11-11 14:50:27" itemprop="dateModified" datetime="2018-11-11T14:50:27+08:00">2018-11-11</time>
+                <time title="修改时间：2018-11-13 23:58:01" itemprop="dateModified" datetime="2018-11-13T23:58:01+08:00">2018-11-13</time>
               
             
           </span>
@@ -383,7 +383,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/泛函分析/" itemprop="url" rel="index"><span itemprop="name">泛函分析</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
 
                 
                 
@@ -419,80 +419,87 @@
       
         <p>为了周三讨论班，准备的背景知识。本意是想总结有界算子如何谱分解，之后的工作包括如何将有界算子谱分解推广到无界算子中，以及如何将谱分解定理与量子力学联系起来。</p>
 <a id="more"></a>
-<p>首先引入Banach代数以及$C^*$代数</p>
-<h1 id="Banach代数"><a href="#Banach代数" class="headerlink" title="Banach代数"></a>Banach代数</h1><blockquote>
+<p>首先引入Banach代数以及<span class="math inline">\(C^*\)</span>代数</p>
+<h1 id="banach代数">Banach代数</h1>
+<blockquote>
 <p>参见张恭庆泛函分析讲义 chapter 5</p>
 </blockquote>
-<h2 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h2><p><strong>代数学的概念</strong></p>
+<h2 id="基本定义">基本定义</h2>
+<p><strong>代数学的概念</strong></p>
 <blockquote>
 <p>同上 5.1</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li>代数即为带有乘法的线性空间（有加法和数乘的集合）</li>
 <li>可除代数指每个非零元可逆的代数,交换代数是指每个元对乘法交换</li>
 <li>诸如理想, 商空间等概念就是一般代数中的内容</li>
 <li>极大理想的商代数是可除代数</li>
 </ol>
 <p>Banach代数的定义包括三点</p>
-<ol>
+<ol type="1">
 <li>是复数域上的代数</li>
-<li>在范数$| \cdot |$下是Banach空间</li>
-<li>$|ab|\leq|a||b|$</li>
+<li>在范数<span class="math inline">\(\| \cdot \|\)</span>下是Banach空间</li>
+<li><span class="math inline">\(\|ab\|\leq\|a\|\|b\|\)</span></li>
 </ol>
-<p><strong>Remark</strong> </p>
-<ol>
-<li>由三角不等式, 乘法关于范数连续.  </li>
-<li>由3.单位元范数不小于1,  但是可以赋等价范数, 使得单位元范数为1.<ol>
-<li>等价范数为$|a|= \sup\limits_{b\in A} \frac{|ab|}{b}$</li>
-</ol>
+<p><strong>Remark</strong></p>
+<ol type="1">
+<li>由三角不等式, 乘法关于范数连续.<br>
 </li>
+<li>由3.单位元范数不小于1, 但是可以赋等价范数, 使得单位元范数为1.
+<ol type="1">
+<li>等价范数为<span class="math inline">\(|a|= \sup\limits_{b\in A} \frac{\|ab\|}{b}\)</span></li>
+</ol></li>
 </ol>
-<p><strong>Example</strong> </p>
-<ol>
+<p><strong>Example</strong></p>
+<ol type="1">
 <li>Banach空间上的有界线性算子是不可交换的有幺元的Banach代数。</li>
 <li>紧集上的连续函数空间按最大模范数是交换有幺元的Banach代数。</li>
 </ol>
-<h2 id="极大理想与Gelfand表示"><a href="#极大理想与Gelfand表示" class="headerlink" title="极大理想与Gelfand表示"></a>极大理想与Gelfand表示</h2><h3 id="Gelfand定理"><a href="#Gelfand定理" class="headerlink" title="Gelfand定理"></a>Gelfand定理</h3><p><strong>表述</strong>  可除Banach代数$A$等距同构于复数域$\mathbb{C}$</p>
+<h2 id="极大理想与gelfand表示">极大理想与Gelfand表示</h2>
+<h3 id="gelfand定理">Gelfand定理</h3>
+<p><strong>表述</strong> 可除Banach代数<span class="math inline">\(A\)</span>等距同构于复数域<span class="math inline">\(\mathbb{C}\)</span></p>
 <p><strong>证明概要</strong></p>
 <blockquote>
 <p>张 P9</p>
 </blockquote>
-<ol>
-<li>取$A$的子集$B$, 定义为$B = { ze | z\in \mathbb C }$ , 于是 $\forall a \in A$, $\exists z \in \mathbb C$ 使得 $a=ze$. 于是得到同构</li>
-<li>用反证法，$r(z)=(ze-a)^{-1}$, 用范数估计证连续，进而$r(z)$弱解析</li>
-<li>$|r(z)|$有界，用Liouville定理推出$r(z)=0$, 矛盾</li>
+<ol type="1">
+<li>取<span class="math inline">\(A\)</span>的子集<span class="math inline">\(B\)</span>, 定义为<span class="math inline">\(B = \{ ze | z\in \mathbb C \}\)</span> , 于是 <span class="math inline">\(\forall a \in A\)</span>, <span class="math inline">\(\exists z \in \mathbb C\)</span> 使得 <span class="math inline">\(a=ze\)</span>. 于是得到同构</li>
+<li>用反证法，<span class="math inline">\(r(z)=(ze-a)^{-1}\)</span>, 用范数估计证连续，进而<span class="math inline">\(r(z)\)</span>弱解析</li>
+<li><span class="math inline">\(\|r(z)\|\)</span>有界，用Liouville定理推出<span class="math inline">\(r(z)=0\)</span>, 矛盾</li>
 </ol>
-<p><strong>Remark</strong> 定理的证明说明对于每一个可除Banach代数中的元素，都可以唯一写成$ze, z\in \mathbb C$的形式</p>
-<h3 id="极大理想的商空间与复数域同构"><a href="#极大理想的商空间与复数域同构" class="headerlink" title="极大理想的商空间与复数域同构"></a>极大理想的商空间与复数域同构</h3><p><strong>表述</strong>  有幺元的交换Banach代数$A$, 若$J$为其极大理想， 则商空间$B=A/J$等级同构于复数域$\mathbb C$.</p>
+<p><strong>Remark</strong> 定理的证明说明对于每一个可除Banach代数中的元素，都可以唯一写成<span class="math inline">\(ze, z\in \mathbb C\)</span>的形式</p>
+<h3 id="极大理想的商空间与复数域同构">极大理想的商空间与复数域同构</h3>
+<p><strong>表述</strong> 有幺元的交换Banach代数<span class="math inline">\(A\)</span>, 若<span class="math inline">\(J\)</span>为其极大理想， 则商空间<span class="math inline">\(B=A/J\)</span>等级同构于复数域<span class="math inline">\(\mathbb C\)</span>.</p>
 <p><strong>证明概要</strong></p>
-<ol>
-<li>$J$是闭的<ol>
-<li>考虑$\bar{J}$, 其为子代数且为理想<ol>
+<ol type="1">
+<li><span class="math inline">\(J\)</span>是闭的
+<ol type="1">
+<li>考虑<span class="math inline">\(\bar{J}\)</span>, 其为子代数且为理想
+<ol type="1">
 <li>加法和数乘封闭显然，由三角不等式，乘法也封闭（取序列收敛）</li>
-<li>$a\bar{J}=\bar{J}a=\bar{J}$由乘法连续性也可知</li>
+<li><span class="math inline">\(a\bar{J}=\bar{J}a=\bar{J}\)</span>由乘法连续性也可知</li>
+</ol></li>
+<li>证明<span class="math inline">\(\bar{J}\)</span>为真理想，由<span class="math inline">\(J\)</span>的极大性知<span class="math inline">\(J\)</span>闭
+<ol type="1">
+<li>证明<span class="math inline">\(e\notin\bar{J}\)</span>, 事实上由<span class="math inline">\(\|a\|\leq 1, (e-a)^{-1}=\sum a^n\in A\)</span>可知若<span class="math inline">\(e,a\)</span>距离小于1，就有<span class="math inline">\(a\notin J\)</span></li>
+</ol></li>
+</ol></li>
+<li>Banach空间对闭子空间做商，得到的商空间按商模也是Banach空间
+<ol type="1">
+<li>记<span class="math inline">\(Q=A/J\)</span>，<span class="math inline">\(Q\)</span>的模为<span class="math inline">\(\big|[a]\big|_{Q} = \inf\limits_{x\in[a]} \|x\|=\inf\limits_{y\in J} \|a+y\|\)</span> . 商模可以理解为到子空间的距离.</li>
+<li>接下来的证明用到按范数绝对收敛的级数都收敛当且仅当Cauchy列收敛
+<ol type="1">
+<li>充分性用范数的三角不等式即可知道。必要性可取序列<span class="math inline">\(\{a_{n_k}\}\)</span>满足<span class="math inline">\(\|a_{n_k}-a_{n_{k+1}}\| &lt; 1/2^k\)</span>, 说明级数<span class="math inline">\(\sum a_{n_k}-a_{n_{k+1}}\)</span>按范数收敛,即可知道.</li>
+</ol></li>
+<li>取商空间中的级数满足<span class="math inline">\(\sum |[a_n]|_{Q} &lt;\infty\)</span>, 再取<span class="math inline">\(y_n \in J\)</span>使得<span class="math inline">\(\|a_n+y_n\| &lt; |[a_n]|_Q + 2^{-n}\)</span>, 于是级数<span class="math inline">\(\sum a_n+y_n\)</span>按范数绝对收敛，故收敛，于是由商映射的连续性<span class="math inline">\(\sum [a_n+b_n] = \sum a_n+b_n\)</span>收敛</li>
+</ol></li>
+<li>商空间<span class="math inline">\(Q\)</span>是Banach代数</li>
+<li>由Gelfand定理，<span class="math inline">\(Q\)</span>同构于<span class="math inline">\(\mathbb C\)</span></li>
 </ol>
-</li>
-<li>证明$\bar{J}$为真理想，由$J$的极大性知$J$闭<ol>
-<li>证明$e\notin\bar{J}$, 事实上由$|a|\leq 1, (e-a)^{-1}=\sum a^n\in A$可知若$e,a$距离小于1，就有$a\notin J$</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Banach空间对闭子空间做商，得到的商空间按商模也是Banach空间<ol>
-<li>记$Q=A/J$，$Q$的模为$\big|[a]\big|<em>{Q} = \inf\limits</em>{x\in[a]} |x|=\inf\limits_{y\in J} |a+y|$ . 商模可以理解为到子空间的距离.</li>
-<li>接下来的证明用到按范数绝对收敛的级数都收敛当且仅当Cauchy列收敛<ol>
-<li>充分性用范数的三角不等式即可知道。必要性可取序列${a_{n_k}}$满足$|a_{n_k}-a_{n_{k+1}}| &lt; 1/2^k$, 说明级数$\sum a_{n_k}-a_{n_{k+1}}$按范数收敛,即可知道.</li>
-</ol>
-</li>
-<li>取商空间中的级数满足$\sum |[a_n]|_{Q} &lt;\infty$, 再取$y_n \in J$使得$|a_n+y_n| &lt; |[a_n]|_Q + 2^{-n}$, 于是级数$\sum a_n+y_n$按范数绝对收敛，故收敛，于是由商映射的连续性$\sum [a_n+b_n] = \sum a_n+b_n$收敛</li>
-</ol>
-</li>
-<li>商空间$Q$是Banach代数</li>
-<li>由Gelfand定理，$Q$同构于$\mathbb C$</li>
-</ol>
-<p><strong>Remark</strong> 由$A$到$A/J$的自然映射与上述同构复合，得到$A$到$\mathbb C$的连续同态$\varphi_J$</p>
-<h3 id="Gelfand表示与Gelfand拓扑"><a href="#Gelfand表示与Gelfand拓扑" class="headerlink" title="Gelfand表示与Gelfand拓扑"></a>Gelfand表示与Gelfand拓扑</h3><p>若记$\mathfrak M$为$A$中所有极大理想组成的集合, 则$\varphi_J(a)$可堪称$\mathfrak M$上的复值函数，于是记$\hat{a}(J)= \varphi_J(a)$.</p>
-<p>这样给出的$A$到$\mathfrak M$上的复值函数代数之间的同态映射$\Gamma: a \mapsto \hat{a}(\cdot)$称为有幺元可交换的Banach代数$A$的Gelfand表示</p>
+<p><strong>Remark</strong> 由<span class="math inline">\(A\)</span>到<span class="math inline">\(A/J\)</span>的自然映射与上述同构复合，得到<span class="math inline">\(A\)</span>到<span class="math inline">\(\mathbb C\)</span>的连续同态<span class="math inline">\(\varphi_J\)</span></p>
+<h3 id="gelfand表示与gelfand拓扑">Gelfand表示与Gelfand拓扑</h3>
+<p>若记<span class="math inline">\(\mathfrak M\)</span>为<span class="math inline">\(A\)</span>中所有极大理想组成的集合, 则<span class="math inline">\(\varphi_J(a)\)</span>可堪称<span class="math inline">\(\mathfrak M\)</span>上的复值函数，于是记<span class="math inline">\(\hat{a}(J)= \varphi_J(a)\)</span>.</p>
+<p>这样给出的<span class="math inline">\(A\)</span>到<span class="math inline">\(\mathfrak M\)</span>上的复值函数代数之间的同态映射<span class="math inline">\(\Gamma: a \mapsto \hat{a}(\cdot)\)</span>称为有幺元可交换的Banach代数<span class="math inline">\(A\)</span>的Gelfand表示</p>
 
       
     </div>
@@ -649,7 +656,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -751,7 +758,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -801,7 +814,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Banach代数"><span class="nav-number">1.</span> <span class="nav-text">Banach代数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本定义"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极大理想与Gelfand表示"><span class="nav-number">1.2.</span> <span class="nav-text">极大理想与Gelfand表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gelfand定理"><span class="nav-number">1.2.1.</span> <span class="nav-text">Gelfand定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#极大理想的商空间与复数域同构"><span class="nav-number">1.2.2.</span> <span class="nav-text">极大理想的商空间与复数域同构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gelfand表示与Gelfand拓扑"><span class="nav-number">1.2.3.</span> <span class="nav-text">Gelfand表示与Gelfand拓扑</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#banach代数"><span class="nav-number">1.</span> <span class="nav-text">Banach代数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本定义"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极大理想与gelfand表示"><span class="nav-number">1.2.</span> <span class="nav-text">极大理想与Gelfand表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gelfand定理"><span class="nav-number">1.2.1.</span> <span class="nav-text">Gelfand定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#极大理想的商空间与复数域同构"><span class="nav-number">1.2.2.</span> <span class="nav-text">极大理想的商空间与复数域同构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gelfand表示与gelfand拓扑"><span class="nav-number">1.2.3.</span> <span class="nav-text">Gelfand表示与Gelfand拓扑</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

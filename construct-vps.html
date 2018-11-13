@@ -412,43 +412,50 @@
       
         <p>记录科学上网的方法</p>
 <a id="more"></a>
-<h1 id="在vultr上购买服务器"><a href="#在vultr上购买服务器" class="headerlink" title="在vultr上购买服务器"></a>在vultr上购买服务器</h1><p><a href="vultr.com">vultr</a>  可以以每月2.5美元的价格租借服务器，仅有纽约和迈阿密的机房可以以这个价格购买。</p>
+<h1 id="在vultr上购买服务器">在vultr上购买服务器</h1>
+<p><a href="vultr.com">vultr</a> 可以以每月2.5美元的价格租借服务器，仅有纽约和迈阿密的机房可以以这个价格购买。</p>
 <blockquote>
 <p>不知道具体的用户协议，包括是否有上下载流量的限制</p>
 </blockquote>
 <ul>
-<li>安装时注意记住服务器IP地址，用户名，密码.  </li>
+<li>安装时注意记住服务器IP地址，用户名，密码.</li>
 </ul>
-<h1 id="在服务器部署代理软件"><a href="#在服务器部署代理软件" class="headerlink" title="在服务器部署代理软件"></a>在服务器部署代理软件</h1><p>Xshell 是一款可以在本地操作服务器端的软件，家庭和学生版是免费的。下载后新建会话，将主机名换成服务器IP地址，其余设置默认。</p>
+<h1 id="在服务器部署代理软件">在服务器部署代理软件</h1>
+<p>Xshell 是一款可以在本地操作服务器端的软件，家庭和学生版是免费的。下载后新建会话，将主机名换成服务器IP地址，其余设置默认。</p>
 <p>连接时用到用户名和密码，使用上一步记住的密码即可。</p>
 <p>在会话窗口执行以下代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/shadowsocks_install/master/shadowsocksR.sh &amp;&amp; bash shadowsocksR.sh</span><br></pre></td></tr></table></figure>
 <p>过程中会需要Shadow socks的用户名和密码，设置端口时用8989.</p>
 <p>在最后出现的页面上，保存必要的信息。</p>
-<h1 id="在客户端安装Shadow-socks"><a href="#在客户端安装Shadow-socks" class="headerlink" title="在客户端安装Shadow socks"></a>在客户端安装Shadow socks</h1><p>Windows版本<a href="https://link.jianshu.com/?t=http%3A%2F%2Fp1hy9syru.bkt.clouddn.com%2FShadowsocks-4.0.7.zip" target="_blank" rel="noopener">下载地址</a>  </p>
+<h1 id="在客户端安装shadow-socks">在客户端安装Shadow socks</h1>
+<p>Windows版本<a href="https://link.jianshu.com/?t=http%3A%2F%2Fp1hy9syru.bkt.clouddn.com%2FShadowsocks-4.0.7.zip" target="_blank" rel="noopener">下载地址</a></p>
 <p>iOS需要用PP助手等下载</p>
-<h1 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h1><h2 id="使用谷歌BBR加速网站下载"><a href="#使用谷歌BBR加速网站下载" class="headerlink" title="使用谷歌BBR加速网站下载"></a>使用谷歌BBR加速网站下载</h2><p>在Xshell中登陆服务器， 运行以下命令，用脚本安装Google BBR<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br></pre></td></tr></table></figure></p>
-<p>耐心等待安装完成，直到脚本提示重启，输入<code>y</code>重新启动VPS。最后检验是否安装成功，输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line">sysctl net.core.default_qdisc</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure></p>
+<h1 id="进阶配置">进阶配置</h1>
+<h2 id="使用谷歌bbr加速网站下载">使用谷歌BBR加速网站下载</h2>
+<p>在Xshell中登陆服务器， 运行以下命令，用脚本安装Google BBR <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br></pre></td></tr></table></figure></p>
+<p>耐心等待安装完成，直到脚本提示重启，输入<code>y</code>重新启动VPS。最后检验是否安装成功，输入命令 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line">sysctl net.core.default_qdisc</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure></p>
 <p>返回值一般为</p>
-<ol>
+<ol type="1">
 <li>net.ipv4.tcp_available_congestion_control = bbr cubic reno</li>
 <li>net.ipv4.tcp_congestion_control = bbr</li>
 <li>net.core.default_qdisc = fq</li>
 </ol>
 <p>此时BBR开启成功.</p>
-<h2 id="优化BBR配置，显著提高速度"><a href="#优化BBR配置，显著提高速度" class="headerlink" title="优化BBR配置，显著提高速度"></a>优化BBR配置，显著提高速度</h2><ol>
+<h2 id="优化bbr配置显著提高速度">优化BBR配置，显著提高速度</h2>
+<ol type="1">
 <li>在Xshell中修改sysctl.conf</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol start="2" type="1">
 <li>复制代码</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#TCP配置优化(不然你自己根本不知道你在干什么)</span><br><span class="line">fs.file-max = 51200</span><br><span class="line">#提高整个系统的文件限制</span><br><span class="line">net.core.rmem_max = 67108864</span><br><span class="line">net.core.wmem_max = 67108864</span><br><span class="line">net.core.netdev_max_backlog = 250000</span><br><span class="line">net.core.somaxconn = 4096</span><br><span class="line">net.ipv4.tcp_syncookies = 1</span><br><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">net.ipv4.tcp_tw_recycle = 0</span><br><span class="line">net.ipv4.tcp_fin_timeout = 30</span><br><span class="line">net.ipv4.tcp_keepalive_time = 1200</span><br><span class="line">net.ipv4.ip_local_port_range = 10000 65000</span><br><span class="line">net.ipv4.tcp_max_syn_backlog = 8192</span><br><span class="line">net.ipv4.tcp_max_tw_buckets = 5000</span><br><span class="line">net.ipv4.tcp_fastopen = 3</span><br><span class="line">net.ipv4.tcp_mem = 25600 51200 102400</span><br><span class="line">net.ipv4.tcp_rmem = 4096 87380 67108864</span><br><span class="line">net.ipv4.tcp_wmem = 4096 65536 67108864</span><br><span class="line">net.ipv4.tcp_mtu_probing = 1</span><br><span class="line">net.ipv4.tcp_congestion_control = bbr</span><br><span class="line">#END OF LINE</span><br></pre></td></tr></table></figure>
-<p>按<code>Ctrl+X</code>保存, 应用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure></p>
-<ol start="3">
+<p>按<code>Ctrl+X</code>保存, 应用 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure></p>
+<ol start="3" type="1">
 <li>重启SSR</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/shadowsocks restart</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -572,7 +579,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -674,7 +681,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -724,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在vultr上购买服务器"><span class="nav-number">1.</span> <span class="nav-text">在vultr上购买服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在服务器部署代理软件"><span class="nav-number">2.</span> <span class="nav-text">在服务器部署代理软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在客户端安装Shadow-socks"><span class="nav-number">3.</span> <span class="nav-text">在客户端安装Shadow socks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进阶配置"><span class="nav-number">4.</span> <span class="nav-text">进阶配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用谷歌BBR加速网站下载"><span class="nav-number">4.1.</span> <span class="nav-text">使用谷歌BBR加速网站下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化BBR配置，显著提高速度"><span class="nav-number">4.2.</span> <span class="nav-text">优化BBR配置，显著提高速度</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在vultr上购买服务器"><span class="nav-number">1.</span> <span class="nav-text">在vultr上购买服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在服务器部署代理软件"><span class="nav-number">2.</span> <span class="nav-text">在服务器部署代理软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在客户端安装shadow-socks"><span class="nav-number">3.</span> <span class="nav-text">在客户端安装Shadow socks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进阶配置"><span class="nav-number">4.</span> <span class="nav-text">进阶配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用谷歌bbr加速网站下载"><span class="nav-number">4.1.</span> <span class="nav-text">使用谷歌BBR加速网站下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化bbr配置显著提高速度"><span class="nav-number">4.2.</span> <span class="nav-text">优化BBR配置，显著提高速度</span></a></li></ol></li></ol></div>
             
 
           </div>

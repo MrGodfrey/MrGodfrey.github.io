@@ -410,50 +410,67 @@
         <p>关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.</p>
 <a id="more"></a>
 <p>算子半群系列文章回顾</p>
-<ol>
+<ol type="1">
 <li><a href=".\vector-value-function-integral.html">向量值函数的积分</a></li>
 <li><a href=".\C0-operator-semigroup-generator.html">强连续线性算子半群的定义与无穷小生成元</a></li>
 </ol>
-<h1 id="Hille-Yosida定理"><a href="#Hille-Yosida定理" class="headerlink" title="Hille-Yosida定理"></a>Hille-Yosida定理</h1><p>本文的主要参考书目为<em>张恭庆的泛函分析讲义下</em>.</p>
-<h2 id="叙述"><a href="#叙述" class="headerlink" title="叙述"></a>叙述</h2><p>定理有两个叙述,分别为压缩半群的版本和一般强连续算子半群的版本. 符号的记法与之前的<a href=".\C0-operator-semigroup-generator.html">强连续线性算子半群的定义与无穷小生成元</a>相同.</p>
-<p><strong>压缩半群</strong>  为了一个线性稠定闭算子$A$是一个压缩半群的生成元,必须且仅需以下两条成立</p>
+<h1 id="hille-yosida定理">Hille-Yosida定理</h1>
+<p>本文的主要参考书目为<em>张恭庆的泛函分析讲义下</em>.</p>
+<h2 id="叙述">叙述</h2>
+<p>定理有两个叙述,分别为压缩半群的版本和一般强连续算子半群的版本. 符号的记法与之前的<a href=".\C0-operator-semigroup-generator.html">强连续线性算子半群的定义与无穷小生成元</a>相同.</p>
+<p><strong>压缩半群</strong> 为了一个线性稠定闭算子<span class="math inline">\(A\)</span>是一个压缩半群的生成元,必须且仅需以下两条成立</p>
 <ul>
-<li>$(0,\infty) \subset \rho(A)$;</li>
-<li>$|R_{\lambda} (A)| \leq 1/\lambda, \forall \lambda &gt;0$</li>
+<li><span class="math inline">\((0,\infty) \subset \rho(A)\)</span>;</li>
+<li><span class="math inline">\(\|R_{\lambda} (A)\| \leq 1/\lambda, \forall \lambda &gt;0\)</span></li>
 </ul>
-<p><strong>一般半群</strong> 为了一个线性稠定闭算子$A$是一个强连续算子半群的生成元,必须且仅需以下两条成立</p>
+<p><strong>一般半群</strong> 为了一个线性稠定闭算子<span class="math inline">\(A\)</span>是一个强连续算子半群的生成元,必须且仅需以下两条成立</p>
 <ul>
-<li>$\exists \omega_0 &gt;0$使得$(\omega_0,\infty) \subset \rho(A)$;</li>
-<li>$\exists M &gt;0$使得当$\lambda&gt;\omega&gt;\omega_0$时,$|(\lambda-A)^{-n}| \leq M/(\lambda-\omega)^n,$ $n=1,2,\cdots$</li>
+<li><span class="math inline">\(\exists \omega_0 &gt;0\)</span>使得<span class="math inline">\((\omega_0,\infty) \subset \rho(A)\)</span>;</li>
+<li><span class="math inline">\(\exists M &gt;0\)</span>使得当<span class="math inline">\(\lambda&gt;\omega&gt;\omega_0\)</span>时,<span class="math inline">\(\|(\lambda-A)^{-n}\| \leq M/(\lambda-\omega)^n,\)</span> <span class="math inline">\(n=1,2,\cdots\)</span></li>
 </ul>
-<h2 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h2><p>上述的定理表明,当稠定闭算子$A$满足定理的条件后,算子微分方程<br>$$<br>\left{<br>\begin{aligned}<br>&amp;\frac{d}{dt} x(t)=Ax(t)\<br>&amp;x(0)=x_0 \in D(A)<br>\end{aligned}<br>\right.<br>$$<br>有解$x(t)=T(t)x_0$. 事实上,可以证明在函数空间$C(\mathbb{R}<em>{+};D(A)) \cap C^1(\mathbb{R}</em>{+};X)$中,方程的解是唯一的.</p>
-<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>叙述的证明以压缩半群为例,一般的算子半群与压缩半群的证明完全类似.</p>
+<h2 id="意义">意义</h2>
+<p>上述的定理表明,当稠定闭算子<span class="math inline">\(A\)</span>满足定理的条件后,算子微分方程 <span class="math display">\[
+\left\{
+\begin{aligned}
+&amp;\frac{d}{dt} x(t)=Ax(t)\\
+&amp;x(0)=x_0 \in D(A)
+\end{aligned}
+\right.
+\]</span> 有解<span class="math inline">\(x(t)=T(t)x_0\)</span>. 事实上,可以证明在函数空间<span class="math inline">\(C(\mathbb{R}_{+};D(A)) \cap C^1(\mathbb{R}_{+};X)\)</span>中,方程的解是唯一的.</p>
+<h2 id="证明">证明</h2>
+<p>叙述的证明以压缩半群为例,一般的算子半群与压缩半群的证明完全类似.</p>
 <p>证明分为必要性和充分性,对压缩半群,是否无穷小生成元满足那两个条件.反过来,满足那两个条件,如何构造对应的压缩半群.</p>
-<h3 id="必要性"><a href="#必要性" class="headerlink" title="必要性"></a>必要性</h3><p>为了研究生成元$A$的正则点(预解集中的点),需要想办法研究生成元的预解式.</p>
-<p><strong>用Laplace变换研究生成元预解式</strong> 收到常微分方程的启发,考虑积分<br>$$ R_\lambda = \int_0^\infty e^{-\lambda t} T(t) dt $$</p>
-<p>这个积分就是$T(t)$的Laplace变换,形式上若$T(t)=e^{At}$, 则$R_\lambda$就是$A$的预解式.</p>
-<p>事实上,只需要用定义验证,很容易知道这个结论是成立的.而且顺便得到了$|R_\lambda| \leq \frac{1}{Re \lambda}$的结论.</p>
-<h3 id="充分性"><a href="#充分性" class="headerlink" title="充分性"></a>充分性</h3><p>构造算子半群的方法,基本上是用有界线性算子逼近$A$, 再用有界线性算子生成的算子半群逼近所需的算子半群.</p>
-<p>具体来说,考虑算子$B_\lambda= \lambda^2(\lambda-A)^{-1} -\lambda$. 事实上如果只考虑$D(A)$中的情况,则这个算子可通分为$\lambda(\lambda-A)^{-1} A$. 当$\lambda \rightarrow \infty$时,这个算子应当强收敛到$A$. </p>
-<p>定义$T_\lambda (t)= e^{B_\lambda t}$, 可以证明这列算子是强收敛的,并且每一个都是压缩半群. 于是可以定义极限$T(t)$, 可以证明其为压缩半群且$A$是它的生成元.</p>
+<h3 id="必要性">必要性</h3>
+<p>为了研究生成元<span class="math inline">\(A\)</span>的正则点(预解集中的点),需要想办法研究生成元的预解式.</p>
+<p><strong>用Laplace变换研究生成元预解式</strong> 收到常微分方程的启发,考虑积分 <span class="math display">\[ R_\lambda = \int_0^\infty e^{-\lambda t} T(t) dt \]</span></p>
+<p>这个积分就是<span class="math inline">\(T(t)\)</span>的Laplace变换,形式上若<span class="math inline">\(T(t)=e^{At}\)</span>, 则<span class="math inline">\(R_\lambda\)</span>就是<span class="math inline">\(A\)</span>的预解式.</p>
+<p>事实上,只需要用定义验证,很容易知道这个结论是成立的.而且顺便得到了<span class="math inline">\(\|R_\lambda\| \leq \frac{1}{Re \lambda}\)</span>的结论.</p>
+<h3 id="充分性">充分性</h3>
+<p>构造算子半群的方法,基本上是用有界线性算子逼近<span class="math inline">\(A\)</span>, 再用有界线性算子生成的算子半群逼近所需的算子半群.</p>
+<p>具体来说,考虑算子<span class="math inline">\(B_\lambda= \lambda^2(\lambda-A)^{-1} -\lambda\)</span>. 事实上如果只考虑<span class="math inline">\(D(A)\)</span>中的情况,则这个算子可通分为<span class="math inline">\(\lambda(\lambda-A)^{-1} A\)</span>. 当<span class="math inline">\(\lambda \rightarrow \infty\)</span>时,这个算子应当强收敛到<span class="math inline">\(A\)</span>.</p>
+<p>定义<span class="math inline">\(T_\lambda (t)= e^{B_\lambda t}\)</span>, 可以证明这列算子是强收敛的,并且每一个都是压缩半群. 于是可以定义极限<span class="math inline">\(T(t)\)</span>, 可以证明其为压缩半群且<span class="math inline">\(A\)</span>是它的生成元.</p>
 <p>证明过程基本是用上面给出的Laplace变换的形式,将复杂的泛函问题转化为对积分的估计.</p>
-<h1 id="Stone定理"><a href="#Stone定理" class="headerlink" title="Stone定理"></a>Stone定理</h1><h2 id="叙述-1"><a href="#叙述-1" class="headerlink" title="叙述"></a>叙述</h2><p>Stone定理阐述了,一个算子满足什么条件时可以成为强连续酉算子群的生成元,反过来,强连续酉算子群的生成元一定长成什么样子.</p>
+<h1 id="stone定理">Stone定理</h1>
+<h2 id="叙述-1">叙述</h2>
+<p>Stone定理阐述了,一个算子满足什么条件时可以成为强连续酉算子群的生成元,反过来,强连续酉算子群的生成元一定长成什么样子.</p>
 <p>首先,强连续酉算子群是指满足三个条件的算子群</p>
 <ul>
-<li>对每个$t \in \mathbb{R}$, $U(t)$是$H$上的酉算子</li>
-<li>$U(t+s)=U(t)U(s)$</li>
-<li>$U(t)$强连续</li>
+<li>对每个<span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math inline">\(U(t)\)</span>是<span class="math inline">\(H\)</span>上的酉算子</li>
+<li><span class="math inline">\(U(t+s)=U(t)U(s)\)</span></li>
+<li><span class="math inline">\(U(t)\)</span>强连续</li>
 </ul>
-<p><strong>Remark</strong> 可以看到如果给了一个强连续算子半群$T(t)$,如果它的共轭算子半群(就是$T^*(t)$)是强连续的,则可以自然构成一个酉算子群.至于何时共轭算子半群依然是强连续的,有个结论说若空间是自反的Banach空间就可以.值得一提的是,共轭算子半群的生成元大致是原来半群生成元的共轭.</p>
+<p><strong>Remark</strong> 可以看到如果给了一个强连续算子半群<span class="math inline">\(T(t)\)</span>,如果它的共轭算子半群(就是<span class="math inline">\(T^*(t)\)</span>)是强连续的,则可以自然构成一个酉算子群.至于何时共轭算子半群依然是强连续的,有个结论说若空间是自反的Banach空间就可以.值得一提的是,共轭算子半群的生成元大致是原来半群生成元的共轭.</p>
 <p><strong>Remark</strong> 在可分的Banach空间中,强连续与弱可测是等价的.</p>
-<p><strong>Stone定理</strong> 若${U(t); t\in \mathbb{R}}$是一个弱可测酉算子群,则必有一个自伴算子$A$,使得$iA$是它的生成元.更进一步,若有一个自伴算子$A$, 则有一个弱可测酉算子群$U(t)=e^{i tA}$的生成元为$iA$.</p>
-<p>上述的指数形式是算符演算给出的.用$A$的谱分解给出的话应是<br>$$ U(t) = \int_{-\infty}^{+\infty} e^{it\lambda}dE_\lambda $$</p>
-<h2 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h2><p>这个定理的证明是直接的,只需要用生成元的定义即可知道.</p>
-<h2 id="意义-1"><a href="#意义-1" class="headerlink" title="意义"></a>意义</h2><p>在量子力学中,基本方程是薛定谔方程<br>$$ i \hbar \frac{\partial}{\partial t} \psi(x,t) = H \psi(x,t)  $$<br>其中$H$是Hamilton算子,一般是无界线性算子,先假设$H$与时间无关,定义域是$L^2$的某个闭子空间.</p>
-<p>波函数$\psi(x,t)$的物理意义是在时刻$t$, 粒子出现在点$x$处的概率密度,由概率守恒可知道$\int_{\mathbb{R}^3} | \psi(x,t) | ^2 dx=1$.</p>
-<p>考虑传播子$U(t)$, 定义为初始时刻的波函数$\psi(0,t)$到$t$时刻波函数$\psi(x,t)$的变换.于是由物理过程的时不变性, $U(t+s)=U(t)U(s)$, 并且由概率守恒可以知道$U(t)$是个保范算子,于是可以得到$U(t)$应当是个酉算子群.而且物理过程可以要求$U(t)$是弱可测的.</p>
-<p>于是由上述的Stone定理,可以知道$H$必然是自伴算子,并且$U(t)$的具体形式也可以写出来.事实上有<br>$$ \psi(x,t) = U(t)\psi(x,0) = e^{-i Ht /\hbar} \psi(x,0)$$</p>
-<p>于是我们给出了薛定谔方程的解,而且还断定算子$H$必须要是自伴算子.相较于原来的方程,显然给出了更多有意义的信息.</p>
+<p><strong>Stone定理</strong> 若<span class="math inline">\(\{U(t); t\in \mathbb{R}\}\)</span>是一个弱可测酉算子群,则必有一个自伴算子<span class="math inline">\(A\)</span>,使得<span class="math inline">\(iA\)</span>是它的生成元.更进一步,若有一个自伴算子<span class="math inline">\(A\)</span>, 则有一个弱可测酉算子群<span class="math inline">\(U(t)=e^{i tA}\)</span>的生成元为<span class="math inline">\(iA\)</span>.</p>
+<p>上述的指数形式是算符演算给出的.用<span class="math inline">\(A\)</span>的谱分解给出的话应是 <span class="math display">\[ U(t) = \int_{-\infty}^{+\infty} e^{it\lambda}dE_\lambda \]</span></p>
+<h2 id="证明-1">证明</h2>
+<p>这个定理的证明是直接的,只需要用生成元的定义即可知道.</p>
+<h2 id="意义-1">意义</h2>
+<p>在量子力学中,基本方程是薛定谔方程 <span class="math display">\[ i \hbar \frac{\partial}{\partial t} \psi(x,t) = H \psi(x,t)  \]</span> 其中<span class="math inline">\(H\)</span>是Hamilton算子,一般是无界线性算子,先假设<span class="math inline">\(H\)</span>与时间无关,定义域是<span class="math inline">\(L^2\)</span>的某个闭子空间.</p>
+<p>波函数<span class="math inline">\(\psi(x,t)\)</span>的物理意义是在时刻<span class="math inline">\(t\)</span>, 粒子出现在点<span class="math inline">\(x\)</span>处的概率密度,由概率守恒可知道<span class="math inline">\(\int_{\mathbb{R}^3} | \psi(x,t) | ^2 dx=1\)</span>.</p>
+<p>考虑传播子<span class="math inline">\(U(t)\)</span>, 定义为初始时刻的波函数<span class="math inline">\(\psi(0,t)\)</span>到<span class="math inline">\(t\)</span>时刻波函数<span class="math inline">\(\psi(x,t)\)</span>的变换.于是由物理过程的时不变性, <span class="math inline">\(U(t+s)=U(t)U(s)\)</span>, 并且由概率守恒可以知道<span class="math inline">\(U(t)\)</span>是个保范算子,于是可以得到<span class="math inline">\(U(t)\)</span>应当是个酉算子群.而且物理过程可以要求<span class="math inline">\(U(t)\)</span>是弱可测的.</p>
+<p>于是由上述的Stone定理,可以知道<span class="math inline">\(H\)</span>必然是自伴算子,并且<span class="math inline">\(U(t)\)</span>的具体形式也可以写出来.事实上有 <span class="math display">\[ \psi(x,t) = U(t)\psi(x,0) = e^{-i Ht /\hbar} \psi(x,0)\]</span></p>
+<p>于是我们给出了薛定谔方程的解,而且还断定算子<span class="math inline">\(H\)</span>必须要是自伴算子.相较于原来的方程,显然给出了更多有意义的信息.</p>
 
       
     </div>
@@ -610,7 +627,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -712,7 +729,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -762,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hille-Yosida定理"><span class="nav-number">1.</span> <span class="nav-text">Hille-Yosida定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#叙述"><span class="nav-number">1.1.</span> <span class="nav-text">叙述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义"><span class="nav-number">1.2.</span> <span class="nav-text">意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明"><span class="nav-number">1.3.</span> <span class="nav-text">证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必要性"><span class="nav-number">1.3.1.</span> <span class="nav-text">必要性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#充分性"><span class="nav-number">1.3.2.</span> <span class="nav-text">充分性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stone定理"><span class="nav-number">2.</span> <span class="nav-text">Stone定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#叙述-1"><span class="nav-number">2.1.</span> <span class="nav-text">叙述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明-1"><span class="nav-number">2.2.</span> <span class="nav-text">证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义-1"><span class="nav-number">2.3.</span> <span class="nav-text">意义</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hille-yosida定理"><span class="nav-number">1.</span> <span class="nav-text">Hille-Yosida定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#叙述"><span class="nav-number">1.1.</span> <span class="nav-text">叙述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义"><span class="nav-number">1.2.</span> <span class="nav-text">意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明"><span class="nav-number">1.3.</span> <span class="nav-text">证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必要性"><span class="nav-number">1.3.1.</span> <span class="nav-text">必要性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#充分性"><span class="nav-number">1.3.2.</span> <span class="nav-text">充分性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stone定理"><span class="nav-number">2.</span> <span class="nav-text">Stone定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#叙述-1"><span class="nav-number">2.1.</span> <span class="nav-text">叙述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明-1"><span class="nav-number">2.2.</span> <span class="nav-text">证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义-1"><span class="nav-number">2.3.</span> <span class="nav-text">意义</span></a></li></ol></li></ol></div>
             
 
           </div>

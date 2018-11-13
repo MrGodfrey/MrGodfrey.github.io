@@ -409,9 +409,11 @@
       
         <p>小屏幕设备在看结构复杂些的文章时，很容易陷入云深不知处的处境。Next主题对Laptop设备有导航按钮，但对小屏幕设备没能很好的实现文章定位。查阅资料后实现了用CSS自动加标题编号的功能。</p>
 <a id="more"></a>
-<h1 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h1><p>在Next主题的<code>...\themes\next\source\css\_common\scaffolding\base.styl</code>文件中搜索<code>h1</code>, 并在其后加入代码</p>
+<h1 id="实现方式">实现方式</h1>
+<p>在Next主题的<code>...\themes\next\source\css\_common\scaffolding\base.styl</code>文件中搜索<code>h1</code>, 并在其后加入代码</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">991px</span>) &#123;</span><br><span class="line"><span class="selector-class">.post-body</span> &#123;<span class="attribute">counter-reset</span>:section&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h1</span>&#123;<span class="attribute">counter-reset</span>:sub-section&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h2</span>&#123;<span class="attribute">counter-reset</span>:composite&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h3</span>&#123;<span class="attribute">counter-reset</span>:detail&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>&#123;<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:section&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>&#123;<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:sub-section&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>&#123;<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">"."</span> <span class="built_in">counter</span>(composite) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:composite&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>&#123;<span class="attribute">content</span>:<span class="built_in">counter</span>(section) <span class="string">"."</span> <span class="built_in">counter</span>(sub-section) <span class="string">"."</span> <span class="built_in">counter</span>(composite) <span class="string">"."</span> <span class="built_in">counter</span>(detail) <span class="string">" "</span>;<span class="attribute">counter-increment</span>:detail&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><p>Todo.</p>
+<h1 id="解释">解释</h1>
+<p>Todo.</p>
 
       
     </div>
@@ -568,7 +570,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -670,7 +672,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

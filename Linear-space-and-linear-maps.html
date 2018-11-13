@@ -419,107 +419,114 @@
       
         <p>大一所学的线性代数中线性空间和线性映射的相关知识结构梳理.参考书目为彭国华等的<em>Linear Algebra</em>.</p>
 <a id="more"></a>
-<h1 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h1><p>线性空间是向量空间的推广,本书中的向量空间单指数域$F$的$n$维乘积, 而线性空间则是满足如下性质的集合.</p>
-<p><strong>定义4.1</strong> 集合$L$被称为数域$F$上的线性空间,若$L$中成立元素的加法和数域$F$中的数乘.</p>
+<h1 id="线性空间">线性空间</h1>
+<p>线性空间是向量空间的推广,本书中的向量空间单指数域<span class="math inline">\(F\)</span>的<span class="math inline">\(n\)</span>维乘积, 而线性空间则是满足如下性质的集合.</p>
+<p><strong>定义4.1</strong> 集合<span class="math inline">\(L\)</span>被称为数域<span class="math inline">\(F\)</span>上的线性空间,若<span class="math inline">\(L\)</span>中成立元素的加法和数域<span class="math inline">\(F\)</span>中的数乘.</p>
 <p><strong>例4.1</strong></p>
-<ol>
-<li>向量空间$F^n$自然是$F$线性空间.</li>
-<li>数域$F$本身也是$F$线性空间.</li>
-<li>复数域$C$是$R$线性空间.</li>
-<li>所有域$F$上的多项式$F[x]$是$F$线性空间,其中次数不大于$n$的多项式全体$F[x]_n$也是$F$线性空间.</li>
-<li>域$F$上的$m\times n$阶矩阵也是$F$线性空间</li>
-<li>齐次线性方程组的解是$F$线性空间,被称为方程组的解空间.</li>
+<ol type="1">
+<li>向量空间<span class="math inline">\(F^n\)</span>自然是<span class="math inline">\(F\)</span>线性空间.</li>
+<li>数域<span class="math inline">\(F\)</span>本身也是<span class="math inline">\(F\)</span>线性空间.</li>
+<li>复数域<span class="math inline">\(C\)</span>是<span class="math inline">\(R\)</span>线性空间.</li>
+<li>所有域<span class="math inline">\(F\)</span>上的多项式<span class="math inline">\(F[x]\)</span>是<span class="math inline">\(F\)</span>线性空间,其中次数不大于<span class="math inline">\(n\)</span>的多项式全体<span class="math inline">\(F[x]_n\)</span>也是<span class="math inline">\(F\)</span>线性空间.</li>
+<li>域<span class="math inline">\(F\)</span>上的<span class="math inline">\(m\times n\)</span>阶矩阵也是<span class="math inline">\(F\)</span>线性空间</li>
+<li>齐次线性方程组的解是<span class="math inline">\(F\)</span>线性空间,被称为方程组的解空间.</li>
 </ol>
 <p><strong>remark</strong> 有一些直接从定义而来的简单结论</p>
-<ol>
+<ol type="1">
 <li>零元唯一</li>
 <li>逆元唯一</li>
-<li>$0\alpha=0, k0=0$</li>
-<li>$(-1)\alpha$是$\alpha$的逆元</li>
+<li><span class="math inline">\(0\alpha=0, k0=0\)</span></li>
+<li><span class="math inline">\((-1)\alpha\)</span>是<span class="math inline">\(\alpha\)</span>的逆元</li>
 </ol>
-<h1 id="维数-基-坐标"><a href="#维数-基-坐标" class="headerlink" title="维数,基,坐标"></a>维数,基,坐标</h1><p><strong>定义4.2</strong> 线性组合,线性表出,向量张成线性空间,线性相关和线性无关的概念.</p>
-<p><strong>定义4.2’</strong> 一个集合是线性无关的,若其每个有限子集都是线性无关的.反之,则这个集合是线性相关的.比如$F[x]$中的子集${1,x,x^2,x^3,\cdots}$就是线性无关的.</p>
-<p><strong>定义4.3</strong> 线性空间$L$的两个子集相互等价,当且仅当二者的元素可以互相线性表出.</p>
-<p><strong>命题</strong>  类似向量空间中的证明,可以证明如下结论</p>
-<ol>
+<h1 id="维数基坐标">维数,基,坐标</h1>
+<p><strong>定义4.2</strong> 线性组合,线性表出,向量张成线性空间,线性相关和线性无关的概念.</p>
+<p><strong>定义4.2'</strong> 一个集合是线性无关的,若其每个有限子集都是线性无关的.反之,则这个集合是线性相关的.比如<span class="math inline">\(F[x]\)</span>中的子集<span class="math inline">\(\{1,x,x^2,x^3,\cdots\}\)</span>就是线性无关的.</p>
+<p><strong>定义4.3</strong> 线性空间<span class="math inline">\(L\)</span>的两个子集相互等价,当且仅当二者的元素可以互相线性表出.</p>
+<p><strong>命题</strong> 类似向量空间中的证明,可以证明如下结论</p>
+<ol type="1">
 <li>只含一个元素的集合线性无关当且仅当这个元素非零</li>
 <li>向量集之间等价的关系具有自反性,对称性和传递性.</li>
-<li>含$n$个元素的集合$S$若能被含$m(n&gt;m)$个元素的集合$T$线性表出,则集合$S$是线性相关的.</li>
+<li>含<span class="math inline">\(n\)</span>个元素的集合<span class="math inline">\(S\)</span>若能被含<span class="math inline">\(m(n&gt;m)\)</span>个元素的集合<span class="math inline">\(T\)</span>线性表出,则集合<span class="math inline">\(S\)</span>是线性相关的.</li>
 <li>两个线性无关集等价,则这两个集合有相同多个元素.</li>
-<li>若$\beta$能被$\alpha_1,\cdots,\alpha_n$线性表出,则$\beta,\alpha_1,\cdots,\alpha_n$是线性相关的</li>
-<li>若$\alpha_1,\cdots,\alpha_n$是线性无关的,且$\beta,\alpha_1,\cdots,\alpha_n$线性相关,则$\beta$能被$\alpha_1,\cdots,\alpha_n$线性表出.</li>
+<li>若<span class="math inline">\(\beta\)</span>能被<span class="math inline">\(\alpha_1,\cdots,\alpha_n\)</span>线性表出,则<span class="math inline">\(\beta,\alpha_1,\cdots,\alpha_n\)</span>是线性相关的</li>
+<li>若<span class="math inline">\(\alpha_1,\cdots,\alpha_n\)</span>是线性无关的,且<span class="math inline">\(\beta,\alpha_1,\cdots,\alpha_n\)</span>线性相关,则<span class="math inline">\(\beta\)</span>能被<span class="math inline">\(\alpha_1,\cdots,\alpha_n\)</span>线性表出.</li>
 </ol>
-<p><strong>定义4.4</strong> 若线性空间$L$等价于一个$n$维的线性无关子集,就成$L$的维数是$n$.记为$\dim L=n$. 若$L$有一个包含无穷多元素的线性无关子集,则称$L$是无穷维的.</p>
-<p><strong>定义4.5</strong> $n$维线性空间$L$的一个包含$n$个元素的线性无关子集被称为$L$的基.</p>
-<p><strong>remark</strong> 可以有很多组基.由上述命题3.和6. $L$中的元素都可以由基中的元素线性表出.</p>
-<p><strong>命题4.1</strong> 若$S$为$L$的有$n$个元素的线性无关子集,且$L$中的元素都可以由$S$线性表出,则$S$为$L$的基,且$\dim L=n$.</p>
-<p>设${\varepsilon_1,\cdots, \varepsilon_n}$为$L$的基, 则对于$L$中的元素$\alpha$, 可以唯一表为<br>$$ \alpha = \begin{pmatrix} \varepsilon_1,\cdots, \varepsilon_n  \end{pmatrix} \begin{pmatrix} a_1\a_2\ \vdots \ a_n \end{pmatrix} $$<br>于是$n$元组$\begin{pmatrix} a_1,a_2, \cdots , a_n \end{pmatrix}$就是$\alpha$在基$\varepsilon_1,\cdots, \varepsilon_n$下的坐标.</p>
-<h1 id="基变换和坐标变换"><a href="#基变换和坐标变换" class="headerlink" title="基变换和坐标变换"></a>基变换和坐标变换</h1><p>若$\varepsilon_1,\cdots, \varepsilon_n$为$L$的一组基, $\varepsilon’_1,\cdots, \varepsilon’_n$是$L$的另外一组基. 设$\xi$在这两组基下的坐标为$x=\begin{pmatrix} x_1,x_2, \cdots , x_n \end{pmatrix}$以及 $x’= \begin{pmatrix} x’_1,x’_2,\cdots,x’_n\end{pmatrix}$.</p>
-<p>两组基可以互相线性表出,所以得到基变换公式<br>$$ \varepsilon’=\varepsilon A $$<br>或者反过来<br>$$ \varepsilon=\varepsilon’ A^{-1} $$<br>其中$\varepsilon = \begin{pmatrix} \varepsilon_1,\varepsilon_2,\cdots,\varepsilon_n\end{pmatrix},\varepsilon’ = \begin{pmatrix} \varepsilon’_1,\varepsilon’_2,\cdots,\varepsilon’_n\end{pmatrix}$. 矩阵$A$是可逆的,这是因为若$A$不可逆,容易证明$\varepsilon’$线性相关, 这只需要右成一个非零向量$\beta$使得$A\beta=0$即可知道$\varepsilon’\beta=0$. </p>
-<p>利用$\xi = \varepsilon x=\varepsilon ‘ x’$得到坐标变换公式<br>$$ x=Ax’ $$<br>或者反过来<br>$$ x’=A^{-1}x $$</p>
-<h1 id="线性映射和同构映射"><a href="#线性映射和同构映射" class="headerlink" title="线性映射和同构映射"></a>线性映射和同构映射</h1><p><strong>定义4.6</strong> 线性空间$L$映到线性空间$M$的保加法和数乘的映射被成为线性映射.若$L=M$,则称为线性变换.</p>
+<p><strong>定义4.4</strong> 若线性空间<span class="math inline">\(L\)</span>等价于一个<span class="math inline">\(n\)</span>维的线性无关子集,就成<span class="math inline">\(L\)</span>的维数是<span class="math inline">\(n\)</span>.记为<span class="math inline">\(\dim L=n\)</span>. 若<span class="math inline">\(L\)</span>有一个包含无穷多元素的线性无关子集,则称<span class="math inline">\(L\)</span>是无穷维的.</p>
+<p><strong>定义4.5</strong> <span class="math inline">\(n\)</span>维线性空间<span class="math inline">\(L\)</span>的一个包含<span class="math inline">\(n\)</span>个元素的线性无关子集被称为<span class="math inline">\(L\)</span>的基.</p>
+<p><strong>remark</strong> 可以有很多组基.由上述命题3.和6. <span class="math inline">\(L\)</span>中的元素都可以由基中的元素线性表出.</p>
+<p><strong>命题4.1</strong> 若<span class="math inline">\(S\)</span>为<span class="math inline">\(L\)</span>的有<span class="math inline">\(n\)</span>个元素的线性无关子集,且<span class="math inline">\(L\)</span>中的元素都可以由<span class="math inline">\(S\)</span>线性表出,则<span class="math inline">\(S\)</span>为<span class="math inline">\(L\)</span>的基,且<span class="math inline">\(\dim L=n\)</span>.</p>
+<p>设<span class="math inline">\(\{\varepsilon_1,\cdots, \varepsilon_n\}\)</span>为<span class="math inline">\(L\)</span>的基, 则对于<span class="math inline">\(L\)</span>中的元素<span class="math inline">\(\alpha\)</span>, 可以唯一表为 <span class="math display">\[ \alpha = \begin{pmatrix} \varepsilon_1,\cdots, \varepsilon_n  \end{pmatrix} \begin{pmatrix} a_1\\a_2\\ \vdots \\ a_n \end{pmatrix} \]</span> 于是<span class="math inline">\(n\)</span>元组<span class="math inline">\(\begin{pmatrix} a_1,a_2, \cdots , a_n \end{pmatrix}\)</span>就是<span class="math inline">\(\alpha\)</span>在基<span class="math inline">\(\varepsilon_1,\cdots, \varepsilon_n\)</span>下的坐标.</p>
+<h1 id="基变换和坐标变换">基变换和坐标变换</h1>
+<p>若<span class="math inline">\(\varepsilon_1,\cdots, \varepsilon_n\)</span>为<span class="math inline">\(L\)</span>的一组基, <span class="math inline">\(\varepsilon&#39;_1,\cdots, \varepsilon&#39;_n\)</span>是<span class="math inline">\(L\)</span>的另外一组基. 设<span class="math inline">\(\xi\)</span>在这两组基下的坐标为<span class="math inline">\(x=\begin{pmatrix} x_1,x_2, \cdots , x_n \end{pmatrix}\)</span>以及 <span class="math inline">\(x&#39;= \begin{pmatrix} x&#39;_1,x&#39;_2,\cdots,x&#39;_n\end{pmatrix}\)</span>.</p>
+<p>两组基可以互相线性表出,所以得到基变换公式 <span class="math display">\[ \varepsilon&#39;=\varepsilon A \]</span> 或者反过来 <span class="math display">\[ \varepsilon=\varepsilon&#39; A^{-1} \]</span> 其中<span class="math inline">\(\varepsilon = \begin{pmatrix} \varepsilon_1,\varepsilon_2,\cdots,\varepsilon_n\end{pmatrix},\varepsilon&#39; = \begin{pmatrix} \varepsilon&#39;_1,\varepsilon&#39;_2,\cdots,\varepsilon&#39;_n\end{pmatrix}\)</span>. 矩阵<span class="math inline">\(A\)</span>是可逆的,这是因为若<span class="math inline">\(A\)</span>不可逆,容易证明<span class="math inline">\(\varepsilon&#39;\)</span>线性相关, 这只需要右成一个非零向量<span class="math inline">\(\beta\)</span>使得<span class="math inline">\(A\beta=0\)</span>即可知道<span class="math inline">\(\varepsilon&#39;\beta=0\)</span>.</p>
+<p>利用<span class="math inline">\(\xi = \varepsilon x=\varepsilon &#39; x&#39;\)</span>得到坐标变换公式 <span class="math display">\[ x=Ax&#39; \]</span> 或者反过来 <span class="math display">\[ x&#39;=A^{-1}x \]</span></p>
+<h1 id="线性映射和同构映射">线性映射和同构映射</h1>
+<p><strong>定义4.6</strong> 线性空间<span class="math inline">\(L\)</span>映到线性空间<span class="math inline">\(M\)</span>的保加法和数乘的映射被成为线性映射.若<span class="math inline">\(L=M\)</span>,则称为线性变换.</p>
 <p><strong>例4.4</strong></p>
-<ol>
+<ol type="1">
 <li>零映射</li>
 <li>恒等映射</li>
-<li>至多$n$次多项式中的求导映射</li>
+<li>至多<span class="math inline">\(n\)</span>次多项式中的求导映射</li>
 </ol>
-<p><strong>remark</strong> 由线性映射的定义可得到$f(0)=0, f(-\alpha)=-f(\alpha)$.</p>
-<p>在定义线性映射的加法和数乘后,所有线性空间$U$到线性空间$V$的线性映射构成$F$线性空间,记作$L(U,V)$.</p>
-<p>可以证明线性映射的复合$g\circ f$依然是线性映射.</p>
-<p><strong>引理4.1</strong> 线性映射$f$把线性相关集映成线性相关集. 若$\beta$是$\alpha_1, \cdots, \alpha_s$的线性组合, $f(\beta)$同样是$f(\alpha)_1, \cdots, f(\alpha)_s$的线性组合.</p>
+<p><strong>remark</strong> 由线性映射的定义可得到<span class="math inline">\(f(0)=0, f(-\alpha)=-f(\alpha)\)</span>.</p>
+<p>在定义线性映射的加法和数乘后,所有线性空间<span class="math inline">\(U\)</span>到线性空间<span class="math inline">\(V\)</span>的线性映射构成<span class="math inline">\(F\)</span>线性空间,记作<span class="math inline">\(L(U,V)\)</span>.</p>
+<p>可以证明线性映射的复合<span class="math inline">\(g\circ f\)</span>依然是线性映射.</p>
+<p><strong>引理4.1</strong> 线性映射<span class="math inline">\(f\)</span>把线性相关集映成线性相关集. 若<span class="math inline">\(\beta\)</span>是<span class="math inline">\(\alpha_1, \cdots, \alpha_s\)</span>的线性组合, <span class="math inline">\(f(\beta)\)</span>同样是<span class="math inline">\(f(\alpha)_1, \cdots, f(\alpha)_s\)</span>的线性组合.</p>
 <p><strong>remark</strong> 线性映射可将线性无关集映成线性相关集. 参见例4.5.</p>
-<p><strong>定理4.1</strong> $n$维线性空间$L$中的一组基${\alpha_i}$, 以及线性空间$M$中的n个向量${\beta_i}$.存在唯一的线性映射$f$使得$f(\alpha_i)=\beta_i$.</p>
+<p><strong>定理4.1</strong> <span class="math inline">\(n\)</span>维线性空间<span class="math inline">\(L\)</span>中的一组基<span class="math inline">\(\{\alpha_i\}\)</span>, 以及线性空间<span class="math inline">\(M\)</span>中的n个向量<span class="math inline">\(\{\beta_i\}\)</span>.存在唯一的线性映射<span class="math inline">\(f\)</span>使得<span class="math inline">\(f(\alpha_i)=\beta_i\)</span>.</p>
 <p><strong>定义4.7</strong> 单射,满射和双射</p>
 <p><strong>定义4.8</strong> 同构映射和同构</p>
-<p><strong>例4.6</strong> $M_n(F)$与$F^{2n}$同构</p>
-<p><strong>引理4.2</strong> 线性映射$f$是同构映射当且仅当存在线性映射$g$使得$g\circ f, f\circ g$都是恒等映射.这样的映射$g$是唯一的,记为$f^{-1}$.</p>
+<p><strong>例4.6</strong> <span class="math inline">\(M_n(F)\)</span>与<span class="math inline">\(F^{2n}\)</span>同构</p>
+<p><strong>引理4.2</strong> 线性映射<span class="math inline">\(f\)</span>是同构映射当且仅当存在线性映射<span class="math inline">\(g\)</span>使得<span class="math inline">\(g\circ f, f\circ g\)</span>都是恒等映射.这样的映射<span class="math inline">\(g\)</span>是唯一的,记为<span class="math inline">\(f^{-1}\)</span>.</p>
 <p><strong>remark</strong> 引理4.2说明同构映射的逆仍然是同构映射</p>
-<p><strong>引理4.3</strong> 同构映射的复合仍然是同构映射,且$(f\circ g)^{-1}= g^{-1} \circ f^{-1}$.</p>
+<p><strong>引理4.3</strong> 同构映射的复合仍然是同构映射,且<span class="math inline">\((f\circ g)^{-1}= g^{-1} \circ f^{-1}\)</span>.</p>
 <p><strong>定理4.2</strong> 同构是等价关系</p>
-<p><strong>引理4.4</strong> $f$是同构映射,当且仅当$f$将线性无关集映成线性无关集.</p>
+<p><strong>引理4.4</strong> <span class="math inline">\(f\)</span>是同构映射,当且仅当<span class="math inline">\(f\)</span>将线性无关集映成线性无关集.</p>
 <p><strong>推论 4.1</strong> 同构的线性空间有相同的维数</p>
-<p><strong>定理4.3</strong> 任意数域$F$上的$n$维线性空间同构于$F^{n}$</p>
+<p><strong>定理4.3</strong> 任意数域<span class="math inline">\(F\)</span>上的<span class="math inline">\(n\)</span>维线性空间同构于<span class="math inline">\(F^{n}\)</span></p>
 <p><strong>推论4.2</strong> 线性空间同构当且仅当维数相等</p>
-<h1 id="线性映射的矩阵"><a href="#线性映射的矩阵" class="headerlink" title="线性映射的矩阵"></a>线性映射的矩阵</h1><p>$n$维线性空间$L$的一组基记为${\varepsilon_i}$, $m$维线性空间$V$的一组基记为${\beta_j}$,则线性映射$f$可以写成<br>$$ f(\varepsilon_1,\cdots,\varepsilon_n) = (\beta_1,\cdots,\beta_m) A $$<br>则称$A \in M_{m\times n}(F)$是线性映射$f$在基${\varepsilon_i}$和基${\beta_j}$下的矩阵.</p>
-<p><strong>定理4.4</strong> $L(L,V)$与$M_{m\times n}(F)$同构.</p>
-<p>若$L=V$, 则称$A$为线性变换$f$在基${\varepsilon_i}$下的矩阵.</p>
-<p><strong>定理4.5</strong> 若${\varepsilon’_i}$是$L$的另外一组基, ${\beta’_j}$是$V$的另外一组基. 且基变换矩阵分别为$Q,P$, 即$\varepsilon ‘= \varepsilon Q, \beta’= \beta P$.则$f$在基${\varepsilon’_i}$和基${\beta’_j}$下的矩阵$A’$成立<br>$$ A = PA’Q^{-1} $$<br>或<br>$$  A’ = P^{-1} A Q $$</p>
-<p><strong>推论4.3</strong> 对$L$上的线性变换$f$, $A,A’$为线性变换$f$在基${\varepsilon_i},{\varepsilon’_i}$下的矩阵, $P$为基变换矩阵,则$A’=P^{-1} A P$.</p>
-<h1 id="子空间与直和"><a href="#子空间与直和" class="headerlink" title="子空间与直和"></a>子空间与直和</h1><p><strong>定义4.9</strong> 子空间和余维</p>
-<p><strong>remark</strong> $L$的子集$M$是子空间,当且仅当$M$包含$0$,且对加法和数乘封闭.</p>
+<h1 id="线性映射的矩阵">线性映射的矩阵</h1>
+<p><span class="math inline">\(n\)</span>维线性空间<span class="math inline">\(L\)</span>的一组基记为<span class="math inline">\(\{\varepsilon_i\}\)</span>, <span class="math inline">\(m\)</span>维线性空间<span class="math inline">\(V\)</span>的一组基记为<span class="math inline">\(\{\beta_j\}\)</span>,则线性映射<span class="math inline">\(f\)</span>可以写成 <span class="math display">\[ f(\varepsilon_1,\cdots,\varepsilon_n) = (\beta_1,\cdots,\beta_m) A \]</span> 则称<span class="math inline">\(A \in M_{m\times n}(F)\)</span>是线性映射<span class="math inline">\(f\)</span>在基<span class="math inline">\(\{\varepsilon_i\}\)</span>和基<span class="math inline">\(\{\beta_j\}\)</span>下的矩阵.</p>
+<p><strong>定理4.4</strong> <span class="math inline">\(L(L,V)\)</span>与<span class="math inline">\(M_{m\times n}(F)\)</span>同构.</p>
+<p>若<span class="math inline">\(L=V\)</span>, 则称<span class="math inline">\(A\)</span>为线性变换<span class="math inline">\(f\)</span>在基<span class="math inline">\(\{\varepsilon_i\}\)</span>下的矩阵.</p>
+<p><strong>定理4.5</strong> 若<span class="math inline">\(\{\varepsilon&#39;_i\}\)</span>是<span class="math inline">\(L\)</span>的另外一组基, <span class="math inline">\(\{\beta&#39;_j\}\)</span>是<span class="math inline">\(V\)</span>的另外一组基. 且基变换矩阵分别为<span class="math inline">\(Q,P\)</span>, 即<span class="math inline">\(\varepsilon &#39;= \varepsilon Q, \beta&#39;= \beta P\)</span>.则<span class="math inline">\(f\)</span>在基<span class="math inline">\(\{\varepsilon&#39;_i\}\)</span>和基<span class="math inline">\(\{\beta&#39;_j\}\)</span>下的矩阵<span class="math inline">\(A&#39;\)</span>成立 <span class="math display">\[ A = PA&#39;Q^{-1} \]</span> 或 <span class="math display">\[  A&#39; = P^{-1} A Q \]</span></p>
+<p><strong>推论4.3</strong> 对<span class="math inline">\(L\)</span>上的线性变换<span class="math inline">\(f\)</span>, <span class="math inline">\(A,A&#39;\)</span>为线性变换<span class="math inline">\(f\)</span>在基<span class="math inline">\(\{\varepsilon_i\},\{\varepsilon&#39;_i\}\)</span>下的矩阵, <span class="math inline">\(P\)</span>为基变换矩阵,则<span class="math inline">\(A&#39;=P^{-1} A P\)</span>.</p>
+<h1 id="子空间与直和">子空间与直和</h1>
+<p><strong>定义4.9</strong> 子空间和余维</p>
+<p><strong>remark</strong> <span class="math inline">\(L\)</span>的子集<span class="math inline">\(M\)</span>是子空间,当且仅当<span class="math inline">\(M\)</span>包含<span class="math inline">\(0\)</span>,且对加法和数乘封闭.</p>
 <p><strong>例4.7</strong></p>
-<ol>
-<li>齐次线性方程组的解是$F^n$的子空间</li>
+<ol type="1">
+<li>齐次线性方程组的解是<span class="math inline">\(F^n\)</span>的子空间</li>
 <li>三维空间中过原点的直线和平面是子空间</li>
-<li>至多$n$次多项式是多项式的子空间</li>
-<li>实数域$R$下的复数域$C$是2维空间,实数域是其1维子空间</li>
+<li>至多<span class="math inline">\(n\)</span>次多项式是多项式的子空间</li>
+<li>实数域<span class="math inline">\(R\)</span>下的复数域<span class="math inline">\(C\)</span>是2维空间,实数域是其1维子空间</li>
 <li>零子空间和平凡子空间</li>
 <li>线性映射的核空间和像空间</li>
 </ol>
-<p><strong>remark</strong> 线性空间$V$中的元素$\alpha_1,\cdots, \alpha_s$的所有线性组合构成$L$的子空间,被成为$\alpha_1,\cdots, \alpha_s$张成的子空间, 记成$L(\alpha_1,\cdots, \alpha_s)$.</p>
-<p><strong>定理4.6</strong> $\dim L(\alpha_1,\cdots, \alpha_s)= rank{\alpha_1,\cdots, \alpha_s}$</p>
-<p><strong>定理4.7</strong> $L(\alpha_1,\cdots, \alpha_s) = L(\beta_1,\cdots, \beta_s)$当且仅当$\alpha_1,\cdots, \alpha_s$与$\beta_1,\cdots, \beta_s$等价</p>
+<p><strong>remark</strong> 线性空间<span class="math inline">\(V\)</span>中的元素<span class="math inline">\(\alpha_1,\cdots, \alpha_s\)</span>的所有线性组合构成<span class="math inline">\(L\)</span>的子空间,被成为<span class="math inline">\(\alpha_1,\cdots, \alpha_s\)</span>张成的子空间, 记成<span class="math inline">\(L(\alpha_1,\cdots, \alpha_s)\)</span>.</p>
+<p><strong>定理4.6</strong> <span class="math inline">\(\dim L(\alpha_1,\cdots, \alpha_s)= rank\{\alpha_1,\cdots, \alpha_s\}\)</span></p>
+<p><strong>定理4.7</strong> <span class="math inline">\(L(\alpha_1,\cdots, \alpha_s) = L(\beta_1,\cdots, \beta_s)\)</span>当且仅当<span class="math inline">\(\alpha_1,\cdots, \alpha_s\)</span>与<span class="math inline">\(\beta_1,\cdots, \beta_s\)</span>等价</p>
 <p><strong>定理4.8</strong> 基扩张定理</p>
-<p>若$V_1,V_2$是$V$的子空间, 则$V_1 \cap V_2, V_1+V_2$也是$V$的子空间,分别被称为交空间与和空间.</p>
-<p><strong>例4.8</strong> </p>
-<ol>
+<p>若<span class="math inline">\(V_1,V_2\)</span>是<span class="math inline">\(V\)</span>的子空间, 则<span class="math inline">\(V_1 \cap V_2, V_1+V_2\)</span>也是<span class="math inline">\(V\)</span>的子空间,分别被称为交空间与和空间.</p>
+<p><strong>例4.8</strong></p>
+<ol type="1">
 <li>平面上两过原点的直线的交空间是原点,和空间是整个平面</li>
 <li>齐次线性方程组中每个方程的解空间的交空间是方程组的解空间</li>
 </ol>
-<p><strong>定理4.9</strong> 维数公式  $\dim(V\cap W)+ \dim(V+W) = \dim V + \dim W$.</p>
-<p><strong>推论4.4</strong> 若$V,W$是$L$的子空间,且 $\dim V + \dim W &gt; \dim L$, 则$V\cap W$有非零元.</p>
-<p><strong>定义4.10</strong> 若$V\cap W=0$, 则称$V+W$是$V,W$的直和,记作$V \oplus W$</p>
-<p><strong>推论4.5</strong> 和空间$V+W$是直和当且仅当$\dim (V\cap W)=0$当且仅当$\dim(V+W) = \dim V + \dim W$</p>
-<p><strong>定理4.10</strong> 和空间$V+W$是直和,当且仅当每个$V+W$的元素都可以唯一写成$V$和$W$中元素的和.</p>
-<p><strong>推论4.6</strong> 和空间$V+W$是直和当且仅当若$\alpha + \beta =0 , \alpha \in V , \beta \in W$则$\alpha = \beta =0$</p>
+<p><strong>定理4.9</strong> 维数公式 <span class="math inline">\(\dim(V\cap W)+ \dim(V+W) = \dim V + \dim W\)</span>.</p>
+<p><strong>推论4.4</strong> 若<span class="math inline">\(V,W\)</span>是<span class="math inline">\(L\)</span>的子空间,且 <span class="math inline">\(\dim V + \dim W &gt; \dim L\)</span>, 则<span class="math inline">\(V\cap W\)</span>有非零元.</p>
+<p><strong>定义4.10</strong> 若<span class="math inline">\(V\cap W=0\)</span>, 则称<span class="math inline">\(V+W\)</span>是<span class="math inline">\(V,W\)</span>的直和,记作<span class="math inline">\(V \oplus W\)</span></p>
+<p><strong>推论4.5</strong> 和空间<span class="math inline">\(V+W\)</span>是直和当且仅当<span class="math inline">\(\dim (V\cap W)=0\)</span>当且仅当<span class="math inline">\(\dim(V+W) = \dim V + \dim W\)</span></p>
+<p><strong>定理4.10</strong> 和空间<span class="math inline">\(V+W\)</span>是直和,当且仅当每个<span class="math inline">\(V+W\)</span>的元素都可以唯一写成<span class="math inline">\(V\)</span>和<span class="math inline">\(W\)</span>中元素的和.</p>
+<p><strong>推论4.6</strong> 和空间<span class="math inline">\(V+W\)</span>是直和当且仅当若<span class="math inline">\(\alpha + \beta =0 , \alpha \in V , \beta \in W\)</span>则<span class="math inline">\(\alpha = \beta =0\)</span></p>
 <p><strong>定理4.11</strong> 线性空间可以直和分解</p>
-<p>若$L=V\oplus W$, 则可以定义包含映射和投影映射.</p>
+<p>若<span class="math inline">\(L=V\oplus W\)</span>, 则可以定义包含映射和投影映射.</p>
 <p>可以递归的定义有限多个空间的直和,并且有对应的等价定理.</p>
 <p><strong>定理4.12</strong> 有限多个空间直和的等价定理.</p>
-<p><strong>例4.9</strong> 对一个线性映射$f: V \rightarrow W$, 若${\beta_i}$是$im f$的基, ${\alpha_i}\subset V$满足$f(\alpha_i)=\beta_i$, 则${\alpha_i}$线性无关,且$L(\alpha_1,\cdots , \alpha_s)$同构于$f$的像空间. 于是有$V= \ker f \oplus L(\alpha_1,\cdots , \alpha_s)$. 从而得到维数关系<br>$$ \dim(\ker f) + \dim(im f) = dim V $$</p>
-<p><strong>定理4.13</strong> 线性映射$f$的秩与它的矩阵$A$的秩相等,$f$像空间的秩等于$n-r(A)$</p>
-<h1 id="空间分解和分块矩阵"><a href="#空间分解和分块矩阵" class="headerlink" title="空间分解和分块矩阵"></a>空间分解和分块矩阵</h1><p>本节用空间的直和分解给了分块矩阵乘法的意义,基本的思路是用包含映射和投影映射.计算较为繁复,意义不是很大.</p>
+<p><strong>例4.9</strong> 对一个线性映射<span class="math inline">\(f: V \rightarrow W\)</span>, 若<span class="math inline">\(\{\beta_i\}\)</span>是<span class="math inline">\(im f\)</span>的基, <span class="math inline">\(\{\alpha_i\}\subset V\)</span>满足<span class="math inline">\(f(\alpha_i)=\beta_i\)</span>, 则<span class="math inline">\(\{\alpha_i\}\)</span>线性无关,且<span class="math inline">\(L(\alpha_1,\cdots , \alpha_s)\)</span>同构于<span class="math inline">\(f\)</span>的像空间. 于是有<span class="math inline">\(V= \ker f \oplus L(\alpha_1,\cdots , \alpha_s)\)</span>. 从而得到维数关系 <span class="math display">\[ \dim(\ker f) + \dim(im f) = dim V \]</span></p>
+<p><strong>定理4.13</strong> 线性映射<span class="math inline">\(f\)</span>的秩与它的矩阵<span class="math inline">\(A\)</span>的秩相等,<span class="math inline">\(f\)</span>像空间的秩等于<span class="math inline">\(n-r(A)\)</span></p>
+<h1 id="空间分解和分块矩阵">空间分解和分块矩阵</h1>
+<p>本节用空间的直和分解给了分块矩阵乘法的意义,基本的思路是用包含映射和投影映射.计算较为繁复,意义不是很大.</p>
 
       
     </div>
@@ -648,7 +655,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -750,7 +757,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -800,7 +813,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性空间"><span class="nav-number">1.</span> <span class="nav-text">线性空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#维数-基-坐标"><span class="nav-number">2.</span> <span class="nav-text">维数,基,坐标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基变换和坐标变换"><span class="nav-number">3.</span> <span class="nav-text">基变换和坐标变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性映射和同构映射"><span class="nav-number">4.</span> <span class="nav-text">线性映射和同构映射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性映射的矩阵"><span class="nav-number">5.</span> <span class="nav-text">线性映射的矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子空间与直和"><span class="nav-number">6.</span> <span class="nav-text">子空间与直和</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#空间分解和分块矩阵"><span class="nav-number">7.</span> <span class="nav-text">空间分解和分块矩阵</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性空间"><span class="nav-number">1.</span> <span class="nav-text">线性空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#维数基坐标"><span class="nav-number">2.</span> <span class="nav-text">维数,基,坐标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基变换和坐标变换"><span class="nav-number">3.</span> <span class="nav-text">基变换和坐标变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性映射和同构映射"><span class="nav-number">4.</span> <span class="nav-text">线性映射和同构映射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性映射的矩阵"><span class="nav-number">5.</span> <span class="nav-text">线性映射的矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#子空间与直和"><span class="nav-number">6.</span> <span class="nav-text">子空间与直和</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#空间分解和分块矩阵"><span class="nav-number">7.</span> <span class="nav-text">空间分解和分块矩阵</span></a></li></ol></div>
             
 
           </div>

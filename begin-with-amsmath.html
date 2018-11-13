@@ -414,35 +414,39 @@
 <a id="more"></a>
 <p><strong>读者阅读该文章时，最好将代码块中的代码实际运行一下，看看是什么效果.</strong></p>
 <p>关于Latex的基本知识，参看<a href="/begin-with-latex.html">一小时学会用Latex</a></p>
-<h1 id="基础数学公式"><a href="#基础数学公式" class="headerlink" title="基础数学公式"></a>基础数学公式</h1><p>LaTeX有强大的排版公式能力，你可以在很短的时间内打印出一份符合规范的数学论文。</p>
+<h1 id="基础数学公式">基础数学公式</h1>
+<p>LaTeX有强大的排版公式能力，你可以在很短的时间内打印出一份符合规范的数学论文。</p>
 <p><strong>以下均使用宏包<code>amsmath</code></strong></p>
 <p><strong>最好养成看宏包文档的习惯</strong></p>
-<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>LaTeX有两种特定的模式来排版数学公式，包括行内数学模式和行间数学模式。</p>
+<h2 id="综述">综述</h2>
+<p>LaTeX有两种特定的模式来排版数学公式，包括行内数学模式和行间数学模式。</p>
 <p>行内数学模式将公式排版在一个段落中，使用方式为<code>\(...\)</code> 、<code>$...$</code>和<code>\begin{math} ... \end{math}</code>.</p>
-<p>行间数学模式一般用于较长的数学方程或希望单独显示的公式，使用方式为<code>\[...\]</code>和`\begin{displaymath}…\end{displaymath}。</p>
+<p>行间数学模式一般用于较长的数学方程或希望单独显示的公式，使用方式为<code>\[...\]</code>和`。</p>
 <p>有些符号在这两种模式显示效果有很大不同。一般称行内数学模式显示的格式为文本格式，行间数学模式显示的格式为显示模式。</p>
 <p>在TexStudio中，行内数学模式快捷键为<code>Ctrl+Shift+M</code> 行间模式快捷键为<code>Alt+Shift+M</code></p>
 <p>如果希望将方程编号，并在之后使用标签去交叉引用，就需要用到<code>equation</code> 环境。注意<code>equation</code>已经是数学环境，所以不需要再里面加入<code>$...$</code>或<code>\[...\]</code>。</p>
-<h2 id="数学模式的群组"><a href="#数学模式的群组" class="headerlink" title="数学模式的群组"></a>数学模式的群组</h2><p>大部分数学模式的命令只对其后的一个字符有效，因此，如果你希望一个命令对多个字符起作用，你必须把它们放在一个群组中，使用花括号：{}</p>
+<h2 id="数学模式的群组">数学模式的群组</h2>
+<p>大部分数学模式的命令只对其后的一个字符有效，因此，如果你希望一个命令对多个字符起作用，你必须把它们放在一个群组中，使用花括号：{}</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ e^&#123;i\pi&#125; =1  $</span><br></pre></td></tr></table></figure>
-<h2 id="数学公式的基本元素"><a href="#数学公式的基本元素" class="headerlink" title="数学公式的基本元素"></a>数学公式的基本元素</h2><p>下面介绍一些数学排版中最重要的一些命令。这些命令必须包括在数学模式中，即<code>$...$</code>或<code>\[...\]</code>。</p>
+<h2 id="数学公式的基本元素">数学公式的基本元素</h2>
+<p>下面介绍一些数学排版中最重要的一些命令。这些命令必须包括在数学模式中，即<code>$...$</code>或<code>\[...\]</code>。</p>
 <p><strong>希腊字母</strong> 小写输入为<code>\alpha, \beta, \gamma, ...</code> 大写输入为<code>\Gamma, \Delta</code></p>
 <p><strong>指数和下标</strong> 可以分别通过<code>^</code>和<code>_</code> 两个符号指定，注意如果指数和下标超过了一个字符，需要用到群组。即把文本用花括号括起来。惯例是先输下标后输指数。</p>
 <p>在TexStudio中，下标的快捷键为<code>Ctrl+Shift+D</code> ，指数的快捷键为<code>Ctrl+Shift+U</code></p>
 <p><strong>平方根</strong> 输入用<code>\sqrt{}</code> , n次方根用<code>\sqrt[n]{}</code> 来得到。仅仅需要根号，可以用<code>\surd</code>得到。</p>
 <p>在TexStudio中，平方根的快捷键为<code>CtrlShift+Q</code></p>
 <p><strong>水平线</strong> 用命令<code>\overline</code>和<code>\underline</code> 实现。注意单个字符上加一短横的命令为<code>\bar</code></p>
-<p><strong>撇</strong>  用<code>&#39;</code> 可以输入一个撇号。</p>
+<p><strong>撇</strong> 用<code>'</code> 可以输入一个撇号。</p>
 <p><strong>向量</strong> 单个字符上的小箭头用<code>\vec</code>， 由A到B的向量用命令<code>\overrightarrow</code> 和<code>\overleftarrow</code> 指定。</p>
 <p><strong>点</strong> 命令<code>\cdot</code></p>
-<p><strong>函数</strong> 通常用直立字体，LaTeX预制了很多函数命令。例如<code>\log, \cos</code> 等。如果需要自己定义函数，可以使用amsmath中的命令<code>\DeclareMathOperator{\xxx}{XXX}</code> </p>
+<p><strong>函数</strong> 通常用直立字体，LaTeX预制了很多函数命令。例如<code>\log, \cos</code> 等。如果需要自己定义函数，可以使用amsmath中的命令<code>\DeclareMathOperator{\xxx}{XXX}</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\DeclarMathOperator&#123;\st&#125;&#123;s.t.&#125;</span><br><span class="line"></span><br><span class="line">%试比较下面两种表示</span><br><span class="line">$\st x&gt;0$</span><br><span class="line"></span><br><span class="line">$s.t. x&gt;0$</span><br></pre></td></tr></table></figure>
-<p><strong>取模</strong> 有两个命令：<code>\bmod</code> 用于二元运算”a mod b”; 而<code>\pmod</code> 则用于模的方程。</p>
+<p><strong>取模</strong> 有两个命令：<code>\bmod</code> 用于二元运算&quot;a mod b&quot;; 而<code>\pmod</code> 则用于模的方程。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$a \bmod b$\\</span><br><span class="line">$ x \equiv a \pmod &#123;b&#125;$</span><br></pre></td></tr></table></figure>
 <p><strong>分式</strong> 上下形式的分式基本命令为<code>\frac</code> 。amsmath 提供了另外两种命令<code>\dfrac</code>和<code>\tfrac</code> , 前者无论行间环境还是行内环境都打印显示模式，后者则无论行间还是行内都打印文本模式。 一般对较小的分式可以直接输入<code>/</code> 。</p>
 <p>TexStudio 中，<code>\frac</code> 的快捷键为<code>Alt+Shift+F</code> ，<code>\dfrac</code> 的快捷键为<code>Ctrl + Shift + F</code> 。跳到下一个可编辑区域的快捷键为<code>Ctrl+→</code> 。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ \dfrac&#123;1&#125;&#123;k&#125; \; \frac&#123;1&#125;&#123;k&#125; \;  \tfrac&#123;1&#125;&#123;k&#125;$</span><br><span class="line">\[ \dfrac&#123;1&#125;&#123;k&#125; \; \frac&#123;1&#125;&#123;k&#125; \; \tfrac&#123;1&#125;&#123;k&#125;\]</span><br></pre></td></tr></table></figure>
-<p><strong>积分，求和，乘积</strong>  他们分别用<code>\int, \sum, \prod</code> 表示，其中上限和下限用<code>^</code>和<code>_</code>表示</p>
+<p><strong>积分，求和，乘积</strong> 他们分别用<code>\int, \sum, \prod</code> 表示，其中上限和下限用<code>^</code>和<code>_</code>表示</p>
 <blockquote>
 <p>重积分使用<code>\iint, \iiint, \idotsint</code></p>
 </blockquote>
@@ -454,97 +458,106 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\[ x_&#123;1&#125;,\ldots.x_&#123;n&#125; \quad x_&#123;1&#125;+\cdots + x_&#123;n&#125; \]</span><br></pre></td></tr></table></figure>
 <p>下举一例运用到所有知识</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ \forall \alpha, \beta&gt; 0,  $ 成立</span><br><span class="line">	\[ \dfrac&#123;\alpha+\beta&#125;&#123;2&#125; &gt; \sqrt&#123;\alpha \cdot \beta&#125;\]</span><br><span class="line">将这个结论推广, 可以得到 ~$\forall x_&#123;1&#125;,\ldots ,x_&#123;n&#125;&gt;0, $ </span><br><span class="line">	\[ \dfrac&#123;x_&#123;1&#125;+\cdots+x_&#123;n&#125;  &#125;&#123;n&#125; &gt; \sqrt[n]&#123;x_&#123;1&#125; \cdots x_&#123;n&#125;&#125;\]</span><br><span class="line">		</span><br><span class="line">对于任意非零复向量~$\alpha,  $ 成立</span><br><span class="line">	\[ \alpha \bar&#123;\alpha&#125;&apos;  &gt;0 \]</span><br><span class="line">		</span><br><span class="line">三角不等式</span><br><span class="line">	\[\left  |\overrightarrow&#123;AC&#125;\right | \leq \left |\overrightarrow&#123;AB&#125;\right |+\left |\overrightarrow&#123;BC&#125;\right  | \]</span><br><span class="line">		</span><br><span class="line">一个不等式</span><br><span class="line">	\[ \prod_&#123;i=1&#125;^&#123;n&#125; x_&#123;i&#125;y_&#123;i&#125; \leq \left \&#123;\prod_&#123;i=1&#125;^&#123;n&#125;x_&#123;i&#125;^&#123;2&#125;\right \&#125;^&#123;1/2&#125; \left \&#123;\prod_&#123;i=1&#125;^&#123;n&#125;y_&#123;i&#125;^&#123;2&#125;\right \&#125;^&#123;1/2&#125;\]</span><br></pre></td></tr></table></figure>
-<h2 id="数学空格"><a href="#数学空格" class="headerlink" title="数学空格"></a>数学空格</h2><p>有时候由TeX选择的空格不令人满意，可以插入一些特殊的空格控制命令来调整。空格由小到大依次为<code>\,, \:, \;, \quad, \qquad</code></p>
+<h2 id="数学空格">数学空格</h2>
+<p>有时候由TeX选择的空格不令人满意，可以插入一些特殊的空格控制命令来调整。空格由小到大依次为<code>\,, \:, \;, \quad, \qquad</code></p>
 <p>在重积分的空格选取中，amsmath提供了<code>\iint, \iiint, \iiiint, \idotint</code> 来生成重积分号。</p>
-<h2 id="垂直取齐"><a href="#垂直取齐" class="headerlink" title="垂直取齐"></a>垂直取齐</h2><h3 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h3><p>amsmath宏包提供了一系列用于排版的矩阵环境，都依托于LaTeX中的<code>array</code> 环境。</p>
+<h2 id="垂直取齐">垂直取齐</h2>
+<h3 id="矩阵">矩阵</h3>
+<p>amsmath宏包提供了一系列用于排版的矩阵环境，都依托于LaTeX中的<code>array</code> 环境。</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">环境</th>
-<th style="text-align:center">矩阵</th>
+<tr class="header">
+<th style="text-align: center;">环境</th>
+<th style="text-align: center;">矩阵</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">pmatrix</td>
-<td style="text-align:center">()</td>
+<tr class="odd">
+<td style="text-align: center;">pmatrix</td>
+<td style="text-align: center;">()</td>
 </tr>
-<tr>
-<td style="text-align:center">bmatrix</td>
-<td style="text-align:center">[]</td>
+<tr class="even">
+<td style="text-align: center;">bmatrix</td>
+<td style="text-align: center;">[]</td>
 </tr>
-<tr>
-<td style="text-align:center">Bmatrix</td>
-<td style="text-align:center">{}</td>
+<tr class="odd">
+<td style="text-align: center;">Bmatrix</td>
+<td style="text-align: center;">{}</td>
 </tr>
-<tr>
-<td style="text-align:center">vmatrix</td>
-<td style="text-align:center">\</td>
-<td>\</td>
-<td></td>
+<tr class="even">
+<td style="text-align: center;">vmatrix</td>
+<td style="text-align: center;">||</td>
 </tr>
-<tr>
-<td style="text-align:center">Vmatrix</td>
-<td style="text-align:center">\</td>
-<td>\</td>
-<td>\</td>
-<td>\</td>
+<tr class="odd">
+<td style="text-align: center;">Vmatrix</td>
+<td style="text-align: center;">|| ||</td>
 </tr>
 </tbody>
 </table>
 <p>同样也提供了用于生成行内数学模式中的小矩阵环境<code>smallmatrix</code></p>
 <p>矩阵环境中的下一列和换行命令与表格中一致。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\[ \det(A)=\begin&#123;vmatrix&#125;</span><br><span class="line">		a_&#123;11&#125; &amp; a_&#123;12&#125; &amp; \cdots  &amp; a_&#123;1n&#125;\\</span><br><span class="line">		a_&#123;21&#125; &amp; a_&#123;22&#125; &amp; \cdots  &amp; a_&#123;2n&#125;\\</span><br><span class="line">		\cdots &amp; \cdots &amp; \cdots  &amp; \cdots\\</span><br><span class="line">		a_&#123;n1&#125; &amp; a_&#123;n2&#125; &amp; \cdots  &amp; a_&#123;nn&#125;\\</span><br><span class="line">	    \end&#123;vmatrix&#125; \]</span><br></pre></td></tr></table></figure>
-<h3 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h3><p>amsmath宏包提供了<code>cases</code> 环境用于方便排版分段函数。</p>
+<h3 id="分段函数">分段函数</h3>
+<p>amsmath宏包提供了<code>cases</code> 环境用于方便排版分段函数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\[ \delta(x)=\begin&#123;cases&#125;</span><br><span class="line">	1   &amp;x=0,\\</span><br><span class="line">	0  &amp; x\neq0.</span><br><span class="line">\end&#123;cases&#125; \]</span><br></pre></td></tr></table></figure>
-<h2 id="长公式"><a href="#长公式" class="headerlink" title="长公式"></a>长公式</h2><p>amsmath宏包提供了很多用于长公式排版的命令，一般基于LaTeX的<code>equation</code>和<code>eqnarry</code> 环境。但amsmath文档建议不再使用LaTeX的长公式环境。</p>
+<h2 id="长公式">长公式</h2>
+<p>amsmath宏包提供了很多用于长公式排版的命令，一般基于LaTeX的<code>equation</code>和<code>eqnarry</code> 环境。但amsmath文档建议不再使用LaTeX的长公式环境。</p>
 <p>在公式环境中，命令<code>\tag{num}</code>可以生成公式的编号。命令<code>\notag</code> 可以取消公式的编号。</p>
-<h3 id="单行公式"><a href="#单行公式" class="headerlink" title="单行公式"></a>单行公式</h3><p><code>equation</code> 环境用于生成带编号的单行公式，<code>equation*</code> 环境则生成不带编号的单行公式。</p>
-<h3 id="无对齐的多行公式"><a href="#无对齐的多行公式" class="headerlink" title="无对齐的多行公式"></a>无对齐的多行公式</h3><p><code>multline</code>环境可以将一个长公式分成几行，并赋予一个编号。一般第一行左对齐，最后一行右对齐。可以用命令<code>\shoveleft</code>和<code>\shoveright</code> 来强制左对齐或右对齐。</p>
+<h3 id="单行公式">单行公式</h3>
+<p><code>equation</code> 环境用于生成带编号的单行公式，<code>equation*</code> 环境则生成不带编号的单行公式。</p>
+<h3 id="无对齐的多行公式">无对齐的多行公式</h3>
+<p><code>multline</code>环境可以将一个长公式分成几行，并赋予一个编号。一般第一行左对齐，最后一行右对齐。可以用命令<code>\shoveleft</code>和<code>\shoveright</code> 来强制左对齐或右对齐。</p>
 <p>可以用宏包选项<code>\reqno</code>和<code>\leqno</code> 来决定编号放在最后一行之后还是第一行之前。</p>
-<h3 id="对齐的多行公式"><a href="#对齐的多行公式" class="headerlink" title="对齐的多行公式"></a>对齐的多行公式</h3><p><code>split</code>环境可以将一个长公式分成几行，并且使用<code>&amp;</code> 可以指定每一行对齐什么符号，使用<code>\\</code>换行。注意<code>split</code> 环境没有编号，并且<strong>只能被用在其他行间模式的环境</strong>中。比如<code>equation, gather, align</code></p>
-<h3 id="无对齐的公式组"><a href="#无对齐的公式组" class="headerlink" title="无对齐的公式组"></a>无对齐的公式组</h3><p><code>gather</code> 环境用于一次排版多个公式，其中每个公式都有自己的编号，使用<code>\\</code>换行。对应的<code>gather*</code> 则排版多个不带编号的公式。<code>gather</code>环境中可以嵌套<code>split</code>环境。</p>
-<h3 id="对齐的公式组"><a href="#对齐的公式组" class="headerlink" title="对齐的公式组"></a>对齐的公式组</h3><p><code>align</code> 环境用于带对齐的排版多个公式，同样每个公式都有自己的编号。使用<code>&amp;</code> 对齐，使用<code>\\</code>换行。</p>
+<h3 id="对齐的多行公式">对齐的多行公式</h3>
+<p><code>split</code>环境可以将一个长公式分成几行，并且使用<code>&amp;</code> 可以指定每一行对齐什么符号，使用<code>\\</code>换行。注意<code>split</code> 环境没有编号，并且<strong>只能被用在其他行间模式的环境</strong>中。比如<code>equation, gather, align</code></p>
+<h3 id="无对齐的公式组">无对齐的公式组</h3>
+<p><code>gather</code> 环境用于一次排版多个公式，其中每个公式都有自己的编号，使用<code>\\</code>换行。对应的<code>gather*</code> 则排版多个不带编号的公式。<code>gather</code>环境中可以嵌套<code>split</code>环境。</p>
+<h3 id="对齐的公式组">对齐的公式组</h3>
+<p><code>align</code> 环境用于带对齐的排版多个公式，同样每个公式都有自己的编号。使用<code>&amp;</code> 对齐，使用<code>\\</code>换行。</p>
 <p>使用额外单独的<code>&amp;</code> 可以得到类似表格的一列列公式，例如考虑下列式子。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;align&#125;</span><br><span class="line">	x&amp; = y_1-y_2+y_3-y_5+y_8-\dots</span><br><span class="line">	&amp;\quad&amp; \text&#123;式子&#125;\\</span><br><span class="line">	&amp; = y’\circ y^* &amp;&amp; \text&#123;式子&#125;\\</span><br><span class="line">	&amp; = y(0) y’ &amp;&amp; \text &#123;式子&#125;</span><br><span class="line">\end&#123;align&#125;</span><br></pre></td></tr></table></figure>
 <p><code>alignat{n}</code> 环境可以生成类似表格的对齐公式组，其中<code>n</code>为列数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;alignat*&#125;&#123;2&#125;</span><br><span class="line">	x&amp; = y_1-y_2+y_3-y_5+y_8-\dots</span><br><span class="line">	&amp;\quad&amp; \text&#123;式子&#125;\\</span><br><span class="line">	&amp; = y’\circ y^* &amp;&amp; \text&#123;式子&#125;\\</span><br><span class="line">	&amp; = y(0) y’ &amp;&amp; \text &#123;式子&#125;</span><br><span class="line">\end&#123;alignat*&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实际宽度的公式块"><a href="#实际宽度的公式块" class="headerlink" title="实际宽度的公式块"></a>实际宽度的公式块</h3><p><code>gather, align, alignat</code> 生成的是占满整个文档宽度的公式块，有时候我们需要将公式块包在一个括号之中。可以用到下面的命令。</p>
+<h3 id="实际宽度的公式块">实际宽度的公式块</h3>
+<p><code>gather, align, alignat</code> 生成的是占满整个文档宽度的公式块，有时候我们需要将公式块包在一个括号之中。可以用到下面的命令。</p>
 <p><code>gathered,aligned, alignedat</code> 这些命令可以生成公式实际宽度的块，所以可以用在条件之中。例如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;equation*&#125;</span><br><span class="line">\left.\begin&#123;aligned&#125;</span><br><span class="line">B’&amp;=-\partial\times E,\\</span><br><span class="line">E’&amp;=\partial\times B - 4\pi j,</span><br><span class="line">\end&#123;aligned&#125;</span><br><span class="line">\right\&#125;</span><br><span class="line">\qquad \text&#123;Maxwell’s equations&#125;</span><br><span class="line">\end&#123;equation*&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="文本截断公式"><a href="#文本截断公式" class="headerlink" title="文本截断公式"></a>文本截断公式</h3><p><code>\intertext</code> 用于将一行简短的文本插入到公式组中，只能用在<code>\\</code> 中。</p>
+<h3 id="文本截断公式">文本截断公式</h3>
+<p><code>\intertext</code> 用于将一行简短的文本插入到公式组中，只能用在<code>\\</code> 中。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;align&#125;</span><br><span class="line">	a^&#123;2&#125;\\</span><br><span class="line">	\intertext&#123;文字&#125;</span><br><span class="line">	b^&#123;2&#125;</span><br><span class="line">\end&#123;align&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="公式编号"><a href="#公式编号" class="headerlink" title="公式编号"></a>公式编号</h3><p>在LaTeX中，如果你想将公式编码中带上节数，可以使用命令<code>\numberwithin</code> </p>
+<h3 id="公式编号">公式编号</h3>
+<p>在LaTeX中，如果你想将公式编码中带上节数，可以使用命令<code>\numberwithin</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\numberwithin&#123;equation&#125;&#123;section&#125;</span><br></pre></td></tr></table></figure>
 <p>因为其他公式环境都是由<code>equation</code> 生成，所以只需要定义<code>equation</code>即可。</p>
 <p><code>\eqref</code> 提供了带括号的公式引用。</p>
 <p>环境<code>subequations</code> 可以生成类似(4.9 a),(4.9 b)之类的编号。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;equation&#125;</span><br><span class="line">	e^&#123;i\pi&#125;=1</span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line">\begin&#123;multline&#125;</span><br><span class="line">	x^&#123;2&#125;+y^&#123;2&#125;=\\</span><br><span class="line">	 z^&#123;2&#125;	 </span><br><span class="line">\end&#123;multline&#125;</span><br><span class="line">\[ \begin&#123;split&#125;</span><br><span class="line">	\sum_&#123;i=1&#125;^&#123;n&#125; (x_&#123;i&#125;+y_&#123;i&#125;)^&#123;2&#125; =&amp; \sum_&#123;i=1&#125;^&#123;n&#125; x_&#123;i&#125;^&#123;2&#125; + \sum_&#123;i=1&#125;^&#123;n&#125; y_&#123;i&#125;^&#123;2&#125;\\</span><br><span class="line">	&amp;+2\sum_&#123;i=1&#125;^&#123;n&#125; x_&#123;i&#125;y_&#123;i&#125;</span><br><span class="line">\end&#123;split&#125; \]</span><br><span class="line">\begin&#123;gather&#125;</span><br><span class="line">	a=b\\</span><br><span class="line">	c=d</span><br><span class="line">\end&#123;gather&#125;</span><br><span class="line">\begin&#123;align&#125;</span><br><span class="line">	x&amp; = y_1-y_2+y_3-y_5+y_8-\dots</span><br><span class="line">	&amp;\quad&amp; \text&#123;式子&#125;\\</span><br><span class="line">	&amp; = y’\circ y^* &amp;&amp; \text&#123;式子&#125;\\</span><br><span class="line">	&amp; = y(0) y’ &amp;&amp; \text &#123;式子&#125;</span><br><span class="line">\end&#123;align&#125;</span><br><span class="line">\begin&#123;alignat*&#125;&#123;2&#125;</span><br><span class="line">	x&amp; = y_1-y_2+y_3-y_5+y_8-\dots</span><br><span class="line">	&amp; \text&#123;式子&#125;\\</span><br><span class="line">	&amp; = y&apos;\circ y^* &amp; \text&#123;式子&#125;\\</span><br><span class="line">	&amp; = y(0) y&apos; &amp; \text &#123;式子&#125;</span><br><span class="line">\end&#123;alignat*&#125;</span><br><span class="line">\begin&#123;equation*&#125;</span><br><span class="line">	\left.\begin&#123;aligned&#125;</span><br><span class="line">	B’&amp;=-\partial\times E,\\</span><br><span class="line">	E’&amp;=\partial\times B - 4\pi j,</span><br><span class="line">    \end&#123;aligned&#125;</span><br><span class="line">	\right\&#125;</span><br><span class="line">	\qquad \text&#123;Maxwell’s equations&#125;</span><br><span class="line">\end&#123;equation*&#125;</span><br><span class="line">\begin&#123;align&#125;</span><br><span class="line">	a^&#123;2&#125;\\</span><br><span class="line">	\intertext&#123;文字&#125;</span><br><span class="line">	b^&#123;2&#125;</span><br><span class="line">\end&#123;align&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h2><p>排版“引理”、“定义”、“公理”及其他类似的结构。</p>
+<h2 id="定理">定理</h2>
+<p>排版“引理”、“定义”、“公理”及其他类似的结构。</p>
 <p>宏包<code>amsthm</code> 提供了<code>\newtheoremstyle{style}</code>命令，通过三个预定义的样式中选择一个来定义定理的外观。三个样式分别为</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">样式</th>
-<th style="text-align:center">标题</th>
-<th style="text-align:center">内容</th>
+<tr class="header">
+<th style="text-align: center;">样式</th>
+<th style="text-align: center;">标题</th>
+<th style="text-align: center;">内容</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">defination</td>
-<td style="text-align:center">粗体</td>
-<td style="text-align:center">罗马体</td>
+<tr class="odd">
+<td style="text-align: center;">defination</td>
+<td style="text-align: center;">粗体</td>
+<td style="text-align: center;">罗马体</td>
 </tr>
-<tr>
-<td style="text-align:center">plain</td>
-<td style="text-align:center">粗体</td>
-<td style="text-align:center">斜体</td>
+<tr class="even">
+<td style="text-align: center;">plain</td>
+<td style="text-align: center;">粗体</td>
+<td style="text-align: center;">斜体</td>
 </tr>
-<tr>
-<td style="text-align:center">remark</td>
-<td style="text-align:center">斜体</td>
-<td style="text-align:center">罗马体</td>
+<tr class="odd">
+<td style="text-align: center;">remark</td>
+<td style="text-align: center;">斜体</td>
+<td style="text-align: center;">罗马体</td>
 </tr>
 </tbody>
 </table>
@@ -698,7 +711,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -800,7 +813,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

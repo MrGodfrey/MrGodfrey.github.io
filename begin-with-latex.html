@@ -413,22 +413,27 @@
         <p>Latex 入门必备，手把手教学Latex.</p>
 <a id="more"></a>
 <p><strong>读者阅读该文章时，最好将代码块中的代码实际运行一下，看看是什么效果.</strong></p>
-<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="关于TeX的介绍"><a href="#关于TeX的介绍" class="headerlink" title="关于TeX的介绍"></a>关于TeX的介绍</h2><p>TeX是一个以排版文章及数学公式为目标的计算机程序，在1997年由Knuth发明。其版本号不断趋近于Pi, 现在为3.141592.</p>
+<h1 id="基础知识">基础知识</h1>
+<h2 id="关于tex的介绍">关于TeX的介绍</h2>
+<p>TeX是一个以排版文章及数学公式为目标的计算机程序，在1997年由Knuth发明。其版本号不断趋近于Pi, 现在为3.141592.</p>
 <p>LaTeX是一个宏集，它使用一个预先定义好的专业版面，可以使作者们高质量的排版和打印他们的作品。</p>
 <p>这个排版系统的优势在于可以着眼于文章的逻辑结构，而非对版面进行修修补补。所以一般不要自定义文档版面布局。</p>
 <p>XeLaTeX为latex的一个扩展。CTeX在XeLaTeX下使用更方便。</p>
 <p>下面主要以TeXStudio为编辑工具，自然也可以使用其他的软件。</p>
-<h2 id="TexLive、TexStudio的安装"><a href="#TexLive、TexStudio的安装" class="headerlink" title="TexLive、TexStudio的安装"></a>TexLive、TexStudio的安装</h2><blockquote>
+<h2 id="texlivetexstudio的安装">TexLive、TexStudio的安装</h2>
+<blockquote>
 <p>本文使用环境TexLive， 推荐从<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/" target="_blank" rel="noopener">清华大学开源镜像站</a>下载TexLive2018.iso</p>
 </blockquote>
 <p><strong>注意Tex是开源系统，所有相关的软件都应当是免费的！</strong></p>
-<h3 id="TexLive安装"><a href="#TexLive安装" class="headerlink" title="TexLive安装"></a>TexLive安装</h3><ol>
+<h3 id="texlive安装">TexLive安装 </h3>
+<ol type="1">
 <li>直接右键单击TexLive2018.iso， 装载镜像（非win8以上需要用虚拟光驱）</li>
 <li>打开装在好的镜像，双击安装文件即可安装</li>
 <li>安装过程中最好选择全部安装</li>
 </ol>
-<h3 id="TexStudio安装"><a href="#TexStudio安装" class="headerlink" title="TexStudio安装"></a>TexStudio安装</h3><p>TexStudio 是写Latex文件时候用的IDE，只是方便写作的工具。</p>
-<ol>
+<h3 id="texstudio安装">TexStudio安装</h3>
+<p>TexStudio 是写Latex文件时候用的IDE，只是方便写作的工具。</p>
+<ol type="1">
 <li>从TexStudio<a href="https://www.texstudio.org/" target="_blank" rel="noopener">官网</a>下载</li>
 <li>双击文件texstudio*.exe，任意选择安装目录</li>
 <li>安装完成后，在<code>Options-&gt;Configuer TexStudio-&gt;General-&gt;language</code>中选择中文，即可有中文界面。</li>
@@ -436,68 +441,74 @@
 <li>同上选项卡中取消检查拼写</li>
 <li>在语法高亮中选择LaTex Syntax 中的粉色为白色</li>
 </ol>
-<h2 id="LaTeX源文件"><a href="#LaTeX源文件" class="headerlink" title="LaTeX源文件"></a>LaTeX源文件</h2><blockquote>
+<h2 id="latex源文件">LaTeX源文件</h2>
+<blockquote>
 <p>Latex源文件事实上就是普通的文本文件，可以用任何支持文本编辑的软件编&gt;辑。LaTex将文件翻译为排版的格式。</p>
 </blockquote>
-<h3 id="空白"><a href="#空白" class="headerlink" title="空白"></a>空白</h3><p>空格和制表符等空白字符在LaTeX中被看做相同的空白距离(space)。多个连续的空白字符等同于一个空白字符。在句首的空白距离一般会被忽略，单个空行也被认为是一个“空白距离”。</p>
-<p>两行文本间的空白行标志着上段的结束和下段的开始。多个空白行的作用<br>等同于一个空白行。</p>
+<h3 id="空白">空白</h3>
+<p>空格和制表符等空白字符在LaTeX中被看做相同的空白距离(space)。多个连续的空白字符等同于一个空白字符。在句首的空白距离一般会被忽略，单个空行也被认为是一个“空白距离”。</p>
+<p>两行文本间的空白行标志着上段的结束和下段的开始。多个空白行的作用 等同于一个空白行。</p>
 <p>以下是一段示例</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">不管你输入了多少 空格，最后      渲染出的文本会吃掉多余空格。</span><br><span class="line"></span><br><span class="line">新的一行开启新的一段</span><br></pre></td></tr></table></figure>
-<h3 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h3><p>在LaTeX中一些字符被赋予了特殊的含义，无法直接打出来，包括</p>
+<h3 id="特殊字符">特殊字符</h3>
+<p>在LaTeX中一些字符被赋予了特殊的含义，无法直接打出来，包括</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">特殊字符</th>
-<th style="text-align:center">转义序列</th>
+<tr class="header">
+<th style="text-align: center;">特殊字符</th>
+<th style="text-align: center;">转义序列</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">#</td>
-<td style="text-align:center">\#</td>
+<tr class="odd">
+<td style="text-align: center;">#</td>
+<td style="text-align: center;">\#</td>
 </tr>
-<tr>
-<td style="text-align:center">$</td>
-<td style="text-align:center">\$</td>
+<tr class="even">
+<td style="text-align: center;">$</td>
+<td style="text-align: center;">\$</td>
 </tr>
-<tr>
-<td style="text-align:center">%</td>
-<td style="text-align:center">\%</td>
+<tr class="odd">
+<td style="text-align: center;">%</td>
+<td style="text-align: center;">\%</td>
 </tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:center">\^</td>
+<tr class="even">
+<td style="text-align: center;">^</td>
+<td style="text-align: center;">\^</td>
 </tr>
-<tr>
-<td style="text-align:center">&amp;</td>
-<td style="text-align:center">\&amp;</td>
+<tr class="odd">
+<td style="text-align: center;">&amp;</td>
+<td style="text-align: center;">\&amp;</td>
 </tr>
-<tr>
-<td style="text-align:center">_</td>
-<td style="text-align:center">\_</td>
+<tr class="even">
+<td style="text-align: center;">_</td>
+<td style="text-align: center;">\_</td>
 </tr>
-<tr>
-<td style="text-align:center">{</td>
-<td style="text-align:center">\{</td>
+<tr class="odd">
+<td style="text-align: center;">{</td>
+<td style="text-align: center;">\{</td>
 </tr>
-<tr>
-<td style="text-align:center">}</td>
-<td style="text-align:center">}</td>
+<tr class="even">
+<td style="text-align: center;">}</td>
+<td style="text-align: center;">}</td>
 </tr>
-<tr>
-<td style="text-align:center">\</td>
-<td style="text-align:center">$\backslash$</td>
+<tr class="odd">
+<td style="text-align: center;">\</td>
+<td style="text-align: center;"><span class="math inline">\(\backslash\)</span></td>
 </tr>
 </tbody>
 </table>
-<h3 id="LaTeX-命令"><a href="#LaTeX-命令" class="headerlink" title="LaTeX 命令"></a>LaTeX 命令</h3><p>LaTeX的主要命令是<strong>大小写敏感</strong>的。</p>
+<h3 id="latex-命令">LaTeX 命令</h3>
+<p>LaTeX的主要命令是<strong>大小写敏感</strong>的。</p>
 <p>LaTeX忽略命令后的空白字符。</p>
 <p>有些命令需一个参数，该参数用花括号<code>{}</code>括住并写在命令的后面。一些命令支持可选参数，用方括号<code>[]</code>括住并写在命令后面。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">试试看\textsl&#123;Slide&#125;。\newline</span><br><span class="line">还有新的\\一行。</span><br><span class="line">	 </span><br><span class="line">	 这里分段</span><br><span class="line">	 \newpage</span><br><span class="line">	 这里开始了新的一页</span><br></pre></td></tr></table></figure>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>当LaTeX处理一个源文件时，如果遇到一个百分号%，LATEX 将忽略% 后的该行内容，换行符以及下一行前的空白字符，最后他们不会出现在结果中。</p>
+<h3 id="注释">注释</h3>
+<p>当LaTeX处理一个源文件时，如果遇到一个百分号%，LATEX 将忽略% 后的该行内容，换行符以及下一行前的空白字符，最后他们不会出现在结果中。</p>
 <p>较长的注释需要用到verbatim宏包提供的comment环境。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%在导言中加入下行代码</span><br><span class="line">\usepackage&#123;verbatim&#125;</span><br><span class="line"></span><br><span class="line">长注释的演示</span><br><span class="line">\begin&#123;comment&#125;</span><br><span class="line">这是长长的注释</span><br><span class="line">可以随便换行</span><br><span class="line">\end&#123;comment&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="源文件的结构"><a href="#源文件的结构" class="headerlink" title="源文件的结构"></a>源文件的结构</h2><p>源文件以如下命令开始</p>
+<h2 id="源文件的结构">源文件的结构</h2>
+<p>源文件以如下命令开始</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;...&#125;</span><br></pre></td></tr></table></figure>
 <p>命令指明了你所写的源文档的类型。然后，你就可以加入控制整篇文档样式的命令，或者载入一些为LATEX 增加新特性的宏包(package)。可以用如下命令载入一个宏包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;...&#125;</span><br></pre></td></tr></table></figure>
@@ -508,22 +519,29 @@
 <p>来告诉LATEX 文档已经结束。LATEX 会忽略此命令后的所有内容。</p>
 <p>下方是一个中文文档的示例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">%这行字是指单面输出、A4纸张、11磅字重、ctexbook类型</span><br><span class="line">\documentclass[oneside,a4paper,11pt]&#123;ctexbook&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">	%文章标题</span><br><span class="line">	\title&#123;\LaTeX教学笔记&#125;</span><br><span class="line">	%文章作者</span><br><span class="line">	\author&#123;王尼玛&#125;</span><br><span class="line">	%生成标题页的命令</span><br><span class="line">	\maketitle</span><br><span class="line">	%居中</span><br><span class="line">	\begin&#123;center&#125;</span><br><span class="line">			这会是一本神奇的书</span><br><span class="line">	\end&#123;center&#125;</span><br><span class="line">	</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="文档布局"><a href="#文档布局" class="headerlink" title="文档布局"></a>文档布局</h2><h3 id="文档类"><a href="#文档类" class="headerlink" title="文档类"></a>文档类</h3><p>当LATEX 处理源文件时，首先需要知道的就是作者所要创建的文档类型。文档类型可由<code>\documentclass</code> 命令来指定。</p>
+<h2 id="文档布局">文档布局</h2>
+<h3 id="文档类">文档类</h3>
+<p>当LATEX 处理源文件时，首先需要知道的就是作者所要创建的文档类型。文档类型可由<code>\documentclass</code> 命令来指定。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\documentclass[options]&#123;class&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="宏包"><a href="#宏包" class="headerlink" title="宏包"></a>宏包</h3><p>排版文档时，你可能会发现某些时候基本的LATEX 并不能解决你的问题。如果想插入图形(graphics)、彩色文本(coloured text) 或源代码到你的文档中，你就需要使用宏包来增强LATEX 的功能。可使用如下命令调用宏包</p>
+<h3 id="宏包">宏包</h3>
+<p>排版文档时，你可能会发现某些时候基本的LATEX 并不能解决你的问题。如果想插入图形(graphics)、彩色文本(coloured text) 或源代码到你的文档中，你就需要使用宏包来增强LATEX 的功能。可使用如下命令调用宏包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage[options]&#123;class&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="页面样式"><a href="#页面样式" class="headerlink" title="页面样式"></a>页面样式</h3><p>LATEX 支持三种预定义的页眉/页脚(header/footer) 样式，称为页面样式(page style)。如下命令</p>
+<h3 id="页面样式">页面样式</h3>
+<p>LATEX 支持三种预定义的页眉/页脚(header/footer) 样式，称为页面样式(page style)。如下命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\pagestyle&#123;style&#125;</span><br></pre></td></tr></table></figure>
 <p>中的style 参数确定了使用哪一种页面样式。</p>
 <p>可以通过如下命令改变当前页面的页面样式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\thispagestyle&#123;style&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="LaTeX文件"><a href="#LaTeX文件" class="headerlink" title="LaTeX文件"></a>LaTeX文件</h2><ul>
+<h2 id="latex文件">LaTeX文件</h2>
+<ul>
 <li>.tex 源文件</li>
 <li>.sty 宏包文件</li>
 <li>.eps 矢量图格式</li>
 <li>.pdf Adobe公司创造的文件格式</li>
 </ul>
-<h1 id="文本排版"><a href="#文本排版" class="headerlink" title="文本排版"></a>文本排版</h1><h2 id="段落和分行"><a href="#段落和分行" class="headerlink" title="段落和分行"></a>段落和分行</h2><p>一般来说，一个空行意味着一段的结束。不加空行，则LaTeX会忽略空格，继续将字符添加到上一段末尾。</p>
+<h1 id="文本排版">文本排版</h1>
+<h2 id="段落和分行">段落和分行</h2>
+<p>一般来说，一个空行意味着一段的结束。不加空行，则LaTeX会忽略空格，继续将字符添加到上一段末尾。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这是第一段</span><br><span class="line">，这样会接上去。</span><br><span class="line"></span><br><span class="line">只有这样会重新另起一段。</span><br></pre></td></tr></table></figure>
 <p>在特殊情形下，有必要命令LATEX 断行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\或者\newline</span><br></pre></td></tr></table></figure>
@@ -532,17 +550,23 @@
 <p>在强制断行后，还禁止分页。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\newpage</span><br></pre></td></tr></table></figure>
 <p>另起一页。</p>
-<h2 id="特殊字符和符号"><a href="#特殊字符和符号" class="headerlink" title="特殊字符和符号"></a>特殊字符和符号</h2><h3 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h3><p>印刷中有专门的左引号和右引号。LaTeX中，用两个`（重音）产生左引号，用两个’（直立引号）产生右引号。一个‘ 和一个’ 产生一个单引号。</p>
+<h2 id="特殊字符和符号">特殊字符和符号</h2>
+<h3 id="引号">引号</h3>
+<p>印刷中有专门的左引号和右引号。LaTeX中，用两个`（重音）产生左引号，用两个'（直立引号）产生右引号。一个‘ 和一个’ 产生一个单引号。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">``双引号不能再用中文`输入法&apos;输入&apos;&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="破折号和连字号"><a href="#破折号和连字号" class="headerlink" title="破折号和连字号"></a>破折号和连字号</h3><p>LATEX 中有四种短划(dash) 标点符号。连续用不同数目的短划，可以得到其中的三种。第四个实际不是标点符号，它是数学中的减号：</p>
+<h3 id="破折号和连字号">破折号和连字号</h3>
+<p>LATEX 中有四种短划(dash) 标点符号。连续用不同数目的短划，可以得到其中的三种。第四个实际不是标点符号，它是数学中的减号：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">中文一般不用-连字号，除了电话号码.\\</span><br><span class="line">以及短破折``12--13页&apos;&apos;这种表述\\</span><br><span class="line">长破折号用于---犹豫等语气\\</span><br><span class="line">$-1$的长度和他们不同</span><br></pre></td></tr></table></figure>
-<h3 id="波浪号"><a href="#波浪号" class="headerlink" title="波浪号"></a>波浪号</h3><p>有两种波浪号，比较一下</p>
+<h3 id="波浪号">波浪号</h3>
+<p>有两种波浪号，比较一下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\~和$\sim$，后面一种更常用。</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>前一种会在CJK中报错</p>
 </blockquote>
-<h3 id="省略号"><a href="#省略号" class="headerlink" title="省略号"></a>省略号</h3><p>不可以用三个英文句点表示省略号，一般用<code>\ldots</code>表示英文的省略号。</p>
-<h2 id="标题、章和节"><a href="#标题、章和节" class="headerlink" title="标题、章和节"></a>标题、章和节</h2><p>为了便于理解，应该把文章分为章、节和子节。LaTeX用专门的命令支持这个工作，这些命令把标题作为参量。</p>
+<h3 id="省略号">省略号</h3>
+<p>不可以用三个英文句点表示省略号，一般用<code>\ldots</code>表示英文的省略号。</p>
+<h2 id="标题章和节">标题、章和节</h2>
+<p>为了便于理解，应该把文章分为章、节和子节。LaTeX用专门的命令支持这个工作，这些命令把标题作为参量。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%如下代码把book类分成章、节、子节</span><br><span class="line">\chapter[王尼玛]&#123;王尼玛在蓉城的故事&#125;</span><br><span class="line">\section[大一]&#123;关于大一混吃混喝的一切&#125;</span><br><span class="line">\subsection&#123;吃&#125;</span><br><span class="line">%之后的层次不会在目录中出现</span><br><span class="line">\subsubsection&#123;火锅&#125;</span><br><span class="line">\paragraph&#123;大宅门&#125;</span><br><span class="line">\subparagraph&#123;某个周五&#125;</span><br></pre></td></tr></table></figure>
 <p>命令<code>\appendix</code>只把章的序号改为字母标记，在article 类中改变节的字号。</p>
 <p>命令<code>\tableofcontents</code>在当前位置插入目录。</p>
@@ -552,48 +576,51 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\title&#123;一本教学笔记&#125;</span><br><span class="line">\author&#123;王尼玛&#125;</span><br><span class="line">%可选的</span><br><span class="line">\date&#123;\today&#125;</span><br></pre></td></tr></table></figure>
 <p>下面使一些用于book类的实用命令。</p>
 <ul>
-<li><p><code>\frontmatter</code> 接着命令<code>\begin{document}</code> 使用。它把页码更换为罗马数字，而且章节不计数。当你使用带星的分节命令(例如<code>\chapter*{Preface})</code>时，这些章节就不会出现在目录里。</p>
-</li>
-<li><p><code>\mainmatter</code> 应出现在书的第一章前面。它启用阿拉伯数字的页码计数器，并对页码重新计数。</p>
-</li>
-<li><p><code>\appendix</code> 标志书中附录材料的开始。该命令后的各章序号改用字母标记。</p>
-</li>
-<li><p><code>\backmatter</code> 应该插入与书中最后一部分内容的前面，如参考文献和索引。在标准文档类型中，它对页面没有什么效果。</p>
-</li>
+<li><p><code>\frontmatter</code> 接着命令<code>\begin{document}</code> 使用。它把页码更换为罗马数字，而且章节不计数。当你使用带星的分节命令(例如<code>\chapter*{Preface})</code>时，这些章节就不会出现在目录里。</p></li>
+<li><p><code>\mainmatter</code> 应出现在书的第一章前面。它启用阿拉伯数字的页码计数器，并对页码重新计数。</p></li>
+<li><p><code>\appendix</code> 标志书中附录材料的开始。该命令后的各章序号改用字母标记。</p></li>
+<li><p><code>\backmatter</code> 应该插入与书中最后一部分内容的前面，如参考文献和索引。在标准文档类型中，它对页面没有什么效果。</p></li>
 </ul>
-<h2 id="交叉引用"><a href="#交叉引用" class="headerlink" title="交叉引用"></a>交叉引用</h2><p>在书籍、报告和论文中，对图、表和文本的特殊段落进行交叉引用。</p>
-<p><code>\label{marker</code>  给节、子节、图、表、公式或定理起个别名marker</p>
+<h2 id="交叉引用">交叉引用</h2>
+<p>在书籍、报告和论文中，对图、表和文本的特殊段落进行交叉引用。</p>
+<p><code>\label{marker</code> 给节、子节、图、表、公式或定理起个别名marker</p>
 <p><code>\ref {marker}</code> 将把这行命令替换为marker相应的序号</p>
 <p><code>\pageref{marker}</code> 将把这行命令替换为marker相应的页码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\section&#123;第一节&#125;\label&#123;s1&#125;</span><br><span class="line">王尼玛</span><br><span class="line">\section&#123;第二节&#125;</span><br><span class="line">王尼玛在\ref&#123;s1&#125;节中出现，具体在第\pageref&#123;s1&#125;页处。</span><br></pre></td></tr></table></figure>
-<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>命令<code>\footnote{text}</code> 把脚注内容排印与当前页的页脚位置，应该用逗号或句号结尾。</p>
+<h2 id="脚注">脚注</h2>
+<p>命令<code>\footnote{text}</code> 把脚注内容排印与当前页的页脚位置，应该用逗号或句号结尾。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关于使用脚注\footnote&#123;会引开注意力，而且你一定会看过来&#125;，为什么把这些不写在正文中呢。</span><br></pre></td></tr></table></figure>
-<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>命令<code>\emph{text}</code>可以强调（emphasize）文本。</p>
+<h2 id="强调">强调</h2>
+<p>命令<code>\emph{text}</code>可以强调（emphasize）文本。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不同的上下文和字体会有不同的\emph&#123;强调&#125;效果</span><br></pre></td></tr></table></figure>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>为了排版某些专用的文本，LaTeX定义了不同格式的环境：</p>
+<h2 id="环境">环境</h2>
+<p>为了排版某些专用的文本，LaTeX定义了不同格式的环境：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%\begin&#123;environment&#125;</span><br><span class="line">%  text</span><br><span class="line">%\end&#123;environment&#125;</span><br><span class="line">\begin&#123;displaymath&#125;</span><br><span class="line">	x^&#123;n&#125;+y^&#123;n&#125;=z^&#123;n&#125;</span><br><span class="line">\end&#123;displaymath&#125;</span><br></pre></td></tr></table></figure>
 <p>环境可以嵌套。</p>
 <p>下方出现的命令为环境名，替换上面代码中的environment。</p>
-<h3 id="列表环境"><a href="#列表环境" class="headerlink" title="列表环境"></a>列表环境</h3><p>LaTeX可以方便的生成各种列表。</p>
+<h3 id="列表环境">列表环境</h3>
+<p>LaTeX可以方便的生成各种列表。</p>
 <ul>
-<li><p><code>itemize</code>适用于简单的列表，命令<code>item[index]</code> 可用index作为项目标记。</p>
-</li>
+<li><p><code>itemize</code>适用于简单的列表，命令<code>item[index]</code> 可用index作为项目标记。</p></li>
 <li><p><code>enumerate</code> 适用于有排列序号的列表</p>
 <blockquote>
 <p>使用宏包enumerate可以定制列表的序号。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; %导言</span><br><span class="line">&gt; \usepackage&#123;enumerate&#125;</span><br><span class="line">&gt;</span><br><span class="line">&gt; %text可替换为任意字符串</span><br><span class="line">&gt; %i为罗马数字，a为希腊字母，1为数字</span><br><span class="line">&gt; \begin&#123;enumerate&#125; [&#123;text&#125; i]</span><br><span class="line">&gt; 	\item 一二三四五</span><br><span class="line">&gt; 	\item 上山打老虎</span><br><span class="line">&gt; \end&#123;enumerate&#125; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p><code>description</code> 适用于带描述的列表，命令<code>item[label]</code> 可用label作为标签。</p>
-</li>
+</blockquote></li>
+<li><p><code>description</code> 适用于带描述的列表，命令<code>item[label]</code> 可用label作为标签。</p></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;enumerate&#125;</span><br><span class="line">	\item 带数字的列表</span><br><span class="line">	\item 列表可以嵌套</span><br><span class="line">	\begin&#123;itemize&#125;</span><br><span class="line">		\item 简单列表默认</span><br><span class="line">		\item[+] 可以修改项目标记</span><br><span class="line">		\begin&#123;description&#125;</span><br><span class="line">			\item[标签] 标签列表的标签显示取决于环境</span><br><span class="line">		\end&#123;description&#125;</span><br><span class="line">	\end&#123;itemize&#125;</span><br><span class="line">\end&#123;enumerate&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p><code>flushleft</code>左对齐，<code>flushright</code>为右对齐，<code>center</code> 为居中。</p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p><code>quote</code>引文，<code>quotation</code>为长引文，<code>verse</code> 为诗歌。</p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>一般摘要用于article 类文档。命令为<code>abstract</code> </p>
-<h3 id="原文打印"><a href="#原文打印" class="headerlink" title="原文打印"></a>原文打印</h3><p><code>\begin{verbatim}</code>和<code>\end{verbatim}</code> 之间的文本将直接打印。</p>
+<h3 id="对齐">对齐</h3>
+<p><code>flushleft</code>左对齐，<code>flushright</code>为右对齐，<code>center</code> 为居中。</p>
+<h3 id="引用">引用</h3>
+<p><code>quote</code>引文，<code>quotation</code>为长引文，<code>verse</code> 为诗歌。</p>
+<h3 id="摘要">摘要</h3>
+<p>一般摘要用于article 类文档。命令为<code>abstract</code></p>
+<h3 id="原文打印">原文打印</h3>
+<p><code>\begin{verbatim}</code>和<code>\end{verbatim}</code> 之间的文本将直接打印。</p>
 <p>在段落中<code>\verb+text+</code> 可将分隔符+之间的文本直接打印，其中+可以为除了*和空格的任意字符。</p>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p><code>tabular</code>环境可用于排版带有水平和垂直表现的漂亮表格。LaTeX会自动设置单元格的长宽，也就意味着<strong>不会自动换行</strong>。</p>
+<h3 id="表格">表格</h3>
+<p><code>tabular</code>环境可用于排版带有水平和垂直表现的漂亮表格。LaTeX会自动设置单元格的长宽，也就意味着<strong>不会自动换行</strong>。</p>
 <p>命令<code>\begin{tabular}[pos]{table spec}</code> 的参量<em>table spec</em>定义了表格的样式。其中<code>l</code> 产生左对齐的列，<code>r</code>产生右对齐的列，<code>c</code> 产生居中的列。用<code>p{width}</code> 产生宽为width且自动断行的列；<code>|</code> 产生垂直表线。</p>
 <p>参量<em>Pos</em> 设定相对于环绕文本基线的垂直位置。使用字母<code>t</code>、 <code>b</code>和<code>c</code> 来设定表格靠上、靠下或者居中放置。</p>
 <p>在<code>tabular</code>环境中，用<code>&amp;</code>跳入下一列，用<code>\\</code> 开始新的一行，用<code>\hline</code>插入水平表线。用<code>\cline{j-i}</code>可添加部分表线，其中<code>j</code>和<code>i</code>分别表示表线的起始列和终止列序号。</p>
@@ -602,7 +629,8 @@
 </blockquote>
 <p>命令<code>\multicolumn{cols}{spec}{text}</code>可以生成一个较宽的列。参量<code>cols</code>表示所占列数，<code>spec</code> 标记了单元格样式，<code>text</code>为文本。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;diagbox&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;tabular&#125;&#123;|c|c|c|&#125;</span><br><span class="line">	\hline</span><br><span class="line">	\multicolumn&#123;3&#125;&#123;|c|&#125;&#123;如何追女孩的建议&#125;\\</span><br><span class="line">	\hline </span><br><span class="line">	\diagbox&#123;财气&#125;&#123;建议&#125;&#123;颜值&#125; &amp; 帅&amp; 挫\\</span><br><span class="line">	\hline</span><br><span class="line">	有钱花 &amp; 没啥好说的 &amp; 没啥好说的 \\</span><br><span class="line">	\hline</span><br><span class="line">	叮当响 &amp; 没啥好说的 &amp; 没啥好说的  \\</span><br><span class="line">	\hline</span><br><span class="line">\end&#123;tabular&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="浮动体"><a href="#浮动体" class="headerlink" title="浮动体"></a>浮动体</h3><p>有时候，安排一张图片和表格的位置是一件令人抓狂的事。LaTeX提供了<code>\figure</code>和<code>\table</code>环境，专门用于浮动图片和表格的位置。</p>
+<h3 id="浮动体">浮动体</h3>
+<p>有时候，安排一张图片和表格的位置是一件令人抓狂的事。LaTeX提供了<code>\figure</code>和<code>\table</code>环境，专门用于浮动图片和表格的位置。</p>
 <blockquote>
 <p>LaTeX会按参数要求将浮动体放入先入先出队列中，知道满足条件的位置出现，否则一个浮动体将挡住之后所有的浮动体。一旦惨剧发生，你会发现所有的表格和图片都放在了文档最后。</p>
 <p>当然可以用命令<code>\clearpage</code>强制放置等待队列中所有剩下的浮动体</p>
@@ -612,31 +640,31 @@
 <p>可选参数<em>placement specifier</em>是由浮动许可放置参数写成的字符串组成，具体见下表。他们告诉了LaTeX浮动提可以被移放的位置，一般可以有很多可防止参数一起构成字符串，标志了多个可用位置。</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:center">Spec</th>
-<th style="text-align:center">浮动体许可放置位置</th>
+<tr class="header">
+<th style="text-align: center;">Spec</th>
+<th style="text-align: center;">浮动体许可放置位置</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">h</td>
-<td style="text-align:center">在文本的确切位置</td>
+<tr class="odd">
+<td style="text-align: center;">h</td>
+<td style="text-align: center;">在文本的确切位置</td>
 </tr>
-<tr>
-<td style="text-align:center">t</td>
-<td style="text-align:center">页面顶部</td>
+<tr class="even">
+<td style="text-align: center;">t</td>
+<td style="text-align: center;">页面顶部</td>
 </tr>
-<tr>
-<td style="text-align:center">b</td>
-<td style="text-align:center">页面底部</td>
+<tr class="odd">
+<td style="text-align: center;">b</td>
+<td style="text-align: center;">页面底部</td>
 </tr>
-<tr>
-<td style="text-align:center">p</td>
-<td style="text-align:center">只有一个浮动体的专门页面</td>
+<tr class="even">
+<td style="text-align: center;">p</td>
+<td style="text-align: center;">只有一个浮动体的专门页面</td>
 </tr>
-<tr>
-<td style="text-align:center">!</td>
-<td style="text-align:center">忽略阻止浮动体放置的内部参数</td>
+<tr class="odd">
+<td style="text-align: center;">!</td>
+<td style="text-align: center;">忽略阻止浮动体放置的内部参数</td>
 </tr>
 </tbody>
 </table>
@@ -644,7 +672,8 @@
 <p>下面是个例子</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">懒得打字所以复制了很多遍。</span><br><span class="line">	</span><br><span class="line">%可以尝试换为其他的参数</span><br><span class="line">\begin&#123;table&#125;[hb] </span><br><span class="line">	\caption[短标题]&#123;装模做样的表格&#125;</span><br><span class="line">	\begin&#123;center&#125;</span><br><span class="line">		\begin&#123;tabular&#125;&#123;c&#125;</span><br><span class="line">			\hline</span><br><span class="line">			这是一个表格\\</span><br><span class="line">			\hline</span><br><span class="line">		\end&#123;tabular&#125;</span><br><span class="line">	\end&#123;center&#125;	</span><br><span class="line">\end&#123;table&#125;</span><br><span class="line">懒得打字所以复制了很多遍。</span><br></pre></td></tr></table></figure>
 <p>当然交叉引用的两个命令也可以使用。</p>
-<h3 id="保护脆弱命令"><a href="#保护脆弱命令" class="headerlink" title="保护脆弱命令"></a>保护脆弱命令</h3><p>作为命令参量的文本，可能在文档中出现多次。当用于类似<code>\section</code>的参量时，一些命令会失效。这些命令就被称为脆弱命令。此时在命令前加<code>\protect</code>可以保护它们。</p>
+<h3 id="保护脆弱命令">保护脆弱命令</h3>
+<p>作为命令参量的文本，可能在文档中出现多次。当用于类似<code>\section</code>的参量时，一些命令会失效。这些命令就被称为脆弱命令。此时在命令前加<code>\protect</code>可以保护它们。</p>
 
       
     </div>
@@ -787,7 +816,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -889,7 +918,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -939,7 +974,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于TeX的介绍"><span class="nav-number">1.1.</span> <span class="nav-text">关于TeX的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TexLive、TexStudio的安装"><span class="nav-number">1.2.</span> <span class="nav-text">TexLive、TexStudio的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TexLive安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">TexLive安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TexStudio安装"><span class="nav-number">1.2.2.</span> <span class="nav-text">TexStudio安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX源文件"><span class="nav-number">1.3.</span> <span class="nav-text">LaTeX源文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#空白"><span class="nav-number">1.3.1.</span> <span class="nav-text">空白</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.3.2.</span> <span class="nav-text">特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-命令"><span class="nav-number">1.3.3.</span> <span class="nav-text">LaTeX 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">1.3.4.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源文件的结构"><span class="nav-number">1.4.</span> <span class="nav-text">源文件的结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档布局"><span class="nav-number">1.5.</span> <span class="nav-text">文档布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文档类"><span class="nav-number">1.5.1.</span> <span class="nav-text">文档类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏包"><span class="nav-number">1.5.2.</span> <span class="nav-text">宏包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面样式"><span class="nav-number">1.5.3.</span> <span class="nav-text">页面样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX文件"><span class="nav-number">1.6.</span> <span class="nav-text">LaTeX文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本排版"><span class="nav-number">2.</span> <span class="nav-text">文本排版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#段落和分行"><span class="nav-number">2.1.</span> <span class="nav-text">段落和分行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊字符和符号"><span class="nav-number">2.2.</span> <span class="nav-text">特殊字符和符号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引号"><span class="nav-number">2.2.1.</span> <span class="nav-text">引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#破折号和连字号"><span class="nav-number">2.2.2.</span> <span class="nav-text">破折号和连字号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#波浪号"><span class="nav-number">2.2.3.</span> <span class="nav-text">波浪号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#省略号"><span class="nav-number">2.2.4.</span> <span class="nav-text">省略号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标题、章和节"><span class="nav-number">2.3.</span> <span class="nav-text">标题、章和节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉引用"><span class="nav-number">2.4.</span> <span class="nav-text">交叉引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚注"><span class="nav-number">2.5.</span> <span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强调"><span class="nav-number">2.6.</span> <span class="nav-text">强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">2.7.</span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#列表环境"><span class="nav-number">2.7.1.</span> <span class="nav-text">列表环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对齐"><span class="nav-number">2.7.2.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">2.7.3.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要"><span class="nav-number">2.7.4.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原文打印"><span class="nav-number">2.7.5.</span> <span class="nav-text">原文打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">2.7.6.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动体"><span class="nav-number">2.7.7.</span> <span class="nav-text">浮动体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保护脆弱命令"><span class="nav-number">2.7.8.</span> <span class="nav-text">保护脆弱命令</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于tex的介绍"><span class="nav-number">1.1.</span> <span class="nav-text">关于TeX的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#texlivetexstudio的安装"><span class="nav-number">1.2.</span> <span class="nav-text">TexLive、TexStudio的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#texlive安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">TexLive安装 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#texstudio安装"><span class="nav-number">1.2.2.</span> <span class="nav-text">TexStudio安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#latex源文件"><span class="nav-number">1.3.</span> <span class="nav-text">LaTeX源文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#空白"><span class="nav-number">1.3.1.</span> <span class="nav-text">空白</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.3.2.</span> <span class="nav-text">特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#latex-命令"><span class="nav-number">1.3.3.</span> <span class="nav-text">LaTeX 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">1.3.4.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源文件的结构"><span class="nav-number">1.4.</span> <span class="nav-text">源文件的结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档布局"><span class="nav-number">1.5.</span> <span class="nav-text">文档布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文档类"><span class="nav-number">1.5.1.</span> <span class="nav-text">文档类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏包"><span class="nav-number">1.5.2.</span> <span class="nav-text">宏包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面样式"><span class="nav-number">1.5.3.</span> <span class="nav-text">页面样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#latex文件"><span class="nav-number">1.6.</span> <span class="nav-text">LaTeX文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本排版"><span class="nav-number">2.</span> <span class="nav-text">文本排版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#段落和分行"><span class="nav-number">2.1.</span> <span class="nav-text">段落和分行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊字符和符号"><span class="nav-number">2.2.</span> <span class="nav-text">特殊字符和符号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引号"><span class="nav-number">2.2.1.</span> <span class="nav-text">引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#破折号和连字号"><span class="nav-number">2.2.2.</span> <span class="nav-text">破折号和连字号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#波浪号"><span class="nav-number">2.2.3.</span> <span class="nav-text">波浪号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#省略号"><span class="nav-number">2.2.4.</span> <span class="nav-text">省略号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标题章和节"><span class="nav-number">2.3.</span> <span class="nav-text">标题、章和节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉引用"><span class="nav-number">2.4.</span> <span class="nav-text">交叉引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚注"><span class="nav-number">2.5.</span> <span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强调"><span class="nav-number">2.6.</span> <span class="nav-text">强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">2.7.</span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#列表环境"><span class="nav-number">2.7.1.</span> <span class="nav-text">列表环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对齐"><span class="nav-number">2.7.2.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">2.7.3.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要"><span class="nav-number">2.7.4.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原文打印"><span class="nav-number">2.7.5.</span> <span class="nav-text">原文打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">2.7.6.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动体"><span class="nav-number">2.7.7.</span> <span class="nav-text">浮动体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保护脆弱命令"><span class="nav-number">2.7.8.</span> <span class="nav-text">保护脆弱命令</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

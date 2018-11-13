@@ -409,18 +409,24 @@
       
         <p>折腾了一下午后，终于将博客从Github Page迁到个人的云服务器上，所以做一篇记录.</p>
 <a id="more"></a>
-<h1 id="本地安装Hexo-node-js-git"><a href="#本地安装Hexo-node-js-git" class="headerlink" title="本地安装Hexo,node.js,git"></a>本地安装Hexo,node.js,git</h1><p>参看<a href="/note-hexo-and-github.html">hexo 和 Github 搭建个人博客记录</a></p>
-<h1 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h1><p>首先需要一台Ubuntu服务器，并且可以用<code>ubuntu</code>用户身份正常登陆.</p>
-<h2 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h2><p>配置服务器的登陆选项，添加SSH，SSH公钥就用之前安装git时生成的公钥即可. </p>
+<h1 id="本地安装hexonode.jsgit">本地安装Hexo,node.js,git</h1>
+<p>参看<a href="/note-hexo-and-github.html">hexo 和 Github 搭建个人博客记录</a></p>
+<h1 id="服务器端">服务器端</h1>
+<p>首先需要一台Ubuntu服务器，并且可以用<code>ubuntu</code>用户身份正常登陆.</p>
+<h2 id="配置ssh">配置SSH</h2>
+<p>配置服务器的登陆选项，添加SSH，SSH公钥就用之前安装git时生成的公钥即可.</p>
 <p>在本地下载Xshell等工具，登陆方式也可以选为本地的私钥.</p>
 <blockquote>
 <p>注意在使用Xshell等终端时，若不小心键入了<code>ctrl+s</code>, 则这个命令为暂时挂起终端，只需要按<code>ctrl+q</code>即可继续输入</p>
 </blockquote>
-<h2 id="安装Git和Nginx"><a href="#安装Git和Nginx" class="headerlink" title="安装Git和Nginx"></a>安装Git和Nginx</h2><p>Git 用于版本管理和部署，Nginx 用于静态博客托管。</p>
+<h2 id="安装git和nginx">安装Git和Nginx</h2>
+<p>Git 用于版本管理和部署，Nginx 用于静态博客托管。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install git nginx -y</span><br></pre></td></tr></table></figure>
-<h2 id="创建Git仓库"><a href="#创建Git仓库" class="headerlink" title="创建Git仓库"></a>创建Git仓库</h2><p>在<code>/var/repo/</code>下创建名为<code>hexo_static</code>的裸仓库。用如下命令</p>
+<h2 id="创建git仓库">创建Git仓库</h2>
+<p>在<code>/var/repo/</code>下创建名为<code>hexo_static</code>的裸仓库。用如下命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /var/repo/</span><br><span class="line">sudo chown -R $USER:$USER /var/repo/</span><br><span class="line">sudo chmod -R 755 /var/repo/</span><br><span class="line"></span><br><span class="line">cd /var/repo/</span><br><span class="line">git init --bare hexo_static.git</span><br></pre></td></tr></table></figure>
-<h2 id="配置Nginx托管文件目录"><a href="#配置Nginx托管文件目录" class="headerlink" title="配置Nginx托管文件目录"></a>配置Nginx托管文件目录</h2><p>创建<code>/var/www/hexo</code>目录，用于Nginx托管，修改目录所有权和权限。</p>
+<h2 id="配置nginx托管文件目录">配置Nginx托管文件目录</h2>
+<p>创建<code>/var/www/hexo</code>目录，用于Nginx托管，修改目录所有权和权限。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/hexo</span><br><span class="line"></span><br><span class="line">sudo chown -R $USER:$USER /var/www/hexo</span><br><span class="line">sudo chmod -R 755 /var/www/hexo</span><br></pre></td></tr></table></figure>
 <p>随后修改Nginx的<code>default</code>设置，使<code>root</code>指向<code>hexo</code>目录.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/nginx/sites-available/default</span><br></pre></td></tr></table></figure>
@@ -432,7 +438,8 @@
 </blockquote>
 <p>重启Nginx服务，使得改动生效。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure>
-<h2 id="创建Git钩子"><a href="#创建Git钩子" class="headerlink" title="创建Git钩子"></a>创建Git钩子</h2><blockquote>
+<h2 id="创建git钩子">创建Git钩子</h2>
+<blockquote>
 <p>不清楚钩子是什么</p>
 </blockquote>
 <p>在自动生成的 hooks 目录下创建一个新的钩子文件：</p>
@@ -441,9 +448,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">git --work-tree=/var/www/hexo --git-dir=/var/repo/hexo_static.git checkout -f</span><br></pre></td></tr></table></figure>
 <p>保存并退出文件，并让该文件变为可执行文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /var/repo/hexo_static.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
-<h1 id="回到本地配置"><a href="#回到本地配置" class="headerlink" title="回到本地配置"></a>回到本地配置</h1><h2 id="修改Hexo的默认配置"><a href="#修改Hexo的默认配置" class="headerlink" title="修改Hexo的默认配置"></a>修改Hexo的默认配置</h2><p>在站点config.yml中修改博客的地址<code>url</code> </p>
+<h1 id="回到本地配置">回到本地配置</h1>
+<h2 id="修改hexo的默认配置">修改Hexo的默认配置</h2>
+<p>在站点config.yml中修改博客的地址<code>url</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line"></span><br><span class="line">url: http://server-ip # 没有绑定域名时填写服务器的实际 IP 地址。</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
-<h2 id="通过Git部署"><a href="#通过Git部署" class="headerlink" title="通过Git部署"></a>通过Git部署</h2><p>先在任意位置处打开powershell, 从服务器上把<code>hexo_static</code>仓库克隆下来, 以此来将服务器地址添加到受信任的站点中。</p>
+<h2 id="通过git部署">通过Git部署</h2>
+<p>先在任意位置处打开powershell, 从服务器上把<code>hexo_static</code>仓库克隆下来, 以此来将服务器地址添加到受信任的站点中。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ubuntu@server_ip:/var/repo/hexo_static.git</span><br></pre></td></tr></table></figure>
 <p>注意在第一次进行这一步时会提示是否继续，选yes即可。</p>
 <p>再编辑Hexo的<code>config.yml</code>文件，找到Deployment, 修改为</p>
@@ -611,7 +621,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -713,7 +723,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -763,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本地安装Hexo-node-js-git"><span class="nav-number">1.</span> <span class="nav-text">本地安装Hexo,node.js,git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器端"><span class="nav-number">2.</span> <span class="nav-text">服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置SSH"><span class="nav-number">2.1.</span> <span class="nav-text">配置SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git和Nginx"><span class="nav-number">2.2.</span> <span class="nav-text">安装Git和Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Git仓库"><span class="nav-number">2.3.</span> <span class="nav-text">创建Git仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Nginx托管文件目录"><span class="nav-number">2.4.</span> <span class="nav-text">配置Nginx托管文件目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Git钩子"><span class="nav-number">2.5.</span> <span class="nav-text">创建Git钩子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回到本地配置"><span class="nav-number">3.</span> <span class="nav-text">回到本地配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改Hexo的默认配置"><span class="nav-number">3.1.</span> <span class="nav-text">修改Hexo的默认配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过Git部署"><span class="nav-number">3.2.</span> <span class="nav-text">通过Git部署</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本地安装hexonode.jsgit"><span class="nav-number">1.</span> <span class="nav-text">本地安装Hexo,node.js,git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器端"><span class="nav-number">2.</span> <span class="nav-text">服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置ssh"><span class="nav-number">2.1.</span> <span class="nav-text">配置SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git和nginx"><span class="nav-number">2.2.</span> <span class="nav-text">安装Git和Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建git仓库"><span class="nav-number">2.3.</span> <span class="nav-text">创建Git仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置nginx托管文件目录"><span class="nav-number">2.4.</span> <span class="nav-text">配置Nginx托管文件目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建git钩子"><span class="nav-number">2.5.</span> <span class="nav-text">创建Git钩子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回到本地配置"><span class="nav-number">3.</span> <span class="nav-text">回到本地配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改hexo的默认配置"><span class="nav-number">3.1.</span> <span class="nav-text">修改Hexo的默认配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过git部署"><span class="nav-number">3.2.</span> <span class="nav-text">通过Git部署</span></a></li></ol></li></ol></div>
             
 
           </div>

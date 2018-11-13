@@ -410,8 +410,9 @@
         <p>本文讲述访问一个网页时发生了什么，以及如何学习前端技术。</p>
 <a id="more"></a>
 <p>偶然的机会，接触到百度名下的前端技术学院。有些遗憾没能在大学四年接触到这个平台，现在只能抽空开始前端知识的系统学习。</p>
-<h1 id="发生了什么"><a href="#发生了什么" class="headerlink" title="发生了什么"></a>发生了什么</h1><p>不管是点击某个链接，还是在地址栏输入地址访问，还是在微信公众号的页面浏览，你都是在访问存储在服务器上的某个网页。那么访问过程中大致发生了什么？</p>
-<ol>
+<h1 id="发生了什么">发生了什么</h1>
+<p>不管是点击某个链接，还是在地址栏输入地址访问，还是在微信公众号的页面浏览，你都是在访问存储在服务器上的某个网页。那么访问过程中大致发生了什么？</p>
+<ol type="1">
 <li>你通过某种操作（点击，回车，或者触摸）告知你的浏览器你将要访问哪个网页。</li>
 <li>你的浏览器将你的操作翻译为一段代码发送给存有网站的服务器（一台或者几千台高性能计算机）</li>
 <li>服务器在接受代码后，将会把自己存有的网页生成一段新的代码，这个过程中服务器也许会向数据库查询一些信息(比如<em>私人定制</em>的广告)，再插入这段代码中，使得这段代码因人而异。</li>
@@ -419,16 +420,21 @@
 </ol>
 <p>而我们要学的前端技术，就是上述的步骤3中服务器返回的代码应该长什么样子才能被浏览器正确的绘制。</p>
 <p>前端包括三大技术，HTML+CSS+Javascript。</p>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><p>HTML(the Hypertext Markup Language)，中文是超文本标记语言，是描述网页结构的语言。比如你所看到的这篇博文，HTML文件中就包括网页的标题、作者、简单的描述信息、网页各个按钮的内容、博文的标题、正文、网页的脚注等等。</p>
+<h2 id="html">HTML</h2>
+<p>HTML(the Hypertext Markup Language)，中文是超文本标记语言，是描述网页结构的语言。比如你所看到的这篇博文，HTML文件中就包括网页的标题、作者、简单的描述信息、网页各个按钮的内容、博文的标题、正文、网页的脚注等等。</p>
 <p>但是HTML只是单纯的描述网页的结构，一般不包括网页上的各个元素应当如何显示。一些诸如博文的字体、按钮的颜色、按钮在网页的上方还是下方、网页在手机和电脑上应当如何显示等等涉及到样式的信息都在另一个文件中存储。</p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>CSS(Cascading Style Sheets) 覆叠样式表，是一个描述网页上的各个元素应当如何显示的文件。</p>
+<h2 id="css">CSS</h2>
+<p>CSS(Cascading Style Sheets) 覆叠样式表，是一个描述网页上的各个元素应当如何显示的文件。</p>
 <p>将CSS与HTML分开，或者说将网页的结构和样式分开，一个最显著的优点就是你可以很方便的调整显示的样式，以及可以很方便的套用别人已经调好的样式。</p>
 <p>比如想将所有的按钮调成红色，只需在CSS中添加<code>button { background-color: red;}</code>即可，而不必逐个调整HTML中所有出现的按钮。</p>
-<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><p>Javascript 是描述网页如何响应你的操作的语言。诸如点击按钮弹出一个警示对话框之类的工作就交给了Javascript来描述。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>所以HTML包含了网页中有哪些内容，他们的结构如何。CSS包含了这些内容应当如何显示的信息。而Javascript则负责响应你的操作，让网页动起来。这三个文件都包含在了服务器传给浏览器的代码之中。</p>
-<h1 id="如何学习前端技术"><a href="#如何学习前端技术" class="headerlink" title="如何学习前端技术"></a>如何学习前端技术</h1><p>百度的<a href="http://ife.baidu.com/" target="_blank" rel="noopener">前端技术学院</a>提供了很好的学习路线图和学习指引，只需要按部就班的学习即可掌握前端技术。</p>
+<h2 id="javascript">Javascript</h2>
+<p>Javascript 是描述网页如何响应你的操作的语言。诸如点击按钮弹出一个警示对话框之类的工作就交给了Javascript来描述。</p>
+<h2 id="总结">总结</h2>
+<p>所以HTML包含了网页中有哪些内容，他们的结构如何。CSS包含了这些内容应当如何显示的信息。而Javascript则负责响应你的操作，让网页动起来。这三个文件都包含在了服务器传给浏览器的代码之中。</p>
+<h1 id="如何学习前端技术">如何学习前端技术</h1>
+<p>百度的<a href="http://ife.baidu.com/" target="_blank" rel="noopener">前端技术学院</a>提供了很好的学习路线图和学习指引，只需要按部就班的学习即可掌握前端技术。</p>
 <p>更为重要的是，在学习的过程中要注意掌握高效学习的各种技巧，包括：</p>
-<ol>
+<ol type="1">
 <li>撰写学习笔记并与他人分享</li>
 <li>学习概念的同时要思考为何提出这样的概念，有没有别的替代</li>
 <li>Talk is cheap, show me the code.</li>
@@ -585,7 +591,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -687,7 +693,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -737,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#发生了什么"><span class="nav-number">1.</span> <span class="nav-text">发生了什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">1.3.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何学习前端技术"><span class="nav-number">2.</span> <span class="nav-text">如何学习前端技术</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#发生了什么"><span class="nav-number">1.</span> <span class="nav-text">发生了什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript"><span class="nav-number">1.3.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何学习前端技术"><span class="nav-number">2.</span> <span class="nav-text">如何学习前端技术</span></a></li></ol></div>
             
 
           </div>
