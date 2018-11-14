@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-14T14:08:54.979Z">
+<meta property="og:updated_time" content="2018-11-14T14:33:55.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODE and Control Systems">
 <meta name="twitter:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
@@ -346,7 +346,7 @@
                 
               
 
-              <time title="创建时间：2018-11-14 21:29:57 / 修改时间：22:08:54" itemprop="dateCreated datePublished" datetime="2018-11-14T21:29:57+08:00">2018-11-14</time>
+              <time title="创建时间：2018-11-14 21:29:57 / 修改时间：22:33:55" itemprop="dateCreated datePublished" datetime="2018-11-14T21:29:57+08:00">2018-11-14</time>
             
 
             
@@ -418,7 +418,7 @@ x(0)=x_0
 \]</span> where, at time <span class="math inline">\(t\in[0,T]\)</span> , the state <span class="math inline">\(x(t)\in \mathbb{R}^n\)</span>. We call this equation Cauchy Problem if it has such boundary conditions.</p>
 <p>We first define the solution of this Cauchy Problem for given <span class="math inline">\(x_0\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
 <p><strong>Definition 1</strong> The map <span class="math inline">\(x: [0,T] \rightarrow \mathbb{R}^n\)</span> is a solution of (1), if <span class="math inline">\(x(\cdot)\in C([0,T];\mathbb{R}^n)\)</span> and satisfies <span class="math display">\[
-x(t)=x_0+\int_0^t f(x,x(s))ds, \quad t\in[0,T].
+x(t)=x_0+\int_0^t f(s,x(s))ds, \quad t\in[0,T].
 \]</span> It is of interest to know whether the solution exists, if it exists, is it unique. In order to answer this question, it is necessary to put some restrictions on <span class="math inline">\(f\)</span>.</p>
 <p>We will make the following assumptions:</p>
 <ol type="1">
