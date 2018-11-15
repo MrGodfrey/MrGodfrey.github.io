@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-14T14:33:55.237Z">
+<meta property="og:updated_time" content="2018-11-15T16:08:44.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODE and Control Systems">
 <meta name="twitter:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
@@ -346,12 +346,22 @@
                 
               
 
-              <time title="创建时间：2018-11-14 21:29:57 / 修改时间：22:33:55" itemprop="dateCreated datePublished" datetime="2018-11-14T21:29:57+08:00">2018-11-14</time>
+              <time title="创建时间：2018-11-14 21:29:57" itemprop="dateCreated datePublished" datetime="2018-11-14T21:29:57+08:00">2018-11-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                <time title="修改时间：2018-11-16 00:08:44" itemprop="dateModified" datetime="2018-11-16T00:08:44+08:00">2018-11-16</time>
               
             
           </span>
@@ -414,10 +424,10 @@
 \begin{cases}
 \dot{x}(t)=f(t,x(t)), \quad t \in [0,T]\\
 x(0)=x_0
-\end{cases}\tag{1}
+\end{cases}\tag{1}\label{1}
 \]</span> where, at time <span class="math inline">\(t\in[0,T]\)</span> , the state <span class="math inline">\(x(t)\in \mathbb{R}^n\)</span>. We call this equation Cauchy Problem if it has such boundary conditions.</p>
 <p>We first define the solution of this Cauchy Problem for given <span class="math inline">\(x_0\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p><strong>Definition 1</strong> The map <span class="math inline">\(x: [0,T] \rightarrow \mathbb{R}^n\)</span> is a solution of (1), if <span class="math inline">\(x(\cdot)\in C([0,T];\mathbb{R}^n)\)</span> and satisfies <span class="math display">\[
+<p><strong>Definition 1</strong> The map <span class="math inline">\(x: [0,T] \rightarrow \mathbb{R}^n​\)</span> is a solution of <span class="math inline">\(\eqref{1}\)</span> , if <span class="math inline">\(x(\cdot)\in C([0,T];\mathbb{R}^n)​\)</span> and satisfies <span class="math display">\[
 x(t)=x_0+\int_0^t f(s,x(s))ds, \quad t\in[0,T].
 \]</span> It is of interest to know whether the solution exists, if it exists, is it unique. In order to answer this question, it is necessary to put some restrictions on <span class="math inline">\(f\)</span>.</p>
 <p>We will make the following assumptions:</p>
@@ -427,22 +437,21 @@ x(t)=x_0+\int_0^t f(s,x(s))ds, \quad t\in[0,T].
 <li>There exists a constant <span class="math inline">\(M&gt;0\)</span>, such that <span class="math inline">\(|f(t,x)-f(t,y)|\leq M|x-y|\)</span> holds for all <span class="math inline">\(t\in [0,T], x,y\in\mathbb{R}^n\)</span> .</li>
 </ol>
 <p>Under the above assumptions, the existence and uniqueness of solution is established by our next theorem.</p>
-<p><strong>Theorem 1(Existence and uniqueness theorem)</strong> If <span class="math inline">\(f\)</span> satisfy the above assumptions, there exists a unique solution of equation (1).</p>
+<p><strong>Theorem 1 (Existence and uniqueness theorem)</strong> If <span class="math inline">\(f​\)</span> satisfy the above assumptions, there exists a unique solution of equation <span class="math inline">\(\eqref{1}\)</span> .</p>
 <p><strong>Proof of the Theorem 1</strong> We begin by constructing Picard iterative sequences as follows, <span class="math display">\[
 \begin{cases}
 x_0(t)=x(0), &amp; t \in [0,T]\\
 x_{k+1}(t)=x_0+\int_0^t f(s,x_k(s))ds, &amp; t\in[0,T], k\geq 0
 \end{cases}
-\]</span> In order to prove the existence of solution, it suffices to prove that <span class="math inline">\(x_k\)</span> converges uniformly to a limiting function <span class="math inline">\(x\)</span> on <span class="math inline">\([0,T]\)</span>. Thus <span class="math inline">\(x\)</span> will be the solution of equation (1). Consider the series <span class="math display">\[
+\]</span> In order to prove the existence of solution, it suffices to prove that <span class="math inline">\(x_k​\)</span> converges uniformly to a limiting function <span class="math inline">\(x​\)</span> on <span class="math inline">\([0,T]​\)</span>. Thus <span class="math inline">\(x​\)</span> will be the solution of equation <span class="math inline">\(\eqref{1}\)</span> . Consider the series <span class="math display">\[
 x_0(t)+ \sum_{j=1}^{k}(x_{j}(t)-x_{j-1}(t))
 \]</span> we only need to show that it converges uniformly on <span class="math inline">\([0,T]\)</span>, which is clear from following inequality, <span class="math display">\[
 |x_{k+1}(t)-x_k(t)|\leq \frac{N(Mt)^k}{k!}, \quad \forall t\in [0,T], k\geq0
 \]</span> where <span class="math inline">\(N=\int_{0}^{T} |f(s,x_0)|ds\)</span>. Note that the existence of N depended on the assumption 2. The above inequality can be proved by induction and the assumption 3.</p>
 <p>We next prove the solution is unique. By definition, if <span class="math inline">\(x,y\)</span> are solutions, then <span class="math display">\[
 |x(t)-y(t)|\leq M\int_0^t|x(s)-y(s)|ds, \quad \forall t\in [0,T].
-\]</span> The uniqueness of solution is established by the following Grönwall's inequality.</p>
-<p>Q.E.D.</p>
-<p><strong>Theorem 2(Grönwall's inequality)</strong> Let <span class="math inline">\(\alpha\in \mathbb{R}\)</span> and let <span class="math inline">\(\varphi, \psi , \beta\)</span> be continue functions on [0,T]. Assume <span class="math inline">\(\psi\)</span> is non-negative. If <span class="math display">\[
+\]</span> The uniqueness of solution is established by the following Grönwall's inequality. <span class="math inline">\(\Box\)</span></p>
+<p><strong>Theorem 2 (Grönwall's inequality)</strong> Let <span class="math inline">\(\alpha\in \mathbb{R}\)</span> and let <span class="math inline">\(\varphi, \psi , \beta\)</span> be continue functions on [0,T]. Assume <span class="math inline">\(\psi\)</span> is non-negative. If <span class="math display">\[
 \varphi(t)\leq \alpha + \int_0^t [\psi(s)\varphi(s)+\beta(s)]ds,\quad t\in[0,T],
 \]</span> then <span class="math display">\[
 \varphi(t)\leq \alpha e^{\int_0^t\psi(s)ds} + \int_0^t e^{\int_s^t\psi(r)dr}\beta(s)ds,\quad t\in[0,T].
@@ -453,7 +462,25 @@ x_0(t)+ \sum_{j=1}^{k}(x_{j}(t)-x_{j-1}(t))
 \dot\theta(t)=\psi(t)\varphi(t)+\beta(t)\leq\psi(t)\theta(t)+\beta(t)
 \]</span> Multiplying <span class="math inline">\(e^{-\int_s^t\psi(r)dr}\)</span> to the both side, yields <span class="math display">\[
 \frac{d}{dt}\left(e^{-\int_s^t\psi(r)dr}\theta(t\right)\leq e^{\int_s^t\psi(r)dr} \beta(t).
-\]</span> Integrating both side, we thus obtain the conclude.</p>
+\]</span> Integrating both side, we thus obtain the conclusion. <span class="math inline">\(\Box\)</span></p>
+<h1 id="controllability-of-linear-control-system">Controllability of Linear Control System</h1>
+<p>We consider the time-varying linear control system <span class="math display">\[
+\dot{x}(t)=A(t)x(t)+B(t)u(t),\quad t\in[0,T], \tag{2}\label{2}
+\]</span> where the map <span class="math inline">\(A(t)\in L^{\infty}([0,T];\mathcal{L}(\mathbb{R}^n);\mathbb{R}^n)\)</span> and <span class="math inline">\(B(t)\in L^{\infty}([0,T];\mathcal{L}(\mathbb{R}^m);\mathbb{R}^n)\)</span>, the control <span class="math inline">\(u(t)\in L^{1}([0,T];\mathbb{R}^n)\)</span>.</p>
+<p>By Theorem 1, there exists a unique solution <span class="math inline">\(x(t)\)</span> of equation <span class="math inline">\(\eqref{2}\)</span> for given initial data <span class="math inline">\(x(0)=x_0\in \mathbb{R}^n\)</span>, which satisfied <span class="math display">\[
+x(t)=x_0+\int_0^t (A(s)x(s)+B(s)u(s))ds,\quad t\in[0,T].
+\]</span> Moreover, according to Grönwall's inequality, <span class="math display">\[
+|x(t)|\leq C(|x_0|+\|u\|_{L^1}), \quad t \in [0,T],
+\]</span> the constant <span class="math inline">\(C\)</span> being dependent of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<p>Note that we can get an explicit formula by using variation of constants method.</p>
+<p><strong>Theorem 3 (variation of constant formula)</strong> The solution of equation <span class="math inline">\(\eqref{2}\)</span> is <span class="math display">\[
+x(t)=S(t)x_0 +\int_0^tS(t-s)B(s)u(s)ds,\quad t\in[0,T],
+\]</span> where <span class="math inline">\(S(t)\)</span> satisfies <span class="math inline">\(\frac{dS(t)}{dt}=AS(t), S(0)=I\)</span>. Here <span class="math inline">\(I\)</span> denotes the identity matrix.</p>
+<p><strong>Proof of Theorem 3</strong> The solution set of equation <span class="math inline">\(\frac{dx(t)}{dt}=Ax(t)\)</span> is a vector space of dimension <span class="math inline">\(n\)</span>. Indeed, given independent initial data <span class="math inline">\(x_0,\cdots, x_n\)</span>, it follows from the existence and uniqueness of solution and linearity of equation. Hence, there exists a standard solution matrix <span class="math inline">\(S(t)\)</span>, such that all solutions are given by <span class="math inline">\(x(t)=S(t)c\)</span>, where <span class="math inline">\(c\)</span> belongs to <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p>Therefore, all solution of equation  are given by <span class="math inline">\(x(t)=S(t)c+\tilde{x}(t)\)</span>, where <span class="math inline">\(\tilde{x}(t)\)</span> is any solution of the equation. Replacing <span class="math inline">\(c\)</span> by <span class="math inline">\(c(t)\)</span>, setting<span class="math inline">\(\tilde{x}(t)=S(t)c(t)\)</span>, and substituting it into equation  , we can get <span class="math inline">\(S(t)\frac{c(t)}{dt}=B(t)u(t)\)</span>, and obtain <span class="math inline">\(c(t)=\int_0^t S^{-1}(s)B(s)u(s)ds\)</span>. It follows that <span class="math inline">\(\tilde{x}(t)=\int_0^t S(t-s)B(s)u(s)ds\)</span>, which proves the theorem. <span class="math inline">\(\Box\)</span></p>
+<p>Now, we are interested in the controllability of the control system <span class="math inline">\(\eqref{2}\)</span> . We defined here two types of controllability.</p>
+<p><strong>Definition 4 (exact controllability)</strong> Let <span class="math inline">\(T&gt;0​\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>exactly controllability in time T</em> if, for every <span class="math inline">\(x_0, x_1\in \mathbb{R}^n​\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)​\)</span> such that the solution <span class="math inline">\(x​\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0​\)</span> satisfies <span class="math inline">\(x(T)=x_1​\)</span>.</p>
+<p><strong>Definition 5 (null controllability)</strong> Let <span class="math inline">\(T&gt;0​\)</span>. The control system  is <em>null controllability in time T</em> if, for every <span class="math inline">\(x_0, \tilde x_0\in \mathbb{R}^n​\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)​\)</span> such that the solution <span class="math inline">\(x​\)</span> of the equation <span class="math inline">\(\eqref{2}​\)</span> with initial data <span class="math inline">\(x(0)=x_0​\)</span> satisfies <span class="math inline">\(x(T)=S(T)\tilde x_0​\)</span>.</p>
 
       
     </div>
@@ -746,7 +773,7 @@ x_0(t)+ \sum_{j=1}^{k}(x_{j}(t)-x_{j-1}(t))
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#standard-facts-on-ode"><span class="nav-number">1.</span> <span class="nav-text">Standard Facts on ODE</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#standard-facts-on-ode"><span class="nav-number">1.</span> <span class="nav-text">Standard Facts on ODE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#controllability-of-linear-control-system"><span class="nav-number">2.</span> <span class="nav-text">Controllability of Linear Control System</span></a></li></ol></div>
             
 
           </div>
@@ -966,7 +993,10 @@ x_0(t)+ \sum_{j=1}^{k}(x_{j}(t)-x_{j-1}(t))
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     CommonHTML: { linebreaks: { automatic: true, width: "container", } },
-    "HTML-CSS": { linebreaks: { automatic: true, width: "container",} },
+    "HTML-CSS": { 
+      linebreaks: { automatic: true, width: "container",},
+      styles: {".MathJax .mtext": {color: "#104bb2"}}
+    },
     SVG: { linebreaks: { automatic: true, width: "container",} }
   });
 </script>
