@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-15T16:08:44.184Z">
+<meta property="og:updated_time" content="2018-11-16T02:06:13.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODE and Control Systems">
 <meta name="twitter:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-11-16 00:08:44" itemprop="dateModified" datetime="2018-11-16T00:08:44+08:00">2018-11-16</time>
+                <time title="修改时间：2018-11-16 10:06:13" itemprop="dateModified" datetime="2018-11-16T10:06:13+08:00">2018-11-16</time>
               
             
           </span>
@@ -436,8 +436,8 @@ x(t)=x_0+\int_0^t f(s,x(s))ds, \quad t\in[0,T].
 <li>The map <span class="math inline">\(f(\cdot,0)\in L^1([0,T];\mathbb{R}^n)\)</span>,</li>
 <li>There exists a constant <span class="math inline">\(M&gt;0\)</span>, such that <span class="math inline">\(|f(t,x)-f(t,y)|\leq M|x-y|\)</span> holds for all <span class="math inline">\(t\in [0,T], x,y\in\mathbb{R}^n\)</span> .</li>
 </ol>
-<p>Under the above assumptions, the existence and uniqueness of solution is established by our next theorem.</p>
-<p><strong>Theorem 1 (Existence and uniqueness theorem)</strong> If <span class="math inline">\(f​\)</span> satisfy the above assumptions, there exists a unique solution of equation <span class="math inline">\(\eqref{1}\)</span> .</p>
+<p>Under the above assumptions, the existence and uniqueness of solution is established by our next theorem. This can be found in <a href="#Ref1">[1, ch.2]</a></p>
+<p><strong>Theorem 1 (Existence and uniqueness theorem)</strong> If <span class="math inline">\(f\)</span> satisfy the above assumptions, there exists a unique solution of equation <span class="math inline">\(\eqref{1}\)</span> .</p>
 <p><strong>Proof of the Theorem 1</strong> We begin by constructing Picard iterative sequences as follows, <span class="math display">\[
 \begin{cases}
 x_0(t)=x(0), &amp; t \in [0,T]\\
@@ -471,16 +471,35 @@ x_0(t)+ \sum_{j=1}^{k}(x_{j}(t)-x_{j-1}(t))
 x(t)=x_0+\int_0^t (A(s)x(s)+B(s)u(s))ds,\quad t\in[0,T].
 \]</span> Moreover, according to Grönwall's inequality, <span class="math display">\[
 |x(t)|\leq C(|x_0|+\|u\|_{L^1}), \quad t \in [0,T],
-\]</span> the constant <span class="math inline">\(C\)</span> being dependent of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
-<p>Note that we can get an explicit formula by using variation of constants method.</p>
+\]</span> the constant <span class="math inline">\(C\)</span> is dependent of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<p>Note that we can get an explicit formula by using variation of constants method (see <a href="#Ref.2">[2, ch.3]</a> for more details).</p>
 <p><strong>Theorem 3 (variation of constant formula)</strong> The solution of equation <span class="math inline">\(\eqref{2}\)</span> is <span class="math display">\[
 x(t)=S(t)x_0 +\int_0^tS(t-s)B(s)u(s)ds,\quad t\in[0,T],
 \]</span> where <span class="math inline">\(S(t)\)</span> satisfies <span class="math inline">\(\frac{dS(t)}{dt}=AS(t), S(0)=I\)</span>. Here <span class="math inline">\(I\)</span> denotes the identity matrix.</p>
 <p><strong>Proof of Theorem 3</strong> The solution set of equation <span class="math inline">\(\frac{dx(t)}{dt}=Ax(t)\)</span> is a vector space of dimension <span class="math inline">\(n\)</span>. Indeed, given independent initial data <span class="math inline">\(x_0,\cdots, x_n\)</span>, it follows from the existence and uniqueness of solution and linearity of equation. Hence, there exists a standard solution matrix <span class="math inline">\(S(t)\)</span>, such that all solutions are given by <span class="math inline">\(x(t)=S(t)c\)</span>, where <span class="math inline">\(c\)</span> belongs to <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p>Therefore, all solution of equation  are given by <span class="math inline">\(x(t)=S(t)c+\tilde{x}(t)\)</span>, where <span class="math inline">\(\tilde{x}(t)\)</span> is any solution of the equation. Replacing <span class="math inline">\(c\)</span> by <span class="math inline">\(c(t)\)</span>, setting<span class="math inline">\(\tilde{x}(t)=S(t)c(t)\)</span>, and substituting it into equation  , we can get <span class="math inline">\(S(t)\frac{c(t)}{dt}=B(t)u(t)\)</span>, and obtain <span class="math inline">\(c(t)=\int_0^t S^{-1}(s)B(s)u(s)ds\)</span>. It follows that <span class="math inline">\(\tilde{x}(t)=\int_0^t S(t-s)B(s)u(s)ds\)</span>, which proves the theorem. <span class="math inline">\(\Box\)</span></p>
-<p>Now, we are interested in the controllability of the control system <span class="math inline">\(\eqref{2}\)</span> . We defined here two types of controllability.</p>
-<p><strong>Definition 4 (exact controllability)</strong> Let <span class="math inline">\(T&gt;0​\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>exactly controllability in time T</em> if, for every <span class="math inline">\(x_0, x_1\in \mathbb{R}^n​\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)​\)</span> such that the solution <span class="math inline">\(x​\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0​\)</span> satisfies <span class="math inline">\(x(T)=x_1​\)</span>.</p>
-<p><strong>Definition 5 (null controllability)</strong> Let <span class="math inline">\(T&gt;0​\)</span>. The control system  is <em>null controllability in time T</em> if, for every <span class="math inline">\(x_0, \tilde x_0\in \mathbb{R}^n​\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)​\)</span> such that the solution <span class="math inline">\(x​\)</span> of the equation <span class="math inline">\(\eqref{2}​\)</span> with initial data <span class="math inline">\(x(0)=x_0​\)</span> satisfies <span class="math inline">\(x(T)=S(T)\tilde x_0​\)</span>.</p>
+<p>Therefore, all solutions of equation  are given by <span class="math inline">\(x(t)=S(t)c+\tilde{x}(t)\)</span>, where <span class="math inline">\(\tilde{x}(t)\)</span> is any solution of the equation. Replacing <span class="math inline">\(c\)</span> by <span class="math inline">\(c(t)\)</span>, setting<span class="math inline">\(\tilde{x}(t)=S(t)c(t)\)</span>, and substituting it into equation  , we can get <span class="math inline">\(S(t)\frac{c(t)}{dt}=B(t)u(t)\)</span>, and obtain <span class="math inline">\(c(t)=\int_0^t S^{-1}(s)B(s)u(s)ds\)</span>. It follows that <span class="math inline">\(\tilde{x}(t)=\int_0^t S(t-s)B(s)u(s)ds\)</span>, which proves the theorem. <span class="math inline">\(\Box\)</span></p>
+<p>Now, we are interested in the controllability of the control system <span class="math inline">\(\eqref{2}\)</span> . We defined here two types of controllability (see <a href="#Ref.3">[3]</a> and references given there).</p>
+<p><strong>Definition 4 (exact controllability)</strong> Let <span class="math inline">\(T&gt;0\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>exactly controllability in time T</em> if, for every <span class="math inline">\(x_0, x_1\in \mathbb{R}^n\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(x\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=x_1\)</span>.</p>
+<p><strong>Definition 5 (null controllability)</strong> Let <span class="math inline">\(T&gt;0\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>null controllability in time T</em> if, for every <span class="math inline">\(x_0, \tilde x_0\in \mathbb{R}^n\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(x\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=S(T)\tilde x_0\)</span>.</p>
+<p>According to the linearity, we get an equivalent definition of null controllability if, in the definition above, one assumes that <span class="math inline">\(\tilde x_{0}=0\)</span>.</p>
+<p>It is worth pointing out that the exact controllability is equivalent to null controllability in the case of equation <span class="math inline">\(\eqref{2}\)</span>, which we will prove later. The proof is similar if <span class="math inline">\(S(t)\)</span> is a strong continuous group of linear operators.</p>
+<p><strong>Theorem 4 (exact controllability/null controllability)</strong> The control system <span class="math inline">\(\eqref{2}\)</span> is exactly controllable in time <span class="math inline">\(T\)</span> if and only if it is null controllable in time <span class="math inline">\(T\)</span>.</p>
+<p><strong>Proof of Theorem</strong> Necessity is obvious.</p>
+<p>Let <span class="math inline">\(x_0 \in \mathbb{R}^n\)</span>and <span class="math inline">\(x_1\in \mathbb{R}^n\)</span>. From null controllability applied to the initial data <span class="math inline">\(x_0-S(-T)x_1\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(\tilde x(t)\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with above initial data satisfies <span class="math inline">\(\tilde x(T)=0\)</span>. It follows that the solution <span class="math inline">\(x(t)\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> is given by <span class="math display">\[
+x(t)=\tilde x(t)+S(t-T)x_1, \quad t \in [0,T].
+\]</span> In particular, <span class="math inline">\(x(T)=x_1\)</span>. This concludes the proof of the theorem. <span class="math inline">\(\Box\)</span></p>
+<h1 id="references">References</h1>
+<ol>
+<li id="Ref1">
+Jiongmin Yong, 最优控制理论简明教程
+</li>
+<li id="Ref2">
+Weinian Zhang, 常微分方程
+</li>
+<li id="Ref3">
+<a href="http://www.scholarpedia.org/article/Control_of_partial_differential_equations" target="_blank" rel="noopener">Jean-Michel Coron (2009) Control of partial differential equations. Scholarpedia, 4(11):6451.</a>
+</li>
+</ol>
 
       
     </div>
@@ -773,7 +792,7 @@ x(t)=S(t)x_0 +\int_0^tS(t-s)B(s)u(s)ds,\quad t\in[0,T],
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#standard-facts-on-ode"><span class="nav-number">1.</span> <span class="nav-text">Standard Facts on ODE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#controllability-of-linear-control-system"><span class="nav-number">2.</span> <span class="nav-text">Controllability of Linear Control System</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#standard-facts-on-ode"><span class="nav-number">1.</span> <span class="nav-text">Standard Facts on ODE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#controllability-of-linear-control-system"><span class="nav-number">2.</span> <span class="nav-text">Controllability of Linear Control System</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
