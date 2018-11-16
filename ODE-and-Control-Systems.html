@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-16T04:27:24.160Z">
+<meta property="og:updated_time" content="2018-11-16T04:48:34.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODE and Control Systems">
 <meta name="twitter:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-11-16 12:27:24" itemprop="dateModified" datetime="2018-11-16T12:27:24+08:00">2018-11-16</time>
+                <time title="修改时间：2018-11-16 12:48:34" itemprop="dateModified" datetime="2018-11-16T12:48:34+08:00">2018-11-16</time>
               
             
           </span>
@@ -472,13 +472,13 @@ x(t)=x_0+\int_0^t (A(s)x(s)+B(s)u(s))ds,\quad t\in[0,T].
 \]</span> Moreover, according to Grönwall's inequality, <span class="math display">\[
 |x(t)|\leq C(|x_0|+\|u\|_{L^1}), \quad t \in [0,T],
 \]</span> the constant <span class="math inline">\(C\)</span> is dependent of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
-<p>Note that we can get an explicit formula by using variation of constants method (see <a class="math-reference" href="#Ref.2">[2, ch.3]</a> for more details).</p>
+<p>Note that we can get an explicit formula by using variation of constants method (see <a class="math-reference" href="#Ref2">[2, ch.3]</a> for more details).</p>
 <p><strong>Theorem 3 (variation of constant formula)</strong> The solution of equation <span class="math inline">\(\eqref{2}\)</span> is <span class="math display">\[
 x(t)=S(t)x_0 +\int_0^tS(t-s)B(s)u(s)ds,\quad t\in[0,T],
 \]</span> where <span class="math inline">\(S(t)\)</span> satisfies <span class="math inline">\(\frac{dS(t)}{dt}=AS(t), S(0)=I\)</span>. Here <span class="math inline">\(I\)</span> denotes the identity matrix.</p>
 <p><strong>Proof of Theorem 3</strong> The solution set of equation <span class="math inline">\(\frac{dx(t)}{dt}=Ax(t)\)</span> is a vector space of dimension <span class="math inline">\(n\)</span>. Indeed, given independent initial data <span class="math inline">\(x_0,\cdots, x_n\)</span>, it follows from the existence and uniqueness of solution and linearity of equation. Hence, there exists a standard solution matrix <span class="math inline">\(S(t)\)</span>, such that all solutions are given by <span class="math inline">\(x(t)=S(t)c\)</span>, where <span class="math inline">\(c\)</span> belongs to <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
 <p>Therefore, all solutions of equation  are given by <span class="math inline">\(x(t)=S(t)c+\tilde{x}(t)\)</span>, where <span class="math inline">\(\tilde{x}(t)\)</span> is any solution of the equation. Replacing <span class="math inline">\(c\)</span> by <span class="math inline">\(c(t)\)</span>, setting<span class="math inline">\(\tilde{x}(t)=S(t)c(t)\)</span>, and substituting it into equation  , we can get <span class="math inline">\(S(t)\frac{c(t)}{dt}=B(t)u(t)\)</span>, and obtain <span class="math inline">\(c(t)=\int_0^t S^{-1}(s)B(s)u(s)ds\)</span>. It follows that <span class="math inline">\(\tilde{x}(t)=\int_0^t S(t-s)B(s)u(s)ds\)</span>, which proves the theorem. <span class="math inline">\(\Box\)</span></p>
-<p>Now, we are interested in the controllability of the control system <span class="math inline">\(\eqref{2}\)</span> . We defined here two types of controllability (see <a class="math-reference" href="#Ref.3">[3]</a> and references given there).</p>
+<p>Now, we are interested in the controllability of the control system <span class="math inline">\(\eqref{2}\)</span> . We defined here two types of controllability (see <a class="math-reference" href="#Ref3">[3]</a> and references given there).</p>
 <p><strong>Definition 4 (exact controllability)</strong> Let <span class="math inline">\(T&gt;0\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>exactly controllability in time T</em> if, for every <span class="math inline">\(x_0, x_1\in \mathbb{R}^n\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(x\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=x_1\)</span>.</p>
 <p><strong>Definition 5 (null controllability)</strong> Let <span class="math inline">\(T&gt;0\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>null controllability in time T</em> if, for every <span class="math inline">\(x_0, \tilde x_0\in \mathbb{R}^n\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(x\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=S(T)\tilde x_0\)</span>.</p>
 <p>According to the linearity, we get an equivalent definition of null controllability if, in the definition above, one assumes that <span class="math inline">\(\tilde x_{0}=0\)</span>.</p>
