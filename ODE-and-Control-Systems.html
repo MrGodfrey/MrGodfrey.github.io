@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-16T04:48:34.333Z">
+<meta property="og:updated_time" content="2018-11-16T15:44:07.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODE and Control Systems">
 <meta name="twitter:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-11-16 12:48:34" itemprop="dateModified" datetime="2018-11-16T12:48:34+08:00">2018-11-16</time>
+                <time title="修改时间：2018-11-16 23:44:07" itemprop="dateModified" datetime="2018-11-16T23:44:07+08:00">2018-11-16</time>
               
             
           </span>
@@ -466,7 +466,7 @@ x_0(t)+ \sum_{j=1}^{k}(x_{j}(t)-x_{j-1}(t))
 <h1 id="controllability-of-linear-control-system">Controllability of Linear Control System</h1>
 <p>We consider the time-varying linear control system <span class="math display">\[
 \dot{x}(t)=A(t)x(t)+B(t)u(t),\quad t\in[0,T], \tag{2}\label{2}
-\]</span> where the map <span class="math inline">\(A(t)\in L^{\infty}([0,T];\mathcal{L}(\mathbb{R}^n);\mathbb{R}^n)\)</span> and <span class="math inline">\(B(t)\in L^{\infty}([0,T];\mathcal{L}(\mathbb{R}^m);\mathbb{R}^n)\)</span>, the control <span class="math inline">\(u(t)\in L^{1}([0,T];\mathbb{R}^n)\)</span>.</p>
+\]</span> where the map <span class="math inline">\(A(t)\in L^{\infty}([0,T];\mathcal{L}(\mathbb{R}^m,\mathbb{R}^n))\)</span> and <span class="math inline">\(B(t)\in L^{\infty}([0,T];\mathcal{L}(\mathbb{R}^m,\mathbb{R}^n)\)</span>, the control <span class="math inline">\(u(t)\in L^{1}([0,T];\mathbb{R}^n)\)</span>.</p>
 <p>By Theorem 1, there exists a unique solution <span class="math inline">\(x(t)\)</span> of equation <span class="math inline">\(\eqref{2}\)</span> for given initial data <span class="math inline">\(x(0)=x_0\in \mathbb{R}^n\)</span>, which satisfied <span class="math display">\[
 x(t)=x_0+\int_0^t (A(s)x(s)+B(s)u(s))ds,\quad t\in[0,T].
 \]</span> Moreover, according to Grönwall's inequality, <span class="math display">\[
@@ -476,15 +476,15 @@ x(t)=x_0+\int_0^t (A(s)x(s)+B(s)u(s))ds,\quad t\in[0,T].
 <p><strong>Theorem 3 (variation of constant formula)</strong> The solution of equation <span class="math inline">\(\eqref{2}\)</span> is <span class="math display">\[
 x(t)=S(t)x_0 +\int_0^tS(t-s)B(s)u(s)ds,\quad t\in[0,T],
 \]</span> where <span class="math inline">\(S(t)\)</span> satisfies <span class="math inline">\(\frac{dS(t)}{dt}=AS(t), S(0)=I\)</span>. Here <span class="math inline">\(I\)</span> denotes the identity matrix.</p>
-<p><strong>Proof of Theorem 3</strong> The solution set of equation <span class="math inline">\(\frac{dx(t)}{dt}=Ax(t)\)</span> is a vector space of dimension <span class="math inline">\(n\)</span>. Indeed, given independent initial data <span class="math inline">\(x_0,\cdots, x_n\)</span>, it follows from the existence and uniqueness of solution and linearity of equation. Hence, there exists a standard solution matrix <span class="math inline">\(S(t)\)</span>, such that all solutions are given by <span class="math inline">\(x(t)=S(t)c\)</span>, where <span class="math inline">\(c\)</span> belongs to <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p><strong>Proof of Theorem 3</strong> The solution set of equation <span class="math inline">\(\frac{dx(t)}{dt}=Ax(t)\)</span> is a vector space of dimension <span class="math inline">\(n\)</span>. Indeed, given independent initial data <span class="math inline">\(x_0,\cdots, x_n\)</span>, it follows from the existence and uniqueness of solution and linearity of equation. Hence, there exists a standard solution matrix <span class="math inline">\(S(t)\)</span>, such that all solutions are given by <span class="math inline">\(x(t)=S(t)c\)</span>, where <span class="math inline">\(c\)</span> is in <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
 <p>Therefore, all solutions of equation  are given by <span class="math inline">\(x(t)=S(t)c+\tilde{x}(t)\)</span>, where <span class="math inline">\(\tilde{x}(t)\)</span> is any solution of the equation. Replacing <span class="math inline">\(c\)</span> by <span class="math inline">\(c(t)\)</span>, setting<span class="math inline">\(\tilde{x}(t)=S(t)c(t)\)</span>, and substituting it into equation  , we can get <span class="math inline">\(S(t)\frac{c(t)}{dt}=B(t)u(t)\)</span>, and obtain <span class="math inline">\(c(t)=\int_0^t S^{-1}(s)B(s)u(s)ds\)</span>. It follows that <span class="math inline">\(\tilde{x}(t)=\int_0^t S(t-s)B(s)u(s)ds\)</span>, which proves the theorem. <span class="math inline">\(\Box\)</span></p>
 <p>Now, we are interested in the controllability of the control system <span class="math inline">\(\eqref{2}\)</span> . We defined here two types of controllability (see <a class="math-reference" href="#Ref3">[3]</a> and references given there).</p>
 <p><strong>Definition 4 (exact controllability)</strong> Let <span class="math inline">\(T&gt;0\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>exactly controllability in time T</em> if, for every <span class="math inline">\(x_0, x_1\in \mathbb{R}^n\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(x\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=x_1\)</span>.</p>
 <p><strong>Definition 5 (null controllability)</strong> Let <span class="math inline">\(T&gt;0\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>null controllability in time T</em> if, for every <span class="math inline">\(x_0, \tilde x_0\in \mathbb{R}^n\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(x\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=S(T)\tilde x_0\)</span>.</p>
 <p>According to the linearity, we get an equivalent definition of null controllability if, in the definition above, one assumes that <span class="math inline">\(\tilde x_{0}=0\)</span>.</p>
 <p>It is worth pointing out that the exact controllability is equivalent to null controllability in the case of equation <span class="math inline">\(\eqref{2}\)</span>, which we will prove later. The proof is similar if <span class="math inline">\(S(t)\)</span> is a strong continuous group of linear operators.</p>
-<p><strong>Theorem 4 (exact controllability/null controllability)</strong> The control system <span class="math inline">\(\eqref{2}\)</span> is exactly controllable in time <span class="math inline">\(T\)</span> if and only if it is null controllable in time <span class="math inline">\(T\)</span>.</p>
-<p><strong>Proof of Theorem</strong> Necessity is obvious.</p>
+<p><strong>Theorem 6 (exact controllability/null controllability)</strong> The control system <span class="math inline">\(\eqref{2}\)</span> is exactly controllable in time <span class="math inline">\(T\)</span> if and only if it is null controllable in time <span class="math inline">\(T\)</span>.</p>
+<p><strong>Proof of Theorem 6</strong> Necessity is obvious.</p>
 <p>Let <span class="math inline">\(x_0 \in \mathbb{R}^n\)</span>and <span class="math inline">\(x_1\in \mathbb{R}^n\)</span>. From null controllability applied to the initial data <span class="math inline">\(x_0-S(-T)x_1\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(\tilde x(t)\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with above initial data satisfies <span class="math inline">\(\tilde x(T)=0\)</span>. It follows that the solution <span class="math inline">\(x(t)\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> is given by <span class="math display">\[
 x(t)=\tilde x(t)+S(t-T)x_1, \quad t \in [0,T].
 \]</span> In particular, <span class="math inline">\(x(T)=x_1\)</span>. This concludes the proof of the theorem. <span class="math inline">\(\Box\)</span></p>
@@ -500,7 +500,7 @@ Weinian Zhang, 常微分方程
 <a href="http://www.scholarpedia.org/article/Control_of_partial_differential_equations" target="_blank" rel="noopener">Jean-Michel Coron (2009) Control of partial differential equations. Scholarpedia, 4(11):6451.</a>
 </li>
 </ol>
-<p>You may want to <a href=".\Finite-dimensional-linear-control-systems.html">Return to the chapter content.</a></p>
+<p>You may want to <a href=".\Finite-dimensional-linear-control-systems.html">return to the chapter content.</a></p>
 
       
     </div>
@@ -510,6 +510,13 @@ Weinian Zhang, 常微分方程
 
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\The-criterion-for-controllability.html" rel="bookmark">The criterion for controllability</a></div>
+      
+    </li>
   
     <li class="popular-posts-item">
       
@@ -564,6 +571,10 @@ Weinian Zhang, 常微分方程
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/The-criterion-for-controllability.html" rel="prev" title="The criterion for controllability">
+                The criterion for controllability <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -639,7 +650,7 @@ Weinian Zhang, 常微分方程
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

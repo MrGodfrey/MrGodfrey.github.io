@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://deepanalysis.xyz/ODE-and-Control-Systems.html</loc>
-    <lastmod>2018-11-16T04:48:34.333Z</lastmod>
+    <lastmod>2018-11-16T15:44:07.194Z</lastmod>
+  </url>  <url>
+    <loc>https://deepanalysis.xyz/The-criterion-for-controllability.html</loc>
+    <lastmod>2018-11-16T15:39:03.595Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/Finite-dimensional-linear-control-systems.html</loc>
-    <lastmod>2018-11-16T02:20:58.166Z</lastmod>
+    <lastmod>2018-11-16T14:57:37.563Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/note-hexo-and-github.html</loc>
     <lastmod>2018-11-15T15:33:06.237Z</lastmod>
