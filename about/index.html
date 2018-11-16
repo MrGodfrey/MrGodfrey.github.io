@@ -100,17 +100,17 @@
 
 
 
-  <meta name="description" content="resume                    h1:before,h3:before,h4:before,h5:before,h2:before{             content: none !important;         }                   .container body {             font-family:">
+  <meta name="description" content="resume                    h1:before,h3:before,h4:before,h5:before,h2:before{             content: none !important;         }                  h2.resume {             border-bottom: 1px">
 <meta property="og:type" content="website">
 <meta property="og:title" content="DeepAnalysis">
 <meta property="og:url" content="https://deepanalysis.xyz/about/index.html">
 <meta property="og:site_name" content="DeepAnalysis">
-<meta property="og:description" content="resume                    h1:before,h3:before,h4:before,h5:before,h2:before{             content: none !important;         }                   .container body {             font-family:">
+<meta property="og:description" content="resume                    h1:before,h3:before,h4:before,h5:before,h2:before{             content: none !important;         }                  h2.resume {             border-bottom: 1px">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-11T06:45:08.604Z">
+<meta property="og:updated_time" content="2018-11-16T16:51:14.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DeepAnalysis">
-<meta name="twitter:description" content="resume                    h1:before,h3:before,h4:before,h5:before,h2:before{             content: none !important;         }                   .container body {             font-family:">
+<meta name="twitter:description" content="resume                    h1:before,h3:before,h4:before,h5:before,h2:before{             content: none !important;         }                  h2.resume {             border-bottom: 1px">
 
 
 
@@ -233,7 +233,7 @@
         
           
           <li class="menu-item menu-item-about menu-item-active">
-    <a href="/about/" rel="section">关于</a>
+    <a href="/about/" rel="section">简历</a>
   </li>
         
         
@@ -347,6 +347,17 @@
             content: none !important;
         }
         
+        h2.resume {
+            border-bottom: 1px solid #eee;
+        }
+
+        h1.resume,h2.resume {
+            color:#52c3dd;
+        }
+
+        dl,dd {
+            margin: 0 0 1em 0;
+        }
 
         .container body {
             font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -409,27 +420,45 @@
 
 <body>
 
-    <h2>
-        数学足迹
+    <h1 class="resume">
+        Wang Yu
+    </h1>
+
+    <email>wangyu.analysis@gmail.com</email>
+
+    <h2 class="resume">
+        Education
+    </h2>
+
+    <dl>
+        <dt>Sichuan University</dt>
+        <dd>Master student in Mathematics and Applied Mathematics, Sept 2017 - Now</dd>
+        <dt>Sichuan University</dt>
+        <dd>Bachelor of Fundamental Mathematics, Sept 2013 - Jul 2017</dd>
+    </dl>
+
+    <h2 class="resume">
+        About Mathematics
     </h2>
 
     <div class="container">
 
         <div class="timeline-item" date-is="10-2018">
-            <h1>随机控制</h1>
+            <h1>Stochastic Control</h1>
             <p>
-                为了在随机控制讨论班上报告，学习随机控制的基本概念。包括高等概率论、随机过程等等。
+                In order to attended the stochastic control Seminar, I learnt the basic concepts of random control. Including advanced probability theory, random processes, and so on.
             </p>
-            <h1>控制的数值逼近</h1>
+            <h1>Numerical approximation of pde control</h1>
             <p>
-                因为我对计算比较有兴趣，导师给了一份波方程控制的数值逼近的论文。计划在半年内读懂并做点东西出来。
+                    Because I was interested in calculations, the instructor gave a paper on numerical approximation controlled by wave equations. I plan to read and do something in half a year.
             </p>
         </div>
 
         <div class="timeline-item" date-is="06-2018">
-            <h1>量子控制</h1>
+            <h1>Quantum control</h1>
             <p>
-                为看懂量子控制讲义上关于传播子的定义，学习了算子半群的相关知识。
+                
+In order to understand the definition of the propagator in the quantum control handout, the relevant knowledge of the operator semigroup is studied.
             </p>
             <ol>
                 <li><a href="..\vector-value-function-integral">向量值函数的积分</a></li>
@@ -437,22 +466,9 @@
             </ol>
         </div>
 
-        <div class="timeline-item" date-is="05-2018">
-            <h1>量子控制</h1>
-            <p>
-                学习了北大本科的量子物理，在此基础上学习了Stone定理。
-            </p>
-            <ol>
-                <li><a href="..\Hille-Yosida-Stone-theorem.html">Hille-Yosida定理和Stone定理</a></li>
-            </ol>
-        </div>
-
         <div class="timeline-item" date-is="2017">
-                <h1>数学的开始</h1>
-                <p>
-                    从川大数院本科变成川大数院研究生，即将开始3年的数学学习生涯。
-                </p>
-            </div>
+                <h1>The beginning of mathematics</h1>
+        </div>
 
     </div>
 
@@ -682,9 +698,13 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
-        数学足迹
-    </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">随机控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">控制的数值逼近</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">量子控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">量子控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">数学的开始</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
+        Wang Yu
+    </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">
+        Education
+    </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">
+        About Mathematics
+    </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Stochastic Control</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Numerical approximation of pde control</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Quantum control</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">The beginning of mathematics</span></a></li></ol></div>
             
 
           </div>
