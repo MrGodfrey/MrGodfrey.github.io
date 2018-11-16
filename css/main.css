@@ -232,22 +232,22 @@ h6 {
     counter-reset: detail;
   }
   .post-body h1:before {
-    color: #42b983;
+    color: #52c3dd;
     content: counter(section) " ";
     counter-increment: section;
   }
   .post-body h2:before {
-    color: #42b983;
+    color: #52c3dd;
     content: counter(section) "." counter(sub-section) " ";
     counter-increment: sub-section;
   }
   .post-body h3:before {
-    color: #42b983;
+    color: #52c3dd;
     content: counter(section) "." counter(sub-section) "." counter(composite) " ";
     counter-increment: composite;
   }
   .post-body h4:before {
-    color: #42b983;
+    color: #52c3dd;
     content: counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";
     counter-increment: detail;
   }
@@ -1871,7 +1871,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e4ffee;
+  background: #a3261c;
 }
 .links-of-blogroll {
   font-size: 13px;
