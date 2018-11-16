@@ -232,18 +232,22 @@ h6 {
     counter-reset: detail;
   }
   .post-body h1:before {
+    color: #42b983;
     content: counter(section) " ";
     counter-increment: section;
   }
   .post-body h2:before {
+    color: #42b983;
     content: counter(section) "." counter(sub-section) " ";
     counter-increment: sub-section;
   }
   .post-body h3:before {
+    color: #42b983;
     content: counter(section) "." counter(sub-section) "." counter(composite) " ";
     counter-increment: composite;
   }
   .post-body h4:before {
+    color: #42b983;
     content: counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";
     counter-increment: detail;
   }
@@ -1255,6 +1259,13 @@ pre .javascript .function {
     word-break: break-word;
   }
 }
+.post-body strong {
+  color: #42b983;
+}
+.post-body a.math-reference {
+  color: #104bb2;
+  border-bottom: none;
+}
 .post-body .fancybox img {
   display: block !important;
   margin: 0 auto;
@@ -1860,7 +1871,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f079b9;
+  background: #ff8816;
 }
 .links-of-blogroll {
   font-size: 13px;
