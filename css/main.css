@@ -180,7 +180,7 @@ th {
   padding: 0;
 }
 ::selection {
-  background: #262a30;
+  background: #296675;
   color: #fff;
 }
 body {
@@ -212,11 +212,19 @@ h3,
 h4,
 h5,
 h6 {
+  color: #41a0b6;
   margin: 0;
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #52c3dd;
 }
 @media (max-width: 991px) {
   .post-body {
@@ -232,7 +240,7 @@ h6 {
     counter-reset: detail;
   }
   .post-body h1:before {
-    color: #52c3dd;
+    color: #41a0b6;
     content: counter(section) " ";
     counter-increment: section;
   }
@@ -998,7 +1006,7 @@ pre .javascript .function {
   display: block;
   width: 22px;
   height: 2px;
-  background: #555;
+  background: #fff;
   border-radius: 1px;
 }
 .btn-bar+.btn-bar {
@@ -1202,7 +1210,7 @@ pre .javascript .function {
     margin: 0 -10px;
     padding: 0 10px;
     clear: both;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #52c3dd;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1503,7 +1511,7 @@ pre .javascript .function {
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
-  color: #52c3dd;
+  color: #41a0b6;
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
@@ -1871,7 +1879,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6571ff;
+  background: #d9ff0b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1918,11 +1926,11 @@ pre .javascript .function {
   margin-left: 10px;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #52c3dd;
+  border-bottom-color: #52c3dd;
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #87daff;
+  color: #52c3dd;
 }
 .sidebar-panel {
   display: none;
@@ -1981,14 +1989,14 @@ pre .javascript .function {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #52c3dd;
+  border-bottom-color: #52c3dd;
 }
 .post-toc .nav .active-current > a {
-  color: #87daff;
+  color: #52c3dd;
 }
 .post-toc .nav .active-current > a:hover {
-  color: #87daff;
+  color: #52c3dd;
 }
 .footer {
   font-size: 14px;
@@ -2527,7 +2535,7 @@ ul.popular-posts .popular-posts-item .popular-posts-title {
   }
 }
 .page-post-detail .sidebar-toggle-line {
-  background: #87daff;
+  background: #52c3dd;
 }
 .page-post-detail .comments {
   overflow: hidden;
@@ -2561,9 +2569,10 @@ hr {
   margin-top: 80px;
 }
 .header {
-  background: #f5f5f5;
+  background: #41a0b6;
 }
 .header-inner {
+  background-color: #41a0b6;
   padding: 25px 0 20px;
 }
 .header-inner:before,
@@ -2604,6 +2613,7 @@ hr {
   display: none;
 }
 .site-meta .site-title {
+  color: #fff;
   font-size: 22px;
   font-weight: bolder;
 }
@@ -2691,6 +2701,7 @@ hr {
   }
 }
 .menu .menu-item a {
+  color: #fff;
   padding: 0 10px;
   border: none;
   border-radius: 2px;
@@ -2703,7 +2714,7 @@ hr {
 }
 .menu .menu-item a:hover,
 .menu-item-active a {
-  background: #e1e1e1;
+  background: #52c3dd;
 }
 .menu a::before {
   display: none;
@@ -2794,10 +2805,10 @@ hr {
 .post-button a {
   padding: 0;
   font-size: 14px;
-  color: #52c3dd;
+  color: #ccc;
   background: none;
   border: none;
-  border-bottom: 2px solid #52c3dd;
+  border-bottom: 2px solid #999;
   transition-property: border;
 }
 @media (max-width: 767px) {
