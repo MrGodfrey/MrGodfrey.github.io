@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="本文将作为写作实用技巧长期更新，力求成为自己写数学论文的模板与指导。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-13T15:55:03.126Z">
+<meta property="og:updated_time" content="2018-11-18T14:54:42.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="怎么用英语写数学论文">
 <meta name="twitter:description" content="本文将作为写作实用技巧长期更新，力求成为自己写数学论文的模板与指导。">
@@ -346,12 +346,22 @@
                 
               
 
-              <time title="创建时间：2018-11-13 22:40:32 / 修改时间：23:55:03" itemprop="dateCreated datePublished" datetime="2018-11-13T22:40:32+08:00">2018-11-13</time>
+              <time title="创建时间：2018-11-13 22:40:32" itemprop="dateCreated datePublished" datetime="2018-11-13T22:40:32+08:00">2018-11-13</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                <time title="修改时间：2018-11-18 22:54:42" itemprop="dateModified" datetime="2018-11-18T22:54:42+08:00">2018-11-18</time>
               
             
           </span>
@@ -409,9 +419,111 @@
       
         <p>本文将作为写作实用技巧长期更新，力求成为自己写数学论文的模板与指导。</p>
 <a id="more"></a>
-<h1 id="简介">简介</h1>
 <p>受到dhchen在知乎上关于<a href="https://zhuanlan.zhihu.com/p/24805724" target="_blank" rel="noopener">数学专业如何做笔记</a>回答的启发，决定建立自己的数学笔记系统。出于之后应用到数学论文中的考虑，我想将用英语记录笔记。所以写一份将会长期更新的写作指导，用来方便自己之后的工作。</p>
-<h1 id="句式">句式</h1>
+<h1 id="引言">引言</h1>
+<p>在本节中，我们将回顾基本的事实。</p>
+<p>In this section, we will review some standard facts on ODE</p>
+<p>我们将建立记号和术语。</p>
+<p>We will set up notation and terminology of control theory.</p>
+<p>论文结构如下</p>
+<p>This chapter is organized as follows.</p>
+<h1 id="记号">记号</h1>
+<p>记...为...</p>
+<p>Here <span class="math inline">\(I\)</span> denotes the identity matrix.</p>
+<h1 id="定义">定义</h1>
+<p>考虑方程，其中 <span class="math inline">\(t\)</span> 时刻，<span class="math inline">\(x(t)\)</span> 是n维向量.</p>
+<p>We consider a equation <span class="math inline">\(\dot x(t)=x(t)\)</span>. where, at time <span class="math inline">\(t\)</span>, the state <span class="math inline">\(x(t)\)</span> is a <span class="math inline">\(n\)</span> dimensional vector.</p>
+<p>对于给定的初值，我们定义柯西问题的解。</p>
+<p>We define the solution of this Cauchy Problem for given <span class="math inline">\(x_0\)</span>.</p>
+<p>一个映射是解，若...且满足...</p>
+<p>The map <span class="math inline">\(x: [0,T] \rightarrow \mathbb{R}^n\)</span> is a solution , if <span class="math inline">\(x(\cdot)\in C([0,T];\mathbb{R}^n)\)</span> and satisfies ...</p>
+<h1 id="假设">假设</h1>
+<p>我们将做如下假设</p>
+<p>We will make the following assumptions</p>
+<p>设...</p>
+<p>Let <span class="math inline">\(\alpha\in \mathbb{R}\)</span> and let <span class="math inline">\(\varphi, \psi , \beta\)</span> be continue functions on [0,T].</p>
+<p>Let <span class="math inline">\(\theta\)</span> be defined by</p>
+<h1 id="性质">性质</h1>
+<p>存在... 使得... 对...成立</p>
+<p>There exists a constant <span class="math inline">\(M&gt;0\)</span>, such that <span class="math inline">\(|f(t,x)-f(t,y)|\leq M|x-y|\)</span> holds for all <span class="math inline">\(t\in [0,T], x,y\in\mathbb{R}^n\)</span> .</p>
+<h1 id="证明">证明</h1>
+<h2 id="引出">引出</h2>
+<p>在以上的假设下， ...将由如下定理给出</p>
+<p>Under the above assumptions, the existence and uniqueness of solution is established by our next theorem.</p>
+<p>Under the assumption of Theorem 2, ...</p>
+<p>接下来，我们证明</p>
+<p>We next prove...</p>
+<p>现在，考虑...</p>
+<p>Now, we are interested in</p>
+<p>关于...的结论主要由如下给出</p>
+<p>The main result concerning surjective operators is the following.</p>
+<p>若只考虑... 有更进一步的结论</p>
+<p>If restricting our attention to Hilbert spaces, there is a further conclusion,</p>
+<p>以下定理给了...成立的充分条件</p>
+<p>The following lemma gives a sufficient condition for ...</p>
+<h2 id="论述">论述</h2>
+<p>由定理..., 存在</p>
+<p>By Theorem 1, there exists...</p>
+<p>由... 我们有</p>
+<p>According to the linearity, we get</p>
+<p>But by hypothesis, we have</p>
+<p>It follows from weakly boundedness of <span class="math inline">\(B\)</span> that ...</p>
+<p>By uniform boundedness principle, we have...</p>
+<p>进一步，有</p>
+<p>Moreover, ...</p>
+<p>事实上</p>
+<p>Indeed, ...</p>
+<p>因此</p>
+<p>Hence, ...</p>
+<p>所以</p>
+<p>Therefore, ...</p>
+<p>特别的</p>
+<p>In particular,...</p>
+<p>将其带入...</p>
+<p>substituting it into equation</p>
+<p>对...用..., 可以得到</p>
+<p>From null controllability applied to the initial data，we get...</p>
+<p>An application of the Hahn-Banach theorem to <span class="math inline">\(L\)</span> shows that there exists a linear functional <span class="math inline">\(\tilde{L}\)</span> from <span class="math inline">\(E\)</span>.</p>
+<p>如下条件等价</p>
+<p>The following properties are equivalent:</p>
+<h2 id="只需">只需</h2>
+<p>为了，只需</p>
+<p>In order to ... , it is suffices to...</p>
+<p>为了，必须</p>
+<p>In order to ... , it is necessary to...</p>
+<p>只需证明</p>
+<p>we only need to show that...</p>
+<p>To do so it is sufficient to prove that...</p>
+<h2 id="显然">显然</h2>
+<p>..是显然的</p>
+<p>Necessity is obvious.</p>
+<p>It is obviously that ...</p>
+<h2 id="结束">结束</h2>
+<p>以上不等式可由归纳和假设给出</p>
+<p>The above inequality can be proved by induction and the assumption 3.</p>
+<p>...可由...得到</p>
+<p>The uniqueness of solution is established by</p>
+<p>..., 就得到了结论</p>
+<p>Integrating both side, we thus obtain the conclusion.</p>
+<p>这就证明了定理</p>
+<p>..., which proves the theorem.</p>
+<p>This concludes the proof of the theorem.</p>
+<h1 id="评论">评论</h1>
+<p>注意...只和...有关</p>
+<p>Note that the existence of N depended on the assumption 2.</p>
+<p>值得指出的是</p>
+<p>It is worth pointing out that the exact controllability is equivalent to null controllability.</p>
+<p>若... 证明是相似的</p>
+<p>The proof is similar if <span class="math inline">\(S(t)\)</span> is a strong continuous group of linear operators.</p>
+<h1 id="引用">引用</h1>
+<p>可以在...中找到</p>
+<p>This can be found in</p>
+<p>更多细节，参见</p>
+<p>see [2, ch.3]for more details</p>
+<p>参见...以及那里的引用</p>
+<p>see [3] and references given there</p>
+<p>证明参见</p>
+<p>For the proofs we refer the reader to [2].</p>
 <h1 id="排版">排版</h1>
 <p>以下记录排版中需要注意的规则</p>
 <ul>
@@ -719,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#句式"><span class="nav-number">2.</span> <span class="nav-text">句式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排版"><span class="nav-number">3.</span> <span class="nav-text">排版</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#记号"><span class="nav-number">2.</span> <span class="nav-text">记号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">3.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#假设"><span class="nav-number">4.</span> <span class="nav-text">假设</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性质"><span class="nav-number">5.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#证明"><span class="nav-number">6.</span> <span class="nav-text">证明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引出"><span class="nav-number">6.1.</span> <span class="nav-text">引出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论述"><span class="nav-number">6.2.</span> <span class="nav-text">论述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只需"><span class="nav-number">6.3.</span> <span class="nav-text">只需</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显然"><span class="nav-number">6.4.</span> <span class="nav-text">显然</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">6.5.</span> <span class="nav-text">结束</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评论"><span class="nav-number">7.</span> <span class="nav-text">评论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用"><span class="nav-number">8.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排版"><span class="nav-number">9.</span> <span class="nav-text">排版</span></a></li></ol></div>
             
 
           </div>

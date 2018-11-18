@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-16T15:57:35.786Z">
+<meta property="og:updated_time" content="2018-11-18T14:41:09.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODE and Control Systems">
 <meta name="twitter:description" content="In this section, we will review some standard facts on ODE and set up notation and terminology of control theory.">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-11-16 23:57:35" itemprop="dateModified" datetime="2018-11-16T23:57:35+08:00">2018-11-16</time>
+                <time title="修改时间：2018-11-18 22:41:09" itemprop="dateModified" datetime="2018-11-18T22:41:09+08:00">2018-11-18</time>
               
             
           </span>
@@ -427,7 +427,7 @@ x(0)=x_0
 \end{cases}\tag{1}\label{1}
 \]</span> where, at time <span class="math inline">\(t\in[0,T]\)</span> , the state <span class="math inline">\(x(t)\in \mathbb{R}^n\)</span>. We call this equation Cauchy Problem if it has such boundary conditions.</p>
 <p>We first define the solution of this Cauchy Problem for given <span class="math inline">\(x_0\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p><strong>Definition 1</strong> The map <span class="math inline">\(x: [0,T] \rightarrow \mathbb{R}^n​\)</span> is a solution of <span class="math inline">\(\eqref{1}\)</span> , if <span class="math inline">\(x(\cdot)\in C([0,T];\mathbb{R}^n)​\)</span> and satisfies <span class="math display">\[
+<p><strong>Definition 1</strong> The map <span class="math inline">\(x: [0,T] \rightarrow \mathbb{R}^n\)</span> is a solution of <span class="math inline">\(\eqref{1}\)</span> , if <span class="math inline">\(x(\cdot)\in C([0,T];\mathbb{R}^n)\)</span> and satisfies <span class="math display">\[
 x(t)=x_0+\int_0^t f(s,x(s))ds, \quad t\in[0,T].
 \]</span> It is of interest to know whether the solution exists, if it exists, is it unique. In order to answer this question, it is necessary to put some restrictions on <span class="math inline">\(f\)</span>.</p>
 <p>We will make the following assumptions:</p>
@@ -443,7 +443,7 @@ x(t)=x_0+\int_0^t f(s,x(s))ds, \quad t\in[0,T].
 x_0(t)=x(0), &amp; t \in [0,T]\\
 x_{k+1}(t)=x_0+\int_0^t f(s,x_k(s))ds, &amp; t\in[0,T], k\geq 0
 \end{cases}
-\]</span> In order to prove the existence of solution, it suffices to prove that <span class="math inline">\(x_k​\)</span> converges uniformly to a limiting function <span class="math inline">\(x​\)</span> on <span class="math inline">\([0,T]​\)</span>. Thus <span class="math inline">\(x​\)</span> will be the solution of equation <span class="math inline">\(\eqref{1}\)</span> . Consider the series <span class="math display">\[
+\]</span> In order to prove the existence of solution, it suffices to prove that <span class="math inline">\(x_k\)</span> converges uniformly to a limiting function <span class="math inline">\(x\)</span> on <span class="math inline">\([0,T]\)</span>. Thus <span class="math inline">\(x\)</span> will be the solution of equation <span class="math inline">\(\eqref{1}\)</span> . Consider the series <span class="math display">\[
 x_0(t)+ \sum_{j=1}^{k}(x_{j}(t)-x_{j-1}(t))
 \]</span> we only need to show that it converges uniformly on <span class="math inline">\([0,T]\)</span>, which is clear from following inequality, <span class="math display">\[
 |x_{k+1}(t)-x_k(t)|\leq \frac{N(Mt)^k}{k!}, \quad \forall t\in [0,T], k\geq0
@@ -477,7 +477,7 @@ x(t)=x_0+\int_0^t (A(s)x(s)+B(s)u(s))ds,\quad t\in[0,T].
 x(t)=S(t)x_0 +\int_0^tS(t-s)B(s)u(s)ds,\quad t\in[0,T],
 \]</span> where <span class="math inline">\(S(t)\)</span> satisfies <span class="math inline">\(\frac{dS(t)}{dt}=AS(t), S(0)=I\)</span>. Here <span class="math inline">\(I\)</span> denotes the identity matrix.</p>
 <p><strong>Proof of Theorem 3</strong> The solution set of equation <span class="math inline">\(\frac{dx(t)}{dt}=Ax(t)\)</span> is a vector space of dimension <span class="math inline">\(n\)</span>. Indeed, given independent initial data <span class="math inline">\(x_0,\cdots, x_n\)</span>, it follows from the existence and uniqueness of solution and linearity of equation. Hence, there exists a standard solution matrix <span class="math inline">\(S(t)\)</span>, such that all solutions are given by <span class="math inline">\(x(t)=S(t)c\)</span>, where <span class="math inline">\(c\)</span> is in <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
-<p>Therefore, all solutions of equation  are given by <span class="math inline">\(x(t)=S(t)c+\tilde{x}(t)\)</span>, where <span class="math inline">\(\tilde{x}(t)\)</span> is any solution of the equation. Replacing <span class="math inline">\(c\)</span> by <span class="math inline">\(c(t)\)</span>, setting<span class="math inline">\(\tilde{x}(t)=S(t)c(t)\)</span>, and substituting it into equation  , we can get <span class="math inline">\(S(t)\frac{c(t)}{dt}=B(t)u(t)\)</span>, and obtain <span class="math inline">\(c(t)=\int_0^t S^{-1}(s)B(s)u(s)ds\)</span>. It follows that <span class="math inline">\(\tilde{x}(t)=\int_0^t S(t-s)B(s)u(s)ds\)</span>, which proves the theorem. <span class="math inline">\(\Box\)</span></p>
+<p>Therefore, all solutions of equation <span class="math inline">\(\eqref{2}\)</span> are given by <span class="math inline">\(x(t)=S(t)c+\tilde{x}(t)\)</span>, where <span class="math inline">\(\tilde{x}(t)\)</span> is any solution of the equation. Replacing <span class="math inline">\(c\)</span> by <span class="math inline">\(c(t)\)</span>, setting<span class="math inline">\(\tilde{x}(t)=S(t)c(t)\)</span>, and substituting it into equation <span class="math inline">\(\eqref{2}\)</span> , we can get <span class="math inline">\(S(t)\frac{c(t)}{dt}=B(t)u(t)\)</span>, and obtain <span class="math inline">\(c(t)=\int_0^t S^{-1}(s)B(s)u(s)ds\)</span>. It follows that <span class="math inline">\(\tilde{x}(t)=\int_0^t S(t-s)B(s)u(s)ds\)</span>, which proves the theorem. <span class="math inline">\(\Box​\)</span></p>
 <p>Now, we are interested in the controllability of the control system <span class="math inline">\(\eqref{2}\)</span> . We defined here two types of controllability (see <a class="math-reference" href="#Ref3">[3]</a> and references given there).</p>
 <p><strong>Definition 4 (exact controllability)</strong> Let <span class="math inline">\(T&gt;0\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>exactly controllability in time T</em> if, for every <span class="math inline">\(x_0, x_1\in \mathbb{R}^n\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(x\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=x_1\)</span>.</p>
 <p><strong>Definition 5 (null controllability)</strong> Let <span class="math inline">\(T&gt;0\)</span>. The control system <span class="math inline">\(\eqref{2}\)</span> is <em>null controllability in time T</em> if, for every <span class="math inline">\(x_0, \tilde x_0\in \mathbb{R}^n\)</span>, there exists <span class="math inline">\(u\in L^2([0,T];\mathbb{R}^m)\)</span> such that the solution <span class="math inline">\(x\)</span> of the equation <span class="math inline">\(\eqref{2}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=S(T)\tilde x_0\)</span>.</p>
