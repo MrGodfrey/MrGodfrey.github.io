@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://deepanalysis.xyz/about-math-seminar.html</loc>
+    
+    <lastmod>2018-11-21T16:13:07.593Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://deepanalysis.xyz/about/index.html</loc>
     
     <lastmod>2018-11-18T15:58:14.613Z</lastmod>
@@ -44,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/Install-flask-on-ubuntu.html</loc>
+    <loc>https://deepanalysis.xyz/construct-vps.html</loc>
     
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/construct-vps.html</loc>
+    <loc>https://deepanalysis.xyz/Install-flask-on-ubuntu.html</loc>
     
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
     
@@ -180,13 +187,6 @@
     <loc>https://deepanalysis.xyz/Linear-space-and-linear-maps.html</loc>
     
     <lastmod>2018-08-16T01:26:43.178Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/about-math-seminar.html</loc>
-    
-    <lastmod>2018-06-25T15:48:51.812Z</lastmod>
     
   </url>
   
