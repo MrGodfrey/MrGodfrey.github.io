@@ -63,9 +63,9 @@
 // Default form settings
 if (rows	== undefined) { var rows	=  '<?php echo $rows; ?>'; }
 if (name_on	== undefined) { var name_on	=  'yes'; }
-if (email_on	== undefined) { var email_on	=  'yes'; }
-if (sites_on	== undefined) { var sites_on	=  'yes'; }
-if (passwd_on	== undefined) { var passwd_on	=  'yes'; }
+if (email_on	== undefined) { var email_on	=  'no'; }
+if (sites_on	== undefined) { var sites_on	=  'no'; }
+if (passwd_on	== undefined) { var passwd_on	=  'no'; }
 
 // Add comment stylesheet to page header
 var head = document.getElementsByTagName('head')[0];
