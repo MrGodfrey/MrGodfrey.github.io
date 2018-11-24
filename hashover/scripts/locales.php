@@ -99,7 +99,7 @@
 			'save_edit'	=> '保存编辑',
 			'no_email_warn'	=> '没有添加邮件的话，您将无法收到通知。',
 			'delete_cmt'	=> '确定删除这条评论?',
-			'post_cmt'	=> '上传评论',
+			'post_cmt'	=> '评论',
 			'popular_cmts'	=> '最受欢迎',
 			'showing_cmts'	=> '显示',
 			'sort'		=> '排序',
