@@ -93,11 +93,11 @@
 	}
 
 	// Display website input tag if told to
-	if ($sites_on == 'yes') {
-		echo "\t\t\t\t\t\t" . '<td' . (($is_mobile == 'yes') ? ' colspan="2"' : '') . ' align="right">' . PHP_EOL;
-		echo "\t\t\t\t\t\t\t" . '<input type="text" name="website" title="' . $text['website'] . '" class="opt-website" value="' . ((isset($_COOKIE['website'])) ? $_COOKIE['website'] : '') . '" placeholder="' . $text['website'] . '">' . PHP_EOL;
-		echo "\t\t\t\t\t\t" . '</td>' . PHP_EOL;
-	}
+	// if ($sites_on == 'yes') {
+	// 	echo "\t\t\t\t\t\t" . '<td' . (($is_mobile == 'yes') ? ' colspan="2"' : '') . ' align="right">' . PHP_EOL;
+	// 	echo "\t\t\t\t\t\t\t" . '<input type="text" name="website" title="' . $text['website'] . '" class="opt-website" value="' . ((isset($_COOKIE['website'])) ? $_COOKIE['website'] : '') . '" placeholder="' . $text['website'] . '">' . PHP_EOL;
+	// 	echo "\t\t\t\t\t\t" . '</td>' . PHP_EOL;
+	// }
 
 	if ($is_mobile != 'yes') {
 		if ($name_on == 'yes' and $passwd_on == 'yes') {
