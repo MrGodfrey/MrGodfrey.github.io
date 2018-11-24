@@ -24,7 +24,7 @@
 
 	// Default form settings
 	$name_on	= 'yes';
-	$email_on	= 'yes';
+	$email_on	= 'no';
 	$sites_on	= 'no';
 	$passwd_on	= 'no';
 
