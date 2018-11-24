@@ -507,7 +507,7 @@ function sort_comments(method) {
 	}
 
 	// Display comment count
-	echo jsAddSlashes('<br><b class="cmtfont">' . $text['showing_cmts'] . ' ' . (($cmt_count == "1") ? '0 Comments:' : display_count()) . '</b>\n') . PHP_EOL;
+	echo jsAddSlashes('<br><b class="cmtfont">' . $text['showing_cmts'] . ' ' . (($cmt_count == "1") ? '0 评论:' : display_count()) . '</b>\n') . PHP_EOL;
 
 	// Display comments, if there are no comments display a note
 	if (!empty($show_cmt)) {

@@ -101,7 +101,7 @@
 			'delete_cmt'	=> '确定删除这条评论?',
 			'post_cmt'	=> '评论',
 			'popular_cmts'	=> '最受欢迎',
-			'showing_cmts'	=> '显示',
+			'showing_cmts'	=> '有',
 			'sort'		=> '排序',
 			'sort_ascend'	=> '顺序',
 			'sort_descend'	=> '倒序',

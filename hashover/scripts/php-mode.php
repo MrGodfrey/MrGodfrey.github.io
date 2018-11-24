@@ -322,13 +322,7 @@
 
 ?>
 
-	<br><center>
-		HashOver Comments &middot;
-<?php if (!empty($show_cmt)) echo "\t\t" . '<a href="http://' . $domain . '/hashover.php?rss=' . $page_url . '" target="_blank">RSS Feed</a> &middot;' . PHP_EOL; ?>
-		<a href="http://<?php echo $domain; ?>/hashover.zip" rel="hashover-source" target="_blank">Source Code</a> &middot;
-		<a href="http://tildehash.com/hashover/changelog.txt" target="_blank">ChangeLog</a> &middot;
-		<a href="http://tildehash.com/hashover/archives/" target="_blank">Archives</a><br>
-	</center>
+	
 </div>
 
 <script type="text/javascript">
