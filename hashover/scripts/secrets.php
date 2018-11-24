@@ -24,10 +24,10 @@
 	//	service(s), and/or political ideology.
 
 
-	$encryption_key		= '8CharKey';			// Unique 8 to 32 character encryption key
-	$notification_email	= 'example@example.com';	// E-mail for notification of new comments
-	$admin_nickname		= 'admin';			// Nickname with admin rights (must be title-cased)
-	$admin_password		= 'passwd';			// Password to gain admin rights
+	$encryption_key		= 'wy199697';			// Unique 8 to 32 character encryption key
+	$notification_email	= '562568681@qq.com';	// E-mail for notification of new comments
+	$admin_nickname		= 'MrWang';			// Nickname with admin rights (must be title-cased)
+	$admin_password		= 'wy199697';			// Password to gain admin rights
 
 	// Display source code without giving away encryption key
 	if (isset($_GET['source']) and basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
