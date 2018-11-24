@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/Use-your-own-html-in-hexo.html</loc>
+    <loc>https://deepanalysis.xyz/Begin-with-Front-end-techology.html</loc>
     
     <lastmod>2018-11-16T15:57:25.624Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/Begin-with-Front-end-techology.html</loc>
+    <loc>https://deepanalysis.xyz/Use-your-own-html-in-hexo.html</loc>
     
     <lastmod>2018-11-16T15:57:25.624Z</lastmod>
     
@@ -170,14 +170,14 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/admin.html</loc>
+    <loc>https://deepanalysis.xyz/hashover/backend/source-viewer.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/hashover/backend/source-viewer.html</loc>
+    <loc>https://deepanalysis.xyz/hashover/admin/admin.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
@@ -212,6 +212,13 @@
   </url>
   
   <url>
+    <loc>https://deepanalysis.xyz/hashover/admin/views/documentation/documentation.html</loc>
+    
+    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://deepanalysis.xyz/hashover/admin/views/blocklist/blocklist.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
@@ -220,13 +227,6 @@
   
   <url>
     <loc>https://deepanalysis.xyz/hashover/admin/views/example/example.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/documentation/documentation.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
@@ -254,13 +254,6 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/settings/settings.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://deepanalysis.xyz/hashover/admin/views/updates/updates.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
@@ -269,6 +262,13 @@
   
   <url>
     <loc>https://deepanalysis.xyz/hashover/admin/views/url-queries/url-queries.html</loc>
+    
+    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://deepanalysis.xyz/hashover/admin/views/settings/settings.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
