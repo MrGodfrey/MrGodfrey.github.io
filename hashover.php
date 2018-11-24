@@ -199,13 +199,10 @@
 		}
 
 		if ($total_copy == $cmt_copy) {
-			$show_count = $cmt_copy . ' Comment';
-			if ($cmt_copy != '1') $show_count .= 's';
+			$show_count = $cmt_copy . ' 条评论';
 		} else {
-			$show_count = $cmt_copy . ' Comment';
-			if ($cmt_copy != '1') $show_count .= 's';
-			$show_count .= ' (' . $total_copy . ' counting repl';
-			$show_count .= ($total_copy != '2') ? 'ies)' : 'y)';
+			$show_count = $cmt_copy . ' 条评论';
+			$show_count .= ' (' . $total_copy . ' 包含回复';
 		}
 
 		return $show_count;
