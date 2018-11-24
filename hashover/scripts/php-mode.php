@@ -23,7 +23,7 @@
 	}
 
 	// Default form settings
-	$name_on	= 'yes';
+	$name_on	= 'no';
 	$email_on	= 'no';
 	$sites_on	= 'no';
 	$passwd_on	= 'no';
