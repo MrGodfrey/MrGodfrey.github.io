@@ -27,10 +27,10 @@
 	$language	= 'zh';						// Language used for forms, buttons, links, and tooltips
 	$name		= 'GNU Knows Who';				// Nickname when one isn't given
 	$template	= 'default';					// Comment layout template
-	$page_title	= 'yes';					// Whether page title is shown or not
+	$page_title	= 'no';					// Whether page title is shown or not
 	$count_missing	= 'yes';					// Whether comment counts should include deleted comments
 	$short_dates	= 'yes';					// Whether comment dates are shortened
-	$icons		= 'yes';					// Whether comments have avatar icons (Gravatar)
+	$icons		= 'no';					// Whether comments have avatar icons (Gravatar)
 	$icon_size	= '45';						// Size of Gravatar icons in pixels
 	$indention	= 'left';					// Side to add comment indention on
 	$rows		= '5';						// Default comment box height in rows
@@ -48,6 +48,6 @@
 	chdir(dirname(__FILE__) . '/../');
 
 	// Timezone
-	date_default_timezone_set('America/Los_Angeles');
+	date_default_timezone_set('Asia/Shanghai');
 
 ?>
