@@ -170,111 +170,6 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/hashover/backend/source-viewer.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/admin.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/themes/1.0-ported/comments.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/themes/default/email-notification.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/themes/default/comments.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/themes/default/latest.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/documentation/documentation.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/blocklist/blocklist.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/example/example.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/moderation/moderation.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/login/login.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/moderation/threads.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/updates/updates.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/url-queries/url-queries.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/hashover/admin/views/settings/settings.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://deepanalysis.xyz/travel-xian.html</loc>
     
     <lastmod>2018-10-11T05:12:52.708Z</lastmod>
@@ -348,6 +243,13 @@
     <loc>https://deepanalysis.xyz/tags/index.html</loc>
     
     <lastmod>2018-05-09T11:35:20.446Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://deepanalysis.xyz/hashover/html-templates/default.html</loc>
+    
+    <lastmod>2017-05-06T18:11:51.000Z</lastmod>
     
   </url>
   
