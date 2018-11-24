@@ -202,7 +202,6 @@
 			$show_count = $cmt_copy . ' 条评论';
 		} else {
 			$show_count = $cmt_copy . ' 条评论';
-			$show_count .= ' (' . $total_copy . ' 包含回复';
 		}
 
 		return $show_count;
