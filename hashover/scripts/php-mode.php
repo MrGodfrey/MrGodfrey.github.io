@@ -25,8 +25,8 @@
 	// Default form settings
 	$name_on	= 'yes';
 	$email_on	= 'yes';
-	$sites_on	= 'yes';
-	$passwd_on	= 'yes';
+	$sites_on	= 'no';
+	$passwd_on	= 'no';
 
 	if ($page_title == 'yes') {
 		$js_title = '<script type="text/javascript">if (document.title != "") { document.write(" on \"" + document.title + "\"") };</script>';
@@ -306,7 +306,7 @@
 	}
 
 	// Display comment count
-	echo "\t" . '<br><b class="cmtfont">' . $text['showing_cmts'] . ' ' . $script = ($cmt_count == "1") ? '0 Comments:</b>' . PHP_EOL : display_count() . ':</b>' . PHP_EOL;
+	echo "\t" . '<br><b class="cmtfont">' . $text['showing_cmts'] . ' ' . $script = ($cmt_count == "1") ? '0 评论:</b>' . PHP_EOL : display_count() . ':</b>' . PHP_EOL;
 
 	// Display comments, if there are no comments display a note
 	if (!empty($show_cmt)) {
