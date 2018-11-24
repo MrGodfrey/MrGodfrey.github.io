@@ -25,7 +25,7 @@
 	// Various Settings
 	$root_dir	= '/hashover/';					// HTTP root directory for comments
 	$language	= 'zh';						// Language used for forms, buttons, links, and tooltips
-	$name		= 'GNU Knows Who';				// Nickname when one isn't given
+	$name		= '匿名';				// Nickname when one isn't given
 	$template	= 'default';					// Comment layout template
 	$page_title	= 'no';					// Whether page title is shown or not
 	$count_missing	= 'yes';					// Whether comment counts should include deleted comments
