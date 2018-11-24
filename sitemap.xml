@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/Install-flask-on-ubuntu.html</loc>
+    <loc>https://deepanalysis.xyz/construct-vps.html</loc>
     
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/construct-vps.html</loc>
+    <loc>https://deepanalysis.xyz/Install-flask-on-ubuntu.html</loc>
     
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
     
@@ -72,14 +72,14 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/Begin-with-Front-end-techology.html</loc>
+    <loc>https://deepanalysis.xyz/begin-with-css.html</loc>
     
     <lastmod>2018-11-16T15:57:25.624Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/begin-with-css.html</loc>
+    <loc>https://deepanalysis.xyz/Begin-with-Front-end-techology.html</loc>
     
     <lastmod>2018-11-16T15:57:25.624Z</lastmod>
     
@@ -170,13 +170,6 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/backend/source-viewer.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://deepanalysis.xyz/admin/admin.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
@@ -184,14 +177,14 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/themes/default/comments.html</loc>
+    <loc>https://deepanalysis.xyz/backend/source-viewer.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/themes/default/email-notification.html</loc>
+    <loc>https://deepanalysis.xyz/themes/default/comments.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
@@ -212,7 +205,7 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/admin/views/blocklist/blocklist.html</loc>
+    <loc>https://deepanalysis.xyz/themes/default/email-notification.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
@@ -226,14 +219,7 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/admin/views/example/example.html</loc>
-    
-    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://deepanalysis.xyz/admin/views/moderation/moderation.html</loc>
+    <loc>https://deepanalysis.xyz/admin/views/blocklist/blocklist.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
@@ -247,7 +233,21 @@
   </url>
   
   <url>
+    <loc>https://deepanalysis.xyz/admin/views/example/example.html</loc>
+    
+    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://deepanalysis.xyz/admin/views/moderation/threads.html</loc>
+    
+    <lastmod>2018-10-15T02:49:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://deepanalysis.xyz/admin/views/moderation/moderation.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
@@ -261,14 +261,14 @@
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/admin/views/updates/updates.html</loc>
+    <loc>https://deepanalysis.xyz/admin/views/url-queries/url-queries.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://deepanalysis.xyz/admin/views/url-queries/url-queries.html</loc>
+    <loc>https://deepanalysis.xyz/admin/views/updates/updates.html</loc>
     
     <lastmod>2018-10-15T02:49:29.000Z</lastmod>
     
