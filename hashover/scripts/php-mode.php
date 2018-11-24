@@ -23,10 +23,10 @@
 	}
 
 	// Default form settings
-	$name_on	= 'no';
-	$email_on	= 'no';
-	$sites_on	= 'no';
-	$passwd_on	= 'no';
+	$name_on	= 'yes';
+	$email_on	= 'yes';
+	$sites_on	= 'yes';
+	$passwd_on	= 'yes';
 
 	if ($page_title == 'yes') {
 		$js_title = '<script type="text/javascript">if (document.title != "") { document.write(" on \"" + document.title + "\"") };</script>';
