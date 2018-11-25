@@ -57,7 +57,7 @@ class SafeSettings
 	public $fieldOptions = array (
 		'name'     => true,
 		'password' => false,
-		'email'    => true,
+		'email'    => false,
 		'website'  => false
 	);
 
