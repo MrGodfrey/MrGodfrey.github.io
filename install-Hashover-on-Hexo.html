@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="最近想给个人网站加上一个评论系统，然而常用的多说有言等系统体量庞大，而且依托于第三方网站。机缘巧合之下找到了基于PHP的评论系统Hashover, 非常轻便，写此篇文章来记录安装与配置过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-25T02:56:13.728Z">
+<meta property="og:updated_time" content="2018-11-25T02:57:40.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Hexo上部署Hashover评论系统">
 <meta name="twitter:description" content="最近想给个人网站加上一个评论系统，然而常用的多说有言等系统体量庞大，而且依托于第三方网站。机缘巧合之下找到了基于PHP的评论系统Hashover, 非常轻便，写此篇文章来记录安装与配置过程。">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-11-25 10:56:13" itemprop="dateModified" datetime="2018-11-25T10:56:13+08:00">2018-11-25</time>
+                <time title="修改时间：2018-11-25 10:57:40" itemprop="dateModified" datetime="2018-11-25T10:57:40+08:00">2018-11-25</time>
               
             
           </span>
@@ -423,21 +423,15 @@
 <p>我的网站是用Hexo搭建在腾讯云服务器之上，目前只安装了Nginx用来解析请求，操作系统是Ubuntu16.04.</p>
 <p><a href="https://github.com/jacobwb/hashover-next" target="_blank" rel="noopener">Hashover</a> 是一款用PHP语言开发的网页应用，最新版本(hashover-next)包括后台管理、订阅邮件等等强大的功能，并且部署非常容易。</p>
 <p>我们需要搭建PHP环境，这里我们用的是PHP7.0.</p>
-<ol type="1">
-<li>安装PHP 7.0.</li>
-</ol>
+<h2 id="安装php-7.0.">安装PHP 7.0.</h2>
 <p>使用命令安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php7.0</span><br></pre></td></tr></table></figure>
 <p>然而PHP本身只是一个环境，如果想让用户访问网站并在服务器上执行PHP代码，我们需要一个PHP进程管理器。一方面可以接收来自服务器的请求，另一方面可以执行PHP代码。</p>
 <p>这个进程管理器一般是FPM (FastCGI Process Manager)。</p>
-<ol start="2" type="1">
-<li>安装PHP-FPM</li>
-</ol>
+<h2 id="安装php-fpm">安装PHP-FPM</h2>
 <p>使用命令安装并启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php7.0-fpm</span><br><span class="line">sudo service php7.0-fpm start</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>安装依赖的模块</li>
-</ol>
+<h2 id="安装依赖的模块">安装依赖的模块</h2>
 <p>Hashover 需要一些PHP模块才能正常运行，使用命令安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php-mbstring php-xml php-json</span><br></pre></td></tr></table></figure>
 <p>使用命令<code>php -m</code>查看已安装的模块。</p>
@@ -786,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置环境"><span class="nav-number">2.</span> <span class="nav-text">配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置nginx"><span class="nav-number">2.1.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置fpm"><span class="nav-number">2.2.</span> <span class="nav-text">配置FPM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.3.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hashover"><span class="nav-number">3.</span> <span class="nav-text">安装Hashover</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#必要的配置"><span class="nav-number">3.1.</span> <span class="nav-text">必要的配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置hexo"><span class="nav-number">4.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器上的操作"><span class="nav-number">5.</span> <span class="nav-text">服务器上的操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装php-7.0."><span class="nav-number">1.1.</span> <span class="nav-text">安装PHP 7.0.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装php-fpm"><span class="nav-number">1.2.</span> <span class="nav-text">安装PHP-FPM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装依赖的模块"><span class="nav-number">1.3.</span> <span class="nav-text">安装依赖的模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置环境"><span class="nav-number">2.</span> <span class="nav-text">配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置nginx"><span class="nav-number">2.1.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置fpm"><span class="nav-number">2.2.</span> <span class="nav-text">配置FPM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.3.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hashover"><span class="nav-number">3.</span> <span class="nav-text">安装Hashover</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#必要的配置"><span class="nav-number">3.1.</span> <span class="nav-text">必要的配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置hexo"><span class="nav-number">4.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器上的操作"><span class="nav-number">5.</span> <span class="nav-text">服务器上的操作</span></a></li></ol></div>
             
 
           </div>
