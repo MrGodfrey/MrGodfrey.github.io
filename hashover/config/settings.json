@@ -27,7 +27,7 @@
 	"uses-short-dates": true,
 	"time-format": "g:ia",
 	"date-format": "m\/d\/Y",
-	"displays-title": true,
+	"displays-title": false,
 	"form-position": "top",
 	"uses-auto-login": true,
 	"shows-reply-count": true,
