@@ -480,12 +480,16 @@ conditions, unless such conditions are required by law.
 }
 
 .hashover .hashover-inputs input {
-	width: 100%;
+	width: 30%;
 	height: 32px;
 	font-size: 14px;
 	padding-left: 30px;
 	padding-right: 6px;
 	color: #808080;
+}
+
+@media (max-width: 991px) {
+	.hashover .hashover-inputs input {width: 100%;}
 }
 
 .hashover .hashover-required-input input {
