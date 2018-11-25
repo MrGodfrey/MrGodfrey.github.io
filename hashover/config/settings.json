@@ -1,4 +1,7 @@
 {
+	"fieldOptions[password]": false,
+	"fieldOptions[email]": false,
+	"fieldOptions[website]": false,
 	"language": "zh-cn",
 	"theme": "default-borderless",
 	"default-sorting": "by-date",
@@ -10,7 +13,7 @@
 	"noreply-email": "noreply@example.com",
 	"default-name": "Anonymous",
 	"allows-images": true,
-	"allows-login": false,
+	"allows-login": true,
 	"allows-likes": true,
 	"allows-dislikes": false,
 	"uses-ajax": true,
