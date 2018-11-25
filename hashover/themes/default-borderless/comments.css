@@ -610,7 +610,12 @@ conditions, unless such conditions are required by law.
 }
 
 .hashover .hashover-count {
+	display: none;
 	float: left;
+}
+
+.haseover .hashover-name-plain{
+	display: none;
 }
 
 .hashover .hashover-sort-select,
