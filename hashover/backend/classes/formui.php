@@ -1121,20 +1121,20 @@ class FormUI
 			$end_links_wrapper->createAttribute ('style', 'display: none;');
 		}
 
-		// HashOver Comments hyperlink text
-		$homepage_link_text = $this->locale->text['hashover-comments'];
+		// // HashOver Comments hyperlink text
+		// $homepage_link_text = $this->locale->text['hashover-comments'];
 
-		// Create link back to HashOver homepage (fixme! get a real page!)
-		$homepage_link = new HTMLTag ('a', array (
-			'href' => 'http://tildehash.com/?page=hashover',
-			'class' => 'hashover-home-link',
-			'target' => '_blank',
-			'title' => $homepage_link_text,
-			'innerHTML' => $homepage_link_text
-		), false);
+		// // Create link back to HashOver homepage (fixme! get a real page!)
+		// $homepage_link = new HTMLTag ('a', array (
+		// 	'href' => 'http://tildehash.com/?page=hashover',
+		// 	'class' => 'hashover-home-link',
+		// 	'target' => '_blank',
+		// 	'title' => $homepage_link_text,
+		// 	'innerHTML' => $homepage_link_text
+		// ), false);
 
-		// Add link back to HashOver homepage to end links wrapper element
-		$end_links_wrapper->innerHTML ($homepage_link->asHTML () . ' &#8210;');
+		// // Add link back to HashOver homepage to end links wrapper element
+		// $end_links_wrapper->innerHTML ($homepage_link->asHTML () . ' &#8210;');
 
 		// End links array
 		$end_links = array ();
