@@ -59,6 +59,10 @@ conditions, unless such conditions are required by law.
 	font-size: 18px;
 }
 
+.hashover .hashover-comment-name {
+	color: #41a0b6;
+}
+
 .hashover .hashover-reply .hashover-comment-name {
 	font-weight: bold;
 	font-size: 14px;
@@ -83,8 +87,10 @@ conditions, unless such conditions are required by law.
 }
 
 .hashover .hashover-dashed-title {
+	color: #555;
 	display: inline-block;
 	width: 100%;
+	margin-top: 15px;
 	margin-bottom: 12px;
 	padding-bottom: 10px;
 	vertical-align: top;
@@ -245,6 +251,7 @@ conditions, unless such conditions are required by law.
 	background-image: -webkit-linear-gradient(#F0F0F0, #FCFCFC, #FCFCFC, #FCFCFC);
 	background-image: -moz-linear-gradient(#F0F0F0, #FCFCFC, #FCFCFC, #FCFCFC);
 	background-image: linear-gradient(#F0F0F0, #FCFCFC, #FCFCFC, #FCFCFC);
+	background-image: none;
 }
 
 .hashover .hashover-name-input,
@@ -405,8 +412,8 @@ conditions, unless such conditions are required by law.
 .hashover .hashover-post-button,
 .hashover .hashover-reply-post,
 .hashover .hashover-edit-post {
-	background-color: #8CB1FF;
-	border-color: #0055AA;
+	border: none;
+	background-color: #41a0b6;
 	color: #FCFCFC;
 }
 
@@ -947,6 +954,7 @@ conditions, unless such conditions are required by law.
 .hashover .hashover-comment .hashover-date-permalink,
 .hashover .hashover-comment .hashover-date-permalink:visited,
 .hashover .hashover-comment .hashover-date > * {
+	border: none;
 	color: #606060;
 }
 
@@ -1001,6 +1009,7 @@ conditions, unless such conditions are required by law.
 .hashover .hashover-formatting:hover,
 .hashover .hashover-comment .hashover-buttons a,
 .hashover .hashover-comment .hashover-buttons a:hover {
+	border: none;
 	color: #111111;
 }
 
