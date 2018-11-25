@@ -1,5 +1,4 @@
 {
-	"fieldOptions": ["name","email"],
 	"language": "zh-cn",
 	"theme": "default-borderless",
 	"default-sorting": "by-date",
