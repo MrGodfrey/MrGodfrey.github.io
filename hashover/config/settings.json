@@ -1,7 +1,5 @@
 {
-	"fieldOptions['password']": false,
-	"fieldOptions['email']": false,
-	"fieldOptions['website']": false,
+	"fieldOptions": ["name","email"],
 	"language": "zh-cn",
 	"theme": "default-borderless",
 	"default-sorting": "by-date",
