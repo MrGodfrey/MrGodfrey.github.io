@@ -100,25 +100,25 @@
 
 
 
-  <meta name="description" content="关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.">
-<meta name="keywords" content="量子控制,泛函分析">
+  <meta name="description" content="最近想给个人网站加上一个评论系统，然而常用的多说有言等系统体量庞大，而且依托于第三方网站。机缘巧合之下找到了基于PHP的评论系统Hashover, 非常轻便，写此篇文章来记录安装与配置过程。">
+<meta name="keywords" content="个人网站">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hille-Yosida定理和Stone定理">
-<meta property="og:url" content="https://deepanalysis.xyz/Hille-Yosida-Stone-theorem.html">
+<meta property="og:title" content="在Hexo上部署Hashover评论系统">
+<meta property="og:url" content="https://deepanalysis.xyz/install-Hashover-on-Hexo.html">
 <meta property="og:site_name" content="DeepAnalysis">
-<meta property="og:description" content="关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.">
+<meta property="og:description" content="最近想给个人网站加上一个评论系统，然而常用的多说有言等系统体量庞大，而且依托于第三方网站。机缘巧合之下找到了基于PHP的评论系统Hashover, 非常轻便，写此篇文章来记录安装与配置过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-13T15:59:53.184Z">
+<meta property="og:updated_time" content="2018-11-25T02:56:13.728Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hille-Yosida定理和Stone定理">
-<meta name="twitter:description" content="关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.">
+<meta name="twitter:title" content="在Hexo上部署Hashover评论系统">
+<meta name="twitter:description" content="最近想给个人网站加上一个评论系统，然而常用的多说有言等系统体量庞大，而且依托于第三方网站。机缘巧合之下找到了基于PHP的评论系统Hashover, 非常轻便，写此篇文章来记录安装与配置过程。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://deepanalysis.xyz/Hille-Yosida-Stone-theorem.html">
+  <link rel="canonical" href="https://deepanalysis.xyz/install-Hashover-on-Hexo.html">
 
 
 
@@ -128,7 +128,7 @@
   };
 </script>
 
-  <title>Hille-Yosida定理和Stone定理 | DeepAnalysis</title>
+  <title>在Hexo上部署Hashover评论系统 | DeepAnalysis</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://deepanalysis.xyz/Hille-Yosida-Stone-theorem.html">
+    <link itemprop="mainEntityOfPage" href="https://deepanalysis.xyz/install-Hashover-on-Hexo.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Yu">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hille-Yosida定理和Stone定理
+          <h1 class="post-title" itemprop="name headline">在Hexo上部署Hashover评论系统
               
             
           </h1>
@@ -346,7 +346,7 @@
                 
               
 
-              <time title="创建时间：2018-06-22 08:47:47" itemprop="dateCreated datePublished" datetime="2018-06-22T08:47:47+08:00">2018-06-22</time>
+              <time title="创建时间：2018-11-24 22:32:16" itemprop="dateCreated datePublished" datetime="2018-11-24T22:32:16+08:00">2018-11-24</time>
             
 
             
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-11-13 23:59:53" itemprop="dateModified" datetime="2018-11-13T23:59:53+08:00">2018-11-13</time>
+                <time title="修改时间：2018-11-25 10:56:13" itemprop="dateModified" datetime="2018-11-25T10:56:13+08:00">2018-11-25</time>
               
             
           </span>
@@ -376,14 +376,14 @@
               </span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/学习笔记/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/计算机/个人网站/" itemprop="url" rel="index"><span itemprop="name">个人网站</span></a></span>
 
                 
                 
@@ -417,109 +417,75 @@
       
 
       
-        <p>关于算子半群的最后一篇内容,讲述Hille-Yosida定理的证明,以及Stone定理的证明.这两个定理作为算子半群理论的基石存在.</p>
+        <p>最近想给个人网站加上一个评论系统，然而常用的多说有言等系统体量庞大，而且依托于第三方网站。机缘巧合之下找到了基于PHP的评论系统Hashover, 非常轻便，写此篇文章来记录安装与配置过程。</p>
 <a id="more"></a>
-<p>算子半群系列文章回顾</p>
+<h1 id="环境搭建">环境搭建</h1>
+<p>我的网站是用Hexo搭建在腾讯云服务器之上，目前只安装了Nginx用来解析请求，操作系统是Ubuntu16.04.</p>
+<p><a href="https://github.com/jacobwb/hashover-next" target="_blank" rel="noopener">Hashover</a> 是一款用PHP语言开发的网页应用，最新版本(hashover-next)包括后台管理、订阅邮件等等强大的功能，并且部署非常容易。</p>
+<p>我们需要搭建PHP环境，这里我们用的是PHP7.0.</p>
 <ol type="1">
-<li><a href=".\vector-value-function-integral.html">向量值函数的积分</a></li>
-<li><a href=".\C0-operator-semigroup-generator.html">强连续线性算子半群的定义与无穷小生成元</a></li>
+<li>安装PHP 7.0.</li>
 </ol>
-<h1 id="hille-yosida定理">Hille-Yosida定理</h1>
-<p>本文的主要参考书目为<em>张恭庆的泛函分析讲义下</em>.</p>
-<h2 id="叙述">叙述</h2>
-<p>定理有两个叙述,分别为压缩半群的版本和一般强连续算子半群的版本. 符号的记法与之前的<a href=".\C0-operator-semigroup-generator.html">强连续线性算子半群的定义与无穷小生成元</a>相同.</p>
-<p><strong>压缩半群</strong> 为了一个线性稠定闭算子<span class="math inline">\(A\)</span>是一个压缩半群的生成元,必须且仅需以下两条成立</p>
-<ul>
-<li><span class="math inline">\((0,\infty) \subset \rho(A)\)</span>;</li>
-<li><span class="math inline">\(\|R_{\lambda} (A)\| \leq 1/\lambda, \forall \lambda &gt;0\)</span></li>
-</ul>
-<p><strong>一般半群</strong> 为了一个线性稠定闭算子<span class="math inline">\(A\)</span>是一个强连续算子半群的生成元,必须且仅需以下两条成立</p>
-<ul>
-<li><span class="math inline">\(\exists \omega_0 &gt;0\)</span>使得<span class="math inline">\((\omega_0,\infty) \subset \rho(A)\)</span>;</li>
-<li><span class="math inline">\(\exists M &gt;0\)</span>使得当<span class="math inline">\(\lambda&gt;\omega&gt;\omega_0\)</span>时,<span class="math inline">\(\|(\lambda-A)^{-n}\| \leq M/(\lambda-\omega)^n,\)</span> <span class="math inline">\(n=1,2,\cdots\)</span></li>
-</ul>
-<h2 id="意义">意义</h2>
-<p>上述的定理表明,当稠定闭算子<span class="math inline">\(A\)</span>满足定理的条件后,算子微分方程 <span class="math display">\[
-\left\{
-\begin{aligned}
-&amp;\frac{d}{dt} x(t)=Ax(t)\\
-&amp;x(0)=x_0 \in D(A)
-\end{aligned}
-\right.
-\]</span> 有解<span class="math inline">\(x(t)=T(t)x_0\)</span>. 事实上,可以证明在函数空间<span class="math inline">\(C(\mathbb{R}_{+};D(A)) \cap C^1(\mathbb{R}_{+};X)\)</span>中,方程的解是唯一的.</p>
-<h2 id="证明">证明</h2>
-<p>叙述的证明以压缩半群为例,一般的算子半群与压缩半群的证明完全类似.</p>
-<p>证明分为必要性和充分性,对压缩半群,是否无穷小生成元满足那两个条件.反过来,满足那两个条件,如何构造对应的压缩半群.</p>
-<h3 id="必要性">必要性</h3>
-<p>为了研究生成元<span class="math inline">\(A\)</span>的正则点(预解集中的点),需要想办法研究生成元的预解式.</p>
-<p><strong>用Laplace变换研究生成元预解式</strong> 收到常微分方程的启发,考虑积分 <span class="math display">\[ R_\lambda = \int_0^\infty e^{-\lambda t} T(t) dt \]</span></p>
-<p>这个积分就是<span class="math inline">\(T(t)\)</span>的Laplace变换,形式上若<span class="math inline">\(T(t)=e^{At}\)</span>, 则<span class="math inline">\(R_\lambda\)</span>就是<span class="math inline">\(A\)</span>的预解式.</p>
-<p>事实上,只需要用定义验证,很容易知道这个结论是成立的.而且顺便得到了<span class="math inline">\(\|R_\lambda\| \leq \frac{1}{Re \lambda}\)</span>的结论.</p>
-<h3 id="充分性">充分性</h3>
-<p>构造算子半群的方法,基本上是用有界线性算子逼近<span class="math inline">\(A\)</span>, 再用有界线性算子生成的算子半群逼近所需的算子半群.</p>
-<p>具体来说,考虑算子<span class="math inline">\(B_\lambda= \lambda^2(\lambda-A)^{-1} -\lambda\)</span>. 事实上如果只考虑<span class="math inline">\(D(A)\)</span>中的情况,则这个算子可通分为<span class="math inline">\(\lambda(\lambda-A)^{-1} A\)</span>. 当<span class="math inline">\(\lambda \rightarrow \infty\)</span>时,这个算子应当强收敛到<span class="math inline">\(A\)</span>.</p>
-<p>定义<span class="math inline">\(T_\lambda (t)= e^{B_\lambda t}\)</span>, 可以证明这列算子是强收敛的,并且每一个都是压缩半群. 于是可以定义极限<span class="math inline">\(T(t)\)</span>, 可以证明其为压缩半群且<span class="math inline">\(A\)</span>是它的生成元.</p>
-<p>证明过程基本是用上面给出的Laplace变换的形式,将复杂的泛函问题转化为对积分的估计.</p>
-<h1 id="stone定理">Stone定理</h1>
-<h2 id="叙述-1">叙述</h2>
-<p>Stone定理阐述了,一个算子满足什么条件时可以成为强连续酉算子群的生成元,反过来,强连续酉算子群的生成元一定长成什么样子.</p>
-<p>首先,强连续酉算子群是指满足三个条件的算子群</p>
-<ul>
-<li>对每个<span class="math inline">\(t \in \mathbb{R}\)</span>, <span class="math inline">\(U(t)\)</span>是<span class="math inline">\(H\)</span>上的酉算子</li>
-<li><span class="math inline">\(U(t+s)=U(t)U(s)\)</span></li>
-<li><span class="math inline">\(U(t)\)</span>强连续</li>
-</ul>
-<p><strong>Remark</strong> 可以看到如果给了一个强连续算子半群<span class="math inline">\(T(t)\)</span>,如果它的共轭算子半群(就是<span class="math inline">\(T^*(t)\)</span>)是强连续的,则可以自然构成一个酉算子群.至于何时共轭算子半群依然是强连续的,有个结论说若空间是自反的Banach空间就可以.值得一提的是,共轭算子半群的生成元大致是原来半群生成元的共轭.</p>
-<p><strong>Remark</strong> 在可分的Banach空间中,强连续与弱可测是等价的.</p>
-<p><strong>Stone定理</strong> 若<span class="math inline">\(\{U(t); t\in \mathbb{R}\}\)</span>是一个弱可测酉算子群,则必有一个自伴算子<span class="math inline">\(A\)</span>,使得<span class="math inline">\(iA\)</span>是它的生成元.更进一步,若有一个自伴算子<span class="math inline">\(A\)</span>, 则有一个弱可测酉算子群<span class="math inline">\(U(t)=e^{i tA}\)</span>的生成元为<span class="math inline">\(iA\)</span>.</p>
-<p>上述的指数形式是算符演算给出的.用<span class="math inline">\(A\)</span>的谱分解给出的话应是 <span class="math display">\[ U(t) = \int_{-\infty}^{+\infty} e^{it\lambda}dE_\lambda \]</span></p>
-<h2 id="证明-1">证明</h2>
-<p>这个定理的证明是直接的,只需要用生成元的定义即可知道.</p>
-<h2 id="意义-1">意义</h2>
-<p>在量子力学中,基本方程是薛定谔方程 <span class="math display">\[ i \hbar \frac{\partial}{\partial t} \psi(x,t) = H \psi(x,t)  \]</span> 其中<span class="math inline">\(H\)</span>是Hamilton算子,一般是无界线性算子,先假设<span class="math inline">\(H\)</span>与时间无关,定义域是<span class="math inline">\(L^2\)</span>的某个闭子空间.</p>
-<p>波函数<span class="math inline">\(\psi(x,t)\)</span>的物理意义是在时刻<span class="math inline">\(t\)</span>, 粒子出现在点<span class="math inline">\(x\)</span>处的概率密度,由概率守恒可知道<span class="math inline">\(\int_{\mathbb{R}^3} | \psi(x,t) | ^2 dx=1\)</span>.</p>
-<p>考虑传播子<span class="math inline">\(U(t)\)</span>, 定义为初始时刻的波函数<span class="math inline">\(\psi(0,t)\)</span>到<span class="math inline">\(t\)</span>时刻波函数<span class="math inline">\(\psi(x,t)\)</span>的变换.于是由物理过程的时不变性, <span class="math inline">\(U(t+s)=U(t)U(s)\)</span>, 并且由概率守恒可以知道<span class="math inline">\(U(t)\)</span>是个保范算子,于是可以得到<span class="math inline">\(U(t)\)</span>应当是个酉算子群.而且物理过程可以要求<span class="math inline">\(U(t)\)</span>是弱可测的.</p>
-<p>于是由上述的Stone定理,可以知道<span class="math inline">\(H\)</span>必然是自伴算子,并且<span class="math inline">\(U(t)\)</span>的具体形式也可以写出来.事实上有 <span class="math display">\[ \psi(x,t) = U(t)\psi(x,0) = e^{-i Ht /\hbar} \psi(x,0)\]</span></p>
-<p>于是我们给出了薛定谔方程的解,而且还断定算子<span class="math inline">\(H\)</span>必须要是自伴算子.相较于原来的方程,显然给出了更多有意义的信息.</p>
+<p>使用命令安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php7.0</span><br></pre></td></tr></table></figure>
+<p>然而PHP本身只是一个环境，如果想让用户访问网站并在服务器上执行PHP代码，我们需要一个PHP进程管理器。一方面可以接收来自服务器的请求，另一方面可以执行PHP代码。</p>
+<p>这个进程管理器一般是FPM (FastCGI Process Manager)。</p>
+<ol start="2" type="1">
+<li>安装PHP-FPM</li>
+</ol>
+<p>使用命令安装并启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php7.0-fpm</span><br><span class="line">sudo service php7.0-fpm start</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>安装依赖的模块</li>
+</ol>
+<p>Hashover 需要一些PHP模块才能正常运行，使用命令安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php-mbstring php-xml php-json</span><br></pre></td></tr></table></figure>
+<p>使用命令<code>php -m</code>查看已安装的模块。</p>
+<p>至此，安装部分告一段落。</p>
+<h1 id="配置环境">配置环境</h1>
+<h2 id="配置nginx">配置Nginx</h2>
+<p>Nginx不仅是一个Web server， 还是一个强大的Proxy服务器。可以进行很多协议请求的代理。这里我们需要Nginx处理fastCGI协议，从而能讲http请求翻译为fastCGI请求，并发送给php-fpm处理.</p>
+<p>打开Nginx的配置文件，一般是<code>/etc/nginx/sites-enabled/default</code>. 你可以用命令<code>sudo nano /etc/nginx/sites-enabled/default</code>来编辑该文件。</p>
+<p>在文件中，包含<code>index.html</code>一行中，依据注释加入<code>index.php</code></p>
+<p>在文件中添加以.php$结尾的地址的解析</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location ~\.php$ &#123;</span><br><span class="line">	root /var/www/hexo; 			#这是我的网站位置</span><br><span class="line">	fastcgi_pass 127.0.0.1:9000; 	 #这是fpm监听的ip和端口，即将在之后设置</span><br><span class="line">	fastcgi_index index.php;</span><br><span class="line">	fastcgi_param SCRIP_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">	include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段表示我们将处理所有对php文件的请求。</p>
+<p>使用命令<code>sudo nginx -t</code>测试配置是否有误。</p>
+<h2 id="配置fpm">配置FPM</h2>
+<p>我们还得配置fpm来监听刚设置的端口。</p>
+<p>打开fpm配置文件<code>/etc/php/7.0/fpm/pool.d/www.conf</code>, 在listen=那一行添加</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">listen=/run/php/php7.0-fpm.sock</span><br><span class="line">listen = 127.0.0.1:9000</span><br></pre></td></tr></table></figure>
+<p>使用命令重启Nginx和fpm服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx restart</span><br><span class="line">sudo service php7.0-fpm restart</span><br></pre></td></tr></table></figure>
+<h2 id="测试">测试</h2>
+<p>检验是否搭建成功，只需在网站目录<code>/var/www/hexo</code>下添加文件<code>test.php</code>, 内容如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Hello World!"</span>; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>浏览器访问<code>http://your-website.com/test.php</code></p>
+<p>如果出现<code>hello,world</code>,则表示安装成功.</p>
+<h1 id="安装hashover">安装Hashover</h1>
+<p>Hashover的安装非常容易，现在<a href="https://github.com/jacobwb/hashover-next" target="_blank" rel="noopener">Github</a>上下载源代码，并将<code>hashover</code>文件夹拷贝到Hexo的<code>source</code>文件夹下即可。</p>
+<p>由于Hexo会自动渲染<code>source</code>文件夹下的所有<code>html</code>文件，所以得将Hashover文件夹加入到忽略渲染的名单中。</p>
+<p>在<code>_config.yml</code>中找到<code>skip_render</code>, 并加入</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span> <span class="string">hashover/**</span></span><br></pre></td></tr></table></figure>
+<h2 id="必要的配置">必要的配置</h2>
+<p>在找到<code>/hashover/backend/class/secrets.php</code>文件，编辑以下几行</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// E-mail for notification of new comments</span></span><br><span class="line">	<span class="keyword">protected</span> $notificationEmail = <span class="string">'***'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Unique encryption key (case-sensitive)</span></span><br><span class="line">	<span class="keyword">protected</span> $encryptionKey = <span class="string">'***'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Login name to gain admin rights (case-sensitive)</span></span><br><span class="line">	<span class="keyword">protected</span> $adminName = <span class="string">'***'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Login password to gain admin rights (case-sensitive)</span></span><br><span class="line">	<span class="keyword">protected</span> $adminPassword = <span class="string">'***'</span>;</span><br></pre></td></tr></table></figure>
+<p>你以后就可以用adminName和adminPassword登录后台管理页面了。</p>
+<h1 id="配置hexo">配置Hexo</h1>
+<p>我是用的Hexo主题是next，所以我只需要在<code>themes\next\layout\_macro\post.swig</code> 中某个想插入评论的位置加上代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if not is_index and theme.hashover.enable %&#125;</span><br><span class="line">   &lt;section class=&quot;hashover&quot; id=&quot;comments&quot;&gt;</span><br><span class="line">              &lt;script type = &quot;text/javascript&quot;&gt;(</span><br><span class="line">	            function() &#123;</span><br><span class="line">		          var s = document.createElement(&apos;script&apos;),</span><br><span class="line">	          	t = document.getElementsByTagName(&apos;script&apos;)[0];</span><br><span class="line">          		s.type = &apos;text/javascript&apos;;</span><br><span class="line">          		s.async = true;</span><br><span class="line">         			s.src = &quot;/hashover/comments.php&quot;;</span><br><span class="line">         			t.parentNode.insertBefore(s, t);</span><br><span class="line">           		&#125;)();</span><br><span class="line">             	&lt;/script&gt;</span><br><span class="line">             &lt;div id=&quot;hashover&quot;&gt;&lt;/div&gt;</span><br><span class="line">   &lt;/section&gt;</span><br><span class="line">   &#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>渲染并部署，就可以使用Hashover评论系统了.</p>
+<h1 id="服务器上的操作">服务器上的操作</h1>
+<p>Hashover的后台管理页面在<code>http://your-website.com/hashover/admin</code> , 当你想编辑或者删除评论，或者调整Hashover的设置时，你需要在服务器上给文件夹设置权限。</p>
+<p>登录服务器，并cd到<code>/var/www/hexo/hashover</code>, 使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown www-data:www-data config</span><br></pre></td></tr></table></figure>
+<p>来改变config文件夹的所有者。注意，如果Hexo自动将空文件夹忽略，你需要在本地的<code>source/hashover/config</code>下随便加个空文件.</p>
 
       
     </div>
 
     
       
-
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\banach-algebra-Spectral-Decomposition.html" rel="bookmark">Banach 代数与有界正则算子的谱分解</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\vector-value-function-integral.html" rel="bookmark">向量值函数的积分</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\C0-operator-semigroup-generator.html" rel="bookmark">强连续线性算子半群的定义与无穷小生成元</a></div>
-      
-    </li>
-  
-    <li class="popular-posts-item">
-      
-      
-      <div class="popular-posts-title"><a href="\characterization-of-surjective-opeartor.html" rel="bookmark">Characterization of surjective opeartor</a></div>
-      
-    </li>
-  
-  </ul>
 
 
     
@@ -541,9 +507,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/量子控制/" rel="tag"># 量子控制</a>
-          
-            <a href="/tags/泛函分析/" rel="tag"># 泛函分析</a>
+            <a href="/tags/个人网站/" rel="tag"># 个人网站</a>
           
         </div>
       
@@ -559,8 +523,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/C0-operator-semigroup-generator.html" rel="next" title="强连续线性算子半群的定义与无穷小生成元">
-                <i class="fa fa-chevron-left"></i> 强连续线性算子半群的定义与无穷小生成元
+              <a href="/characterization-of-surjective-opeartor.html" rel="next" title="Characterization of surjective opeartor">
+                <i class="fa fa-chevron-left"></i> Characterization of surjective opeartor
               </a>
             
           </div>
@@ -568,10 +532,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Using-CSS-to-Add-numbers-to-titles.html" rel="prev" title="利用CSS给Hexo博客自动加标题编号">
-                利用CSS给Hexo博客自动加标题编号 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -826,7 +786,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hille-yosida定理"><span class="nav-number">1.</span> <span class="nav-text">Hille-Yosida定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#叙述"><span class="nav-number">1.1.</span> <span class="nav-text">叙述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义"><span class="nav-number">1.2.</span> <span class="nav-text">意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明"><span class="nav-number">1.3.</span> <span class="nav-text">证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必要性"><span class="nav-number">1.3.1.</span> <span class="nav-text">必要性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#充分性"><span class="nav-number">1.3.2.</span> <span class="nav-text">充分性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stone定理"><span class="nav-number">2.</span> <span class="nav-text">Stone定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#叙述-1"><span class="nav-number">2.1.</span> <span class="nav-text">叙述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证明-1"><span class="nav-number">2.2.</span> <span class="nav-text">证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#意义-1"><span class="nav-number">2.3.</span> <span class="nav-text">意义</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置环境"><span class="nav-number">2.</span> <span class="nav-text">配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置nginx"><span class="nav-number">2.1.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置fpm"><span class="nav-number">2.2.</span> <span class="nav-text">配置FPM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.3.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hashover"><span class="nav-number">3.</span> <span class="nav-text">安装Hashover</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#必要的配置"><span class="nav-number">3.1.</span> <span class="nav-text">必要的配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置hexo"><span class="nav-number">4.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#服务器上的操作"><span class="nav-number">5.</span> <span class="nav-text">服务器上的操作</span></a></li></ol></div>
             
 
           </div>
@@ -1025,41 +985,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    CommonHTML: { linebreaks: { automatic: true, width: "container", } },
-    "HTML-CSS": { 
-      linebreaks: { automatic: true, width: "container",},
-      styles: {".MathJax .mtext": {color: "#104bb2"}}
-    },
-    SVG: { linebreaks: { automatic: true, width: "container",} }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 
