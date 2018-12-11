@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="大一上理工科线性代数小测,矩阵部分.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-10T06:07:20.457Z">
+<meta property="og:updated_time" content="2018-12-11T01:02:58.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数小测二">
 <meta name="twitter:description" content="大一上理工科线性代数小测,矩阵部分.">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2018-12-10 14:07:20" itemprop="dateModified" datetime="2018-12-10T14:07:20+08:00">2018-12-10</time>
+                <time title="修改时间：2018-12-11 09:02:58" itemprop="dateModified" datetime="2018-12-11T09:02:58+08:00">2018-12-11</time>
               
             
           </span>
@@ -412,12 +412,16 @@
       
         <p>大一上理工科线性代数小测,矩阵部分.</p>
 <a id="more"></a>
-<p>一、设<span class="math inline">\(A\)</span>是<span class="math inline">\(n\times n\)</span>的矩阵, 证明: 存在一个<span class="math inline">\(n\times n\)</span>的非零矩阵<span class="math inline">\(B\)</span>使得<span class="math inline">\(AB=0\)</span>的充分必要条件是<span class="math inline">\(|A|=0\)</span>.</p>
+<p>一、设<span class="math inline">\(A\)</span>是<span class="math inline">\(n\times n\)</span>的矩阵, 证明: 存在一个<span class="math inline">\(n\times n\)</span>的非零矩阵<span class="math inline">\(B\)</span>使<span class="math inline">\(AB=0\)</span>的充分必要条件是<span class="math inline">\(|A|=0\)</span>.</p>
+<p><strong>证明</strong> 必要性. <span class="math inline">\(AB=0\)</span>, <span class="math inline">\(B\)</span> 非零可知, <span class="math inline">\(Ax=0\)</span>有非零解，故<span class="math inline">\(|A|=0\)</span>.</p>
+<p>充分性. <span class="math inline">\(|A|=0\)</span>, 说明<span class="math inline">\(Ax=0\)</span>有非零解<span class="math inline">\(x_0\)</span>, 将<span class="math inline">\(B\)</span>的第一个列向量设为<span class="math inline">\(x_0\)</span>,其他的列向量取<span class="math inline">\(0\)</span>即可.</p>
 <p>二、证明: 如果一个<span class="math inline">\(s\times n\)</span>的矩阵<span class="math inline">\(A\)</span>的秩为<span class="math inline">\(r\)</span>, 那么存在<span class="math inline">\(s\times r\)</span>的列满秩矩阵<span class="math inline">\(B\)</span>和<span class="math inline">\(r\times n\)</span> 的行满秩矩阵<span class="math inline">\(C\)</span>， 使得<span class="math inline">\(A=BC\)</span>.</p>
+<p><strong>证明</strong> 设<span class="math inline">\(A\)</span>的行向量组的一个极大线性无关组为<span class="math inline">\(\alpha_{i_1}, \alpha_{i_2}, \cdots, \alpha_{i_r}\)</span>. 命 <span class="math display">\[C=\begin{bmatrix}\alpha_{i_1}\\ \alpha_{i_2}\\ \cdots\\ \alpha_{i_r}\end{bmatrix},\]</span> 则<span class="math inline">\(A=BC\)</span>. 且<span class="math inline">\(C\)</span>是行满秩的. 而<span class="math inline">\(rank(A)=rank(BC)\leq rank(B)\)</span> 说明<span class="math inline">\(B\)</span>是列满秩的.</p>
 <p>三、设<span class="math inline">\(A\)</span>是<span class="math inline">\(s\times n\)</span>的矩阵, 证明: 对于任意<span class="math inline">\(s\)</span> 维列向量<span class="math inline">\(\beta\)</span>, 线性方程组<span class="math inline">\(A^TAX=A^T\beta\)</span>一定有解. （利用<span class="math inline">\(rank(A^TA)=rank(A)\)</span>, 但是须证明这个结论）</p>
+<p><strong>证明</strong> 只需证明<span class="math inline">\(rank([A^TA,A^T\beta])=rank(A^TA)\)</span>. 一方面<span class="math inline">\(rank([A^TA,A^T\beta])=rank(A^T[A,\beta])\leq rank(A^T)= rank(A^TA)\)</span>. 另一方面<span class="math inline">\(rank([A^TA,A^T\beta])\geq rank(A^TA)\)</span> .</p>
 <p>四、设<span class="math inline">\(A\)</span>是<span class="math inline">\(s\times n\)</span> 的矩阵. 证明: <span class="math inline">\(A\)</span>是列满秩矩阵当且仅当存在<span class="math inline">\(s\)</span>阶可逆矩阵<span class="math inline">\(P\)</span>, 使得 <span class="math display">\[
 A=P\begin{bmatrix}I_n\\0\end{bmatrix}.
-\]</span></p>
+\]</span> <strong>证明</strong> <span class="math inline">\(A\)</span>列满秩，所以<span class="math inline">\(A\)</span>可由初等行变换化成行最简形， 设初等行变换对应的矩阵为<span class="math inline">\(Q\)</span>, 则取<span class="math inline">\(P=Q^{-1}\)</span>即可.</p>
 
       
     </div>
