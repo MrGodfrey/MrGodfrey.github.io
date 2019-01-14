@@ -104,11 +104,11 @@
 <meta name="keywords" content="波方程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Numerical Approximation of Exact Controls for waves">
-<meta property="og:url" content="https://deepanalysis.xyz/Numerical Approximation of Exact Controls for waves.html">
+<meta property="og:url" content="https://deepanalysis.xyz/Numerical-Approximation-of-Exact-Controls-for waves.html">
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="This is a note about Zuazua&apos;s work about numerical approximation of exact controls for wave equation[1].">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-14T04:53:55.469Z">
+<meta property="og:updated_time" content="2019-01-14T05:22:57.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Numerical Approximation of Exact Controls for waves">
 <meta name="twitter:description" content="This is a note about Zuazua&apos;s work about numerical approximation of exact controls for wave equation[1].">
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="https://deepanalysis.xyz/Numerical Approximation of Exact Controls for waves.html">
+  <link rel="canonical" href="https://deepanalysis.xyz/Numerical-Approximation-of-Exact-Controls-for waves.html">
 
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://deepanalysis.xyz/Numerical Approximation of Exact Controls for waves.html">
+    <link itemprop="mainEntityOfPage" href="https://deepanalysis.xyz/Numerical-Approximation-of-Exact-Controls-for waves.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Yu">
@@ -346,7 +346,7 @@
                 
               
 
-              <time title="创建时间：2019-01-14 10:01:25 / 修改时间：12:53:55" itemprop="dateCreated datePublished" datetime="2019-01-14T10:01:25+08:00">2019-01-14</time>
+              <time title="创建时间：2019-01-14 10:01:25 / 修改时间：13:22:57" itemprop="dateCreated datePublished" datetime="2019-01-14T10:01:25+08:00">2019-01-14</time>
             
 
             
@@ -419,7 +419,7 @@ y&#39;=Ay+B\nu, \quad t\geq 0, \quad y(0)=y_{0} \in X. \tag{1}\label{1}
 <p>The well-posedness of <span class="math inline">\(\eqref{1}​\)</span> can be guaranteed assuming that the operator <span class="math inline">\(B​\)</span> is admissible in the sense of the following definition, see [<a class="math-reference" href="#Ref2">2</a>, Definition 4.2.1]. There is a much simpler description in [<a class="math-reference" href="#Ref3">3</a>, Section 2.3.1].</p>
 <p><strong>Definition 1.1.</strong> The operator <span class="math inline">\(B\in \mathcal{L}(U,X_{-1})​\)</span> is said to be an admissible control operator for <span class="math inline">\(\mathbb{T}​\)</span> if for some <span class="math inline">\(\tau &gt;0​\)</span>, the operator <span class="math inline">\(\mathscr R_\tau​\)</span> defined on <span class="math inline">\(L^2(0,T;U)​\)</span> by <span class="math display">\[
 \mathscr R_\tau \nu=\int_0^\tau \mathbb T_{\tau-s}B\nu(s) ds
-\]</span> satisfies <span class="math inline">\(Ran \mathscr R_\tau \subset X,\)</span> where <span class="math inline">\(Ran \mathscr R_\tau\)</span> denotes the range of the map $R_$.</p>
+\]</span> satisfies <span class="math inline">\(Ran \mathscr R_\tau \subset X,\)</span> where <span class="math inline">\(Ran \mathscr R_\tau\)</span> denotes the range of the map <span class="math inline">\(\mathscr R_\tau\)</span>.</p>
 <p>The control operator <span class="math inline">\(B\)</span> is admissible if and only if there exists a time <span class="math inline">\(T&gt;0\)</span> and a constant <span class="math inline">\(C_{ad,T}\)</span> such that any solution of the adjoint equation <span class="math display">\[
 \varphi&#39;=A\varphi, \quad t\in(0,T), \quad \varphi (0)=\varphi_0 \tag{2} \label{adjointSystem}
 \]</span> with data <span class="math inline">\(\varphi_0\in \mathscr D(A)\)</span> satisfies <span class="math display">\[
@@ -432,7 +432,8 @@ y(T)=0
 \]</span> for time <span class="math inline">\(T&gt;T^*\)</span>.</p>
 <p>According to the Hilbert Uniqueness Method (HTM) [<a class="math-reference" href="#Ref3">3</a>, Section 1.4], the controllability property is equivalent to an observability inequality for the adjoint system <span class="math inline">\(\eqref{adjointSystem}\)</span> which consists in the existence of a constant <span class="math inline">\(C_{obs,T^*}\)</span> such that for all <span class="math inline">\(\varphi_0 \in X\)</span>, the solution <span class="math inline">\(\varphi\)</span> with initial data <span class="math inline">\(\varphi_0\)</span> satisfies <span class="math display">\[
 \|\varphi_0\|_X^2 \leq C_{obs,T^*}^2 \int_0^{T^*} \|B^*\varphi(t)\|_U^2 dt. \tag{4} \label{observabilityInequality}
-\]</span> ### Minimizer of Functional</p>
+\]</span></p>
+<h3 id="minimizer-of-functional">Minimizer of Functional</h3>
 <p>Now, let <span class="math inline">\(T&gt;T^*​\)</span> and introduce <span class="math inline">\(\delta​\)</span> so that <span class="math inline">\(2\delta=T-T^*​\)</span> and a smooth function <span class="math inline">\(\eta=\eta(t): \mathbb R \rightarrow [0,1]​\)</span> which equals <span class="math inline">\(1​\)</span> on <span class="math inline">\([\delta,T-\delta]​\)</span> and vanish outside of <span class="math inline">\((0,T)​\)</span>.</p>
 <p>Thanks to the fact that <span class="math inline">\(A​\)</span> is skew-adjoint, one easily checks that the existence of constants <span class="math inline">\(C_{ad}&gt;0​\)</span> and <span class="math inline">\(C_{obs}&gt;0​\)</span> , such that for all initial data <span class="math inline">\(\varphi_0\in X​\)</span>, the solution <span class="math inline">\(\varphi​\)</span> satisfies<br>
 <span class="math display">\[
@@ -775,7 +776,7 @@ Coron, J.-M. (2009). Control and Nonlinearity (Vol. 136). Providence, Rhode Isla
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#framework"><span class="nav-number">1.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract-functional-setting"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract functional setting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#admissibility"><span class="nav-number">1.1.1.</span> <span class="nav-text">Admissibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#observability"><span class="nav-number">1.1.2.</span> <span class="nav-text">Observability</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#framework"><span class="nav-number">1.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract-functional-setting"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract functional setting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#admissibility"><span class="nav-number">1.1.1.</span> <span class="nav-text">Admissibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#observability"><span class="nav-number">1.1.2.</span> <span class="nav-text">Observability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minimizer-of-functional"><span class="nav-number">1.1.3.</span> <span class="nav-text">Minimizer of Functional</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
