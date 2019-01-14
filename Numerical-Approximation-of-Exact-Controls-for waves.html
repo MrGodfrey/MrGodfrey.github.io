@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="This is a note about Zuazua&apos;s work about numerical approximation of exact controls for wave equation[1].">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-14T05:22:57.771Z">
+<meta property="og:updated_time" content="2019-01-14T07:22:09.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Numerical Approximation of Exact Controls for waves">
 <meta name="twitter:description" content="This is a note about Zuazua&apos;s work about numerical approximation of exact controls for wave equation[1].">
@@ -346,7 +346,7 @@
                 
               
 
-              <time title="创建时间：2019-01-14 10:01:25 / 修改时间：13:22:57" itemprop="dateCreated datePublished" datetime="2019-01-14T10:01:25+08:00">2019-01-14</time>
+              <time title="创建时间：2019-01-14 10:01:25 / 修改时间：15:22:09" itemprop="dateCreated datePublished" datetime="2019-01-14T10:01:25+08:00">2019-01-14</time>
             
 
             
@@ -414,37 +414,90 @@
 <p>Let <span class="math inline">\(X\)</span> be an Hilbert space endowed with norm <span class="math inline">\(\|\cdot\|_{X}\)</span> and let <span class="math inline">\(\mathbb{T}\)</span> be a linear strongly continuous group on <span class="math inline">\(X\)</span>, with skew-adjoint generator <span class="math inline">\(A\)</span>.</p>
 <p>Consider the following equation: <span class="math display">\[
 y&#39;=Ay+B\nu, \quad t\geq 0, \quad y(0)=y_{0} \in X. \tag{1}\label{1}
-\]</span> Here, <span class="math inline">\(B​\)</span> is an operator in <span class="math inline">\(\mathcal L(U,X_{-1})​\)</span>, where <span class="math inline">\(U​\)</span> an Hilbert space. The control function <span class="math inline">\(\nu​\)</span> belongs to <span class="math inline">\(L^2_{loc} ([0,\infty);U).​\)</span></p>
+\]</span> Here, <span class="math inline">\(B\)</span> is an operator in <span class="math inline">\(\mathcal L(U,X_{-1})\)</span>, where <span class="math inline">\(U\)</span> an Hilbert space. The control function <span class="math inline">\(\nu\)</span> belongs to <span class="math inline">\(L^2_{loc} ([0,\infty);U).\)</span></p>
+<p><strong>To Do</strong></p>
+<ol type="1">
+<li>Figure out the purpose of the definition of <span class="math inline">\(A^s\)</span>.</li>
+<li>What is the space <span class="math inline">\(X_{-1}\)</span>.</li>
+</ol>
 <h3 id="admissibility">Admissibility</h3>
-<p>The well-posedness of <span class="math inline">\(\eqref{1}​\)</span> can be guaranteed assuming that the operator <span class="math inline">\(B​\)</span> is admissible in the sense of the following definition, see [<a class="math-reference" href="#Ref2">2</a>, Definition 4.2.1]. There is a much simpler description in [<a class="math-reference" href="#Ref3">3</a>, Section 2.3.1].</p>
+<p>The well-posedness of <span class="math inline">\(\eqref{1}\)</span> can be guaranteed assuming that the operator <span class="math inline">\(B\)</span> is admissible in the sense of the following definition, see [<a class="math-reference" href="#Ref2">2</a>, Definition 4.2.1]. There is a much simpler description in [<a class="math-reference" href="#Ref3">3</a>, Section 2.3.1].</p>
 <p><strong>Definition 1.1.</strong> The operator <span class="math inline">\(B\in \mathcal{L}(U,X_{-1})​\)</span> is said to be an admissible control operator for <span class="math inline">\(\mathbb{T}​\)</span> if for some <span class="math inline">\(\tau &gt;0​\)</span>, the operator <span class="math inline">\(\mathscr R_\tau​\)</span> defined on <span class="math inline">\(L^2(0,T;U)​\)</span> by <span class="math display">\[
 \mathscr R_\tau \nu=\int_0^\tau \mathbb T_{\tau-s}B\nu(s) ds
-\]</span> satisfies <span class="math inline">\(Ran \mathscr R_\tau \subset X,\)</span> where <span class="math inline">\(Ran \mathscr R_\tau\)</span> denotes the range of the map <span class="math inline">\(\mathscr R_\tau\)</span>.</p>
+\]</span> satisfies <span class="math inline">\(Ran \mathscr R_\tau \subset X,\)</span> where <span class="math inline">\(Ran \mathscr R_\tau\)</span> denotes the range of the map <span class="math inline">\(\mathscr R_\tau​\)</span>.</p>
 <p>The control operator <span class="math inline">\(B\)</span> is admissible if and only if there exists a time <span class="math inline">\(T&gt;0\)</span> and a constant <span class="math inline">\(C_{ad,T}\)</span> such that any solution of the adjoint equation <span class="math display">\[
 \varphi&#39;=A\varphi, \quad t\in(0,T), \quad \varphi (0)=\varphi_0 \tag{2} \label{adjointSystem}
 \]</span> with data <span class="math inline">\(\varphi_0\in \mathscr D(A)\)</span> satisfies <span class="math display">\[
 \int_0^T \|B^*\varphi(t)\|_U^2 dt \leq C_{ad,T}^2 \|\varphi_0\|_X^2. \tag{3} \label{admissibleInequality}
-\]</span> The inequality <span class="math inline">\(\eqref{admissibleInequality}​\)</span> is also called <strong>admissibility inequality</strong>.</p>
+\]</span> The inequality <span class="math inline">\(\eqref{admissibleInequality}\)</span> is also called <strong>admissibility inequality</strong>.</p>
+<p><strong>To Do</strong></p>
+<ol type="1">
+<li>What' s relationship between admissibility and well-posedness of system.</li>
+</ol>
 <h3 id="observability">Observability</h3>
 <p>Since the exact controllability property of system <span class="math inline">\(\eqref{1}​\)</span> in some time <span class="math inline">\(T^*&gt;0​\)</span> is equivalent to the null-controllability in the time <span class="math inline">\(T^*​\)</span> (for the detail, see theorem 6 <a href=".\ODE-and-Control-Systems.html">here</a>), in the following, we shall focus on the null-controllability and refer to it as controllability.</p>
 <p>Assuming that <span class="math inline">\(\eqref{1}\)</span> is controllable in some time <span class="math inline">\(T^*\)</span>, the purpose of this work is looking for control functions <span class="math inline">\(\nu\)</span> such that the corresponding solution of <span class="math inline">\(\eqref{1}\)</span> satisfies <span class="math display">\[
 y(T)=0
 \]</span> for time <span class="math inline">\(T&gt;T^*\)</span>.</p>
-<p>According to the Hilbert Uniqueness Method (HTM) [<a class="math-reference" href="#Ref3">3</a>, Section 1.4], the controllability property is equivalent to an observability inequality for the adjoint system <span class="math inline">\(\eqref{adjointSystem}\)</span> which consists in the existence of a constant <span class="math inline">\(C_{obs,T^*}\)</span> such that for all <span class="math inline">\(\varphi_0 \in X\)</span>, the solution <span class="math inline">\(\varphi\)</span> with initial data <span class="math inline">\(\varphi_0\)</span> satisfies <span class="math display">\[
+<p>According to the Hilbert Uniqueness Method (HTM) [<a class="math-reference" href="#Ref3">3</a>, Section 1.4], the controllability property is equivalent to an observability inequality for the adjoint system <span class="math inline">\(\eqref{adjointSystem}​\)</span> which consists in the existence of a constant <span class="math inline">\(C_{obs,T^*}​\)</span> such that for all <span class="math inline">\(\varphi_0 \in X​\)</span>, the solution <span class="math inline">\(\varphi​\)</span> with initial data <span class="math inline">\(\varphi_0​\)</span> satisfies <span class="math display">\[
 \|\varphi_0\|_X^2 \leq C_{obs,T^*}^2 \int_0^{T^*} \|B^*\varphi(t)\|_U^2 dt. \tag{4} \label{observabilityInequality}
 \]</span></p>
+<p><strong>To Do</strong></p>
+<ol type="1">
+<li>Learn HUM.</li>
+</ol>
 <h3 id="minimizer-of-functional">Minimizer of Functional</h3>
 <p>Now, let <span class="math inline">\(T&gt;T^*​\)</span> and introduce <span class="math inline">\(\delta​\)</span> so that <span class="math inline">\(2\delta=T-T^*​\)</span> and a smooth function <span class="math inline">\(\eta=\eta(t): \mathbb R \rightarrow [0,1]​\)</span> which equals <span class="math inline">\(1​\)</span> on <span class="math inline">\([\delta,T-\delta]​\)</span> and vanish outside of <span class="math inline">\((0,T)​\)</span>.</p>
 <p>Thanks to the fact that <span class="math inline">\(A​\)</span> is skew-adjoint, one easily checks that the existence of constants <span class="math inline">\(C_{ad}&gt;0​\)</span> and <span class="math inline">\(C_{obs}&gt;0​\)</span> , such that for all initial data <span class="math inline">\(\varphi_0\in X​\)</span>, the solution <span class="math inline">\(\varphi​\)</span> satisfies<br>
 <span class="math display">\[
 \int_0^T \eta(t) \|B^*\varphi(t)\|_U^2 dt \leq C_{ad}^2 \|\varphi_0\|_X^2. \\
-\|\varphi_0\|_X^2 \leq C_{obs}^2 \int_0^{T^*} \eta(t) \|B^*\varphi(t)\|_U^2 dt. 
+\|\varphi_0\|_X^2 \leq C_{obs}^2 \int_0^{T^*} \eta(t) \|B^*\varphi(t)\|_U^2 dt. \tag{AOI} \label{AdmissibilityObservabilityInequality}
 \]</span> Then, the HTM yields the control of minimal norm (in <span class="math inline">\(L^2((0,T),dt/\eta;U)\)</span>) by minimizing the functional <span class="math display">\[
 J(\varphi_0)=\frac{1}{2} \int_0^T \eta(t) \|B^*\varphi(t)\|^2_U dt +\langle y_0,\varphi_0\rangle_X \tag{5} \label{functional}
 \]</span> for <span class="math inline">\(\varphi_0\in X\)</span>.</p>
 <p>We now focus on the computation of the minimizer <span class="math inline">\(\Phi_0\)</span> of <span class="math inline">\(J\)</span> in <span class="math inline">\(\eqref{functional}\)</span>, which gives the control function according to the formula <span class="math display">\[
 V(t)=\eta(t)B^*\Phi(t).
 \]</span></p>
+<h2 id="steepest-descent-algorithm">Steepest Descent Algorithm</h2>
+<p>Let us first introduce the so-called Gramian operator <span class="math inline">\(\Lambda_T\)</span> defined on <span class="math inline">\(X\)</span> by <span class="math display">\[
+\forall (\varphi_0,\psi_0) \in X^2, \langle \Lambda_T\varphi_0,\psi_0\rangle_X=\int_0^T \eta(t)\langle B^* \varphi(t),B^*\psi(t)\rangle_Udt,
+\]</span> where <span class="math inline">\(\varphi(t),\psi(t)\)</span> are the corresponding solutions of equation <span class="math inline">\(\eqref{adjointSystem}\)</span>.</p>
+<p>Note that this Gramian operator is nothing but the gradient of the quadratic term entering in the functional <span class="math inline">\(J​\)</span>. If <span class="math inline">\(\varPhi_0\in X​\)</span> is a critical point of <span class="math inline">\(J​\)</span> if and only if <span class="math display">\[
+\Lambda_T\varPhi_0+y_0=0. \tag{6} \label{EulerEquation}
+\]</span> There is a more convenient alternate representation of the Gramian as follows.</p>
+<p>Let <span class="math inline">\(\varphi_0\in X\)</span> and <span class="math inline">\(\varphi\)</span> be the corresponding solution of adjoint system <span class="math inline">\(\eqref{adjointSystem}\)</span> . Then solve <span class="math display">\[
+\psi&#39;=A\psi-\eta BB^* \varphi,\quad t\in(0,T), \quad \psi(T)=0.
+\]</span> Then, <span class="math display">\[
+\Lambda_T\varphi_0=\psi(0).
+\]</span> For <span class="math inline">\(s \in \mathbb N\)</span>, we define the Hilbert spaces <span class="math inline">\(X_s=\mathscr D(A^s)\)</span>, and for <span class="math inline">\(s\geq 0\)</span>, we also define <span class="math inline">\(X_s\)</span> obtained by interpolation.</p>
+<p>Then, if <span class="math inline">\(s\geq 0\)</span>, for <span class="math inline">\(y_0\in X_s\)</span> the solution <span class="math inline">\(\varPhi_0\)</span> of <span class="math inline">\(\eqref{EulerEquation}\)</span> also belongs to <span class="math inline">\(X_s\)</span> and there exists a constant <span class="math inline">\(C_s\)</span> such that <span class="math display">\[
+\|\varPhi_0\|_s\leq C_s\|y_0\|_s. \tag{7} \label{regularityOfEulerEquation}
+\]</span></p>
+<p>The <strong>steepest descent algorithm (SDA)</strong> then reads as follows:</p>
+<ul>
+<li><p>Initialization: Define <span class="math display">\[
+\varphi_0^0=0.
+\]</span></p></li>
+<li><p>Iteration: For <span class="math inline">\(\varphi_0^k \in X\)</span>, define <span class="math inline">\(\varphi_0^{k+1}\)</span> by <span class="math display">\[
+\varphi_0^{k+1}= \varphi_0^k-\rho(\Lambda_T\varphi_0^k+y_0)
+\]</span> where <span class="math inline">\(\rho&gt;0​\)</span> is a fixed parameter, whose value will be specified later on.</p></li>
+</ul>
+<p>We have the following convergence results:</p>
+<p><strong>Theorem 1(SDA Convergence)</strong> Let <span class="math inline">\(s\geq 0​\)</span> . Assume that admissibility and observability estimates <span class="math inline">\(\eqref{AdmissibilityObservabilityInequality}​\)</span> hold true. Let <span class="math inline">\(y_0 \in X_s​\)</span> and <span class="math inline">\(\varPhi_0\in X​\)</span> be the solution of <span class="math inline">\(\eqref{EulerEquation}​\)</span>. Then setting <span class="math inline">\(\rho_0​\)</span> depending on <span class="math inline">\(C_{ad}​\)</span> and <span class="math inline">\(C_{obs}​\)</span>, for all <span class="math inline">\(\rho\in(0,\rho_0)​\)</span>, one can define some constant <span class="math inline">\(\delta(\rho)​\)</span>, such that the sequence <span class="math inline">\(\varphi_0^k​\)</span> defined by SDA satisfies that for all <span class="math inline">\(k\in \mathbb N​\)</span>, <span class="math display">\[
+\|\varphi_0^k-\varPhi_0\|_X \leq C \delta^k \|y_0\|_X.
+\]</span> Besides, <span class="math inline">\(\varPhi_0 \in X_s\)</span> and for all <span class="math inline">\(k\)</span>, the sequence <span class="math inline">\(\varphi_0^k\in X_s\)</span>, and satisfies, for some constant <span class="math inline">\(C_s\)</span> independent of <span class="math inline">\(\varPhi_0\)</span>: <span class="math display">\[
+\|\varphi_0^k-\varPhi_0\|_s \leq C_s (1+k^s)\delta^k \|y_0\|_S, \quad k \in \mathbb N.
+\]</span></p>
+<h2 id="continuous-approach">Continuous Approach</h2>
+<p>We now approximate the sequence <span class="math inline">\(\varphi_0^k\)</span> constructed in SDA. Introduce operator <span class="math inline">\(A_h\)</span> and <span class="math inline">\(B_h\)</span> and to define the discrete operator <span class="math display">\[
+\Lambda_{Th}=\int_0^T \eta(t) e^{-tA_h}B_hB_h^*e^{tA_h}dt.
+\]</span> Under suitable assumptions, we expect that <span class="math inline">\(A_h, B_h\)</span> and <span class="math inline">\(\Lambda_{Th}\)</span> can approximate <span class="math inline">\(A, B\)</span> and <span class="math inline">\(\Lambda\)</span>.</p>
+<h2 id="discrete-approach">Discrete Approach</h2>
+<p>If the following uniform coercivity assumption on the Gramian operator holds, we have a better approximated approach.</p>
+<p><strong>Assumption 3.</strong> There exists a constant <span class="math inline">\(\mathscr C\)</span> such that for all <span class="math inline">\(h\geq 0\)</span> and <span class="math inline">\(\varphi_{0h} \in V_h\)</span>, <span class="math display">\[
+\|\varphi_{0h}\|^2_h\leq \mathscr C\langle\Lambda_{Th}\varphi_{0h},\varphi_{0h}\rangle_h,
+\]</span> where, for <span class="math inline">\(h=0\)</span>, we use the notion <span class="math inline">\(V_0=X\)</span> and <span class="math inline">\(\Lambda_{T0}=\Lambda_T\)</span>.</p>
+<p>Note that Assumption 3 states the uniform coercivity of the operators <span class="math inline">\(\Lambda_{Th}\)</span>, or equivalently, the uniform observability for the approximated semigroups.</p>
 <h1 id="references">References</h1>
 <ol>
 <li id="Ref1">
@@ -776,7 +829,7 @@ Coron, J.-M. (2009). Control and Nonlinearity (Vol. 136). Providence, Rhode Isla
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#framework"><span class="nav-number">1.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract-functional-setting"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract functional setting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#admissibility"><span class="nav-number">1.1.1.</span> <span class="nav-text">Admissibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#observability"><span class="nav-number">1.1.2.</span> <span class="nav-text">Observability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minimizer-of-functional"><span class="nav-number">1.1.3.</span> <span class="nav-text">Minimizer of Functional</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#framework"><span class="nav-number">1.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract-functional-setting"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract functional setting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#admissibility"><span class="nav-number">1.1.1.</span> <span class="nav-text">Admissibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#observability"><span class="nav-number">1.1.2.</span> <span class="nav-text">Observability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minimizer-of-functional"><span class="nav-number">1.1.3.</span> <span class="nav-text">Minimizer of Functional</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#steepest-descent-algorithm"><span class="nav-number">1.2.</span> <span class="nav-text">Steepest Descent Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#continuous-approach"><span class="nav-number">1.3.</span> <span class="nav-text">Continuous Approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#discrete-approach"><span class="nav-number">1.4.</span> <span class="nav-text">Discrete Approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
