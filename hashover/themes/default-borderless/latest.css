@@ -12,9 +12,3 @@ conditions, unless such conditions are required by law.
 
 /* Import the comments theme (optional) */
 @import 'comments.css';
-
-@media print {
-	.hashover {
-		display: none!important;
-	}
-}
