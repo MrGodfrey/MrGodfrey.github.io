@@ -12,7 +12,7 @@ conditions, unless such conditions are required by law.
 
 @media print {
 	.hashover {
-		display: none;
+		display: none!important;
 	}
 }
 
