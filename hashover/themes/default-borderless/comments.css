@@ -10,6 +10,12 @@ conditions, unless such conditions are required by law.
 
 -----------------------------------------------------------------------------*/
 
+@media print {
+	.hashover {
+		display: none;
+	}
+}
+
 .hashover,
 .hashover input,
 .hashover textarea,
@@ -754,7 +760,6 @@ conditions, unless such conditions are required by law.
 	top: 0px;
 	left: 0px;
 	padding: 0px;
-	float: left;
 }
 
 .hashover .hashover-reply .hashover-reply .hashover-avatar,
