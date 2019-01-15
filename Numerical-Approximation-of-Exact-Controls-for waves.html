@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="This is a note about Zuazua&apos;s work about numerical approximation of exact controls for wave equation[1].">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-14T07:22:09.543Z">
+<meta property="og:updated_time" content="2019-01-15T08:45:45.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Numerical Approximation of Exact Controls for waves">
 <meta name="twitter:description" content="This is a note about Zuazua&apos;s work about numerical approximation of exact controls for wave equation[1].">
@@ -346,12 +346,22 @@
                 
               
 
-              <time title="创建时间：2019-01-14 10:01:25 / 修改时间：15:22:09" itemprop="dateCreated datePublished" datetime="2019-01-14T10:01:25+08:00">2019-01-14</time>
+              <time title="创建时间：2019-01-14 10:01:25" itemprop="dateCreated datePublished" datetime="2019-01-14T10:01:25+08:00">2019-01-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                <time title="修改时间：2019-01-15 16:45:45" itemprop="dateModified" datetime="2019-01-15T16:45:45+08:00">2019-01-15</time>
               
             
           </span>
@@ -432,7 +442,7 @@ y&#39;=Ay+B\nu, \quad t\geq 0, \quad y(0)=y_{0} \in X. \tag{1}\label{1}
 \]</span> The inequality <span class="math inline">\(\eqref{admissibleInequality}\)</span> is also called <strong>admissibility inequality</strong>.</p>
 <p><strong>To Do</strong></p>
 <ol type="1">
-<li>What' s relationship between admissibility and well-posedness of system.</li>
+<li>What' s the relationship between admissibility and well-posedness of system.</li>
 </ol>
 <h3 id="observability">Observability</h3>
 <p>Since the exact controllability property of system <span class="math inline">\(\eqref{1}​\)</span> in some time <span class="math inline">\(T^*&gt;0​\)</span> is equivalent to the null-controllability in the time <span class="math inline">\(T^*​\)</span> (for the detail, see theorem 6 <a href=".\ODE-and-Control-Systems.html">here</a>), in the following, we shall focus on the null-controllability and refer to it as controllability.</p>
@@ -492,22 +502,52 @@ V(t)=\eta(t)B^*\Phi(t).
 <p>We now approximate the sequence <span class="math inline">\(\varphi_0^k\)</span> constructed in SDA. Introduce operator <span class="math inline">\(A_h\)</span> and <span class="math inline">\(B_h\)</span> and to define the discrete operator <span class="math display">\[
 \Lambda_{Th}=\int_0^T \eta(t) e^{-tA_h}B_hB_h^*e^{tA_h}dt.
 \]</span> Under suitable assumptions, we expect that <span class="math inline">\(A_h, B_h\)</span> and <span class="math inline">\(\Lambda_{Th}\)</span> can approximate <span class="math inline">\(A, B\)</span> and <span class="math inline">\(\Lambda\)</span>.</p>
+<p><strong>To Do</strong></p>
+<ol type="1">
+<li>Why is the operator <span class="math inline">\(\Lambda_{Th}\)</span> bounded, and so <span class="math inline">\(\Lambda_T\)</span>?</li>
+</ol>
+<p>Let <span class="math inline">\(E_h: V_h\rightarrow X\)</span> be an extension map that induces an Hilbert structure on <span class="math inline">\(V_h\)</span> endowed by the norm <span class="math inline">\(\|\cdot\|_h=\|E_h \cdot\|_X\)</span>.</p>
+<p>Let <span class="math inline">\(R_h\)</span> be a restriction operator from <span class="math inline">\(X\)</span> to <span class="math inline">\(V_h\)</span>.</p>
+<p>We further assume that <span class="math inline">\(A_h\)</span> is skew-adjoint operator, so that <span class="math inline">\(\Lambda_{Th}\)</span> is self-adjoint.</p>
+<p><strong>Assumption 1.</strong> There exists <span class="math inline">\(s&gt;0\)</span>, <span class="math inline">\(\theta&gt;0\)</span> and <span class="math inline">\(C&gt;0\)</span> so that for all <span class="math inline">\(h&gt;0\)</span> <span class="math display">\[
+\|E_hR_h\varphi_0\|_X\leq C\|\varphi_0\|_X, \quad \varphi\in X,\\
+\|(E_hR_h-Id_X)\varphi_0\|_X\leq C h^\theta \|\varphi_0\|_s, \quad \varphi\in X_s,\\
+\|E_h\Lambda_{Th}R_h\varphi_0\|_X\leq C\|\varphi_0\|_X, \quad \varphi\in X,\\
+\|(E_h\Lambda_{Th}R_h-E_hR_h\Lambda_{Th})\varphi_0\|_X\leq Ch^\theta\|\varphi_0\|_s, \quad \varphi\in X_s,
+\]</span> <strong>Assumption 2.</strong> The norms of the operators <span class="math inline">\(\Lambda_{Th}\)</span> in <span class="math inline">\(\mathcal L(V_h)\)</span> are uniformly bounded with respect to <span class="math inline">\(h&gt;0\)</span>: <span class="math display">\[
+\mathscr C_{ad}^2 :=\sup_{h\geq0}\|\Lambda_{Th}\|_{\mathcal L(V_h)}&lt; \infty,
+\]</span> where, when <span class="math inline">\(h=0\)</span>, we use the notation <span class="math inline">\(V_0=X\)</span> and <span class="math inline">\(\Lambda_{T0}=\Lambda_T\)</span>.</p>
 <h2 id="discrete-approach">Discrete Approach</h2>
 <p>If the following uniform coercivity assumption on the Gramian operator holds, we have a better approximated approach.</p>
 <p><strong>Assumption 3.</strong> There exists a constant <span class="math inline">\(\mathscr C\)</span> such that for all <span class="math inline">\(h\geq 0\)</span> and <span class="math inline">\(\varphi_{0h} \in V_h\)</span>, <span class="math display">\[
-\|\varphi_{0h}\|^2_h\leq \mathscr C\langle\Lambda_{Th}\varphi_{0h},\varphi_{0h}\rangle_h,
+\|\varphi_{0h}\|^2_h\leq \mathscr C^2\langle\Lambda_{Th}\varphi_{0h},\varphi_{0h}\rangle_h,
 \]</span> where, for <span class="math inline">\(h=0\)</span>, we use the notion <span class="math inline">\(V_0=X\)</span> and <span class="math inline">\(\Lambda_{T0}=\Lambda_T\)</span>.</p>
 <p>Note that Assumption 3 states the uniform coercivity of the operators <span class="math inline">\(\Lambda_{Th}\)</span>, or equivalently, the uniform observability for the approximated semigroups.</p>
+<h1 id="application-to-the-wave-equation">Application to the Wave Equation</h1>
+<p>We will focus on the 1-<span class="math inline">\(d​\)</span> wave equation controlled from the boundary. And then, we will explain how these approach applied to the distributed controls.</p>
+<h2 id="boundary-control">Boundary Control</h2>
+<p>Let us consider the 1-<span class="math inline">\(d\)</span> wave equation controlled from <span class="math inline">\(x=1\)</span>: <span class="math display">\[
+\begin{cases}
+\partial_{tt}y-\partial_{xx}y =0,  &amp;(t,x)\in \mathbb{R}_+ \times(0,1),\\
+y(t,0)=0, y(t,1)=\nu(t) &amp;(t,x)\in \mathbb R_+,\\
+(y(0,x),\partial_t y(0,x))=(y_0(x),y_1(x)), &amp;x\in(0,1).
+\end{cases}
+\]</span> This equation represents that a string that is fixed at <span class="math inline">\(x=0\)</span> and controlled at <span class="math inline">\(x=1\)</span> by the control function <span class="math inline">\(\nu(t)\)</span>, and it's initial state donated by <span class="math inline">\((y_0(x),y_1(x))\)</span>. The function <span class="math inline">\(y\)</span> represents the distance of the point on the string from the equilibrium position.</p>
+<p>Then, set <span class="math inline">\(X=L^2(0,1)\times H^{-1}(0,1)\)</span>, we can define the operator <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. See <a class="math-reference" href="#Ref1">[4, Section 7.4]</a> for more details.</p>
+<h3 id="the-continuous-approach">The Continuous Approach</h3>
 <h1 id="references">References</h1>
 <ol>
 <li id="Ref1">
-Ervedoza, S., &amp; Zuazua, E. (2013). Numerical Approximation of Exact Controls for Waves. New York, NY: Springer New York. https://doi.org/10.1007/978-1-4614-5808-1
+Ervedoza, S. &amp; Zuazua, E. Numerical Approximation of Exact Controls for Waves. (Springer New York, 2013). doi:10.1007/978-1-4614-5808-1
 </li>
 <li id="Ref2">
-Tucsnak, M., &amp; Weiss, G. (2009). Observation and Control for Operator Semigroups. Basel: Birkhäuser Basel. https://doi.org/10.1007/978-3-7643-8994-9
+Tucsnak, M. &amp; Weiss, G. Observation and Control for Operator Semigroups. (Birkhäuser Basel, 2009). doi:10.1007/978-3-7643-8994-9
 </li>
 <li id="Ref3">
-Coron, J.-M. (2009). Control and Nonlinearity (Vol. 136). Providence, Rhode Island: American Mathematical Society. https://doi.org/10.1090/surv/136
+Coron, J.-M. Control and Nonlinearity. 136, (American Mathematical Society, 2009).
+</li>
+<li id="Ref4">
+Evans, L. C. Partial differential equations. (American Mathematical Society, 2010).
 </li>
 </ol>
 <p>You may want to <a href=".\Finite-dimensional-linear-control-systems.html">return to the chapter content.</a></p>
@@ -829,7 +869,7 @@ Coron, J.-M. (2009). Control and Nonlinearity (Vol. 136). Providence, Rhode Isla
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#framework"><span class="nav-number">1.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract-functional-setting"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract functional setting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#admissibility"><span class="nav-number">1.1.1.</span> <span class="nav-text">Admissibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#observability"><span class="nav-number">1.1.2.</span> <span class="nav-text">Observability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minimizer-of-functional"><span class="nav-number">1.1.3.</span> <span class="nav-text">Minimizer of Functional</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#steepest-descent-algorithm"><span class="nav-number">1.2.</span> <span class="nav-text">Steepest Descent Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#continuous-approach"><span class="nav-number">1.3.</span> <span class="nav-text">Continuous Approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#discrete-approach"><span class="nav-number">1.4.</span> <span class="nav-text">Discrete Approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#framework"><span class="nav-number">1.</span> <span class="nav-text">Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract-functional-setting"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract functional setting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#admissibility"><span class="nav-number">1.1.1.</span> <span class="nav-text">Admissibility</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#observability"><span class="nav-number">1.1.2.</span> <span class="nav-text">Observability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minimizer-of-functional"><span class="nav-number">1.1.3.</span> <span class="nav-text">Minimizer of Functional</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#steepest-descent-algorithm"><span class="nav-number">1.2.</span> <span class="nav-text">Steepest Descent Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#continuous-approach"><span class="nav-number">1.3.</span> <span class="nav-text">Continuous Approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#discrete-approach"><span class="nav-number">1.4.</span> <span class="nav-text">Discrete Approach</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#application-to-the-wave-equation"><span class="nav-number">2.</span> <span class="nav-text">Application to the Wave Equation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#boundary-control"><span class="nav-number">2.1.</span> <span class="nav-text">Boundary Control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-continuous-approach"><span class="nav-number">2.1.1.</span> <span class="nav-text">The Continuous Approach</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#references"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
