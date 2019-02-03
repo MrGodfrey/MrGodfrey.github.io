@@ -432,7 +432,7 @@ x(t)=S(t)x_0 +\int_0^tS(t-s)B(s)u(s)ds,\quad t\in[0,T].
 \]</span> Then <span class="math inline">\(x(T)=x_1\)</span> follows from substituting <span class="math inline">\(\eqref{2}\)</span> into above formula. We call <span class="math inline">\(G\)</span> the controllability Gramian, and it is a nonnegative symmetric matrix. In fact, one can choose every <span class="math inline">\(x\in\mathbb{R}^n\)</span>, and the nonnegativity follows from <span class="math inline">\(x^TGx\geq0\)</span>. In particular, the matrix <span class="math inline">\(G\)</span> is invertible if and only if there exists <span class="math inline">\(c&gt;0\)</span> such that <span class="math inline">\(x^TGx\geq c|x|^2\)</span>, for all <span class="math inline">\(x\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
 <p>The condition for the controllability of <span class="math inline">\(\eqref{1}\)</span> is given in the following theorem <a class="math-reference" href="#Ref2">[2, Theorem 1.11]</a>.</p>
 <p><strong>Theorem 1 (integral criterion)</strong> The system <span class="math inline">\(\eqref{1}\)</span> is controllable if and only if its controllability Gramian is invertible.</p>
-<p><strong>Proof of Theorem 1</strong> By the above discussion, we only need to proof the &quot;only if&quot; part.</p>
+<p><strong>Proof of Theorem 1</strong> By the above discussion, we only need to proof the "only if" part.</p>
 <p>Let us assume that <span class="math inline">\(G\)</span> is not invertible. Then there exists <span class="math inline">\(y\neq 0\)</span> such that <span class="math inline">\(Gy=0\)</span>. In particular, <span class="math inline">\(\int_0^T|B^TS(T-s)^Ty|^2ds=0\)</span>. Hence, we imply <span class="math inline">\(y^TS(T-s)B=0, a.e. [0,T]\)</span>. The solution <span class="math inline">\(x(t)\)</span> of equation <span class="math inline">\(\eqref{1}\)</span> with initial data <span class="math inline">\(x(0)=0\)</span> satisfies <span class="math inline">\(x(T)=\int_0^TS(T-s)Buds\)</span>, which implies <span class="math inline">\(y^Tx(T)\)</span>=0. Since <span class="math inline">\(y\neq 0\)</span>, it follows that, whatever <span class="math inline">\(u\)</span> is, <span class="math inline">\(x(T)\neq y\)</span>. This concludes the proof. <span class="math inline">\(\Box\)</span></p>
 <p>It worth to point out that the control <span class="math inline">\(u\)</span> defined by <span class="math inline">\(\eqref{2}\)</span> has the quite interesting property given in the following proposition<a class="math-reference" href="#Ref2">[2, Proposition 1.13]</a>.</p>
 <p><strong>Proposition 2 (Minimal energy)</strong> Let <span class="math inline">\(u\)</span> be given by <span class="math inline">\(\eqref{2}\)</span>. Let <span class="math inline">\(x_1\in\mathbb{R}^n\)</span> and let <span class="math inline">\(\bar{u}\)</span> be such that the solution of <span class="math inline">\(\eqref{1}\)</span> with initial data <span class="math inline">\(x(0)=x_0\)</span> satisfies <span class="math inline">\(x(T)=x_1\)</span>. Then <span class="math display">\[
@@ -623,7 +623,7 @@ J.M. Coron, Control and Nonlinearity.
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -658,7 +658,9 @@ J.M. Coron, Control and Nonlinearity.
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -747,7 +749,9 @@ J.M. Coron, Control and Nonlinearity.
                     
                       
                     
-                    <span class="site-state-item-count">38</span>
+                      
+                    
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1024,7 +1028,8 @@ J.M. Coron, Control and Nonlinearity.
       linebreaks: { automatic: true, width: "container",},
       styles: {".MathJax .mtext": {color: "#104bb2"}}
     },
-    SVG: { linebreaks: { automatic: true, width: "container",} }
+    SVG: { linebreaks: { automatic: true, width: "container",} },
+    TeX: {equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
 

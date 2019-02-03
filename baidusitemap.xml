@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://deepanalysis.xyz/Convex-sets-and-convex-functions.html</loc>
-    <lastmod>2019-01-19T12:23:34.735Z</lastmod>
+    <loc>https://deepanalysis.xyz/Begin-with-Git.html</loc>
+    <lastmod>2019-02-03T10:38:02.063Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/How-to-write-math-thesis-in-English.html</loc>
-    <lastmod>2019-01-19T08:12:34.010Z</lastmod>
+    <lastmod>2019-01-27T02:10:58.792Z</lastmod>
+  </url>  <url>
+    <loc>https://deepanalysis.xyz/Finite-dimensional-linear-control-systems.html</loc>
+    <lastmod>2019-01-24T08:10:28.906Z</lastmod>
+  </url>  <url>
+    <loc>https://deepanalysis.xyz/Convex-sets-and-convex-functions.html</loc>
+    <lastmod>2019-01-19T12:23:34.735Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/Numerical-Approximation-of-Exact-Controls-for%20waves.html</loc>
     <lastmod>2019-01-18T01:22:07.622Z</lastmod>
@@ -40,22 +46,19 @@
     <loc>https://deepanalysis.xyz/ODE-and-Control-Systems.html</loc>
     <lastmod>2018-11-18T14:41:09.350Z</lastmod>
   </url>  <url>
-    <loc>https://deepanalysis.xyz/Finite-dimensional-linear-control-systems.html</loc>
-    <lastmod>2018-11-16T15:57:35.786Z</lastmod>
-  </url>  <url>
-    <loc>https://deepanalysis.xyz/Install-flask-on-ubuntu.html</loc>
+    <loc>https://deepanalysis.xyz/construct-vps.html</loc>
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
   </url>  <url>
-    <loc>https://deepanalysis.xyz/construct-vps.html</loc>
+    <loc>https://deepanalysis.xyz/Install-flask-on-ubuntu.html</loc>
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/Deploy-Blog-to-Ununtu-server-by-hexo.html</loc>
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
   </url>  <url>
-    <loc>https://deepanalysis.xyz/begin-with-css.html</loc>
+    <loc>https://deepanalysis.xyz/Begin-with-Front-end-techology.html</loc>
     <lastmod>2018-11-16T15:57:25.624Z</lastmod>
   </url>  <url>
-    <loc>https://deepanalysis.xyz/Begin-with-Front-end-techology.html</loc>
+    <loc>https://deepanalysis.xyz/begin-with-css.html</loc>
     <lastmod>2018-11-16T15:57:25.624Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/Use-your-own-html-in-hexo.html</loc>

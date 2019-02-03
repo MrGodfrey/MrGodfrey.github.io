@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="Q_hni3P-vHx54LrzJF41dKO2saUFOfcmkCA6nJg8_Mo">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Git 基础，使用Git管理文件版本。">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Begin with Git">
+<meta property="og:url" content="https://deepanalysis.xyz/Begin-with-Git.html">
+<meta property="og:site_name" content="DeepAnalysis">
+<meta property="og:description" content="Git 基础，使用Git管理文件版本。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-03T10:38:02.063Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Begin with Git">
+<meta name="twitter:description" content="Git 基础，使用Git管理文件版本。">
+
+
+
+
+
+
+  <link rel="canonical" href="https://deepanalysis.xyz/Begin-with-Git.html">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Begin with Git | DeepAnalysis</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2b7b361c1ca559d2f69ea6134e7be490";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <meta name="google-site-verification" content="Kc9BSu7dC0-oUcH3sl5iAp0JYNYFMpmgB-M3drQNI5s">
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DeepAnalysis</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Mathematics, Computer Science ...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">简历</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://deepanalysis.xyz/Begin-with-Git.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Yu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeepAnalysis">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Begin with Git
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-30 18:11:59" itemprop="dateCreated datePublished" datetime="2019-01-30T18:11:59+08:00">2019-01-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                <time title="修改时间：2019-02-03 18:38:02" itemprop="dateModified" datetime="2019-02-03T18:38:02+08:00">2019-02-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/计算机/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Git 基础，使用Git管理文件版本。</p>
+<a id="more"></a>
+<p>Git 是一个被广泛使用的版本控制系统，它可以将工作区域（Repository）内所有被追踪的文件的所有修改保留下来，对多人协作有着原生的支持。本文简要总结Git最重要的几个概念和操作，以供日后参考。</p>
+<h1 id="git-basic-ideas">Git Basic Ideas</h1>
+<h2 id="snapshots">Snapshots</h2>
+<p>Git 将数据看成是一系列快照，每一次提交，Git都将对当前的文件系统进行一次快照。</p>
+<h2 id="the-three-states">The Three States</h2>
+<p>Git中的文件主要有三种状态，committed,modified 和 staged.</p>
+<ol type="1">
+<li>Committed 说明数据已经安全的保存在本地的数据库中</li>
+<li>Modified 表示文件被修改，但是还没有提交到本地的数据库中</li>
+<li>Staged 表示把修改后的文件当前的状态做个标记，表示它将作为下一次提交的快照的一部分</li>
+</ol>
+<p>对应三种状态，Git项目有三个部分，分别是 Git directory (Repository), the working directory(Tree), 以及 staging area.</p>
+<p>Git的基本工作流程如下:</p>
+<ol type="1">
+<li>在working tree中修改文件</li>
+<li>暂存(stage)这些修改中将要成为下次提交的部分</li>
+<li>提交(commit)， 将对在staging area和储存中的文件创建Snapshot，并永远保存在Git directory.</li>
+</ol>
+<h2 id="the-command-line">The Command Line</h2>
+<p>Git 主要以命令行的形式工作，也有一些GUI工具，包含了Git的部分功能,</p>
+<h2 id="git-setup">Git Setup</h2>
+<p>Windows版本的Git可以直接在Git的官网上下载, 可以在PowerShell中输入<code>git --version</code>检查是否安装好Git了。</p>
+<p>第一次安装Git时，需要配置Git的基本信息，最重要的是个人的身份信息，这将出现在之后的每一次提交之中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user,email Your_email@example.com</span><br></pre></td></tr></table></figure>
+<h2 id="getting-help">Getting Help</h2>
+<p>可以使用<code>git help &lt;verb&gt;</code> 命令获得帮助。</p>
+<p>亦可以<code>git &lt;command&gt; -h</code> 来获得帮助。</p>
+<h1 id="git-basics">Git Basics</h1>
+<p>本章介绍最简单的Git操作。</p>
+<h2 id="getting-a-git-repository">Getting a Git Repository</h2>
+<p>创建Git项目的方法有两种。</p>
+<h3 id="initializing-a-repository">Initializing a Repository</h3>
+<p>本地已经有一个工作目录，想要用Git进行版本控制。</p>
+<p>在Windows下，在工作目录内（在根目录，即包含所有工作文件的最大的目录）右键，选择<code>git bash here</code> ， 然后输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>该命令将在目录下创建名为<code>.git</code>的隐藏文件夹，但是还没有指明Git 将追踪(Tracked)哪些文件.</p>
+<p>用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add *.tex</span><br><span class="line">git commit -m &quot;Initialize&quot;</span><br></pre></td></tr></table></figure>
+<p>来追踪该目录下所有后缀名为<code>.tex</code>的文件.</p>
+<h3 id="cloning-an-existing-repository">Cloning an Existing Repository</h3>
+<p>可以复制一个已经存在的Git项目到本地，在一个空目录下用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/libgit2/libgit2</span><br></pre></td></tr></table></figure>
+<p>也可用其他协议，如<code>git://</code>或者<code>user@server:path/to/repo.git</code>.</p>
+<h2 id="recording-changes-to-the-repository">Recording Changes to The Repository</h2>
+<p>本节将叙述如何将修改保存到Git项目中。</p>
+<h3 id="checking-the-status-of-files">Checking the Status of Files</h3>
+<p>使用命令<code>git status</code>确定当前目录下各个文件的状态。目前可能有这几种状态</p>
+<ol type="1">
+<li><p>Untracked Files:</p>
+<p>File1</p></li>
+</ol>
+<p>表示目录下的文件没有被追踪，可以使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add File1</span><br></pre></td></tr></table></figure>
+<p>来追踪文件。</p>
+<ol start="2" type="1">
+<li><p>Changes not staged for commit:</p>
+<p>File2</p></li>
+</ol>
+<p>表示文件被修改了，但是没有被暂存。用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add File2</span><br></pre></td></tr></table></figure>
+<p>来暂存刚才的修改，将文件File2添加到暂存区。</p>
+<h3 id="ignoring-files">Ignoring Files</h3>
+<p>有时候程序会自动生成一些中间文件，这些一般不需要Git来保存版本，在目录下创建<code>.gitignore</code>文件，将想排除的文件写进去。</p>
+<p>在<code>https://github.com/github/gitignore</code>有现成的排除文件。</p>
+<h3 id="viewing-staged-and-upstaged-changes">Viewing Staged and Upstaged Changes</h3>
+<p>使用<code>git diff</code>命令，比较工作目录和暂存区文件的区别。</p>
+<p>使用<code>git diff --staged</code> 命令，比较暂存区 和上次提交之间的文件的区别。</p>
+<p>使用<code>git difftool</code>使用外部程序比较差异</p>
+<h3 id="committing-changes">Committing Changes</h3>
+<p>使用<code>git commit -m "message"</code>提交暂存区的修改。</p>
+<p>使用<code>git commit -a -m"message"</code>来跳过暂存区，直接提交所有的修改。</p>
+<h3 id="removing-files">Removing Files</h3>
+<p>先在工作目录内删除文件，再用<code>git rm &lt;file&gt;</code>暂存删除操作。</p>
+<p>也可以从暂存区删除文件，但在文件目录中保留，也就是让Git不再最终该文件。用<code>git rm --cached &lt;file&gt;</code>。</p>
+<h3 id="moving-files">Moving Files</h3>
+<p>使用<code>git mv file_from file_to</code>来移动文件。</p>
+<h2 id="viewing-the-commit-history">Viewing the Commit History</h2>
+<p>用<code>git log</code>可以看提交的历史，有用的参数如下</p>
+<table>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-p</td>
+<td>显示每次提交的补丁</td>
+</tr>
+<tr class="even">
+<td>--stat</td>
+<td>显示每次提交的修改的文件的状态</td>
+</tr>
+<tr class="odd">
+<td>--abbrev-commit</td>
+<td>只显示前几个SHA-1字母</td>
+</tr>
+<tr class="even">
+<td>--relative-date</td>
+<td>显示相对日期</td>
+</tr>
+<tr class="odd">
+<td>--graph</td>
+<td>显示图</td>
+</tr>
+<tr class="even">
+<td>--pretty</td>
+<td>oneline, short,full,fuller or format</td>
+</tr>
+<tr class="odd">
+<td>--oneline</td>
+<td>--pretty=oneline --abbrev-commit 的简写</td>
+</tr>
+<tr class="even">
+<td>--decorate</td>
+<td>显示HEAD指向哪个分支</td>
+</tr>
+</tbody>
+</table>
+<h3 id="limiting-log-output">Limiting Log Output</h3>
+<p>可以控制输出哪些提交的历史</p>
+<table>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-<n></n></td>
+<td>显示最近n条提交</td>
+</tr>
+<tr class="even">
+<td>--since, --after</td>
+<td>指定日期之后</td>
+</tr>
+<tr class="odd">
+<td>--until, --before</td>
+<td>指定日期之前</td>
+</tr>
+<tr class="even">
+<td>--author</td>
+<td>特定作者的提交</td>
+</tr>
+<tr class="odd">
+<td>--comitter</td>
+<td>特定人的提交</td>
+</tr>
+<tr class="even">
+<td>--grep</td>
+<td>提交信息中包含特定字符串</td>
+</tr>
+<tr class="odd">
+<td>-S</td>
+<td>提交代码中包含特定字符串</td>
+</tr>
+</tbody>
+</table>
+<p><code>--no-merges</code>可以不显示合并历史</p>
+<h2 id="undoing-things">Undoing Things</h2>
+<p>想要修改最近的一次提交，包括文件或者提交信息，用<code>git commit --amend</code>。</p>
+<h3 id="unstaging-a-staged-file">Unstaging a Staged File</h3>
+<p>使用<code>git reset HEAD &lt;file&gt;</code> 可以撤销对文件的缓存</p>
+<h3 id="unmodifying-a-modified-file">Unmodifying a Modified File</h3>
+<p>使用<code>git checkout -- &lt;file&gt;</code> 可以丢弃文件的修改，将文件回退到上一次提交的情况。</p>
+<h2 id="working-with-remotes">Working with Remotes</h2>
+<p>Git的一个强大的功能，可以与远程仓库协作。</p>
+<h3 id="showing-remotes">Showing Remotes</h3>
+<p>命令<code>git remote</code>显示目前有的远程服务器的简写，可用<code>-v</code>显示对应的URL。</p>
+<p>命令<code>git remote show &lt;remote&gt;</code> . 可以看到远程仓库的分支状态，分支是否被追踪，本地分支追踪哪个远程分支。</p>
+<h3 id="adding-remote-repositories">Adding Remote Repositories</h3>
+<p>可以用<code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 来添加远程仓库。</p>
+<h3 id="fetching-and-pulling">Fetching and Pulling</h3>
+<p>命令<code>git fetch &lt;remote&gt;</code>可以从远程仓库取回所有本地没有的数据。</p>
+<p>命令<code>git pull</code>可以从远程仓库取回数据并自动与本地分支合并。</p>
+<h3 id="pushing-to-remotes">Pushing to Remotes</h3>
+<p>命令<code>git push &lt;remote&gt; &lt;branch&gt;</code> 可以向远程仓库推送本地分支。</p>
+<h3 id="renaming-and-removing-remotes">Renaming and Removing Remotes</h3>
+<p>命令<code>git remote rename name_before name_after</code> 可以更改远程仓库的名字。</p>
+<p>命令<code>git remote remove &lt;remote&gt;</code> 可以删除远程仓库。</p>
+<h2 id="tagging">Tagging</h2>
+<h3 id="listing-tags">Listing Tags</h3>
+<p>命令<code>git tag</code>可以列出所有的分支。 选项<code>-l</code>可以列出包含特定字符串的Tag。</p>
+<h3 id="creating-tags">Creating Tags</h3>
+<p>Git包含两种标签类型，annotated 和 lightweight. 如同名字所预示，annotated 包含作者、信息、日期等等信息，而lightweight则是一个简单的临时标签。</p>
+<h3 id="annotated-tags">Annotated Tags</h3>
+<p>命令<code>git tag -a v1.0 -m "My message"</code> 可以创建标签。</p>
+<p>命令<code>git show v1.0</code>可以显示标签信息。</p>
+<p>命令<code>git tag -a v1.0 SHA</code>可以对编号为SHA的提交添加标签。</p>
+<h3 id="lightweight-tags">Lightweight Tags</h3>
+<p>命令<code>git tag v1.0-lw</code>可以创建轻量标签。</p>
+<h3 id="sharing-tags">Sharing Tags</h3>
+<p>命令<code>git push origin &lt;tagname&gt;</code>可以向远程仓库推送标签。</p>
+<h3 id="deleting-tags">Deleting Tags</h3>
+<p>命令<code>git tag -d &lt;tagname&gt;</code>可以删除本地的标签。</p>
+<p>命令<code>git push origin :ref/tags/&lt;tagname&gt;</code>可以删除远程仓库的标签。</p>
+<h3 id="checkout-tags">Checkout Tags</h3>
+<p>命令<code>git checkout &lt;tagname&gt;</code>可以检出标签状态，但此时仓库处于Detached HEAD状态，所有的提交都将不会保存。</p>
+<h2 id="git-aliases">Git Aliases</h2>
+<p>Git 别名可以让命令输入更快速简单</p>
+<p>命令<code>git config --global alias.co checkout</code> 可以将<code>git commit</code>简化为<code>git ci</code>.</p>
+<h1 id="git-branching">Git Branching</h1>
+<p>本章介绍Git中最有用的分支概念，Git鼓励开发者频繁使用分支。</p>
+<h2 id="basic-branching-and-mergin">Basic Branching and Mergin</h2>
+<h3 id="creating-a-new-branch">Creating a New Branch</h3>
+<p>命令<code>git branch testing</code>将创建新的分支。</p>
+<p>命令<code>git log --decorate</code>可以看目前处于哪个分支。</p>
+<h3 id="switching-branch">Switching Branch</h3>
+<p>命令<code>git checkout testing</code>将把HEAD指针指向testing分支，<strong>此时工作目录的文件状态将完全变成testing分支此时的状态</strong>。</p>
+<p>此时提交修改将把HEAD对应的分支向前移动。</p>
+<p>可用命令<code>git checkout -b testing</code>快速切换到新的分支。</p>
+<p>切换前，如果工作区和暂存区有没有提交的修改，会提示切换失败，所以切换前需提交所有的修改，保证工作区是干净的。可以用Stashing 和 Cleaning 工具来保存工作区状态。</p>
+<h3 id="basic-merging">Basic Merging</h3>
+<p>如果目前有两个分支<code>branch1</code>,<code>branch2</code>需要合并，切换到<code>branch1</code>后，命令<code>git merge branch2</code>将把<code>branch2</code>合并到<code>branch1</code>中。</p>
+<p>如果<code>branch1</code>恰好在<code>branch2</code>的后方，而不是有共同祖先但是分叉了，Git将用<code>fast merge</code>策略，不创造新的提交，而是直接将<code>branch1</code>的向前移动到<code>branch2</code>.</p>
+<p>否则，如果两个分支没有修改同一个文件，Git会用<code>recursive</code>策略，创造一个新的提交，并将<code>branch1</code>指向这个新的提交。</p>
+<p>如果两个分支修改了同一个文件，则需要手动处理冲突。</p>
+<p>命令<code>git status</code>会列出冲突的文件，而且该文件中冲突的部分会被git直接列出来，如下:</p>
+<p>当前的文件在<code>======</code>的上方，用来合并的修改在下方。可以用<code>git mergetool</code>调用外部的工具处理冲突。</p>
+<p>修改后直接提交即可。</p>
+<h2 id="branch-management">Branch Management</h2>
+<p><code>git branch</code>可以看当前有多少分支，参数<code>-v</code>可以列出最近的提交。</p>
+<p>参数<code>--merged</code>和<code>--no-merged</code>可以显示哪些分支被合并到当前分支中了。这些选项后可跟着其他的branch, 从而可以在当前分支中查看其他分支的情况。</p>
+<p>合并之后可以用<code>git branch -d &lt;branch&gt;</code>删除分支，或者没有合并想直接删除的话用<code>git branch -D &lt;branch&gt;</code>。</p>
+<h2 id="remote-branches">Remote Branches</h2>
+<p>远程分支可以由<code>git remote show [remote]</code>显示。被跟踪的远程分支被命名为<code>&lt;remote&gt;/&lt;branch&gt;</code>。 可用<code>git fetch &lt;remote&gt;</code>抓取远程仓库的更新。</p>
+<h3 id="pushing">Pushing</h3>
+<p>命令<code>git push &lt;remote&gt;&lt;branch&gt;</code>可以将本地分支推送到远程仓库中。</p>
+<h3 id="tracking-branches">Tracking Branches</h3>
+<p>如果是远程仓库有而本地没有的分支，使用<code>git fetch &lt;remote&gt;</code>可以抓取远程仓库的更新到本地的远程仓库，然后用<code>git checkout -b &lt;branch&gt; &lt;remote&gt;/&lt;branch&gt;</code> 来创建对应的本地分支，或者用<code>git merge &lt;remote&gt;/&lt;branch&gt;</code>来合并到本地分支。</p>
+<p><code>git checkout -b &lt;branch&gt; &lt;remote&gt;/&lt;branch&gt;</code> 有一个简化版本<code>git checkout --track &lt;remote&gt;/&lt;branch&gt;</code>， 也有更简单的版本<code>git checkout &lt;branch&gt;</code>, 如果本地没有名为branch的分支，将自动从远程仓库创建一个。</p>
+<p>如果已经有一个本地分支，想将其与远程分支关联起来，可以用<code>git branch -u &lt;remote&gt;/&lt;branch&gt;</code>。<code>-u</code>是<code>--set-upstream-to</code>的简写。</p>
+<p>上游分支(upstream branch)可以用更方便的记号引用， 如<code>@{u}</code>或<code>@{upstream}</code>。</p>
+<p>可以用<code>git branch -vv</code>来看哪些分支跟踪了什么。</p>
+<h3 id="pulling">Pulling</h3>
+<p><code>git pull</code> 相当于<code>git fetch</code>和<code>git merge</code>。</p>
+<h3 id="deleting-remote-branches">Deleting Remote Branches</h3>
+<p>删除远程分支，需要用命令<code>git push &lt;remote&gt; --delete &lt;branch&gt;</code></p>
+<h2 id="rebasing">Rebasing</h2>
+<p>整合分支的另外一种方法称之为变基(rebase)。 回忆一下，合并是创造一个新的提交，形成一个类似环状的结构。当我们想有一个更清晰简单的提交历史，可以用rebase。</p>
+<p>用<code>git rebase --onto master server client</code> 可以达成</p>
+<blockquote>
+<p>Take the client branch, figure out the patches since it diverged from the server branch, and replay these patches in the client branch as if it was based directly off the master branch instead.</p>
+</blockquote>
+<p>的效果。</p>
+<p>用<code>git rebase &lt;basebranch&gt; &lt;topicbranch&gt;</code> 可以达到检查topic branch 并将其变基到master中的效果。</p>
+<p>然后就可以<code>git checkout master</code>并快速前进<code>git merge &lt;topicbranch&gt;</code>，随后可以安全的删除掉topic branch.</p>
+<p>注意，不要对上传到远程仓库的分支使用rebase, 因为其他人可能基于那个分支做了些工作。</p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Convex-sets-and-convex-functions.html" rel="next" title="Convex sets and convex functions">
+                <i class="fa fa-chevron-left"></i> Convex sets and convex functions
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+    <section class="hashover" id="comments">
+	              <script type="text/javascript">(
+		            function() {
+			          var s = document.createElement('script'),
+		          	t = document.getElementsByTagName('script')[0];
+	          		s.type = 'text/javascript';
+	          		s.async = true;
+          			s.src = "/hashover/comments.php";
+          			t.parentNode.insertBefore(s, t);
+            		})();
+              	</script>
+              <div id="hashover"></div>
+    </section>
+    
+
+      
+      
+    </footer>
+  </div>
+
+  
+
+  
+  
+  
+  
+  </article>
+
+  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wang Yu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="wangyu.analysis@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://math.stackexchange.com/users/560304/yu-wang" target="_blank" title="StackOverflow"><i class="fa fa-fw fa-stack-overflow"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-basic-ideas"><span class="nav-number">1.</span> <span class="nav-text">Git Basic Ideas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#snapshots"><span class="nav-number">1.1.</span> <span class="nav-text">Snapshots</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-three-states"><span class="nav-number">1.2.</span> <span class="nav-text">The Three States</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-command-line"><span class="nav-number">1.3.</span> <span class="nav-text">The Command Line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-setup"><span class="nav-number">1.4.</span> <span class="nav-text">Git Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getting-help"><span class="nav-number">1.5.</span> <span class="nav-text">Getting Help</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-basics"><span class="nav-number">2.</span> <span class="nav-text">Git Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#getting-a-git-repository"><span class="nav-number">2.1.</span> <span class="nav-text">Getting a Git Repository</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#initializing-a-repository"><span class="nav-number">2.1.1.</span> <span class="nav-text">Initializing a Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cloning-an-existing-repository"><span class="nav-number">2.1.2.</span> <span class="nav-text">Cloning an Existing Repository</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recording-changes-to-the-repository"><span class="nav-number">2.2.</span> <span class="nav-text">Recording Changes to The Repository</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#checking-the-status-of-files"><span class="nav-number">2.2.1.</span> <span class="nav-text">Checking the Status of Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ignoring-files"><span class="nav-number">2.2.2.</span> <span class="nav-text">Ignoring Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewing-staged-and-upstaged-changes"><span class="nav-number">2.2.3.</span> <span class="nav-text">Viewing Staged and Upstaged Changes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#committing-changes"><span class="nav-number">2.2.4.</span> <span class="nav-text">Committing Changes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#removing-files"><span class="nav-number">2.2.5.</span> <span class="nav-text">Removing Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#moving-files"><span class="nav-number">2.2.6.</span> <span class="nav-text">Moving Files</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#viewing-the-commit-history"><span class="nav-number">2.3.</span> <span class="nav-text">Viewing the Commit History</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#limiting-log-output"><span class="nav-number">2.3.1.</span> <span class="nav-text">Limiting Log Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undoing-things"><span class="nav-number">2.4.</span> <span class="nav-text">Undoing Things</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unstaging-a-staged-file"><span class="nav-number">2.4.1.</span> <span class="nav-text">Unstaging a Staged File</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unmodifying-a-modified-file"><span class="nav-number">2.4.2.</span> <span class="nav-text">Unmodifying a Modified File</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#working-with-remotes"><span class="nav-number">2.5.</span> <span class="nav-text">Working with Remotes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#showing-remotes"><span class="nav-number">2.5.1.</span> <span class="nav-text">Showing Remotes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#adding-remote-repositories"><span class="nav-number">2.5.2.</span> <span class="nav-text">Adding Remote Repositories</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fetching-and-pulling"><span class="nav-number">2.5.3.</span> <span class="nav-text">Fetching and Pulling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pushing-to-remotes"><span class="nav-number">2.5.4.</span> <span class="nav-text">Pushing to Remotes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#renaming-and-removing-remotes"><span class="nav-number">2.5.5.</span> <span class="nav-text">Renaming and Removing Remotes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tagging"><span class="nav-number">2.6.</span> <span class="nav-text">Tagging</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#listing-tags"><span class="nav-number">2.6.1.</span> <span class="nav-text">Listing Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-tags"><span class="nav-number">2.6.2.</span> <span class="nav-text">Creating Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#annotated-tags"><span class="nav-number">2.6.3.</span> <span class="nav-text">Annotated Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lightweight-tags"><span class="nav-number">2.6.4.</span> <span class="nav-text">Lightweight Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sharing-tags"><span class="nav-number">2.6.5.</span> <span class="nav-text">Sharing Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deleting-tags"><span class="nav-number">2.6.6.</span> <span class="nav-text">Deleting Tags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checkout-tags"><span class="nav-number">2.6.7.</span> <span class="nav-text">Checkout Tags</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-aliases"><span class="nav-number">2.7.</span> <span class="nav-text">Git Aliases</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-branching"><span class="nav-number">3.</span> <span class="nav-text">Git Branching</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-branching-and-mergin"><span class="nav-number">3.1.</span> <span class="nav-text">Basic Branching and Mergin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-a-new-branch"><span class="nav-number">3.1.1.</span> <span class="nav-text">Creating a New Branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switching-branch"><span class="nav-number">3.1.2.</span> <span class="nav-text">Switching Branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#basic-merging"><span class="nav-number">3.1.3.</span> <span class="nav-text">Basic Merging</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#branch-management"><span class="nav-number">3.2.</span> <span class="nav-text">Branch Management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote-branches"><span class="nav-number">3.3.</span> <span class="nav-text">Remote Branches</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pushing"><span class="nav-number">3.3.1.</span> <span class="nav-text">Pushing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tracking-branches"><span class="nav-number">3.3.2.</span> <span class="nav-text">Tracking Branches</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pulling"><span class="nav-number">3.3.3.</span> <span class="nav-text">Pulling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deleting-remote-branches"><span class="nav-number">3.3.4.</span> <span class="nav-text">Deleting Remote Branches</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rebasing"><span class="nav-number">3.4.</span> <span class="nav-text">Rebasing</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang Yu</span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">  蜀ICP备18015724号-1 </span>
+
+  <span style="display:inline-block;margin:0px 0px 0px 20px;">
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010702001048" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;border-bottom:0px;">
+    <img src="../images/beianbgs.png" style="float:left;width: 20px;height:auto;">
+    <span style="height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#666;">
+    川公网安备 51010702001048号</span></a>
+	</span>
+		 
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+  
+  
+    
+  
+  <script src="https://cdn.bootcss.com/pangu/3.3.0/pangu.js"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
