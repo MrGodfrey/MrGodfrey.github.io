@@ -100,25 +100,25 @@
 
 
 
-  <meta name="description" content="无穷远处为常数的函数，直觉上导数应该是零。但这个事实只对有充分高的正则性的函数才成立，试看反例和证明。">
-<meta name="keywords" content="数学分析">
+  <meta name="description" content="第一个Python程序，实现成绩记录，包括简单的GUI.">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无穷远处为常数的函数导数不一定为零">
-<meta property="og:url" content="https://deepanalysis.xyz/conterExample-for-function-and-derivate.html">
+<meta property="og:title" content="Score-Recorder-Python">
+<meta property="og:url" content="https://deepanalysis.xyz/Score-Recorder-Python.html">
 <meta property="og:site_name" content="DeepAnalysis">
-<meta property="og:description" content="无穷远处为常数的函数，直觉上导数应该是零。但这个事实只对有充分高的正则性的函数才成立，试看反例和证明。">
+<meta property="og:description" content="第一个Python程序，实现成绩记录，包括简单的GUI.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-10T01:03:22.405Z">
+<meta property="og:updated_time" content="2019-04-04T10:57:49.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无穷远处为常数的函数导数不一定为零">
-<meta name="twitter:description" content="无穷远处为常数的函数，直觉上导数应该是零。但这个事实只对有充分高的正则性的函数才成立，试看反例和证明。">
+<meta name="twitter:title" content="Score-Recorder-Python">
+<meta name="twitter:description" content="第一个Python程序，实现成绩记录，包括简单的GUI.">
 
 
 
 
 
 
-  <link rel="canonical" href="https://deepanalysis.xyz/conterExample-for-function-and-derivate.html">
+  <link rel="canonical" href="https://deepanalysis.xyz/Score-Recorder-Python.html">
 
 
 
@@ -128,7 +128,7 @@
   };
 </script>
 
-  <title>无穷远处为常数的函数导数不一定为零 | DeepAnalysis</title>
+  <title>Score-Recorder-Python | DeepAnalysis</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://deepanalysis.xyz/conterExample-for-function-and-derivate.html">
+    <link itemprop="mainEntityOfPage" href="https://deepanalysis.xyz/Score-Recorder-Python.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Yu">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">无穷远处为常数的函数导数不一定为零
+          <h1 class="post-title" itemprop="name headline">Score-Recorder-Python
               
             
           </h1>
@@ -346,7 +346,7 @@
                 
               
 
-              <time title="创建时间：2019-01-10 08:52:00 / 修改时间：09:03:22" itemprop="dateCreated datePublished" datetime="2019-01-10T08:52:00+08:00">2019-01-10</time>
+              <time title="创建时间：2019-04-04 18:47:44 / 修改时间：18:57:49" itemprop="dateCreated datePublished" datetime="2019-04-04T18:47:44+08:00">2019-04-04</time>
             
 
             
@@ -366,14 +366,7 @@
               </span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/数学/小问题/" itemprop="url" rel="index"><span itemprop="name">小问题</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/计算机/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a></span>
 
                 
                 
@@ -407,18 +400,17 @@
       
 
       
-        <p>无穷远处为常数的函数，直觉上导数应该是零。但这个事实只对有充分高的正则性的函数才成立，试看反例和证明。</p>
+        <p>第一个Python程序，实现成绩记录，包括简单的GUI.</p>
 <a id="more"></a>
-<p><span class="math inline">\(f(x)\in C^{1}\)</span>，且<span class="math inline">\(f(x)\)</span>单增，<span class="math inline">\(\lim\limits_{x\longrightarrow \infty}f(x)=C\)</span>，不一定有<span class="math inline">\(f&#39;(x)\longrightarrow 0\)</span>,但<span class="math inline">\(f(x)\in C^{1,\alpha}\)</span>则可以得到结论。</p>
-<p><strong>反例</strong> 考虑<span class="math inline">\(f&#39;(x)​\)</span>，在<span class="math inline">\([n,n+1]\)</span>上取值为 <span class="math display">\[\begin{split}
-         f&#39;(n+\frac{1}{2})&amp;=1 \\
-         f&#39;(x)&amp;=n^{2}x+1-n^{3}-\frac{n^{2}}{2}\quad in\quad x\in [n+\frac{1}{2}-\frac{1}{n^{2}},n+\frac{1}{2}]\\
-         f&#39;(x)&amp;=-n^{2}x+1+n^{3}+\frac{n^{2}}{2}\quad in\quad x\in [n+\frac{1}{2},n+\frac{1}{2}+\frac{1}{n^{2}}]
-\end{split}​\]</span> 于是<span class="math inline">\(f(x)=\int^{x}_{0}f&#39;(t)dt​\)</span>是单增的，且<span class="math inline">\(f&#39;(t)​\)</span>连续，故<span class="math inline">\(f(x)\in C^{1}​\)</span>,且 <span class="math display">\[\lim\limits_{x\longleftarrow \infty}f(x)=1+\frac{1}{2^{2}}+\frac{1}{3^{2}}+\cdots&lt;\infty​\]</span> 单增的有界数列必有极限。而<span class="math inline">\(f&#39;(x)​\)</span>显然不趋于0.</p>
-<p><strong>证明</strong> 若<span class="math inline">\(f(x)\in C^{1,\alpha}\)</span>,则<span class="math inline">\(f&#39;(x)\in C^{\alpha}\)</span>,若<span class="math inline">\(f(x)\nrightarrow 0,\forall \varepsilon&gt;0,\)</span>有<span class="math inline">\(x_{n}\longrightarrow \infty ,f&#39;(x_{n})&gt;\varepsilon\)</span>.</p>
-<p>在<span class="math inline">\([x_{n}-1,x_{n}+1]\)</span>上，有<span class="math inline">\(\int_{x_{n}-1}^{x_{n}+1}f&#39;(t)dt=f(x_{n+1})-f(x_{n-1})\longrightarrow 0.\)</span></p>
-<p>又由<span class="math inline">\(f&#39;(x)\in C^{\alpha}\)</span>，有<span class="math inline">\(\lvert f&#39;(x)-f&#39;(y)\rvert\leq L\lvert x-y\rvert^{\alpha} ,\)</span>当<span class="math inline">\(\lvert x-y\rvert^{\alpha}&lt;\frac{\varepsilon}{2L}\)</span>时，<span class="math inline">\(\lvert f&#39;(x)-f&#39;(y)\rvert&lt;\frac{\varepsilon}{2}.\)</span></p>
-<p>于是对<span class="math inline">\(x\in [x_{n}-(\frac{\varepsilon}{2L})^{\frac{1}{\alpha}},x_{n}], f&#39;(x)&gt;\frac{\varepsilon}{2}.\)</span>故 <span class="math display">\[\int_{x_{n}-1}^{x_{n}+1}f&#39;(t)dt\geq \frac{\varepsilon}{2}\times (\frac{\varepsilon}{2L})^{\frac{1}{\alpha}}\]</span> 矛盾.</p>
+<h1 id="目标">目标</h1>
+<ol type="1">
+<li>实现从Excel文件中读取数据，并本地化保存</li>
+<li>可以从本地保存的数据文件中恢复Excel文件</li>
+<li>一个简单的GUI，可以只用键盘快速读入数据并修改</li>
+<li>有一定的稳定性</li>
+</ol>
+<h1 id="实现记录">实现记录</h1>
+<h2 id="读取文件">读取文件</h2>
 
       
     </div>
@@ -446,7 +438,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数学分析/" rel="tag"># 数学分析</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -462,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/linear-algebra-exam-2.html" rel="next" title="线性代数小测二">
-                <i class="fa fa-chevron-left"></i> 线性代数小测二
+              <a href="/Begin-with-Git.html" rel="next" title="Begin with Git">
+                <i class="fa fa-chevron-left"></i> Begin with Git
               </a>
             
           </div>
@@ -471,10 +463,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Numerical-Approximation-of-Exact-Controls-for waves.html" rel="prev" title="Numerical Approximation of Exact Controls for waves">
-                Numerical Approximation of Exact Controls for waves <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,8 +532,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -728,6 +725,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现记录"><span class="nav-number">2.</span> <span class="nav-text">实现记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#读取文件"><span class="nav-number">2.1.</span> <span class="nav-text">读取文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -921,42 +934,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    CommonHTML: { linebreaks: { automatic: true, width: "container", } },
-    "HTML-CSS": { 
-      linebreaks: { automatic: true, width: "container",},
-      styles: {".MathJax .mtext": {color: "#104bb2"}}
-    },
-    SVG: { linebreaks: { automatic: true, width: "container",} },
-    TeX: {equationNumbers: { autoNumber: "AMS" } }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.4/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 

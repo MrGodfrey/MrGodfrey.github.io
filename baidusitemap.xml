@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://deepanalysis.xyz/Score-Recorder-Python.html</loc>
+    <lastmod>2019-04-04T10:57:49.972Z</lastmod>
+  </url>  <url>
+    <loc>https://deepanalysis.xyz/banach-algebra-Spectral-Decomposition.html</loc>
+    <lastmod>2019-04-04T10:54:29.292Z</lastmod>
+  </url>  <url>
+    <loc>https://deepanalysis.xyz/Numerical-Approximation-of-Exact-Controls-for%20waves.html</loc>
+    <lastmod>2019-02-06T06:45:24.412Z</lastmod>
+  </url>  <url>
     <loc>https://deepanalysis.xyz/Begin-with-Git.html</loc>
     <lastmod>2019-02-03T10:38:02.063Z</lastmod>
   </url>  <url>
@@ -13,17 +22,8 @@
     <loc>https://deepanalysis.xyz/Convex-sets-and-convex-functions.html</loc>
     <lastmod>2019-01-19T12:23:34.735Z</lastmod>
   </url>  <url>
-    <loc>https://deepanalysis.xyz/Numerical-Approximation-of-Exact-Controls-for%20waves.html</loc>
-    <lastmod>2019-01-18T01:22:07.622Z</lastmod>
-  </url>  <url>
     <loc>https://deepanalysis.xyz/The-criterion-for-controllability.html</loc>
     <lastmod>2019-01-14T02:19:58.734Z</lastmod>
-  </url>  <url>
-    <loc>https://deepanalysis.xyz/flow-in-a-channel-with-obstacle.html</loc>
-    <lastmod>2019-01-13T06:52:32.920Z</lastmod>
-  </url>  <url>
-    <loc>https://deepanalysis.xyz/banach-algebra-Spectral-Decomposition.html</loc>
-    <lastmod>2019-01-10T14:48:20.579Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/conterExample-for-function-and-derivate.html</loc>
     <lastmod>2019-01-10T01:03:22.405Z</lastmod>
@@ -46,22 +46,22 @@
     <loc>https://deepanalysis.xyz/ODE-and-Control-Systems.html</loc>
     <lastmod>2018-11-18T14:41:09.350Z</lastmod>
   </url>  <url>
-    <loc>https://deepanalysis.xyz/construct-vps.html</loc>
+    <loc>https://deepanalysis.xyz/Install-flask-on-ubuntu.html</loc>
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
   </url>  <url>
-    <loc>https://deepanalysis.xyz/Install-flask-on-ubuntu.html</loc>
+    <loc>https://deepanalysis.xyz/construct-vps.html</loc>
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/Deploy-Blog-to-Ununtu-server-by-hexo.html</loc>
     <lastmod>2018-11-16T15:57:25.628Z</lastmod>
   </url>  <url>
-    <loc>https://deepanalysis.xyz/Begin-with-Front-end-techology.html</loc>
-    <lastmod>2018-11-16T15:57:25.624Z</lastmod>
-  </url>  <url>
     <loc>https://deepanalysis.xyz/begin-with-css.html</loc>
     <lastmod>2018-11-16T15:57:25.624Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/Use-your-own-html-in-hexo.html</loc>
+    <lastmod>2018-11-16T15:57:25.624Z</lastmod>
+  </url>  <url>
+    <loc>https://deepanalysis.xyz/Begin-with-Front-end-techology.html</loc>
     <lastmod>2018-11-16T15:57:25.624Z</lastmod>
   </url>  <url>
     <loc>https://deepanalysis.xyz/install-win10-ubuntu.html</loc>
