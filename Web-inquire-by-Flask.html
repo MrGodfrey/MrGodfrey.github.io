@@ -101,14 +101,14 @@
 
 
   <meta name="description" content="用Flask，为成绩登陆软件提供在线查询功能.">
-<meta name="keywords" content="Python">
+<meta name="keywords" content="Ubuntu,Flask">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web-inquire-by-Flask">
 <meta property="og:url" content="http://deepanalysis.xyz/Web-inquire-by-Flask.html">
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="用Flask，为成绩登陆软件提供在线查询功能.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-07T04:47:25.062Z">
+<meta property="og:updated_time" content="2019-04-09T01:37:05.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web-inquire-by-Flask">
 <meta name="twitter:description" content="用Flask，为成绩登陆软件提供在线查询功能.">
@@ -346,12 +346,22 @@
                 
               
 
-              <time title="创建时间：2019-04-07 12:44:53 / 修改时间：12:47:25" itemprop="dateCreated datePublished" datetime="2019-04-07T12:44:53+08:00">2019-04-07</time>
+              <time title="创建时间：2019-04-07 12:44:53" itemprop="dateCreated datePublished" datetime="2019-04-07T12:44:53+08:00">2019-04-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                <time title="修改时间：2019-04-09 09:37:05" itemprop="dateModified" datetime="2019-04-09T09:37:05+08:00">2019-04-09</time>
               
             
           </span>
@@ -402,9 +412,36 @@
       
         <p>用Flask，为成绩登陆软件提供在线查询功能.</p>
 <a id="more"></a>
-<h1 id="refence">Refence</h1>
-<p>(Flask 官方文档)(http://flask.pocoo.org/docs/1.0/)</p>
-<p>(Flask 中文文档)(http://docs.jinkan.org/docs/flask/installation.html#installation)</p>
+<h1 id="ubuntu-操作">Ubuntu 操作</h1>
+<h2 id="创建虚拟环境">创建虚拟环境</h2>
+<p><code>sudo apt-get install python3.7</code> 来安装python 3.7</p>
+<p><code>sudo apt-get install python3-pip</code> 来安装pip</p>
+<p>在<code>~/.bash_aliases</code> 文件内加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias python=python3.7</span><br><span class="line">alias pip=pip3</span><br></pre></td></tr></table></figure>
+<p>并运行<code>source ~/.bash_aliases</code>来将python 连接到python3.</p>
+<p><code>sudo apt-get install python3-venv</code> 来安装<code>venv</code>包</p>
+<p><code>python -m venv env</code> 来创建名为env的虚拟环境.</p>
+<p><strong>问题</strong> 创建目录的时候别乱用sudo,可用 <code>ls -l</code>来查看所有者权限</p>
+<h2 id="启动与关闭虚拟环境">启动与关闭虚拟环境</h2>
+<p><code>source env/bin/activate</code> 来启动虚拟环境</p>
+<p><code>deactivate</code>来关闭虚拟环境.</p>
+<h2 id="uwsgi">uWsgi</h2>
+<p><strong>问题</strong> Ubuntu 上出现</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Python.h: No such file <span class="keyword">or</span> directory compilation terminated.</span><br></pre></td></tr></table></figure>
+<p>错误， 需要<code>sudo apt-get install python3.7-dev</code></p>
+<p>命令<code>pip install uwsgi</code> 可以安装uWsgi.</p>
+<p><a href="https://deepanalysis.xyz/Install-flask-on-ubuntu.html">参考本站文章</a></p>
+<h2 id="supervisor">supervisor</h2>
+<p>同样参考上面的文章</p>
+<p><code>supervisorctl</code> 可以启动supervisor的命令行界面，来看是否成功调用程序</p>
+<p><strong>问题</strong> supervisor会出现很多配置上的问题，参看官方文档。安装后需要手动寻找配置文件。</p>
+<h1 id="flask">Flask</h1>
+<p>基本用法可参见Flask官方文档.</p>
+<p><a href="http://flask.pocoo.org/docs/1.0/" target="_blank" rel="noopener">Flask官方文档</a></p>
+<p><a href="http://docs.jinkan.org/docs/flask/installation.html#installation" target="_blank" rel="noopener">Flask中文文档</a></p>
+<h1 id="gui">GUI</h1>
+<p>可以用requests包来达到本地GUI上传数据的功能，用法参见官方文档.</p>
+<p><a href="http://docs.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">requests 文档</a></p>
 
       
     </div>
@@ -418,7 +455,14 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="\Score-Recorder-Python.html" rel="bookmark">Score-Recorder-Python</a></div>
+      <div class="popular-posts-title"><a href="\install-win10-ubuntu.html" rel="bookmark">安装 Win 10 & Ubuntu 双系统</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\Deploy-Blog-to-Ununtu-server-by-hexo.html" rel="bookmark">用Hexo部署博客到Ubuntu服务器</a></div>
       
     </li>
   
@@ -444,7 +488,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+            <a href="/tags/Flask/" rel="tag"># Flask</a>
           
         </div>
       
@@ -691,7 +737,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">39</span>
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -741,7 +789,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#refence"><span class="nav-number">1.</span> <span class="nav-text">Refence</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu-操作"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建虚拟环境"><span class="nav-number">1.1.</span> <span class="nav-text">创建虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动与关闭虚拟环境"><span class="nav-number">1.2.</span> <span class="nav-text">启动与关闭虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uwsgi"><span class="nav-number">1.3.</span> <span class="nav-text">uWsgi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#supervisor"><span class="nav-number">1.4.</span> <span class="nav-text">supervisor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flask"><span class="nav-number">2.</span> <span class="nav-text">Flask</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gui"><span class="nav-number">3.</span> <span class="nav-text">GUI</span></a></li></ol></div>
             
 
           </div>
