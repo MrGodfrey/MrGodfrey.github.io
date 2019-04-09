@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="DeepAnalysis">
 <meta property="og:description" content="用Flask，为成绩登陆软件提供在线查询功能.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-09T01:37:05.754Z">
+<meta property="og:updated_time" content="2019-04-09T02:17:54.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web-inquire-by-Flask">
 <meta name="twitter:description" content="用Flask，为成绩登陆软件提供在线查询功能.">
@@ -361,7 +361,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                <time title="修改时间：2019-04-09 09:37:05" itemprop="dateModified" datetime="2019-04-09T09:37:05+08:00">2019-04-09</time>
+                <time title="修改时间：2019-04-09 10:17:54" itemprop="dateModified" datetime="2019-04-09T10:17:54+08:00">2019-04-09</time>
               
             
           </span>
@@ -431,6 +431,10 @@
 <p>错误， 需要<code>sudo apt-get install python3.7-dev</code></p>
 <p>命令<code>pip install uwsgi</code> 可以安装uWsgi.</p>
 <p><a href="https://deepanalysis.xyz/Install-flask-on-ubuntu.html">参考本站文章</a></p>
+<p><strong>问题</strong> 添加文件上传功能后，uWsgi在每次文件修改时默认不会重新启动，会导致新的文件上传后服务器无法响应。</p>
+<p>在<code>config.ini</code> 文件中加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch-reload=/path/to/watchfile</span><br></pre></td></tr></table></figure>
+<p>可以在<code>watchfile</code>每次修改后重新启动uWsgi服务.</p>
 <h2 id="supervisor">supervisor</h2>
 <p>同样参考上面的文章</p>
 <p><code>supervisorctl</code> 可以启动supervisor的命令行界面，来看是否成功调用程序</p>
