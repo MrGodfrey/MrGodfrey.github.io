@@ -153,7 +153,7 @@ try {
 		if ($hashover->setup->latestTrimWidth > 0) {
 			// Instantiate WriteComments
 			//
-			// TODO: Split WriteComments into multiple classes so we
+			
 			// can instantiate only the functionality that we need
 			//
 			$write_comments = new WriteComments (
