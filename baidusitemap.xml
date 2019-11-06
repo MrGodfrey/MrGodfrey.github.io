@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://deepanalysis.xyz/Useful-tools-collection.html</loc>
+    <lastmod>2019-11-06T15:24:30.167Z</lastmod>
+  </url>  <url>
     <loc>http://deepanalysis.xyz/furniture-purchase-experience.html</loc>
     <lastmod>2019-11-04T06:44:19.213Z</lastmod>
   </url>  <url>
@@ -21,9 +24,6 @@
   </url>  <url>
     <loc>http://deepanalysis.xyz/note-hexo-and-github.html</loc>
     <lastmod>2019-10-24T05:12:15.116Z</lastmod>
-  </url>  <url>
-    <loc>http://deepanalysis.xyz/Useful-tools-collection.html</loc>
-    <lastmod>2019-10-24T05:06:51.413Z</lastmod>
   </url>  <url>
     <loc>http://deepanalysis.xyz/Deploy-Blog-to-Ununtu-server-by-hexo.html</loc>
     <lastmod>2019-10-22T04:45:06.996Z</lastmod>
