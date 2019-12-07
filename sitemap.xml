@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://deepanalysis.xyz/2019-Diary.html</loc>
+    
+    <lastmod>2019-12-07T09:49:31.560Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://deepanalysis.xyz/about/index.html</loc>
+    
+    <lastmod>2019-12-07T08:45:31.167Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://deepanalysis.xyz/Begin-with-NAS.html</loc>
     
-    <lastmod>2019-11-21T14:51:44.179Z</lastmod>
+    <lastmod>2019-12-07T08:44:31.531Z</lastmod>
     
   </url>
   
@@ -40,13 +54,6 @@
     <loc>http://deepanalysis.xyz/Useful-tools-collection.html</loc>
     
     <lastmod>2019-11-06T15:24:30.167Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://deepanalysis.xyz/2019-Diary.html</loc>
-    
-    <lastmod>2019-10-24T10:14:43.870Z</lastmod>
     
   </url>
   
@@ -156,13 +163,6 @@
   </url>
   
   <url>
-    <loc>http://deepanalysis.xyz/Dec-2018-Summary.html</loc>
-    
-    <lastmod>2018-12-11T15:35:41.544Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://deepanalysis.xyz/linear-algebra-exam-2.html</loc>
     
     <lastmod>2018-12-11T01:02:58.733Z</lastmod>
@@ -180,13 +180,6 @@
     <loc>http://deepanalysis.xyz/about-math-seminar.html</loc>
     
     <lastmod>2018-11-21T16:13:07.593Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://deepanalysis.xyz/about/index.html</loc>
-    
-    <lastmod>2018-11-18T15:58:14.613Z</lastmod>
     
   </url>
   
