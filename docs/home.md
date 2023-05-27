@@ -1,15 +1,5 @@
-# My **Open Publishing** Space
+# 苇草的思考
 
-## Create, Share and Collaborate
+记录了自己看的书和文章，力求有自己的总结和理解。
 
-
-[Docsify](https://docsify.js.org/#/) can generate article, portfolio and documentation websites on the fly. Unlike Docusaurus, Hugo and many other Static Site Generators (SSG), it does not generate static html files. Instead, it smartly loads and parses your Markdown content files and displays them as a website.
-
-## Website Pages
-- [Introduction](introduction.md)
-- [Topic One](topic-one.md)
-- [Topic Two](topic-two.md)
-- Topic Three
-    - [Overview](topic-three-overview.md)
-    - [Subtopic One](topic-three-subtopic-one.md)
-    - [Subtopic Two](topic-three-subtopic-two.md)
+终极目标是形成自己的知识体系，从而达到指导自己人生的目的。
