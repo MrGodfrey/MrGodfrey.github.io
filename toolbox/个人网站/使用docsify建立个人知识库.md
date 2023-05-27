@@ -18,6 +18,10 @@ docsify 的原理是直接在网页上渲染 MarkDown 文件，与传统的本�
 
 可以在同一个项目中放很多个不同的 docsify 实例，从而实现一处仓库托管好几本书。
 
+### 切换主题
+
+[docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable/#/quick-start) 是个相当漂亮的主题, 2022年还在更新.
+
 
 ## 数学公式
 
