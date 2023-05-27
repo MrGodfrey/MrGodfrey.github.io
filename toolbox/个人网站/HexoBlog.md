@@ -25,6 +25,8 @@ Demo: [https://mrgodfrey.github.io/](https://mrgodfrey.github.io/)
 ### 创建 Github Action 脚本
 
 1. 在 hexo 文件夹下新建 `.github/workflows/pages.yml`  文件，输入以下内容
+
+
 ```yaml
 name: Pages #脚本名称
 
@@ -63,10 +65,10 @@ jobs:
           publish_branch: master  # deploying branch 部署的分支，对应我们的external_repository
 ```
 
-2. 在Github用户设置中生成名为 `HEXO_DEPLOY`的密钥，具体位置在 `头像->Settings->Developer settings->Personal access tokens->Generate new token` 
+1. 在Github用户设置中生成名为 `HEXO_DEPLOY`的密钥，具体位置在 `头像->Settings->Developer settings->Personal access tokens->Generate new token` 
    1. 需要打开 `repo`和 `workflow`权限.
    2. 这里生成的密钥要记录下来，第3步中复制过去
-3. 在 `remote-hexo`中 `Settings->Secrets->New repository secret` 添加名为 `HEXO_DEPLOY`的密钥， 内容为第2步中复制的
+2. 在 `remote-hexo`中 `Settings->Secrets->New repository secret` 添加名为 `HEXO_DEPLOY`的密钥， 内容为第2步中复制的
 
 > 每次 `git push`之后就可以自动更新到 GitHub Page 中了
 

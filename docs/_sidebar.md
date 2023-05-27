@@ -1,5 +1,4 @@
-* [Meta 思维](/Meta思维/Meta思维.md)
-  
+* [Meta 思维](/Meta思维/Meta思维.md) 
   * [物归原处](/Meta思维/物归原处.md)
   * [惯性效应](/Meta思维/惯性效应.md)
   * [小步快跑](/Meta思维/小步快跑.md)
