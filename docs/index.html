@@ -84,7 +84,12 @@
 </head>
 
 <body>
+  <nav>
+    <a href="/">Main page</a>
+  </nav>
+
   <div id="app"></div>
+
   <script>
     // Enter the URL of your own GitHub Repository in between the two quotes below
     var gitLinkRepoURL = '';
@@ -151,7 +156,7 @@
       homepage: 'home.md',
       // coverpage      : '_coverpage.md',
       loadSidebar: !(getURLParameterByName(['standalone', 'embedded']) || standalone || false),
-      loadNavbar: !(getURLParameterByName(['standalone', 'embedded']) && !(getURLParameterByName('navbar')) || standalone && !navbar ||false),
+      // loadNavbar: !(getURLParameterByName(['standalone', 'embedded']) && !(getURLParameterByName('navbar')) || standalone && !navbar ||false),
       externalLinkTarget: (getURLParameterByName(['standalone', 'embedded'], '_top', '_blank')),
       loadFooter: (getURLParameterByName('footer') || footer || false),
 
