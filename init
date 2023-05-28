@@ -1,0 +1,14 @@
+import shutil 
+
+# 指定源文件夹和目标文件夹路径
+source_folder = "docs/css"
+target_folder = "toolbox/css"
+
+# 覆盖目录
+shutil.rmtree(target_folder)
+
+# 复制文件
+shutil.copytree(source_folder, target_folder)
+
+# 打印复制完成信息
+print("文件已成功复制到目标文件夹中！")
