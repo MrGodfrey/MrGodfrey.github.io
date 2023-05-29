@@ -33,6 +33,29 @@ docsify 的原理是直接在网页上渲染 MarkDown 文件，与传统的本�
 
 [docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable/#/quick-start) 是个相当漂亮的主题, 2022年还在更新.
 
+### 拓展语法
+
+docsify 扩展了一些 Markdown 的语法， 可以让自己的文档根据可读性。
+具体的文档参见 [docsify/docs/helpers](https://github.com/docsifyjs/docsify/blob/develop/docs/helpers.md)
+
+常用的语法如下
+
+**重要内容**
+
+```markdown
+!> **Time** is money, my friend!
+```
+
+!> **Time** is money, my friend!
+
+**小提示**
+
+```markdown
+?> General tips
+```
+
+?> General tips
+
 
 ### 数学公式
 

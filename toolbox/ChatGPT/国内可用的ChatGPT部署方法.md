@@ -11,13 +11,13 @@
 2. 申请一个API2D帐号并充值： [API2D](https://api2d.com/reg/email)（充值需要信用卡）
 
 
-用我的推荐链接充值有点数优惠：[https://api2d.com/r/198143](https://api2d.com/r/198143)
+?> 用我的推荐链接充值有点数优惠：[https://api2d.com/r/198143](https://api2d.com/r/198143)
 
 ## 部署
 按照这个视频中的介绍即可部署：
 [【API2D】配置和使用 ChatGPT Next Web_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zT411p7dg/?vd_source=4d55e615e34201407bdaaa9275aa62bc)
 
-1. 视频中介绍的有些问题， 这个网站实际上任何人都可以访问，所以你的默认密码要设置的比较复杂，不能是123，否则会有别人偷跑你的流量
+!> 视频中介绍的有些问题， 这个网站实际上任何人都可以访问，所以你的默认密码要设置的比较复杂，不能是123，否则会有别人偷跑你的流量
 
 
 ## 各类插件
