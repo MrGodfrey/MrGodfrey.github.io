@@ -3,6 +3,7 @@
     --code-inline-background: none;
     --code-inline-padding: 0.125em 0.1em;
     --code-inline-color: mediumvioletred;
+    --notice-padding: 1em 1.5em 1em 1em;
 }
 
 a {
@@ -13,3 +14,11 @@ a {
     color: var(--sidebar-name-color);
     text-decoration: none;
 }
+
+.markdown-section .warn:before {
+    display: none;
+}
+.markdown-section .tip:before {
+    display: none;
+}
+
