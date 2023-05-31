@@ -52,12 +52,36 @@ Demo: [https://mrgodfrey.github.io/](https://mrgodfrey.github.io/)
 1. [Configuring a publishing source for your GitHub Pages site - GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
 ## 问题
+
+!> Hexo 支持很多插件，可以看[Plugins | Hexo](https://hexo.io/plugins/).
  
 ### 使用GitHub管理Hexo源文件时在子目录下找不到 Hexo
 
 原因: 之前按照说明, 只是安装了Hexo的驱动程序. 从Github上同步下来Hexo 源文件后, 需要在目录中运行 `npm install`才能在当前目录装上 `hexo`
 
 > npm install是一个命令，用于安装Node.js项目依赖的所有模块。它会在项目目录下查找package.json文件，读取其中的依赖项，并自动下载和安装这些依赖项。通过npm install命令，可以方便地管理项目的依赖项，保证项目的正常运行。
+
+### 如何支持数学公式
+
+在 [Plugins | Hexo](https://hexo.io/plugins/) 中使用 [next-theme/hexo-filter-mathjax: 💯 Server side MathJax renderer plugin for Hexo.](https://github.com/next-theme/hexo-filter-mathjax) 插件即可.
+
+### 如何支持站内搜索
+
+插件: [wzpan/hexo-generator-search: A plugin to generate search data for Hexo.](https://github.com/wzpan/hexo-generator-search)
+
+配置文件:
+···xml
+search:
+  path: search.xml
+  field: post
+  content: true
+```
+
+在模板 [PhosphorW/hexo-theme-academia](https://github.com/PhosphorW/hexo-theme-academia) 的设置文件中设置
+```xml
+self_search: true ## Use a jQuery-based local search engine, true/false.
+```
+然后在 `widgets:` 中打开 `-search`. 
 
 
 
