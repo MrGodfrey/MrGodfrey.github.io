@@ -70,7 +70,8 @@ Demo: [https://mrgodfrey.github.io/](https://mrgodfrey.github.io/)
 插件: [wzpan/hexo-generator-search: A plugin to generate search data for Hexo.](https://github.com/wzpan/hexo-generator-search)
 
 配置文件:
-···xml
+
+```xml
 search:
   path: search.xml
   field: post
