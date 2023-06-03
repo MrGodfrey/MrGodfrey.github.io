@@ -3,4 +3,6 @@
   * [使用 Hexo 构建个人博客](个人网站/HexoBlog.md)
 * [ChatGPT](/ChatGPT/ChatGPT.md)
   * [国内可用的ChatGPT部署方法](/ChatGPT/国内可用的ChatGPT部署方法.md)
+* [TeX](/tex/tex.md)
+  * [ctex套件](/tex/ctex套件.md)
   
