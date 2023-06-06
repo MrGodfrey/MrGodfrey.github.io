@@ -1,7 +1,9 @@
 
 # 使用 Hexo 构建个人博客
 
-Demo: [https://mrgodfrey.github.io/](https://mrgodfrey.github.io/) 
+Demo: [https://mrgodfrey.github.io/blog](https://mrgodfrey.github.io/blog) 
+
+使用的主题是: [tufu9441/maupassant-hexo: A simple Hexo theme forked from icylogic.](https://github.com/tufu9441/maupassant-hexo)
 
 
 ## 基本部署
@@ -78,7 +80,7 @@ search:
   content: true
 ```
 
-在模板 [PhosphorW/hexo-theme-academia](https://github.com/PhosphorW/hexo-theme-academia) 的设置文件中设置
+在模板 [tufu9441/maupassant-hexo: A simple Hexo theme forked from icylogic.](https://github.com/tufu9441/maupassant-hexo) 的设置文件中设置
 ```xml
 self_search: true ## Use a jQuery-based local search engine, true/false.
 ```
