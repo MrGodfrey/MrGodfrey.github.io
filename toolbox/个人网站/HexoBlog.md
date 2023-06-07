@@ -86,5 +86,15 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 ```
 然后在 `widgets:` 中打开 `-search`. 
 
+### 如何支持评论
 
+评论系统需要前后端配合，增加网站的复杂性。更为重要的是，我的网站不需要评论系统。若想与我交流，可以直接[联系我](/)。
+
+### 如何插入图片
+
+可以采用 Hexo 支持的[资源文件系统](https://hexo.io/zh-cn/docs/asset-folders.html)。
+
+1. 在 `_config.yml` 中设置 `post_asset_folder: true`
+2. 使用 `hexo new title` 新建文件后，会在source目录中出现 `title` 文件夹，将图片 `slug` 拷贝进去
+3. 在 `title.md` 中使用 `{% asset_img slug [pic title] %}` 即可
 
