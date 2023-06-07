@@ -98,3 +98,19 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 2. 使用 `hexo new title` 新建文件后，会在source目录中出现 `title` 文件夹，将图片 `slug` 拷贝进去
 3. 在 `title.md` 中使用 `{% asset_img slug [pic title] %}` 即可
 
+### 如何添加标签页
+
+在 [tufu9441/maupassant-hexo](https://github.com/tufu9441/maupassant-hexo) 主题下，只需执行以下操作
+
+1. `hexo new page "tags"` 会生成 `tags` 页面
+
+
+2. 在 `maupassant` 的 `_config.yml` 的 `menu:` 中添加
+
+```yml
+- page: tags
+    directory: tags/
+    icon: fa-tag
+```
+
+3. 可以在 `themes\maupassant\layout\tagcloud.pug` 中修改标签云的样式。我将按列表列出的标签删除掉了。
