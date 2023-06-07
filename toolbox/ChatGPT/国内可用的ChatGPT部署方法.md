@@ -13,14 +13,34 @@
 
 ?> 用我的推荐链接充值有点数优惠：[https://api2d.com/r/198143](https://api2d.com/r/198143)
 
-## 部署
-按照这个视频中的介绍即可部署：
-[【API2D】配置和使用 ChatGPT Next Web_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zT411p7dg/?vd_source=4d55e615e34201407bdaaa9275aa62bc)
-
-!> 视频中介绍的有些问题， 这个网站实际上任何人都可以访问，所以你的默认密码要设置的比较复杂，不能是123，否则会有别人偷跑你的流量
+## 部署网页版
 
 
-## 各类插件
+[Yidadaa/ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web#keep-updated) 还在频繁的开发， 那么如何升级新的版本呢？
+
+遵循指南 [keep-updated](https://github.com/Yidadaa/ChatGPT-Next-Web#keep-updated), 需要执行以下步骤
+
+1. 重新 fork [Yidadaa/ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web#keep-updated)
+2. 在 vercel 中新建项目， 选择第一步中的仓库
+3. 配置环境变量
+   1. 新建 `BASE_URL` 环境变量, 值为 `openai.api2d.net`
+   2. 新建 `OPENAI_API_KEY` 环境变量，值为 `API2D中的 Forward Key` 
+   3. 新建 `CODE` 环境变量，值为 `自己设置的密码`
+4. 点击 `Deploy`， 等待五分钟左右即可
+
+安装好后， 访问 Vercel 提供的链接，在登录页面中填入你自己设定的 CODE 即可.
+
+为了将来无缝的升级这一应用，最好自己申请一个可访问的域名。
+
+!> 任何知道你 CODE 和 Vercel 应用网址的人都能使用你的 ChatGPT。 CODE 要设置的比较复杂，不能是123，否则会有别人偷跑你的流量
+
+
+**参考**
+1. [ChatGPT-Next-Web/vercel-cn.md at main · Yidadaa/ChatGPT-Next-Web · GitHub](https://github.com/Yidadaa/ChatGPT-Next-Web/blob/main/docs/vercel-cn.md) —— vercel 部署帮助
+2. [【API2D】配置和使用 ChatGPT Next Web_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zT411p7dg/?vd_source=4d55e615e34201407bdaaa9275aa62bc)
+
+
+## 其他插件
 
 
 ### 浏览器插件 - chatGPTBox
@@ -47,7 +67,7 @@ chatGPTBox	[📼 教程链接](https://www.bilibili.com/video/BV1bo4y1h7Hb) 浏�
 
 
 
-**参考资料**
+**参考**
 
 1. [GitHub - easychen/openai-gpt-dev-notes-for-cn-developer: 如何快速开发一个OpenAI/GPT应用：国内开发者笔记](https://github.com/easychen/openai-gpt-dev-notes-for-cn-developer)
 2. API2D 官网： [API2D](https://api2d.com/reg/email)
