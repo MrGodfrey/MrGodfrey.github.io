@@ -53,7 +53,7 @@ Demo: [https://mrgodfrey.github.io/blog](https://mrgodfrey.github.io/blog)
 
 1. [Configuring a publishing source for your GitHub Pages site - GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
-## 问题
+## 小配置
 
 !> Hexo 支持很多插件，可以看[Plugins | Hexo](https://hexo.io/plugins/).
  
@@ -88,7 +88,7 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 
 ### 如何支持评论
 
-评论系统需要前后端配合，增加网站的复杂性。更为重要的是，我的网站不需要评论系统。若想与我交流，可以直接[联系我](/)。
+评论系统需要前后端配合，增加网站的复杂性。更为重要的是，我的网站不需要评论系统。若想与我交流，可以直接[联系我](https://www.drwang.fun/)。
 
 ### 如何插入图片
 
@@ -98,3 +98,9 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 2. 使用 `hexo new title` 新建文件后，会在source目录中出现 `title` 文件夹，将图片 `slug` 拷贝进去
 3. 在 `title.md` 中使用 `{% asset_img slug [pic title] %}` 即可
 
+### 如何配置标签页
+
+我的[博客](https://www.drwang.fun/blog/)不采用 Catagories 的结构，因为呈系统的文章被放在了 docsify 中。
+我的博客更看重 tags， 将文章按照自己定义的 tag 零散的组织起来。
+
+所以我需要重新配置模板中的tags页。 具体的变动可向我询问代码。
