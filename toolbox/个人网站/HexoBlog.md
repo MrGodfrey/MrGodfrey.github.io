@@ -6,6 +6,18 @@ Demo: [https://mrgodfrey.github.io/blog](https://mrgodfrey.github.io/blog)
 使用的主题是: [tufu9441/maupassant-hexo: A simple Hexo theme forked from icylogic.](https://github.com/tufu9441/maupassant-hexo)
 
 
+## 为什么是 Hexo
+
+在[这个网站](https://jamstack.org/generators/)可以看到近期比较热的静态网页生成器。
+1. hugo
+2. hexo
+
+
+我之前用过 Hexo，故在静态网页生成中不做选择。
+
+[Blog Tool, Publishing Platform, and CMS – WordPress.org](https://wordpress.org/) 是一套前后端结合的博客系统，需要自己从服务器开始搭建。但是因为其需要包含庞大的后端，故虽然生态更好，也不做选择。
+
+
 ## 基本部署
 
 我目前采用的是分成几个仓库的构造方法。
