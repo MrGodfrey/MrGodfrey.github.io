@@ -104,3 +104,13 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 我的博客更看重 tags， 将文章按照自己定义的 tag 零散的组织起来。
 
 所以我需要重新配置模板中的tags页。 具体的变动可向我询问代码。
+
+### 如何添加小图标
+
+在 `source` 文件夹中放入 `favicon.ico`, 在 `_config.yml` 中添加
+
+```yml
+favicon: favicon.ico
+```
+
+
