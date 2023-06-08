@@ -53,7 +53,7 @@ Demo: [https://mrgodfrey.github.io/blog](https://mrgodfrey.github.io/blog)
 
 1. [Configuring a publishing source for your GitHub Pages site - GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
-## 问题
+## 小配置
 
 !> Hexo 支持很多插件，可以看[Plugins | Hexo](https://hexo.io/plugins/).
  
@@ -88,7 +88,7 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 
 ### 如何支持评论
 
-评论系统需要前后端配合，增加网站的复杂性。更为重要的是，我的网站不需要评论系统。若想与我交流，可以直接[联系我](/)。
+评论系统需要前后端配合，增加网站的复杂性。更为重要的是，我的网站不需要评论系统。若想与我交流，可以直接[联系我](https://www.drwang.fun/)。
 
 ### 如何插入图片
 
@@ -100,7 +100,8 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 
 ### 如何添加标签页
 
-在 [tufu9441/maupassant-hexo](https://github.com/tufu9441/maupassant-hexo) 主题下，只需执行以下操作
+我的[博客](https://www.drwang.fun/blog/)不采用 Catagories 的结构，因为呈系统的文章被放在了 docsify 中。
+我的博客更看重 tags， 将文章按照自己定义的 tag 零散的组织起来。
 
 1. `hexo new page "tags"` 会生成 `tags` 页面
 
@@ -114,3 +115,12 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 ```
 
 3. 可以在 `themes\maupassant\layout\tagcloud.pug` 中修改标签云的样式。我将按列表列出的标签删除掉了。
+
+
+### 如何添加小图标
+
+在 `source` 文件夹中放入 `favicon.ico`, 在 `_config.yml` 中添加
+
+```yml
+favicon: favicon.ico
+```
