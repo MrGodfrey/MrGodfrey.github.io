@@ -9,8 +9,8 @@ Demo: [https://mrgodfrey.github.io/blog](https://mrgodfrey.github.io/blog)
 ## 为什么是 Hexo
 
 在[这个网站](https://jamstack.org/generators/)可以看到近期比较热的静态网页生成器。
-1. hugo
-2. hexo
+1. [hugo](https://gohugo.io/) —— 文档写的相当好，编译速度也非常快
+2. [hexo](https://hexo.io/zh-cn/) —— 发展比较久，模板多
 
 
 我之前用过 Hexo，故在静态网页生成中不做选择。
