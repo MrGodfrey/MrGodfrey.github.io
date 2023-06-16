@@ -81,6 +81,8 @@ Demo: [https://mrgodfrey.github.io/blog](https://mrgodfrey.github.io/blog)
 
 注意到出现下划线 `_` 以及 `\` 时， 由于会先调用 mark.js, 导致被转义为 html 标签，显示出问题的话，需要使用 `\_`, 以及 `\\`.
 
+MathJax 还有一个特性是， 无法在小屏幕的设备上正确渲染含有 `\tag` 的公式, 具体表现在超长。 从 MathJax 的适用范围来看，最好直接避免写带有 `\tag` 的公式，因为如果需要频繁的引用之前的式子，那么最好直接用 LaTeX 写成pdf文档。
+
 ### 如何支持站内搜索
 
 插件: [wzpan/hexo-generator-search: A plugin to generate search data for Hexo.](https://github.com/wzpan/hexo-generator-search)
