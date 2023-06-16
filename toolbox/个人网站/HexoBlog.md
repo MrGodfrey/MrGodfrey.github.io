@@ -79,6 +79,8 @@ Demo: [https://mrgodfrey.github.io/blog](https://mrgodfrey.github.io/blog)
 
 在 [Plugins | Hexo](https://hexo.io/plugins/) 中使用 [next-theme/hexo-filter-mathjax: 💯 Server side MathJax renderer plugin for Hexo.](https://github.com/next-theme/hexo-filter-mathjax) 插件即可.
 
+注意到出现下划线 `_` 以及 `\` 时， 由于会先调用 mark.js, 导致被转义为 html 标签，显示出问题的话，需要使用 `\_`, 以及 `\\`.
+
 ### 如何支持站内搜索
 
 插件: [wzpan/hexo-generator-search: A plugin to generate search data for Hexo.](https://github.com/wzpan/hexo-generator-search)
