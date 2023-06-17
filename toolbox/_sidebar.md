@@ -7,4 +7,6 @@
   * [国内可用的ChatGPT部署方法](/ChatGPT/国内可用的ChatGPT部署方法.md)
 * [TeX](/tex/tex.md)
   * [ctex套件](/tex/ctex套件.md)
+* [操作系统](/os/os.md)
+  * [Windows](/os/windows.md)
   
