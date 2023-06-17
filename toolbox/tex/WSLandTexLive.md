@@ -21,7 +21,7 @@ sudo mount -t drvfs E: /mnt/img
 sudo mnt/img/install-tl
 ```
 
-注意在安装时可以按 `O` 选择将 `create symlinks to standard directories`, 自动创建符号链接。
+注意在安装时可以按 `O` 选择将 create symlinks to standard directories, 自动创建符号链接。
 
 若是错过这一步，也可以用TeXLive自带的包管理器 `tlmgr` 自动将路径添加到默认目录中
 ```bash
@@ -64,7 +64,7 @@ curl google.com
 
 ### 字体配置
 
-?> 注意到如果用的是 `xelatex` 引擎，那么会报如下的错误 `xelatex: error while loading shared libraries: libfontconfig.so.1:` 此时就需要配置字体运行库.
+?> 注意到如果用的是 `xelatex` 引擎，那么会报错，此时就需要配置字体运行库.
 
 需要使用 Windows 系统的字体，可以采用如下方式
 
