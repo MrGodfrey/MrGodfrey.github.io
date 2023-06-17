@@ -2,14 +2,12 @@
 
 ## 网络
 
-
 ### ClashX
 
 科学上网
 
 [Releases · Fndroid/clash_for_windows_pkg](https://github.com/Fndroid/clash_for_windows_pkg/releases)
 + 下载 arm64.exe 安装版
-
 
 ### Chrome
 
@@ -110,7 +108,12 @@ choco install inkscape
 ```
 ### Jabref
 
-
 ```powershell
 choco install jabref
+```
+
+### Pandoc
+
+```Powershell
+choco install pandoc
 ```
