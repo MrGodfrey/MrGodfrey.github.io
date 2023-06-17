@@ -7,7 +7,7 @@
 科学上网
 
 [Releases · Fndroid/clash_for_windows_pkg](https://github.com/Fndroid/clash_for_windows_pkg/releases)
-+ 下载 arm64.exe 安装版
++ 下载免安装版
 
 ### Chrome
 
@@ -17,6 +17,10 @@
 
 
 ## 软件
+
+### VSCode
+
+官网下载相当慢，不知为何。
 
 ### chocolatey
 
@@ -61,9 +65,6 @@ choco install nodejs-lts
 
 // 安装 Git
 choco install git.install
-
-// 安装VSCode
-choco install vscode
 
 // 安装7-zip：
 choco install 7zip.install
