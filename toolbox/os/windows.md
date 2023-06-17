@@ -72,9 +72,6 @@ choco install 7zip.install
 // 安装 Python
 choco install python
 
-// 安装 Utools 我喜爱的启动器
-choco install yuanliao-utools
-
 //  安装 PDF 阅读器
 choco install sumatrapdf
 ```
@@ -84,6 +81,12 @@ choco install sumatrapdf
 2. [使用说明](https://docs.chocolatey.org/en-us/choco/setup)
 
 ## 工作
+
+### utools
+
+[uTools官网 - 新一代效率工具平台](https://www.u.tools/)
+
+快速启动器，相当好用。
 
 ### TeXLive
 
