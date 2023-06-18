@@ -89,6 +89,16 @@ sudo apt install fontconfig
 
 然后使用 `fc-cache -fv` 刷新一下字体缓存，就可以使用 Windows 中的字体了。
 
+### TexStudio
+
+由于 TeXLive 装在了 WSL 中， 在 Windows 的bash中调用命令为 `wsl pdflatex`.
+
+在 TexStudio 的设置中配置 pdflatex 引擎命令为
+```bash
+wsl pdflatex %
+```
+余下相同
+
 ## 问题
 
 目前发现的问题是，对于较复杂的层级结构，需要大量的时间来建立缓存，在此之前整个 vscode 是被阻塞掉的，也即没办法操作。
