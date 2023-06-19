@@ -140,3 +140,7 @@ choco install jabref
 ```shell
 choco install pandoc
 ```
+
+### Zettlr
+
+一款开源的markdown编辑浏览器，可以用来将markdown转化为pdf
