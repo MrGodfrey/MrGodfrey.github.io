@@ -1,2 +1,2 @@
 * [玩具](/toys/toys.md)
-  * [Jellyfin](/littleTools/Jellyfin.md)
+  * [Jellyfin](/toys/Jellyfin.md)

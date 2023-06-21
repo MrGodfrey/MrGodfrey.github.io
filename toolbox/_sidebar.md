@@ -2,3 +2,4 @@
 * [操作系统](/os/os.md)
 * [TeX](/tex/tex.md)
 * [生产力工具](/littleTools/littleTools.md)
+* [玩具](/toys/toys.md)
