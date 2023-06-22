@@ -25,3 +25,16 @@ choco install jellyfin
 1. [小米电视安装jellyfinTV客户端APP_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1fG4y1s7UT/?spm_id_from=333.788&vd_source=4d55e615e34201407bdaaa9275aa62bc)
 2. [Windows 10/ 11 下安全并正确地使用 SMB 共享_软件应用_什么值得买](https://post.smzdm.com/p/akxwkxqk/)
 3. [解决window系统电脑某个端口下的程序无法被局域网内的电脑访问的问题。_局域网无法访问某端口_cjy_is_me的博客-CSDN博客](https://blog.csdn.net/cuijiying/article/details/104993550)
+
+## 管理
+
+可以用 [tinyMediaManager](https://www.tinymediamanager.org/) 来管理电影源文件，以及刮削各类元数据
+
+### 字幕
+
+可以用 [首页 - 射手网(伪) - assrt.net - 字幕下载，字幕组，中文字幕，美剧字幕，英剧字幕，双语字幕，新番字幕](https://assrt.net/) 来下载中文字幕。
+
+查看 Jellyfin 的[支持的字幕](https://jellyfin.org/docs/general/clients/codec-support#wikipedias-subtitle-codec-tables) 以及 [字幕设置](https://jellyfin.org/docs/general/server/media/external-files/)
+
+格式为 `film.中文.default.srt`.
+
