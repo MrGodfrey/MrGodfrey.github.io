@@ -1,4 +1,5 @@
 * [操作系统](/os/os.md)
+  * [computer](/os/computer.md)
   * [Windows](/os/windows.md)
   * [WSL](/os/wsl.md)
   * [VirtualBox](/os/virtualBox.md)
