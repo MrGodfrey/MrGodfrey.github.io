@@ -114,6 +114,8 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 2. 使用 `hexo new title` 新建文件后，会在source目录中出现 `title` 文件夹，将图片 `slug` 拷贝进去
 3. 在 `title.md` 中使用 `{% asset_img slug [pic title] %}` 即可
 
+可以使用 Google 开源的 [squoosh](https://squoosh.app/) 压缩图片大小.
+
 ### 如何添加标签页
 
 我的[博客](https://www.drwang.fun/blog/)不采用 Catagories 的结构，因为呈系统的文章被放在了 docsify 中。
@@ -140,7 +142,3 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 ```yml
 favicon: favicon.ico
 ```
-
-### 如何压缩图片大小
-
-可以使用 Google 开源的 [squoosh](https://squoosh.app/).
