@@ -38,6 +38,8 @@ git config --global user.email "Email"
 
 一款Windows上的包管理软件， [安装方式](https://chocolatey.org/install)。
 
+
+
 #### 基本操作
 
 **查找帮助**
@@ -144,3 +146,9 @@ choco install pandoc
 ### Zettlr
 
 一款开源的markdown编辑浏览器，可以用来将markdown转化为pdf
+
+## 小工具
+
+### unlock
+
+解锁并删除文件。[官方网站](https://lockhunter.com/)
