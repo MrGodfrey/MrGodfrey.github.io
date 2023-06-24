@@ -140,3 +140,7 @@ self_search: true ## Use a jQuery-based local search engine, true/false.
 ```yml
 favicon: favicon.ico
 ```
+
+### 如何压缩图片大小
+
+可以使用 Google 开源的 [squoosh](https://squoosh.app/).
