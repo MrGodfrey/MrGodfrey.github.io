@@ -99,9 +99,36 @@ wsl pdflatex %
 ```
 余下相同
 
+### Jabref
+
+这款软件直接在Ubuntu目录中打开对应的库文件是可以的，但是没有办法保存。为此只能采取曲线救国的手段。
+
+新建一个 bash 脚本 `copyThingsToWindows.sh`, 使用 rsync 将 WSL 中的文件传到 Windows，再传回来。
+
+```sh
+#!/bin/bash
+
+if [ "$1" == "a" ]; then
+    # 执行第一条命令
+    rsync -a --delete  /home/name/Github/papers/bibtex  /mnt/c/githubLinux
+elif [ "$1" == "b" ]; then
+    # 执行第二条命令
+    rsync -a  /mnt/c/githubLinux/bibtex/ /home/name/Github/papers/bibtex  
+else
+    # 参数无效
+    echo "无效的参数"
+fi
+```
+
+使用命令 `chmod +x copyThingsToWindows.sh` 将其变为可执行文件.
+
+在终端中输入 `./copyThingsToWindows.sh a` 将文件同步到 Windows 中，参数为 `b` 则是拉回到 WSL. 
+
+这样就可以在 Jabref 中打开 Windows 的库了。当然，这样做的代价就是不能用查找源文件的功能了。
+
 ## 问题
 
-目前发现的问题是，对于较复杂的层级结构，需要大量的时间来建立缓存，在此之前整个 vscode 是被阻塞掉的，也即没办法操作。
+目前发现的问题是，对于较复杂的层级结构，需要大量的时间来建立缓存，在此之前整个 vscode 是被阻塞掉的，也即没办法操作。这个bug最近被修复了
 
 ## 参考阅读
 
