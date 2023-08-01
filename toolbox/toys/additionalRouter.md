@@ -1,0 +1,7 @@
+# 路由器作为交换机
+
+
+## 参考
+
++ [小米AX3600 路由器折腾记录](https://mp.weixin.qq.com/s?__biz=MzI3Mzk2OTkxNg==&mid=2247485754&idx=1&sn=da9466ecc0fda9edaea8c744ada39dff&chksm=eb1a6ea9dc6de7bfeecdaf493c9dbcd4b92ccf317cdf35397687e6a4603a96bc6e39abc796fc&mpshare=1&scene=1&srcid=07097qBCjhbineIyBnM2I4e1&sharer_sharetime=1688904751038&sharer_shareid=75c13fa71fa934a180cab11c488bad49&from=singlemessage&isappinstalled=0&clicktime=1690886610&enterid=1690886610&ascene=1&devicetype=iOS16.5.1&version=18002733&nettype=WIFI&abtest_cookie=AAACAA%3D%3D&lang=zh_CN&countrycode=CN&fontScale=100&exportkey=n_ChQIAhIQ0DDofYuBy37Pixp4gpVoLRLlAQIE97dBBAEAAAAAACPyBXbBQQsAAAAOpnltbLcz9gKNyK89dVj0s4J6jAGQHHzwIad2NxCU7GDih%2BZJWwyUiofkrRTYLFXB0Wy0TSL9z%2Bnr2drpAKhkUbqQlhTKr6RaKgg5A0Vv3va%2FNo9WSAMvWb57NwjdqKoQOJKP3lUMc3GKr4N1aQYpCduE1rA5qBmLWdPTLe%2BD2cIcFOpsXEH%2FQA7O%2BPTUw9wsZv27oOU9XKSdLQeL28DQpSjrr6WSOMAVMkbhumykeIONr8fKNB55K2%2BlbklUpbnG%2BX11FaZdvDCVay9QggI%3D&pass_ticket=KOlWy7tr3o4OZHJ0g%2FpCSTkNKAseHUeyODF3U9uti5IBEb0gxZyGGYkw0gWK4npE&wx_header=3)
++ 
