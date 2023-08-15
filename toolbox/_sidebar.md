@@ -1,6 +1,0 @@
-* [个人网站](/个人网站/个人网站.md)
-* [操作系统](/os/os.md)
-* [TeX](/tex/tex.md)
-* [生产力工具](/littleTools/littleTools.md)
-* [玩具](/toys/toys.md)
-* [有趣网站](/website/website.md)
