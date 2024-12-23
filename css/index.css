@@ -276,7 +276,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  color: #494e52;
+  color: #1d1d1f;
   font-size: 1.8em;
   line-height: 1.5;
   font-family: "Times New Roman", FangSong, STFangsong, sans-serif;
@@ -539,7 +539,7 @@ blockquote p {
 }
 
 .page article a {
-  color: #494e52;
+  color: #1d1d1f;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
