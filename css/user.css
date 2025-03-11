@@ -5,3 +5,18 @@
     text-align: justify;
 }
 
+details {
+    display: flex;
+    flex-direction: column;
+}
+
+details summary {
+    font-size: 1.5rem; /* 根据需要调整字体大小 */
+}
+
+details ul {
+    list-style-type: decimal; /* 如果需要无序列表则设为 none */
+    padding-left: 20px;
+    margin: 0;
+    font-size: 0.2em; /* 根据需要调整字号 */
+}
