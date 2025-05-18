@@ -255,7 +255,7 @@
                 </ul>
                 <h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1>
                 <ul>
-                    <li><span class="Course-date">2025</span>Neural Networks and Deep Learning (神经网络与深度学习)</li>
+                    <li><span class="Course-date">2025</span><a href="#" onclick="loadCoursePage('neural-networks.html'); return false;">Neural Networks and Deep Learning (神经网络与深度学习)</a></li>
                     <li><span class="Course-date">2024</span>Introduction to Major (专业导论)</li>
                 </ul>
             </article>
@@ -287,6 +287,19 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@latest/jquery.pjax.min.js"></script>
     <script src="/js/main.js"></script>
+    <script>
+function loadCoursePage(page) {
+    fetch(page)
+        .then(response => response.text())
+        .then(html => {
+            document.querySelector('.page').innerHTML = html;
+            window.scrollTo(0, 0);
+        })
+        .catch(err => {
+            document.querySelector('.page').innerHTML = '<p>内容加载失败，请稍后重试。</p>';
+        });
+}
+</script>
 
     <noscript>
         <link rel="stylesheet" href="/css/index.css">
