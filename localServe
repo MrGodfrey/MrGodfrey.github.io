@@ -1,4 +1,34 @@
 import os
+import time
+import threading
+import subprocess
 
-print('Server at http://localhost:4000/')
-os.system("python -m http.server 4000")
+def watch_content_and_generate():
+    content_dir = 'content'
+    last_mtime = {}
+
+    while True:
+        changed = False
+        for root, _, files in os.walk(content_dir):
+            for f in files:
+                path = os.path.join(root, f)
+                try:
+                    mtime = os.path.getmtime(path)
+                except FileNotFoundError:
+                    continue
+                if path not in last_mtime or last_mtime[path] != mtime:
+                    last_mtime[path] = mtime
+                    changed = True
+        if changed:
+            print("Detected changes in 'content'. Running generate.py...")
+            subprocess.run(['python', 'generate.py'])
+        time.sleep(1)
+
+def serve():
+    print('Server at http://localhost:4000/')
+    os.system("python -m http.server 4000")
+
+if __name__ == "__main__":
+    watcher = threading.Thread(target=watch_content_and_generate, daemon=True)
+    watcher.start()
+    serve()

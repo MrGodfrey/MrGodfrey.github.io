@@ -1,3 +1,4 @@
+/* 基础样式 */
 .Course-date {
     display: inline-block;
     width: 40px;
@@ -19,4 +20,99 @@ details ul {
     padding-left: 20px;
     margin: 0;
     font-size: 0.2em; /* 根据需要调整字号 */
+}
+
+/* 调整媒体查询的断点，使706px以下的布局与移动端一致 */
+@media (min-width: 34em) and (max-width: 706px) {
+    /* 在706px以下隐藏导航菜单项 */
+    .menus_items {
+        display: none !important;
+    }
+    
+    /* 覆盖34em以上的设置，恢复为小屏幕布局 */
+    .page {
+        width: 100% !important;
+        float: none !important;
+        margin-right: 0 !important;
+    }
+
+    .page .page-title {
+        padding: 0 1.2rem !important;
+    }
+
+    .page article {
+        padding: 0 1.2rem 1.2rem !important;
+    }
+
+    /* 侧边栏样式恢复为小屏幕的表格式布局 */
+    .side-card {
+        width: 100% !important;
+        float: none !important;
+        margin-right: 0 !important;
+        min-width: auto !important;
+        opacity: 1 !important;
+    }
+
+    /* 取消粘性定位 */
+    .sticky {
+        position: static !important;
+    }
+
+    /* 恢复为表格式布局 */
+    .author-avatar {
+        display: table-cell !important;
+        vertical-align: top !important;
+        width: 40px !important;
+        height: 40px !important;
+        text-align: left !important;
+    }
+
+    .author-avatar img {
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .author-discrip {
+        display: table-cell !important;
+        vertical-align: top !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        width: auto !important;
+    }
+
+    .author-discrip .author-bio {
+        font-size: 1.2rem !important;
+        margin: 0.3rem 0 !important;
+    }
+
+    .author-links {
+        display: table-cell !important;
+    }
+
+    /* 主要内容区域的内边距调整 */
+    #page_main {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* 保持社交链接的正确显示 */
+    .social-links {
+        display: none !important;
+    }
+    
+    .social-icons {
+        display: none !important;
+    }
+    
+    .m-social-links {
+        display: inline-block !important;
+    }
+}
+
+/* 保持大屏幕布局的良好显示 */
+@media (min-width: 707px) {
+    /* 确保侧边栏卡片内边距正确 */
+    .side-card .card-wrap {
+        padding: 10px 10px 10px 17px !important;
+    }
 }
