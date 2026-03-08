@@ -1,9 +1,9 @@
 /* 基础样式 */
 .Course-date {
     display: inline-block;
-    width: 40px;
+    min-width: 90px;
     margin-right: 5px;
-    text-align: justify;
+    white-space: nowrap;
 }
 
 details {
