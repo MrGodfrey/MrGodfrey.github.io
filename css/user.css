@@ -109,9 +109,29 @@ details ul {
     }
 }
 
-/* 保持大屏幕布局的良好显示 */
+/* 使用 flexbox 替代 float 布局，避免中间宽度下的内容下跳 */
 @media (min-width: 707px) {
-    /* 确保侧边栏卡片内边距正确 */
+    #page_main {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-start !important;
+    }
+
+    .side-card {
+        float: none !important;
+        width: 165px !important;
+        min-width: 165px !important;
+        flex-shrink: 0 !important;
+        margin-right: 20px !important;
+    }
+
+    .page {
+        float: none !important;
+        width: auto !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
     .side-card .card-wrap {
         padding: 10px 10px 10px 17px !important;
     }
