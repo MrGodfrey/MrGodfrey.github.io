@@ -198,8 +198,6 @@ courses:
 
 Specializing in **Control Theory** and **Inverse Problems** for Stochastic Partial Differential Equations (SPDEs). My work bridges pure mathematical theory with complex system analysis.
 
-You can find my CV here: [CV (Google Drive, update: 07.2025)](https://drive.google.com/file/d/1dlNqQ2TWe0RWdZnDPGzSULbuEBXyoNu6/view?usp=sharing).
-
 In the realm of Control Theory, I focus on establishing null and exact controllability for various stochastic evolutionary systems using global Carleman estimates and duality arguments. Furthermore, to bridge the gap between continuous theory and numerical implementation, I investigate the uniform controllability of semi-discrete approximations, rigorously analyzing how discretization parameters influence control behavior.
 
 Regarding Inverse Problems, I work on determining and reconstructing unknown components in the system (source terms, coefficients, or initial/boundary values) using partial observation data. Addressing the ill-posed nature of these problems, I employ Carleman estimates to derive conditional stability results and develop globally convergent iterative regularization methods.
