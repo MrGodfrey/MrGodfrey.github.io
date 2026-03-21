@@ -14,24 +14,7 @@ python3 localServe                # 启动本地预览 http://localhost:4000/
 
 ---
 
-## 1. 可以安全删除的文件
-
-以下文件是旧版遗留或临时文件，删除后不影响网站任何功能：
-
-| 文件 / 目录 | 说明 |
-|---|---|
-| `template.html` | 旧版模板，已被 `templates/` 目录取代 |
-| `content/index.html` | 旧版 HTML 内容，已被 `content/index.md` 取代 |
-| `content/neural-networks.html` | 旧版 HTML 内容，已被 `content/neural-networks.md` 取代 |
-| `css/index.css` | 旧版 CSS，新版使用 Tailwind CSS（通过 CDN） |
-| `css/user.css` | 旧版自定义 CSS |
-| `js/main.js` | 旧版 JS（jQuery pjax 等），新版已内联轻量脚本 |
-| `init` | 旧版工具脚本，与当前构建流程无关 |
-| `changelog` | 旧版变更日志 |
-| `package-lock.json` | 无 `package.json`，此文件无用 |
-| `stitch/` | 设计参考素材，已应用到 `templates/` 中，可删除（或保留做归档） |
-
-**不要删除的文件**：
+## 1.  **不要删除的文件**：
 - `config.yaml` — 全站共享配置
 - `content/*.md` — 你的内容源文件
 - `templates/` — Jinja2 模板
