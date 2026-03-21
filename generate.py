@@ -1,66 +1,110 @@
+"""
+Site generator — reads Markdown+YAML front matter from content/ and renders
+Jinja2 templates into static HTML.
+
+Usage:
+    python generate.py              # build all .md files in content/
+    python generate.py content/index.md   # build a single file
+"""
+
 import os
+import re
 import sys
-from bs4 import BeautifulSoup
 
-def extract_title_from_content(content):
-    soup = BeautifulSoup(content, 'html.parser')
-    h1 = soup.find('h1')
-    if h1:
-        return h1.get_text().strip()
-    return None
+import yaml
+import markdown
+from jinja2 import Environment, FileSystemLoader
 
-def generate_html(template_path, content_path, output_path):
-    # 读取模板
-    with open(template_path, 'r', encoding='utf-8') as f:
-        template = f.read()
-    
-    # 读取内容
-    with open(content_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-        
-        # 如果内容是完整的HTML文件，只提取article标签内的内容
-        if '<article>' in content:
-            start = content.index('<article>') + len('<article>')
-            end = content.index('</article>')
-            content = content[start:end].strip()
-    
-    # 从内容中提取标题
-    title = extract_title_from_content(content)
-    if not title:
-        title = "Untitled"  # 如果没有找到标题，使用默认值
-    
-    # 替换模板中的标记
-    html = template.replace('{{title}}', title).replace('{{content}}', content)
-    
-    # 写入输出文件
-    with open(output_path, 'w', encoding='utf-8') as f:
+# ------------------------------------------------------------------ helpers
+
+CONFIG_FILE = "config.yaml"
+CONTENT_DIR = "content"
+TEMPLATE_DIR = "templates"
+
+
+def load_config():
+    with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
+
+
+def parse_front_matter(text):
+    """Return (front_matter_dict, body_markdown)."""
+    m = re.match(r"\A---\s*\n(.*?\n)---\s*\n(.*)", text, re.DOTALL)
+    if m:
+        fm = yaml.safe_load(m.group(1)) or {}
+        body = m.group(2)
+    else:
+        fm = {}
+        body = text
+    return fm, body
+
+
+def render_authors(text):
+    """Turn **name** in author strings into <strong>name</strong>."""
+    return re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
+
+
+# ------------------------------------------------------------------ build
+
+def build_page(md_path, config, env):
+    with open(md_path, "r", encoding="utf-8") as f:
+        raw = f.read()
+
+    page, body_md = parse_front_matter(raw)
+    body_html = markdown.markdown(body_md, extensions=["extra"])
+
+    template_name = page.get("template", "home") + ".html"
+    template = env.get_template(template_name)
+
+    # Render authors with bold
+    for key in ("articles", "preprints"):
+        for paper in page.get(key, []):
+            if "authors" in paper:
+                paper["authors"] = render_authors(paper["authors"])
+
+    # Allow HTML in body for the home page (research description)
+    html = template.render(
+        config=config,
+        page=page,
+        body=body_html,
+        page_title=page.get("title", "Untitled"),
+        active_nav=page.get("active_nav", ""),
+    )
+
+    # Output filename: content/index.md -> index.html
+    basename = os.path.splitext(os.path.basename(md_path))[0] + ".html"
+    output_path = os.path.join(".", basename)
+
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
 
-def process_all_content():
-    template_file = 'template.html'
-    content_dir = 'content'
-    
-    if not os.path.exists(template_file):
-        print(f"错误：模板文件 {template_file} 不存在")
-        sys.exit(1)
-    
-    if not os.path.exists(content_dir):
-        print(f"错误：content 目录不存在")
-        sys.exit(1)
-    
-    # 遍历content目录下的所有html文件
-    for root, dirs, files in os.walk(content_dir):
-        for file in files:
-            if file.endswith('.html'):
-                content_path = os.path.join(root, file)
-                # 输出文件将直接放在主目录下
-                output_path = os.path.join(os.path.dirname(content_dir), file)
-                
-                try:
-                    generate_html(template_file, content_path, output_path)
-                    print(f"成功生成文件：{output_path}")
-                except Exception as e:
-                    print(f"处理文件 {content_path} 时出错：{str(e)}")
+    print(f"✓ {md_path} → {output_path}")
 
-if __name__ == '__main__':
-    process_all_content()
+
+def main():
+    if not os.path.exists(CONFIG_FILE):
+        print(f"错误：配置文件 {CONFIG_FILE} 不存在")
+        sys.exit(1)
+
+    config = load_config()
+    env = Environment(
+        loader=FileSystemLoader(TEMPLATE_DIR),
+        autoescape=False,  # We handle escaping in templates / content
+    )
+
+    # Build one or all
+    if len(sys.argv) > 1:
+        for path in sys.argv[1:]:
+            if path.endswith(".md") and os.path.isfile(path):
+                build_page(path, config, env)
+            else:
+                print(f"跳过：{path}（不是 .md 文件或不存在）")
+    else:
+        for root, _dirs, files in os.walk(CONTENT_DIR):
+            for fname in sorted(files):
+                if fname.endswith(".md"):
+                    build_page(os.path.join(root, fname), config, env)
+
+
+if __name__ == "__main__":
+    main()

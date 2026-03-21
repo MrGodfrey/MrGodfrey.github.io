@@ -1,0 +1,57 @@
+# ============================================================
+# Site Configuration — Shared data for all pages
+# ============================================================
+
+site_title: "Academic Portfolio"
+
+# Personal Info
+name: "Yu Wang 王宇"
+name_en: "Yu Wang"
+position: "Assistant Professor"
+institution: "Southwest Jiaotong University"
+avatar: "/img/avatar.jpg"
+email: "yuwangmath@163.com"
+
+cv:
+  url: "https://drive.google.com/file/d/1dlNqQ2TWe0RWdZnDPGzSULbuEBXyoNu6/view?usp=sharing"
+  label: "Download CV"
+
+# Sidebar Links
+links:
+  - icon: mail
+    label: Email
+    url: "mailto:yuwangmath@163.com"
+  - icon: science
+    label: ResearchGate
+    url: "https://www.researchgate.net/profile/Yu-Wang-792"
+  - icon: badge
+    label: ORCID
+    url: "https://orcid.org/0000-0003-0448-9870"
+  - icon: school
+    label: Google Scholar
+    url: "https://scholar.google.com.hk/citations?hl=zh-CN&user=jIEudq0AAAAJ"
+  - icon: account_circle
+    label: Faculty Profile
+    url: "https://faculty.swjtu.edu.cn/yuwang/zh_CN/index/834956/list/index.htm"
+  - icon_img: "/img/zbmath.ico"
+    label: zbMATH
+    url: "https://zbmath.org/authors/wang.yu.106"
+  - icon_img: "/img/mathreview.png"
+    label: "MR: 1609675"
+    url: "https://mathscinet.ams.org/mathscinet/author?authorId=1609675"
+
+research_interests:
+  - "Control Theory"
+  - "Inverse Problems"
+  - "Stochastic PDEs"
+
+# Navigation
+nav:
+  - label: Publications
+    url: "/#Publications"
+  - label: Grants
+    url: "/#Grants"
+  - label: Service
+    url: "/#Service"
+  - label: Teaching
+    url: "/#Courses"

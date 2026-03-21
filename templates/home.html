@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="space-y-16 lg:space-y-20">
+
+  <!-- Hero / About -->
+  <section class="space-y-5" id="About">
+    <span class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold">Introduction</span>
+    <h2 class="font-headline text-4xl lg:text-5xl font-black text-primary leading-tight">{{ config.position }} of Mathematics at {{ config.institution }}.</h2>
+    <div class="max-w-3xl space-y-4 text-on-surface-variant leading-relaxed font-body">
+      {{ body }}
+    </div>
+  </section>
+
+  <!-- Experience & Education -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-6" id="WorkingExperience">
+    <div class="p-6 lg:p-8 bg-surface-container-low rounded-xl">
+      <h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">work</span> Experience
+      </h3>
+      <div class="space-y-5">
+        {% for exp in page.experience %}
+        <div class="relative pl-6 border-l border-outline-variant/30">
+          <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-primary"></div>
+          <p class="text-sm font-label text-secondary mb-1">{{ exp.period }}</p>
+          <p class="font-bold text-on-surface">{{ exp.role }}</p>
+          <p class="text-sm text-on-surface-variant">{{ exp.place }}</p>
+          {% if exp.extra %}<p class="text-sm text-on-surface-variant mt-1">{{ exp.extra }}</p>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="p-6 lg:p-8 bg-surface-container-low rounded-xl">
+      <h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">history_edu</span> Education
+      </h3>
+      <div class="space-y-5">
+        {% for edu in page.education %}
+        <div class="relative pl-6 border-l border-outline-variant/30">
+          <div class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-primary"></div>
+          <p class="text-sm font-label text-secondary mb-1">{{ edu.period }}</p>
+          <p class="font-bold text-on-surface">{{ edu.degree }}</p>
+          <p class="text-sm text-on-surface-variant">{{ edu.place }}</p>
+          {% if edu.extra %}<p class="text-sm text-on-surface-variant mt-1">{{ edu.extra }}</p>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="space-y-8" id="Publications">
+    <div class="space-y-2">
+      <span class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold">Scholarship</span>
+      <h2 class="font-headline text-3xl lg:text-4xl font-black text-primary">Publications</h2>
+    </div>
+
+    <!-- Articles -->
+    <div>
+      <div class="flex items-center gap-4 mb-6">
+        <h3 class="text-xl font-headline font-bold text-primary">Articles</h3>
+        <div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+      </div>
+      <div class="space-y-6">
+        {% for paper in page.articles %}
+        <div class="group p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)] hover:shadow-[0_10px_40px_rgba(0,7,103,0.06)] transition-all duration-300 border-l-4 border-transparent hover:border-primary">
+          <div class="space-y-2 mb-3">
+            <h4 class="font-headline text-lg font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">{{ paper.title }}</h4>
+            <p class="text-sm text-on-surface-variant font-body">{{ paper.authors | replace('**', '') }}{% if paper.journal %} | <strong>{{ paper.journal }}</strong>{% endif %}{% if paper.info %}, {{ paper.info }}{% endif %}</p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            {% for link in paper.links %}
+            <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="{{ link.url }}" target="_blank" rel="noopener">
+              <span class="material-symbols-outlined text-[14px]">{% if link.label == 'ArXiv' %}article{% else %}description{% endif %}</span> [{{ link.label }}]
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Preprints -->
+    <div>
+      <div class="flex items-center gap-4 mb-6">
+        <h3 class="text-xl font-headline font-bold text-primary">Preprints</h3>
+        <div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+      </div>
+      <div class="space-y-6">
+        {% for paper in page.preprints %}
+        <div class="group">
+          <h4 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-1 leading-snug">{{ paper.title }}</h4>
+          <p class="text-sm font-body text-on-surface-variant mb-3">{{ paper.authors | replace('**', '') }} — {{ paper.status }}</p>
+          <div class="flex flex-wrap gap-4 items-center">
+            {% for link in paper.links %}
+            <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="{{ link.url }}" target="_blank" rel="noopener">
+              <span class="material-symbols-outlined text-[14px]">article</span> [{{ link.label }}]
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Invited Talks -->
+    <div>
+      <div class="flex items-center gap-4 mb-6">
+        <h3 class="text-xl font-headline font-bold text-primary">Invited Talks</h3>
+        <div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+      </div>
+      <div class="space-y-6">
+        {% for talk in page.talks %}
+        <div class="group p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)]">
+          <div class="flex justify-between items-start mb-3">
+            <h4 class="font-headline text-lg font-bold text-on-surface leading-snug italic">{{ talk.title }}</h4>
+            {% if talk.slides_url %}
+            <a href="{{ talk.slides_url }}" target="_blank" rel="noopener" class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1 shrink-0 ml-4">
+              <span class="material-symbols-outlined text-[14px]">present_to_all</span> [Slides]
+            </a>
+            {% endif %}
+          </div>
+          <ul class="space-y-2">
+            {% for event in talk.events %}
+            <li class="text-sm text-on-surface-variant flex items-start gap-2">
+              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              <span>{{ event.venue }}, <strong>{{ event.date }}</strong></span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Grants -->
+  <section class="space-y-6" id="Grants">
+    <h2 class="font-headline text-3xl font-black text-primary border-b border-outline-variant/15 pb-4">Research Grants</h2>
+    <div class="space-y-4">
+      {% for grant in page.grants %}
+      <div class="p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)]">
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-on-tertiary-container mt-0.5 shrink-0">payments</span>
+          <div>
+            <p class="font-bold text-on-surface">{{ grant.title_en }}, {{ grant.period }}, {{ grant.amount }}.</p>
+            <p class="text-sm text-secondary">{{ grant.source }}</p>
+            {% if grant.title_cn %}<p class="text-sm text-on-surface-variant mt-2">{{ grant.title_cn }}</p>{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Academic Service & Teaching -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <!-- Service -->
+    <section class="space-y-6" id="Service">
+      <h3 class="font-headline text-3xl font-black text-primary border-b border-outline-variant/15 pb-4">Academic Service</h3>
+      <!-- Reviewer -->
+      {% if page.reviewing %}
+      <div class="p-5 bg-[#e0e0ff] rounded-xl">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+          <h4 class="font-headline text-lg font-bold">Reviewer</h4>
+        </div>
+        {% for r in page.reviewing %}
+        <p class="text-sm">{{ r }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <!-- Journals -->
+      <div class="space-y-3">
+        <h4 class="font-label text-xs uppercase tracking-widest text-secondary font-bold">Journal Refereeing</h4>
+        <div class="flex flex-wrap gap-2">
+          {% for j in page.journals %}
+          <span class="px-3 py-1.5 bg-surface-container-high rounded text-xs font-medium text-on-surface-variant hover:bg-surface-container-highest transition-colors">{{ j }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching -->
+    <section class="space-y-6" id="Courses">
+      <h3 class="font-headline text-3xl font-black text-primary border-b border-outline-variant/15 pb-4">Teaching Experience</h3>
+      <div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary">
+        <h4 class="font-bold text-on-surface mb-4">Courses Instructed</h4>
+        <ul class="space-y-4">
+          {% for course in page.courses %}
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary text-lg mt-0.5">auto_stories</span>
+            <div>
+              <p class="font-medium">
+                {% if course.url %}<a href="{{ course.url }}" class="text-primary hover:text-primary-container transition-colors">{{ course.name }}</a>{% else %}{{ course.name }}{% endif %}
+              </p>
+              <p class="text-sm text-on-surface-variant">{{ course.year }}</p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+  </div>
+
+</div>
+{% endblock %}
