@@ -6,7 +6,6 @@
   <!-- Hero / About -->
   <section class="space-y-5" id="About">
     <span class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold">Introduction</span>
-    <h2 class="font-headline text-4xl lg:text-5xl font-black text-primary leading-tight">{{ config.position }} of Mathematics at {{ config.institution }}.</h2>
     <div class="max-w-3xl space-y-4 text-on-surface-variant leading-relaxed font-body">
       {{ body }}
     </div>
@@ -25,7 +24,7 @@
           <p class="text-sm font-label text-secondary mb-1">{{ exp.period }}</p>
           <p class="font-bold text-on-surface">{{ exp.role }}</p>
           <p class="text-sm text-on-surface-variant">{{ exp.place }}</p>
-          {% if exp.extra %}<p class="text-sm text-on-surface-variant mt-1">{{ exp.extra }}</p>{% endif %}
+          {% if exp.extra %}<p class="text-sm text-on-surface-variant mt-1 [&_a]:text-primary [&_a]:hover:text-primary-container [&_a]:transition-colors">{{ exp.extra | safe }}</p>{% endif %}
         </div>
         {% endfor %}
       </div>
@@ -41,7 +40,7 @@
           <p class="text-sm font-label text-secondary mb-1">{{ edu.period }}</p>
           <p class="font-bold text-on-surface">{{ edu.degree }}</p>
           <p class="text-sm text-on-surface-variant">{{ edu.place }}</p>
-          {% if edu.extra %}<p class="text-sm text-on-surface-variant mt-1">{{ edu.extra }}</p>{% endif %}
+          {% if edu.extra %}<p class="text-sm text-on-surface-variant mt-1 [&_a]:text-primary [&_a]:hover:text-primary-container [&_a]:transition-colors">{{ edu.extra | safe }}</p>{% endif %}
         </div>
         {% endfor %}
       </div>
@@ -154,7 +153,7 @@
   </section>
 
   <!-- Academic Service & Teaching -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+  <div class="space-y-12">
     <!-- Service -->
     <section class="space-y-6" id="Service">
       <h3 class="font-headline text-3xl font-black text-primary border-b border-outline-variant/15 pb-4">Academic Service</h3>

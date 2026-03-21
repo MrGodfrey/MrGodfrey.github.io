@@ -104,9 +104,9 @@ tailwind.config = {
   <div class="flex flex-col lg:flex-row gap-12">
     <!-- Sidebar -->
     <aside class="lg:w-72 xl:w-80 shrink-0">
-      <div class="sticky top-24 h-fit rounded-xl p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
+      <div id="sidebar-inner" class="sticky top-24 h-fit rounded-xl p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
         <div class="w-full aspect-square bg-surface-container-high rounded-xl overflow-hidden mb-1">
-          <img alt="{{ config.name_en }}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="{{ config.avatar }}" onerror="this.onerror=null;this.src='/img/profile.png'">
+          <img alt="{{ config.name_en }}" class="w-full h-full object-cover" src="{{ config.avatar }}" onerror="this.onerror=null;this.src='/img/profile.png'">
         </div>
         <div class="space-y-1">
           <h1 class="font-headline text-2xl font-bold text-primary">{{ config.name }}</h1>
@@ -171,6 +171,36 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// Bidirectional sticky sidebar
+(function() {
+  const sidebar = document.getElementById('sidebar-inner');
+  if (!sidebar) return;
+  const navHeight = 96;
+  let lastScrollTop = window.pageYOffset;
+  let currentTop = navHeight;
+  sidebar.style.top = currentTop + 'px';
+
+  function onScroll() {
+    const sidebarHeight = sidebar.offsetHeight;
+    const windowHeight = window.innerHeight;
+    if (sidebarHeight + navHeight <= windowHeight) {
+      currentTop = navHeight;
+      sidebar.style.top = currentTop + 'px';
+      lastScrollTop = window.pageYOffset;
+      return;
+    }
+    const scrollTop = window.pageYOffset;
+    const scrollDelta = scrollTop - lastScrollTop;
+    const minTop = windowHeight - sidebarHeight;
+    const maxTop = navHeight;
+    currentTop = Math.max(minTop, Math.min(maxTop, currentTop - scrollDelta));
+    sidebar.style.top = currentTop + 'px';
+    lastScrollTop = scrollTop;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+})();
 </script>
 {% block extra_scripts %}{% endblock %}
 </body>

@@ -116,9 +116,9 @@ tailwind.config = {
   <div class="flex flex-col lg:flex-row gap-12">
     <!-- Sidebar -->
     <aside class="lg:w-72 xl:w-80 shrink-0">
-      <div class="sticky top-24 h-fit rounded-xl p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
+      <div id="sidebar-inner" class="sticky top-24 h-fit rounded-xl p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
         <div class="w-full aspect-square bg-surface-container-high rounded-xl overflow-hidden mb-1">
-          <img alt="Yu Wang" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/profile.png'">
+          <img alt="Yu Wang" class="w-full h-full object-cover" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/profile.png'">
         </div>
         <div class="space-y-1">
           <h1 class="font-headline text-2xl font-bold text-primary">Yu Wang 王宇</h1>
@@ -205,7 +205,6 @@ tailwind.config = {
   <!-- Hero / About -->
   <section class="space-y-5" id="About">
     <span class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold">Introduction</span>
-    <h2 class="font-headline text-4xl lg:text-5xl font-black text-primary leading-tight">Assistant Professor of Mathematics at Southwest Jiaotong University.</h2>
     <div class="max-w-3xl space-y-4 text-on-surface-variant leading-relaxed font-body">
       <p>Specializing in <strong>Control Theory</strong> and <strong>Inverse Problems</strong> for Stochastic Partial Differential Equations (SPDEs). My work bridges pure mathematical theory with complex system analysis.</p>
 <p>You can find my CV here: <a href="https://drive.google.com/file/d/1dlNqQ2TWe0RWdZnDPGzSULbuEBXyoNu6/view?usp=sharing">CV (Google Drive, update: 07.2025)</a>.</p>
@@ -236,7 +235,7 @@ tailwind.config = {
           <p class="text-sm font-label text-secondary mb-1">09.2025 - 02.2026</p>
           <p class="font-bold text-on-surface">Visiting Scholar</p>
           <p class="text-sm text-on-surface-variant">Chair for Dynamics, Control, Machine Learning and Numerics, FAU Erlangen-Nürnberg</p>
-          <p class="text-sm text-on-surface-variant mt-1">Host Professor: <a href='https://dcn.nat.fau.eu/zuazua/' target='_blank' rel='noopener'>Prof. Dr. DhC. Enrique Zuazua</a></p>
+          <p class="text-sm text-on-surface-variant mt-1 [&_a]:text-primary [&_a]:hover:text-primary-container [&_a]:transition-colors">Host Professor: <a href='https://dcn.nat.fau.eu/zuazua/' target='_blank' rel='noopener'>Prof. Dr. DhC. Enrique Zuazua</a></p>
         </div>
         
       </div>
@@ -252,7 +251,7 @@ tailwind.config = {
           <p class="text-sm font-label text-secondary mb-1">09.2017 - 06.2023</p>
           <p class="font-bold text-on-surface">Ph.D. in Mathematics</p>
           <p class="text-sm text-on-surface-variant">Sichuan University</p>
-          <p class="text-sm text-on-surface-variant mt-1">Supervisor: <a href='https://lvqiscu.github.io/' target='_blank' rel='noopener'>Professor Qi Lü (吕琦)</a></p>
+          <p class="text-sm text-on-surface-variant mt-1 [&_a]:text-primary [&_a]:hover:text-primary-container [&_a]:transition-colors">Supervisor: <a href='https://lvqiscu.github.io/' target='_blank' rel='noopener'>Professor Qi Lü (吕琦)</a></p>
         </div>
         
         <div class="relative pl-6 border-l border-outline-variant/30">
@@ -557,7 +556,7 @@ tailwind.config = {
   </section>
 
   <!-- Academic Service & Teaching -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+  <div class="space-y-12">
     <!-- Service -->
     <section class="space-y-6" id="Service">
       <h3 class="font-headline text-3xl font-black text-primary border-b border-outline-variant/15 pb-4">Academic Service</h3>
@@ -667,6 +666,36 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// Bidirectional sticky sidebar
+(function() {
+  const sidebar = document.getElementById('sidebar-inner');
+  if (!sidebar) return;
+  const navHeight = 96;
+  let lastScrollTop = window.pageYOffset;
+  let currentTop = navHeight;
+  sidebar.style.top = currentTop + 'px';
+
+  function onScroll() {
+    const sidebarHeight = sidebar.offsetHeight;
+    const windowHeight = window.innerHeight;
+    if (sidebarHeight + navHeight <= windowHeight) {
+      currentTop = navHeight;
+      sidebar.style.top = currentTop + 'px';
+      lastScrollTop = window.pageYOffset;
+      return;
+    }
+    const scrollTop = window.pageYOffset;
+    const scrollDelta = scrollTop - lastScrollTop;
+    const minTop = windowHeight - sidebarHeight;
+    const maxTop = navHeight;
+    currentTop = Math.max(minTop, Math.min(maxTop, currentTop - scrollDelta));
+    sidebar.style.top = currentTop + 'px';
+    lastScrollTop = scrollTop;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+})();
 </script>
 
 </body>
