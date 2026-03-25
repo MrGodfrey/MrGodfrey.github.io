@@ -196,10 +196,8 @@ courses:
     name: "Introduction to Major (专业导论)"
 ---
 
-Specializing in **Control Theory** and **Inverse Problems** for Stochastic Partial Differential Equations (SPDEs). My work bridges pure mathematical theory with complex system analysis.
+I am an Assistant Professor in the School of Mathematics at Southwest Jiaotong University. My research interests lie in **control theory** and **inverse problems** for stochastic partial differential equations, with particular emphasis on the interplay between rigorous analysis and numerical approximation.
 
-In the realm of Control Theory, I focus on establishing null and exact controllability for various stochastic evolutionary systems using global Carleman estimates and duality arguments. Furthermore, to bridge the gap between continuous theory and numerical implementation, I investigate the uniform controllability of semi-discrete approximations, rigorously analyzing how discretization parameters influence control behavior.
+In control theory, I study the null and exact controllability of stochastic evolutionary systems, primarily through global Carleman estimates and duality methods. I am also interested in the controllability of semi-discrete approximations, especially in understanding how discretization affects control properties and numerical implementation.
 
-Regarding Inverse Problems, I work on determining and reconstructing unknown components in the system (source terms, coefficients, or initial/boundary values) using partial observation data. Addressing the ill-posed nature of these problems, I employ Carleman estimates to derive conditional stability results and develop globally convergent iterative regularization methods.
-
-My overarching vision is to focus on control and inverse problems for stochastic partial differential equations, regarding both theory and numerics.
+In inverse problems, I investigate the identification and reconstruction of unknown quantities, such as source terms, coefficients, and initial or boundary data, from partial observations. My work focuses on conditional stability analysis and iterative regularization methods for ill-posed stochastic systems.
