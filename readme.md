@@ -1,6 +1,6 @@
 # Yu Wang — Academic Portfolio
 
-个人学术主页，基于 Markdown + YAML 驱动，Tailwind CSS 渲染。
+个人学术主页，基于 Markdown + YAML 驱动，Tailwind CSS 本地构建。
 
 ---
 
@@ -8,9 +8,13 @@
 
 ```bash
 pip install -r requirements.txt   # 首次安装依赖
+npm install                       # 首次安装 Tailwind 构建依赖
+npm run build:css                 # 生成 assets/site.css
 python3 generate.py               # 构建所有页面
 python3 localServe                # 启动本地预览 http://localhost:4000/
 ```
+
+`python3 localServe` 现在会在启动时自动执行 `npm run build:css` 和 `generate.py`，并在你修改内容、模板或 Tailwind 配置后自动重新构建预览。
 
 ---
 
@@ -81,6 +85,10 @@ nav:
 
 ```
 config.yaml              ← 全站共享数据（个人信息、侧边栏链接、导航）
+tailwind.config.js       ← Tailwind 主题配置
+assets/
+  tailwind.css           ← Tailwind 输入文件
+  site.css               ← 构建输出 CSS
 content/
   index.md               ← 主页内容（Markdown + YAML front matter）
   neural-networks.md     ← 课程页内容
@@ -95,8 +103,10 @@ generate.py              ← 构建脚本：解析 .md → 渲染 Jinja2 → 输
 
 ```
 config.yaml ─┐
-              ├──→ generate.py ──→ Jinja2 渲染 ──→ index.html / neural-networks.html
-content/*.md ─┘
+content/*.md ├──→ generate.py ──→ Jinja2 渲染 ──→ index.html / neural-networks.html
+templates/*.html ┘
+
+templates/*.html + content/*.md ──→ tailwindcss CLI ──→ assets/site.css
 ```
 
 - `config.yaml` 中的数据通过 `{{ config.xxx }}` 在模板中访问
@@ -163,15 +173,17 @@ content/*.md ─┘
 | 课程内容（大纲、考核、资料链接） | `content/neural-networks.md` |
 | 页面布局、HTML 结构 | `templates/*.html` |
 | 导航栏、侧边栏、页脚 | `templates/base.html` |
-| 颜色、字体、CSS 变量 | `templates/base.html` 中的 `tailwind.config` |
+| 颜色、字体、Tailwind 主题 | `tailwind.config.js` |
 | 新增页面模板 | 在 `templates/` 中新建 `.html`，继承 `base.html` |
 
 ### 构建与验证
 
 ```bash
+npm run build:css                # 先构建 CSS
 python3 generate.py                # 构建
 python3 localServe                 # 本地预览 http://localhost:4000/
 ```
 
+修改 `tailwind.config.js`、`assets/tailwind.css`、`templates/*.html` 中涉及类名的内容后，需要重新运行 `npm run build:css`。
 修改任何 `config.yaml`、`content/*.md`、`templates/*.html` 后，都需要重新运行 `generate.py`。
 `localServe` 会自动监测 `content/` 的变化并重新构建。

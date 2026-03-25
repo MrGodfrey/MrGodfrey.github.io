@@ -1,0 +1,13 @@
+{
+  "name": "mrgodfrey-github-io",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/tailwind.css -o ./assets/site.css --minify",
+    "build": "npm run build:css && python3 generate.py"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "tailwindcss": "^3.4.17"
+  }
+}

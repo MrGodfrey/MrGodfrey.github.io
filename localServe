@@ -1,27 +1,65 @@
 import os
+import sys
 import time
 import threading
 import subprocess
 
-WATCH_PATHS = ['content', 'templates', 'config.yaml']
+WATCH_PATHS = [
+    'content',
+    'templates',
+    'assets/tailwind.css',
+    'config.yaml',
+    'tailwind.config.js',
+    'package.json',
+]
+
+
+def collect_paths(watch):
+    if os.path.isfile(watch):
+        return [watch]
+    if os.path.isdir(watch):
+        return [
+            os.path.join(root, name)
+            for root, _, files in os.walk(watch)
+            for name in files
+        ]
+    return []
+
+
+def snapshot_mtimes():
+    mtimes = {}
+    for watch in WATCH_PATHS:
+        for path in collect_paths(watch):
+            try:
+                mtimes[path] = os.path.getmtime(path)
+            except FileNotFoundError:
+                continue
+    return mtimes
+
+
+def build_site():
+    print('Building Tailwind CSS...')
+    css_result = subprocess.run(['npm', 'run', 'build:css'])
+    if css_result.returncode != 0:
+        print('Tailwind build failed. Preview not refreshed.')
+        return
+
+    print('Generating HTML...')
+    html_result = subprocess.run([sys.executable, 'generate.py'])
+    if html_result.returncode != 0:
+        print('HTML generation failed. Preview not refreshed.')
+        return
+
+    print('Preview refreshed.')
+
 
 def watch_and_generate():
-    last_mtime = {}
+    last_mtime = snapshot_mtimes()
 
     while True:
         changed = False
         for watch in WATCH_PATHS:
-            if os.path.isfile(watch):
-                paths = [watch]
-            elif os.path.isdir(watch):
-                paths = [
-                    os.path.join(root, f)
-                    for root, _, files in os.walk(watch)
-                    for f in files
-                ]
-            else:
-                continue
-            for path in paths:
+            for path in collect_paths(watch):
                 try:
                     mtime = os.path.getmtime(path)
                 except FileNotFoundError:
@@ -30,15 +68,17 @@ def watch_and_generate():
                     last_mtime[path] = mtime
                     changed = True
         if changed:
-            print("Detected changes. Running generate.py...")
-            subprocess.run(['python3', 'generate.py'])
+            print('Detected changes. Rebuilding preview...')
+            build_site()
         time.sleep(1)
+
 
 def serve():
     print('Server at http://localhost:4000/')
-    os.system("python3 -m http.server 4000")
+    subprocess.run([sys.executable, '-m', 'http.server', '4000'])
 
 if __name__ == "__main__":
+    build_site()
     watcher = threading.Thread(target=watch_and_generate, daemon=True)
     watcher.start()
     serve()
