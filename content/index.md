@@ -32,6 +32,14 @@ education:
 # Publications — Articles
 # ============================================================
 articles:
+  - authors: "L. Gan, H. Meng, Y. Chen, **Y. Wang**"
+    title: "scDCL: A multi-view single-cell RNA sequencing clustering method based on dual contrastive learning"
+    journal: "Computational Biology and Chemistry"
+    info: "(2026), 108998"
+    links:
+      - label: Article
+        url: "https://doi.org/10.1016/j.compbiolchem.2026.108998"
+
   - authors: "Q. Lü, **Y. Wang**"
     title: "An Inverse Source Problem for Semilinear Stochastic Hyperbolic Equations"
     journal: "Inverse Problems"
