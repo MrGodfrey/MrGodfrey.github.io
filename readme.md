@@ -72,6 +72,7 @@ nav:
 |---|---|---|
 | `home` | 主页、通用学术页面 | `experience`, `education`, `articles`, `preprints`, `talks`, `grants`, `journals`, `reviewing`, `courses` |
 | `course` | 课程详情页 | `semester`, `instructor`, `topics`, `assessment`, `materials` |
+| `blog_home` | Blog 首页 | 无必填字段，文章列表会自动注入 |
 
 > **提示**：front matter 中的字段都是可选的，模板会自动跳过缺失的部分。
 
@@ -91,9 +92,14 @@ assets/
   site.css               ← 构建输出 CSS
 content/
   index.md               ← 主页内容（Markdown + YAML front matter）
+  blog.md                ← Blog 首页内容（Markdown + YAML front matter）
+  blog_posts/*.md        ← Blog 文章源文件
   neural-networks.md     ← 课程页内容
 templates/
   base.html              ← Jinja2 基础模板（导航栏、侧边栏、页脚）
+  blog_base.html         ← Blog 独立基础模板
+  blog_home.html         ← Blog 首页模板
+  blog_post.html         ← Blog 文章模板
   home.html              ← 主页模板（继承 base.html）
   course.html            ← 课程页模板（继承 base.html）
 generate.py              ← 构建脚本：解析 .md → 渲染 Jinja2 → 输出 .html
@@ -103,7 +109,7 @@ generate.py              ← 构建脚本：解析 .md → 渲染 Jinja2 → 输
 
 ```
 config.yaml ─┐
-content/*.md ├──→ generate.py ──→ Jinja2 渲染 ──→ index.html / neural-networks.html
+content/*.md ├──→ generate.py ──→ Jinja2 渲染 ──→ index.html / neural-networks.html / blog/index.html
 templates/*.html ┘
 
 templates/*.html + content/*.md ──→ tailwindcss CLI ──→ assets/site.css
@@ -170,6 +176,8 @@ templates/*.html + content/*.md ──→ tailwindcss CLI ──→ assets/site.
 | 个人信息（姓名、职称、链接） | `config.yaml` |
 | 论文、基金、教学经历、学术服务 | `content/index.md` 的 YAML front matter |
 | 主页 About 介绍文本 | `content/index.md` 的 Markdown 正文 |
+| Blog 首页介绍文字 | `content/blog.md` |
+| Blog 文章 | `content/blog_posts/*.md` |
 | 课程内容（大纲、考核、资料链接） | `content/neural-networks.md` |
 | 页面布局、HTML 结构 | `templates/*.html` |
 | 导航栏、侧边栏、页脚 | `templates/base.html` |
@@ -187,3 +195,22 @@ python3 localServe                 # 本地预览 http://localhost:4000/
 修改 `tailwind.config.js`、`assets/tailwind.css`、`templates/*.html` 中涉及类名的内容后，需要重新运行 `npm run build:css`。
 修改任何 `config.yaml`、`content/*.md`、`templates/*.html` 后，都需要重新运行 `generate.py`。
 `localServe` 会自动监测 `content/` 的变化并重新构建。
+
+### Blog 用法
+
+- Blog 首页内容来自 `content/blog.md`
+- Blog 文章源文件放在 `content/blog_posts/`
+- 每篇文章会自动生成到 `/blog/<slug>/index.html`
+- Blog 首页会自动按日期倒序列出文章
+
+支持直接复制类似 Hexo 的文章 markdown，生成器目前只会读取这些字段：
+
+```yaml
+title:
+date:
+excerpt:
+summary:
+slug:        # 可选；不写就按文件名自动生成
+```
+
+其余 front matter 会被忽略，不影响生成。文章正文会按普通 Markdown 渲染，图片和链接都可以直接使用。
