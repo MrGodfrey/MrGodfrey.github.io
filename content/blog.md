@@ -4,7 +4,7 @@ template: blog_home
 heading: "Concerning Yu Wang"
 list_label: "Articles"
 ---
-我是王宇，在高校任教，主要关注数学和人工智能方向。比起被潮流裹挟，我更愿意与 AI 一起，进行更深入的思考、写作与行动。
+我是王宇，在[高校任教](/)，主要关注数学和人工智能方向。比起被潮流裹挟，我更愿意与 AI 一起，进行更深入的思考、写作与行动。
 
 在 AI 的浪潮里，我喜欢将目光放在更具体的地方：它如何进入你我的日常工作流，例如我搭建了基于 AI 的[[blog:information-flow-between-warehouses-and-intelligent-agents|个人操作系统]]，也[[blog:my-first-app-kala-journal|做了 app]]。同时，我在持续关注它给工作与生活带来的[[blog:new-age|新景象]]。
 

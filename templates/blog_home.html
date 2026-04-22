@@ -6,7 +6,7 @@
     <div class="mb-[10px]">
       <span class="leading-[2.05] text-slate-900" style="font-family: 'Eagle Lake', serif; font-size: 20px; font-feature-settings: normal; font-variation-settings: normal;">{{ page.heading or "Concerning Yu Wang" }}</span>
     </div>
-    <div class="max-w-3xl space-y-5 font-blog text-[16px] leading-[2.05] text-slate-600 [&_a]:font-medium [&_a]:text-primary [&_a]:underline-offset-4 [&_a]:transition-colors [&_a]:hover:text-primary-container [&_a]:hover:underline">
+    <div class="max-w-3xl space-y-5 font-blog text-[16px] leading-[2.05] text-[rgb(31,31,31)] [&_a]:underline [&_a]:decoration-current [&_a]:decoration-dotted [&_a]:decoration-[1px] [&_a]:underline-offset-[0.16em] [&_a]:[text-decoration-skip-ink:none]">
       {{ body }}
     </div>
   </section>
@@ -18,14 +18,14 @@
     </div>
 
     {% if blog_posts %}
-    <div class="mt-[30px] space-y-24 md:space-y-28">
+    <div class="mt-[30px] space-y-10">
       {% for post in blog_posts %}
       <article class="group max-w-3xl">
         <time class="mb-5 block text-slate-400" style="font-family: 'Playfair Display', 'Noto Serif', serif; font-size: 12px; font-feature-settings: normal; font-variation-settings: normal;">{{ post.display_date }}</time>
         <h2 class="mb-[18px] max-w-3xl font-blog text-[1.28rem] font-semibold leading-[1.45] tracking-[-0.02em] text-slate-900 transition-colors group-hover:text-primary md:text-[1.4rem]{% if loop.first %} text-primary{% endif %}">
           <a href="{{ post.url }}">{{ post.title }}</a>
         </h2>
-        <p class="max-w-[46rem] font-blog text-[16px] leading-[2.05] text-slate-500">{{ post.excerpt }}</p>
+        <p class="max-w-[46rem] font-blog text-[16px] leading-[2.05] text-[rgb(31,31,31)]">{{ post.excerpt }}</p>
         <a href="{{ post.url }}" class="mt-[18px] inline-flex items-center gap-3 font-blog text-[0.8em] font-medium uppercase tracking-[0.26rem] text-slate-300 transition-colors group-hover:text-primary{% if loop.first %} text-primary{% endif %}">
           Continue Reading
           <span class="material-symbols-outlined text-[1.25rem] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
