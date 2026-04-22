@@ -130,7 +130,7 @@ preprints:
 # ============================================================
 talks:
   - title: "Inverse problems for stochastic partial differential equations"
-    slides_url: "https://drive.google.com/file/d/1pfd6YEcTvrrcyIjy-MBhe6q9Q8pYtAjT/view?usp=drive_link"
+    slides_url: "/files/slides-inverse-problems-for-stochastic-partial-differential-equations.pdf"
     events:
       - venue: "EDP and Applied Mathematics Seminar"
         date: "Dec. 10, 2025"
@@ -138,7 +138,7 @@ talks:
         date: "Jul. 25, 2025"
 
   - title: "Controllability of stochastic fourth order partial differential equations"
-    slides_url: "https://drive.google.com/file/d/1IGCjVae-v8zoXzbzHb2zvaWdO-5mlzTq/view?usp=drive_link"
+    slides_url: "/files/slides-controllability-of-stochastic-fourth-order-partial-differential-equations.pdf"
     events:
       - venue: "The 15th Academic Conference on Mathematical Control Theory and Applications"
         date: "Nov. 9, 2024"

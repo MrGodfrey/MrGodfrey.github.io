@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_icons.html" import icon %}
 
 {% block content %}
 <div class="space-y-16 lg:space-y-20">
@@ -15,7 +16,7 @@
   <section class="grid grid-cols-1 md:grid-cols-2 gap-6" id="WorkingExperience">
     <div class="p-6 lg:p-8 bg-surface-container-low rounded-xl">
       <h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">work</span> Experience
+        {{ icon("work", "text-primary") }} Experience
       </h3>
       <div class="space-y-5">
         {% for exp in page.experience %}
@@ -31,7 +32,7 @@
     </div>
     <div class="p-6 lg:p-8 bg-surface-container-low rounded-xl">
       <h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">history_edu</span> Education
+        {{ icon("history_edu", "text-primary") }} Education
       </h3>
       <div class="space-y-5">
         {% for edu in page.education %}
@@ -70,7 +71,7 @@
           <div class="flex flex-wrap gap-4 items-center">
             {% for link in paper.links %}
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="{{ link.url }}" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">{% if link.label == 'ArXiv' %}article{% else %}description{% endif %}</span> [{{ link.label }}]
+              {{ icon("article" if link.label == "ArXiv" else "description", "text-[14px]") }} [{{ link.label }}]
             </a>
             {% endfor %}
           </div>
@@ -93,7 +94,7 @@
           <div class="flex flex-wrap gap-4 items-center">
             {% for link in paper.links %}
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="{{ link.url }}" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [{{ link.label }}]
+              {{ icon("article", "text-[14px]") }} [{{ link.label }}]
             </a>
             {% endfor %}
           </div>
@@ -115,14 +116,14 @@
             <h4 class="font-headline text-lg font-bold text-on-surface leading-snug italic">{{ talk.title }}</h4>
             {% if talk.slides_url %}
             <a href="{{ talk.slides_url }}" target="_blank" rel="noopener" class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1 shrink-0 ml-4">
-              <span class="material-symbols-outlined text-[14px]">present_to_all</span> [Slides]
+              {{ icon("present_to_all", "text-[14px]") }} [Slides]
             </a>
             {% endif %}
           </div>
           <ul class="space-y-2">
             {% for event in talk.events %}
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
-              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              {{ icon("arrow_right", "mt-0.5 text-[14px] text-primary") }}
               <span>{{ event.venue }}, <strong>{{ event.date }}</strong></span>
             </li>
             {% endfor %}
@@ -140,7 +141,7 @@
       {% for grant in page.grants %}
       <div class="p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)]">
         <div class="flex items-start gap-4">
-          <span class="material-symbols-outlined text-on-tertiary-container mt-0.5 shrink-0">payments</span>
+          {{ icon("payments", "mt-0.5 text-on-tertiary-container") }}
           <div>
             <p class="font-bold text-on-surface">{{ grant.title_en }}, {{ grant.period }}, {{ grant.amount }}.</p>
             <p class="text-sm text-secondary">{{ grant.source }}</p>
@@ -161,7 +162,7 @@
       {% if page.reviewing %}
       <div class="p-5 bg-[#e0e0ff] rounded-xl">
         <div class="flex items-center gap-3 mb-2">
-          <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+          {{ icon("verified", "text-2xl text-primary") }}
           <h4 class="font-headline text-lg font-bold">Reviewer</h4>
         </div>
         {% for r in page.reviewing %}
@@ -188,7 +189,7 @@
         <ul class="space-y-4">
           {% for course in page.courses %}
           <li class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-primary text-lg mt-0.5">auto_stories</span>
+            {{ icon("auto_stories", "mt-0.5 text-lg text-primary") }}
             <div>
               <p class="font-medium">
                 {% if course.url %}<a href="{{ course.url }}" class="text-primary hover:text-primary-container transition-colors">{{ course.name }}</a>{% else %}{{ course.name }}{% endif %}

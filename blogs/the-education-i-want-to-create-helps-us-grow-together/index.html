@@ -8,8 +8,10 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-<link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/eagle-lake-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
 
 </head>
@@ -25,7 +27,8 @@
   
 <article class="mx-auto max-w-3xl">
   <a href="/blogs/" class="mb-8 inline-flex items-center gap-2 font-blog text-[11px] font-semibold uppercase tracking-[0.28rem] text-slate-400 transition-colors hover:text-primary">
-    <span class="material-symbols-outlined text-base">arrow_back</span>
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-base" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.75 12H5.25" />
+  <path d="m11.25 6.75-5.25 5.25 5.25 5.25" /></svg>
     Back to Blog
   </a>
 

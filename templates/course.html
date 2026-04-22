@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% from "_icons.html" import icon %}
 
 {% block sidebar_extra %}
 <a class="mt-2 flex items-center justify-center gap-2 text-xs font-label uppercase tracking-widest text-slate-400 hover:text-primary transition-colors" href="/">
-  <span class="material-symbols-outlined text-sm">arrow_back</span>
+  {{ icon("arrow_back", "text-sm") }}
   Back to Home
 </a>
 {% endblock %}
@@ -18,7 +19,7 @@
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline font-black text-primary leading-tight mb-6">{{ page.title }}</h1>
     <div class="flex flex-wrap gap-6 items-center text-on-surface-variant font-medium text-sm">
       <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">person</span>
+        {{ icon("person", "text-primary") }}
         <span>Instructor: {{ page.instructor }}</span>
       </div>
     </div>
@@ -72,10 +73,10 @@
         {% for mat in page.materials %}
         <a class="flex items-center justify-between p-3.5 bg-white/10 rounded-lg hover:bg-white/20 transition-all group" href="{{ mat.url }}" target="_blank" rel="noopener">
           <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-secondary-container">{{ mat.icon }}</span>
+            {{ icon(mat.icon, "text-secondary-container") }}
             <span class="font-medium text-sm">{{ mat.name }}</span>
           </div>
-          <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+          {{ icon("arrow_forward_ios", "text-sm transition-transform group-hover:translate-x-1") }}
         </a>
         {% endfor %}
       </div>
@@ -111,7 +112,7 @@
             <div class="flex justify-between items-center">
               <span class="text-xs font-bold text-primary">{{ project.team }}</span>
               {% if project.url %}
-              <a href="{{ project.url }}" class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</a>
+              <a href="{{ project.url }}" class="text-primary transition-transform group-hover:translate-x-1">{{ icon("arrow_forward") }}</a>
               {% endif %}
             </div>
           </div>
@@ -126,7 +127,7 @@
         <div class="h-px flex-1 bg-outline-variant/30"></div>
       </div>
       <div class="p-8 bg-surface-container-low rounded-xl text-center text-on-surface-variant">
-        <span class="material-symbols-outlined text-4xl text-outline mb-3 block">school</span>
+        <span class="mb-3 block text-4xl text-outline">{{ icon("school") }}</span>
         <p class="text-lg font-medium">To be determined</p>
         <p class="text-sm mt-1">Student projects will be showcased here.</p>
       </div>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,8 +9,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
 
 </head>
@@ -31,8 +33,8 @@
       <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/blogs/">Blog</a>
       
     </div>
-    <button class="p-2 text-primary md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-      <span class="material-symbols-outlined">menu</span>
+    <button aria-label="Toggle navigation" class="p-2 text-primary md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
     </button>
   </div>
   <!-- Mobile menu -->
@@ -57,7 +59,7 @@
     <aside class="lg:w-72 xl:w-80 shrink-0">
       <div id="sidebar-inner" class="sticky top-24 h-fit rounded-xl p-5 sm:p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
         <div class="w-full max-w-[14rem] sm:max-w-[16rem] lg:max-w-none aspect-square bg-surface-container-high rounded-xl overflow-hidden mb-1 mx-auto lg:mx-0">
-          <img alt="Yu Wang" class="w-full h-full object-cover object-center" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/profile.png'">
+          <img alt="Yu Wang" class="w-full h-full object-cover object-center" decoding="async" fetchpriority="high" height="640" src="/img/avatar.webp" width="640" onerror="this.onerror=null;this.src='/img/avatar.jpg'">
         </div>
         <div class="space-y-1 text-center lg:text-left max-w-sm mx-auto lg:max-w-none lg:mx-0">
           <h1 class="font-headline text-2xl font-bold text-primary leading-tight">Yu Wang 王宇</h1>
@@ -67,35 +69,44 @@
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="mailto:yuwangmath@163.com" >
             
-            <span class="material-symbols-outlined text-lg">mail</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5v10.5H3.75z" />
+  <path d="m3.75 7.5 8.25 6 8.25-6" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">Email</span>
           </a>
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="https://www.researchgate.net/profile/Yu-Wang-792" target="_blank" rel="noopener">
             
-            <span class="material-symbols-outlined text-lg">science</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3.75h3" />
+  <path d="M12 3.75v4.5l-4.78 7.91a2.25 2.25 0 0 0 1.93 3.34h5.7a2.25 2.25 0 0 0 1.93-3.34L12 8.25" />
+  <path d="M9.4 13.5h5.2" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">ResearchGate</span>
           </a>
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="https://orcid.org/0000-0003-0448-9870" target="_blank" rel="noopener">
             
-            <span class="material-symbols-outlined text-lg">badge</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3.75h15A1.5 1.5 0 0 1 21 5.25v13.5A1.5 1.5 0 0 1 19.5 20.25h-15A1.5 1.5 0 0 1 3 18.75V5.25A1.5 1.5 0 0 1 4.5 3.75Z" />
+  <path d="M7.5 8.25h9M10.5 12h6M10.5 15.75h6" />
+  <circle cx="7.5" cy="14.25" r="1.5" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">ORCID</span>
           </a>
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="https://scholar.google.com.hk/citations?hl=zh-CN&user=jIEudq0AAAAJ" target="_blank" rel="noopener">
             
-            <span class="material-symbols-outlined text-lg">school</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.75 10.5 8.25-4.5 8.25 4.5-8.25 4.5-8.25-4.5Z" />
+  <path d="M7.5 12.55v3.2c0 .8 1.94 2 4.5 2s4.5-1.2 4.5-2v-3.2" />
+  <path d="M20.25 10.5v4.5" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">Google Scholar</span>
           </a>
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="https://faculty.swjtu.edu.cn/yuwang/zh_CN/index/834956/list/index.htm" target="_blank" rel="noopener">
             
-            <span class="material-symbols-outlined text-lg">account_circle</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.25" />
+  <circle cx="12" cy="9" r="3" />
+  <path d="M7.2 18.7a5.9 5.9 0 0 1 9.6 0" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">Faculty Profile</span>
           </a>
@@ -129,7 +140,7 @@
           </div>
         </div>
         
-        <a class="mt-3 block w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 py-3.5 bg-gradient-to-r from-primary to-primary-container text-white text-center rounded-lg font-medium shadow-lg hover:shadow-xl transition-all active:scale-95 text-sm" href="https://drive.google.com/file/d/1dlNqQ2TWe0RWdZnDPGzSULbuEBXyoNu6/view?usp=sharing" target="_blank" rel="noopener">
+        <a class="mt-3 block w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 py-3.5 bg-gradient-to-r from-primary to-primary-container text-white text-center rounded-lg font-medium shadow-lg hover:shadow-xl transition-all active:scale-95 text-sm" href="/files/cv-yu-wang.pdf" target="_blank" rel="noopener">
           Download CV
         </a>
         
@@ -155,7 +166,9 @@
   <section class="grid grid-cols-1 md:grid-cols-2 gap-6" id="WorkingExperience">
     <div class="p-6 lg:p-8 bg-surface-container-low rounded-xl">
       <h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">work</span> Experience
+        <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 6V4.5A1.5 1.5 0 0 1 9.75 3h4.5a1.5 1.5 0 0 1 1.5 1.5V6" />
+  <path d="M3.75 7.5h16.5v9A1.5 1.5 0 0 1 18.75 18h-13.5a1.5 1.5 0 0 1-1.5-1.5v-9Z" />
+  <path d="M9.75 10.5h4.5" /></svg> Experience
       </h3>
       <div class="space-y-5">
         
@@ -179,7 +192,9 @@
     </div>
     <div class="p-6 lg:p-8 bg-surface-container-low rounded-xl">
       <h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">history_edu</span> Education
+        <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 8.25 7.5-4.5 7.5 4.5-7.5 4.5-7.5-4.5Z" />
+  <path d="M6.75 10.5v3.1c0 .93 2.24 2.15 5.25 2.15s5.25-1.22 5.25-2.15v-3.1" />
+  <path d="M19.5 8.25v5.25" /></svg> Education
       </h3>
       <div class="space-y-5">
         
@@ -226,7 +241,9 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://doi.org/10.1016/j.compbiolchem.2026.108998" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">description</span> [Article]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
             </a>
             
           </div>
@@ -240,11 +257,15 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://iopscience.iop.org/article/10.1088/1361-6420/ae1da0" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">description</span> [Article]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
             </a>
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2504.17398" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -258,11 +279,15 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://doi.org/10.1051/cocv/2025082" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">description</span> [Article]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
             </a>
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2503.06440" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -276,11 +301,15 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://link.springer.com/article/10.1007/s11401-025-0023-2" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">description</span> [Article]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
             </a>
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2211.16730" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -294,11 +323,15 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://iopscience.iop.org/article/10.1088/1361-6420/ad7f80" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">description</span> [Article]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
             </a>
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2308.15741" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -312,11 +345,15 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://doi.org/10.1016/j.jmaa.2024.128426" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">description</span> [Article]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
             </a>
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2311.18556" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -330,11 +367,15 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://doi.org/10.1137/22M1472620" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">description</span> [Article]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
             </a>
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2111.04406" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -357,7 +398,9 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2601.18270" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -369,7 +412,9 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2405.03257" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -381,7 +426,9 @@
           <div class="flex flex-wrap gap-4 items-center">
             
             <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="https://arxiv.org/abs/2411.05534" target="_blank" rel="noopener">
-              <span class="material-symbols-outlined text-[14px]">article</span> [ArXiv]
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
             </a>
             
           </div>
@@ -402,20 +449,24 @@
           <div class="flex justify-between items-start mb-3">
             <h4 class="font-headline text-lg font-bold text-on-surface leading-snug italic">Inverse problems for stochastic partial differential equations</h4>
             
-            <a href="https://drive.google.com/file/d/1pfd6YEcTvrrcyIjy-MBhe6q9Q8pYtAjT/view?usp=drive_link" target="_blank" rel="noopener" class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1 shrink-0 ml-4">
-              <span class="material-symbols-outlined text-[14px]">present_to_all</span> [Slides]
+            <a href="/files/slides-inverse-problems-for-stochastic-partial-differential-equations.pdf" target="_blank" rel="noopener" class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1 shrink-0 ml-4">
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 5.25h16.5v10.5H3.75z" />
+  <path d="M9 18.75h6M12 15.75v3" />
+  <path d="m10.5 9.75 3 2.25-3 2.25v-4.5Z" /></svg> [Slides]
             </a>
             
           </div>
           <ul class="space-y-2">
             
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
-              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-[14px] text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.25 12h13.5" />
+  <path d="m12.75 6.75 5.25 5.25-5.25 5.25" /></svg>
               <span>EDP and Applied Mathematics Seminar, <strong>Dec. 10, 2025</strong></span>
             </li>
             
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
-              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-[14px] text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.25 12h13.5" />
+  <path d="m12.75 6.75 5.25 5.25-5.25 5.25" /></svg>
               <span>Workshop on Recent Trends in Applied Mathematics and Machine Learning, <strong>Jul. 25, 2025</strong></span>
             </li>
             
@@ -426,35 +477,42 @@
           <div class="flex justify-between items-start mb-3">
             <h4 class="font-headline text-lg font-bold text-on-surface leading-snug italic">Controllability of stochastic fourth order partial differential equations</h4>
             
-            <a href="https://drive.google.com/file/d/1IGCjVae-v8zoXzbzHb2zvaWdO-5mlzTq/view?usp=drive_link" target="_blank" rel="noopener" class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1 shrink-0 ml-4">
-              <span class="material-symbols-outlined text-[14px]">present_to_all</span> [Slides]
+            <a href="/files/slides-controllability-of-stochastic-fourth-order-partial-differential-equations.pdf" target="_blank" rel="noopener" class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1 shrink-0 ml-4">
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 5.25h16.5v10.5H3.75z" />
+  <path d="M9 18.75h6M12 15.75v3" />
+  <path d="m10.5 9.75 3 2.25-3 2.25v-4.5Z" /></svg> [Slides]
             </a>
             
           </div>
           <ul class="space-y-2">
             
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
-              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-[14px] text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.25 12h13.5" />
+  <path d="m12.75 6.75 5.25 5.25-5.25 5.25" /></svg>
               <span>The 15th Academic Conference on Mathematical Control Theory and Applications, <strong>Nov. 9, 2024</strong></span>
             </li>
             
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
-              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-[14px] text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.25 12h13.5" />
+  <path d="m12.75 6.75 5.25 5.25-5.25 5.25" /></svg>
               <span>中国工业与应用数学学会系统与控制数学 2024 年学术研讨会, <strong>Aug. 18, 2024</strong></span>
             </li>
             
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
-              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-[14px] text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.25 12h13.5" />
+  <path d="m12.75 6.75 5.25 5.25-5.25 5.25" /></svg>
               <span>中国仿真学会不确定性系统分析与仿真大会, <strong>Aug. 3, 2024</strong></span>
             </li>
             
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
-              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-[14px] text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.25 12h13.5" />
+  <path d="m12.75 6.75 5.25 5.25-5.25 5.25" /></svg>
               <span>2024年中西南六省(市)应用数学学术会议, <strong>Jun. 3, 2024</strong></span>
             </li>
             
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
-              <span class="material-symbols-outlined text-[14px] text-primary mt-0.5 shrink-0">arrow_right</span>
+              <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-[14px] text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.25 12h13.5" />
+  <path d="m12.75 6.75 5.25 5.25-5.25 5.25" /></svg>
               <span>The 14th Academic Conference on Mathematical Control Theory and Applications, <strong>Aug. 10, 2023</strong></span>
             </li>
             
@@ -472,7 +530,8 @@
       
       <div class="p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)]">
         <div class="flex items-start gap-4">
-          <span class="material-symbols-outlined text-on-tertiary-container mt-0.5 shrink-0">payments</span>
+          <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-on-tertiary-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5v10.5H3.75z" />
+  <path d="M3.75 10.5h16.5M7.5 14.25h3.75M15.75 14.25h.75" /></svg>
           <div>
             <p class="font-bold text-on-surface">Controllability of stochastic plate equations, 2026-2027, RMB 100K.</p>
             <p class="text-sm text-secondary">Sichuan Science and Technology Program (No. 2026NSFSC0777)</p>
@@ -483,7 +542,8 @@
       
       <div class="p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)]">
         <div class="flex items-start gap-4">
-          <span class="material-symbols-outlined text-on-tertiary-container mt-0.5 shrink-0">payments</span>
+          <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-on-tertiary-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5v10.5H3.75z" />
+  <path d="M3.75 10.5h16.5M7.5 14.25h3.75M15.75 14.25h.75" /></svg>
           <div>
             <p class="font-bold text-on-surface">Controllability of fourth order semilinear stochastic partial differential equations, 2025-2027, RMB 300K.</p>
             <p class="text-sm text-secondary">National Natural Science Foundation of China (No. 12401589)</p>
@@ -494,7 +554,8 @@
       
       <div class="p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)]">
         <div class="flex items-start gap-4">
-          <span class="material-symbols-outlined text-on-tertiary-container mt-0.5 shrink-0">payments</span>
+          <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-on-tertiary-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5v10.5H3.75z" />
+  <path d="M3.75 10.5h16.5M7.5 14.25h3.75M15.75 14.25h.75" /></svg>
           <div>
             <p class="font-bold text-on-surface">Controllability of a fourth-order coupled stochastic parabolic system, 2024-2025, RMB 100K.</p>
             <p class="text-sm text-secondary">Fundamental Research Funds for the Central Universities (No. 2682024CX013)</p>
@@ -515,7 +576,8 @@
       
       <div class="p-5 bg-[#e0e0ff] rounded-xl">
         <div class="flex items-center gap-3 mb-2">
-          <span class="material-symbols-outlined text-primary text-2xl">verified</span>
+          <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-2xl text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.7 1.35 2.97-.42.42 2.97L19.44 10.5l-1.35 2.7.42 2.97-2.97.42L12 17.94l-2.7-1.35-2.97.42-.42-2.97L4.56 10.5l1.35-2.7-.42-2.97 2.97-.42L12 3.75Z" />
+  <path d="m9.75 12 1.5 1.5 3.75-4.5" /></svg>
           <h4 class="font-headline text-lg font-bold">Reviewer</h4>
         </div>
         
@@ -564,7 +626,9 @@
         <ul class="space-y-4">
           
           <li class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-primary text-lg mt-0.5">auto_stories</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-lg text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.75c-1.58-1-3.54-1.5-5.25-1.5A2.25 2.25 0 0 0 4.5 7.5v9.75c.73-.49 1.72-.75 2.75-.75 1.71 0 3.17.48 4.75 1.5" />
+  <path d="M12 6.75c1.58-1 3.54-1.5 5.25-1.5A2.25 2.25 0 0 1 19.5 7.5v9.75c-.73-.49-1.72-.75-2.75-.75-1.71 0-3.17.48-4.75 1.5" />
+  <path d="M12 6.75v11.25" /></svg>
             <div>
               <p class="font-medium">
                 <a href="/neural-networks.html" class="text-primary hover:text-primary-container transition-colors">Neural Networks and Deep Learning (神经网络与深度学习)</a>
@@ -574,7 +638,9 @@
           </li>
           
           <li class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-primary text-lg mt-0.5">auto_stories</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 mt-0.5 text-lg text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.75c-1.58-1-3.54-1.5-5.25-1.5A2.25 2.25 0 0 0 4.5 7.5v9.75c.73-.49 1.72-.75 2.75-.75 1.71 0 3.17.48 4.75 1.5" />
+  <path d="M12 6.75c1.58-1 3.54-1.5 5.25-1.5A2.25 2.25 0 0 1 19.5 7.5v9.75c-.73-.49-1.72-.75-2.75-.75-1.71 0-3.17.48-4.75 1.5" />
+  <path d="M12 6.75v11.25" /></svg>
             <div>
               <p class="font-medium">
                 Introduction to Major (专业导论)

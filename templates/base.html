@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% from "_icons.html" import icon %}
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,8 +9,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
 {% block extra_head %}{% endblock %}
 </head>
@@ -23,8 +25,8 @@
       <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg{% if active_nav == item.label %} text-primary border-b-2 border-primary pb-1{% endif %}" href="{{ item.url }}">{{ item.label }}</a>
       {% endfor %}
     </div>
-    <button class="p-2 text-primary md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-      <span class="material-symbols-outlined">menu</span>
+    <button aria-label="Toggle navigation" class="p-2 text-primary md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      {{ icon("menu") }}
     </button>
   </div>
   <!-- Mobile menu -->
@@ -41,7 +43,7 @@
     <aside class="lg:w-72 xl:w-80 shrink-0">
       <div id="sidebar-inner" class="sticky top-24 h-fit rounded-xl p-5 sm:p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
         <div class="w-full max-w-[14rem] sm:max-w-[16rem] lg:max-w-none aspect-square bg-surface-container-high rounded-xl overflow-hidden mb-1 mx-auto lg:mx-0">
-          <img alt="{{ config.name_en }}" class="w-full h-full object-cover object-center" src="{{ config.avatar }}" onerror="this.onerror=null;this.src='/img/profile.png'">
+          <img alt="{{ config.name_en }}" class="w-full h-full object-cover object-center" decoding="async" fetchpriority="high" height="640" src="{{ config.avatar }}" width="640" onerror="this.onerror=null;this.src='/img/avatar.jpg'">
         </div>
         <div class="space-y-1 text-center lg:text-left max-w-sm mx-auto lg:max-w-none lg:mx-0">
           <h1 class="font-headline text-2xl font-bold text-primary leading-tight">{{ config.name }}</h1>
@@ -51,7 +53,7 @@
           {% for link in config.links %}
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="{{ link.url }}" {% if not link.url.startswith('mailto') %}target="_blank" rel="noopener"{% endif %}>
             {% if link.icon is defined %}
-            <span class="material-symbols-outlined text-lg">{{ link.icon }}</span>
+            {{ icon(link.icon, "text-lg") }}
             {% elif link.icon_img is defined %}
             <img src="{{ link.icon_img }}" alt="" class="w-4 h-4">
             {% endif %}

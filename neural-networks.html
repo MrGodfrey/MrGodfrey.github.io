@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,8 +9,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
 
 </head>
@@ -31,8 +33,8 @@
       <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/blogs/">Blog</a>
       
     </div>
-    <button class="p-2 text-primary md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-      <span class="material-symbols-outlined">menu</span>
+    <button aria-label="Toggle navigation" class="p-2 text-primary md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
     </button>
   </div>
   <!-- Mobile menu -->
@@ -57,7 +59,7 @@
     <aside class="lg:w-72 xl:w-80 shrink-0">
       <div id="sidebar-inner" class="sticky top-24 h-fit rounded-xl p-5 sm:p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
         <div class="w-full max-w-[14rem] sm:max-w-[16rem] lg:max-w-none aspect-square bg-surface-container-high rounded-xl overflow-hidden mb-1 mx-auto lg:mx-0">
-          <img alt="Yu Wang" class="w-full h-full object-cover object-center" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/profile.png'">
+          <img alt="Yu Wang" class="w-full h-full object-cover object-center" decoding="async" fetchpriority="high" height="640" src="/img/avatar.webp" width="640" onerror="this.onerror=null;this.src='/img/avatar.jpg'">
         </div>
         <div class="space-y-1 text-center lg:text-left max-w-sm mx-auto lg:max-w-none lg:mx-0">
           <h1 class="font-headline text-2xl font-bold text-primary leading-tight">Yu Wang 王宇</h1>
@@ -67,35 +69,44 @@
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="mailto:yuwangmath@163.com" >
             
-            <span class="material-symbols-outlined text-lg">mail</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5v10.5H3.75z" />
+  <path d="m3.75 7.5 8.25 6 8.25-6" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">Email</span>
           </a>
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="https://www.researchgate.net/profile/Yu-Wang-792" target="_blank" rel="noopener">
             
-            <span class="material-symbols-outlined text-lg">science</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3.75h3" />
+  <path d="M12 3.75v4.5l-4.78 7.91a2.25 2.25 0 0 0 1.93 3.34h5.7a2.25 2.25 0 0 0 1.93-3.34L12 8.25" />
+  <path d="M9.4 13.5h5.2" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">ResearchGate</span>
           </a>
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="https://orcid.org/0000-0003-0448-9870" target="_blank" rel="noopener">
             
-            <span class="material-symbols-outlined text-lg">badge</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3.75h15A1.5 1.5 0 0 1 21 5.25v13.5A1.5 1.5 0 0 1 19.5 20.25h-15A1.5 1.5 0 0 1 3 18.75V5.25A1.5 1.5 0 0 1 4.5 3.75Z" />
+  <path d="M7.5 8.25h9M10.5 12h6M10.5 15.75h6" />
+  <circle cx="7.5" cy="14.25" r="1.5" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">ORCID</span>
           </a>
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="https://scholar.google.com.hk/citations?hl=zh-CN&user=jIEudq0AAAAJ" target="_blank" rel="noopener">
             
-            <span class="material-symbols-outlined text-lg">school</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.75 10.5 8.25-4.5 8.25 4.5-8.25 4.5-8.25-4.5Z" />
+  <path d="M7.5 12.55v3.2c0 .8 1.94 2 4.5 2s4.5-1.2 4.5-2v-3.2" />
+  <path d="M20.25 10.5v4.5" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">Google Scholar</span>
           </a>
           
           <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="https://faculty.swjtu.edu.cn/yuwang/zh_CN/index/834956/list/index.htm" target="_blank" rel="noopener">
             
-            <span class="material-symbols-outlined text-lg">account_circle</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.25" />
+  <circle cx="12" cy="9" r="3" />
+  <path d="M7.2 18.7a5.9 5.9 0 0 1 9.6 0" /></svg>
             
             <span class="text-sm font-body text-center lg:text-left">Faculty Profile</span>
           </a>
@@ -129,12 +140,13 @@
           </div>
         </div>
         
-        <a class="mt-3 block w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 py-3.5 bg-gradient-to-r from-primary to-primary-container text-white text-center rounded-lg font-medium shadow-lg hover:shadow-xl transition-all active:scale-95 text-sm" href="https://drive.google.com/file/d/1dlNqQ2TWe0RWdZnDPGzSULbuEBXyoNu6/view?usp=sharing" target="_blank" rel="noopener">
+        <a class="mt-3 block w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 py-3.5 bg-gradient-to-r from-primary to-primary-container text-white text-center rounded-lg font-medium shadow-lg hover:shadow-xl transition-all active:scale-95 text-sm" href="/files/cv-yu-wang.pdf" target="_blank" rel="noopener">
           Download CV
         </a>
         
 <a class="mt-2 flex items-center justify-center gap-2 text-xs font-label uppercase tracking-widest text-slate-400 hover:text-primary transition-colors" href="/">
-  <span class="material-symbols-outlined text-sm">arrow_back</span>
+  <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.75 12H5.25" />
+  <path d="m11.25 6.75-5.25 5.25 5.25 5.25" /></svg>
   Back to Home
 </a>
 
@@ -154,7 +166,8 @@
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline font-black text-primary leading-tight mb-6">Neural Networks and Deep Learning</h1>
     <div class="flex flex-wrap gap-6 items-center text-on-surface-variant font-medium text-sm">
       <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">person</span>
+        <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.25" r="3" />
+  <path d="M6 18a6 6 0 0 1 12 0" /></svg>
         <span>Instructor: Yu Wang</span>
       </div>
     </div>
@@ -263,26 +276,28 @@
         
         <a class="flex items-center justify-between p-3.5 bg-white/10 rounded-lg hover:bg-white/20 transition-all group" href="https://github.com/MrGodfrey/neural-networks-and-deep-learning" target="_blank" rel="noopener">
           <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-secondary-container">code</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-secondary-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8.25 8.25-3.75 3.75 3.75 3.75M15.75 8.25l3.75 3.75-3.75 3.75M13.5 5.25 10.5 18.75" /></svg>
             <span class="font-medium text-sm">GitHub Repository</span>
           </div>
-          <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+          <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-sm transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6.75 6 5.25-6 5.25" /></svg>
         </a>
         
         <a class="flex items-center justify-between p-3.5 bg-white/10 rounded-lg hover:bg-white/20 transition-all group" href="https://gitee.com/lvqiscu/neural-networks-and-deep-learning" target="_blank" rel="noopener">
           <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-secondary-container">terminal</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-secondary-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.25h15A1.5 1.5 0 0 1 21 6.75v10.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.25V6.75a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="m7.5 9.75 3 2.25-3 2.25M12 14.25h4.5" /></svg>
             <span class="font-medium text-sm">Gitee Mirror</span>
           </div>
-          <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+          <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-sm transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6.75 6 5.25-6 5.25" /></svg>
         </a>
         
         <a class="flex items-center justify-between p-3.5 bg-white/10 rounded-lg hover:bg-white/20 transition-all group" href="http://162.14.78.163" target="_blank" rel="noopener">
           <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-secondary-container">cloud_upload</span>
+            <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-secondary-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 18.75h8.25a4.5 4.5 0 0 0 .66-8.95 5.25 5.25 0 0 0-10.25.95A3.75 3.75 0 0 0 7.5 18.75Z" />
+  <path d="M12 15.75v-4.5M9.75 13.5 12 11.25l2.25 2.25" /></svg>
             <span class="font-medium text-sm">Upload Platform (CMS)</span>
           </div>
-          <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+          <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-sm transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6.75 6 5.25-6 5.25" /></svg>
         </a>
         
       </div>
@@ -304,7 +319,9 @@
         <div class="h-px flex-1 bg-outline-variant/30"></div>
       </div>
       <div class="p-8 bg-surface-container-low rounded-xl text-center text-on-surface-variant">
-        <span class="material-symbols-outlined text-4xl text-outline mb-3 block">school</span>
+        <span class="mb-3 block text-4xl text-outline"><svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.75 10.5 8.25-4.5 8.25 4.5-8.25 4.5-8.25-4.5Z" />
+  <path d="M7.5 12.55v3.2c0 .8 1.94 2 4.5 2s4.5-1.2 4.5-2v-3.2" />
+  <path d="M20.25 10.5v4.5" /></svg></span>
         <p class="text-lg font-medium">To be determined</p>
         <p class="text-sm mt-1">Student projects will be showcased here.</p>
       </div>

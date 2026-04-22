@@ -1,4 +1,5 @@
 {% extends "blog_base.html" %}
+{% from "_icons.html" import icon %}
 
 {% block content %}
 <div>
@@ -28,7 +29,7 @@
         <p class="max-w-[46rem] font-blog text-[16px] leading-[2.05] text-[rgb(31,31,31)]">{{ post.excerpt }}</p>
         <a href="{{ post.url }}" class="mt-[18px] inline-flex items-center gap-3 font-blog text-[0.8em] font-medium uppercase tracking-[0.26rem] text-slate-300 transition-colors group-hover:text-primary{% if loop.first %} text-primary{% endif %}">
           Continue Reading
-          <span class="material-symbols-outlined text-[1.25rem] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
+          {{ icon("arrow_right_alt", "text-[1.25rem] transition-transform group-hover:translate-x-1") }}
         </a>
       </article>
       {% endfor %}
