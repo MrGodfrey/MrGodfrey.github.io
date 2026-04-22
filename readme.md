@@ -1,6 +1,6 @@
 # Yu Wang — Academic Portfolio
 
-个人学术主页，基于 `generate.py` 的静态生成，不使用 Hugo/Jekyll。源文件主要在 `config.yaml`、`content/*.md`、`templates/*.html`；生成产物在仓库根目录和 `blog/` 目录。
+个人学术主页，基于 `generate.py` 的静态生成，不使用 Hugo/Jekyll。源文件主要在 `config.yaml`、`content/*.md`、`templates/*.html`；生成产物在仓库根目录和 `blogs/` 目录。
 
 ## 快速开始
 
@@ -62,7 +62,7 @@ assets/
 [[blog:notes-from-discussions-about-ai-with-friends]]
 ```
 
-会被展开成指向 `/blog/notes-from-discussions-about-ai-with-friends/` 的链接，链接文字默认就是该文章标题。
+会被展开成指向 `/blogs/notes-from-discussions-about-ai-with-friends/` 的链接，链接文字默认就是该文章标题。
 
 ### 用法 2：按 slug 引用，并自定义链接文字
 
@@ -129,7 +129,7 @@ I recently wrote [[blog:notes-from-discussions-about-ai-with-friends|a long note
 
 - Blog 首页内容来自 `content/blog.md`
 - Blog 文章源文件放在 `content/blog_posts/`
-- 每篇文章会自动生成到 `/blog/<slug>/index.html`
+- 每篇文章会自动生成到 `/blogs/<slug>/index.html`
 - Blog 首页会自动按日期倒序列出文章
 
 目前生成器会读取这些常用 front matter 字段：
@@ -144,7 +144,7 @@ slug:
 
 - `slug` 可选；不写就按文件名自动生成
 - 文章正文按普通 Markdown 渲染
-- 正文中的本地图片会被复制到对应的 `blog/<slug>/` 目录
+- 正文中的本地图片会被复制到对应的 `blogs/<slug>/` 目录
 
 ## 常用操作
 

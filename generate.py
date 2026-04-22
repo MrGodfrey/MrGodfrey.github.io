@@ -27,7 +27,8 @@ CONTENT_DIR = "content"
 TEMPLATE_DIR = "templates"
 BLOG_SOURCE = os.path.join(CONTENT_DIR, "blog.md")
 BLOG_POSTS_DIR = os.path.join(CONTENT_DIR, "blog_posts")
-BLOG_OUTPUT_DIR = "blog"
+BLOG_OUTPUT_DIR = "blogs"
+BLOG_HOME_URL = "/blogs/"
 BLOG_REFERENCE_PATTERN = re.compile(r"\[\[\s*(blog|blog-title)\s*:(.+?)\]\]")
 MARKDOWN_CODE_PATTERN = re.compile(
     r"(^```.*\n[\s\S]*?^```[ \t]*$|^~~~.*\n[\s\S]*?^~~~[ \t]*$|`[^`\n]*`)",
@@ -353,7 +354,7 @@ def load_blog_posts():
                 {
                     "title": normalize_whitespace(str(page.get("title") or os.path.splitext(fname)[0])),
                     "slug": slug,
-                    "url": f"/blog/{slug}/",
+                    "url": f"{BLOG_HOME_URL}{slug}/",
                     "display_date": format_display_date(page.get("date"), file_timestamp),
                     "sort_date": sort_date(page.get("date"), file_timestamp),
                     "body_md": body_md,
@@ -393,6 +394,8 @@ def build_blog(config, env, posts=None, blog_reference_index=None):
 
     if os.path.isdir(BLOG_OUTPUT_DIR):
         shutil.rmtree(BLOG_OUTPUT_DIR)
+    if BLOG_OUTPUT_DIR != "blog" and os.path.isdir("blog"):
+        shutil.rmtree("blog")
 
     posts = posts if posts is not None else load_blog_posts()
     blog_reference_index = blog_reference_index or build_blog_reference_index(posts)
