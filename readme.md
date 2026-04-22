@@ -1,216 +1,184 @@
 # Yu Wang — Academic Portfolio
 
-个人学术主页，基于 Markdown + YAML 驱动，Tailwind CSS 本地构建。
-
----
+个人学术主页，基于 `generate.py` 的静态生成，不使用 Hugo/Jekyll。源文件主要在 `config.yaml`、`content/*.md`、`templates/*.html`；生成产物在仓库根目录和 `blog/` 目录。
 
 ## 快速开始
 
 ```bash
-pip install -r requirements.txt   # 首次安装依赖
-npm install                       # 首次安装 Tailwind 构建依赖
-npm run build:css                 # 生成 assets/site.css
-python3 generate.py               # 构建所有页面
-python3 localServe                # 启动本地预览 http://localhost:4000/
+pip install -r requirements.txt
+npm install
+npm run build
+python3 localServe
 ```
 
-`python3 localServe` 现在会在启动时自动执行 `npm run build:css` 和 `generate.py`，并在你修改内容、模板或 Tailwind 配置后自动重新构建预览。
+- `npm run build` 会先生成 `assets/site.css`，再运行 `python3 generate.py`
+- 本地预览默认在 `http://localhost:4000/`
+- `assets/site.css` 是 Tailwind 构建产物，不要手改
 
----
+## 仓库结构
 
-## 1.  **不要删除的文件**：
-- `config.yaml` — 全站共享配置
-- `content/*.md` — 你的内容源文件
-- `templates/` — Jinja2 模板
-- `generate.py` — 构建脚本
-- `localServe` — 本地开发服务器
-- `img/` — 头像和 favicon
-- `CNAME` — GitHub Pages 自定义域名
-- `.nojekyll` — 阻止 GitHub 的 Jekyll 构建
-- `googlee3e5239673270969.html` — Google 搜索验证
-- `requirements.txt` — Python 依赖
+```text
+config.yaml
+generate.py
+content/
+  index.md
+  blog.md
+  blog_posts/*.md
+templates/
+  base.html
+  home.html
+  blog_base.html
+  blog_home.html
+  blog_post.html
+assets/
+  tailwind.css
+  site.css
+```
 
----
+- `content/index.md`：主页内容，`About Me` 正文就在这里的 markdown body
+- `content/blog.md`：Blog 首页说明文字
+- `content/blog_posts/*.md`：Blog 文章源文件
+- `templates/*.html`：Jinja2 模板
 
-## 2. 如何添加新页面
+## 在 About Me 中引用 Blog 文章
 
-### 步骤 1：创建 Markdown 文件
+这套机制作用于所有 markdown 正文，最常见的就是 `content/index.md` 的 `About Me` 部分。你只需要在 markdown 里写引用语法，生成器会在构建时自动替换成真正的博客链接。
 
-在 `content/` 目录下新建 `.md` 文件，例如 `content/my-page.md`：
+支持范围：
+
+- `content/index.md` 的正文
+- `content/blog.md` 的正文
+- `content/blog_posts/*.md` 的正文
+- 其他 `content/*.md` 页面的正文
+
+不支持范围：
+
+- YAML front matter
+- `excerpt`、`summary`、`title` 这类 front matter 字段
+
+### 用法 1：按 slug 引用，链接文字自动使用文章标题
 
 ```markdown
----
-title: "页面标题"
-template: home          # 使用 "home" 或 "course" 模板
----
-
-这里写你的 Markdown 正文内容。
+[[blog:notes-from-discussions-about-ai-with-friends]]
 ```
 
-### 步骤 2：构建
+会被展开成指向 `/blog/notes-from-discussions-about-ai-with-friends/` 的链接，链接文字默认就是该文章标题。
 
-```bash
-python3 generate.py                   # 构建所有页面
-python3 generate.py content/my-page.md  # 或只构建这一个
+### 用法 2：按 slug 引用，并自定义链接文字
+
+```markdown
+我最近写过 [[blog:notes-from-discussions-about-ai-with-friends|一篇关于 AI 边界的长文]]。
 ```
 
-这会在根目录生成 `my-page.html`。
+### 用法 3：按文章标题引用，链接文字自动使用文章标题
 
-### 步骤 3：添加导航（可选）
-
-如果需要在顶部导航栏中显示，编辑 `config.yaml` 的 `nav` 部分：
-
-```yaml
-nav:
-  - label: NewPage
-    url: "/my-page.html"
+```markdown
+[[blog-title:与不同领域的朋友讨论 AI 的记录，AI 能做什么，以及 AI 的局限]]
 ```
 
-### 可用模板
+### 用法 4：按文章标题引用，并自定义链接文字
 
-| 模板名 | 用途 | front matter 中必填字段 |
-|---|---|---|
-| `home` | 主页、通用学术页面 | `experience`, `education`, `articles`, `preprints`, `talks`, `grants`, `journals`, `reviewing`, `courses` |
-| `course` | 课程详情页 | `semester`, `instructor`, `topics`, `assessment`, `materials` |
-| `blog_home` | Blog 首页 | 无必填字段，文章列表会自动注入 |
-
-> **提示**：front matter 中的字段都是可选的，模板会自动跳过缺失的部分。
-
----
-
-## 3. 大模型开发指南
-
-> **本节面向 AI 编程助手**。当你被要求修改本网站时，阅读这一节即可快速了解架构。
-
-### 架构总览
-
-```
-config.yaml              ← 全站共享数据（个人信息、侧边栏链接、导航）
-tailwind.config.js       ← Tailwind 主题配置
-assets/
-  tailwind.css           ← Tailwind 输入文件
-  site.css               ← 构建输出 CSS
-content/
-  index.md               ← 主页内容（Markdown + YAML front matter）
-  blog.md                ← Blog 首页内容（Markdown + YAML front matter）
-  blog_posts/*.md        ← Blog 文章源文件
-  neural-networks.md     ← 课程页内容
-templates/
-  base.html              ← Jinja2 基础模板（导航栏、侧边栏、页脚）
-  blog_base.html         ← Blog 独立基础模板
-  blog_home.html         ← Blog 首页模板
-  blog_post.html         ← Blog 文章模板
-  home.html              ← 主页模板（继承 base.html）
-  course.html            ← 课程页模板（继承 base.html）
-generate.py              ← 构建脚本：解析 .md → 渲染 Jinja2 → 输出 .html
+```markdown
+我最近写过 [[blog-title:与不同领域的朋友讨论 AI 的记录，AI 能做什么，以及 AI 的局限|一篇关于 AI 的讨论记录]]。
 ```
 
-### 数据流
+### 解析规则
 
-```
-config.yaml ─┐
-content/*.md ├──→ generate.py ──→ Jinja2 渲染 ──→ index.html / neural-networks.html / blog/index.html
-templates/*.html ┘
+- `blog:` 后面写文章的最终 slug
+- `blog-title:` 后面写文章标题
+- `|` 后面的部分可选；不写时，默认把文章标题作为链接文字
+- 标题匹配会忽略首尾空白和多余空格；英文大小写不敏感
+- 文章 slug 来自 front matter 里的 `slug`，如果没写，就由文件名自动生成
 
-templates/*.html + content/*.md ──→ tailwindcss CLI ──→ assets/site.css
-```
+### 什么时候该用 slug，什么时候该用标题
 
-- `config.yaml` 中的数据通过 `{{ config.xxx }}` 在模板中访问
-- `.md` 文件的 YAML front matter 通过 `{{ page.xxx }}` 在模板中访问
-- `.md` 文件的 Markdown 正文渲染为 HTML 后通过 `{{ body }}` 在模板中访问
+- 优先推荐 `[[blog:slug]]`，因为最稳定，不会因改标题而失效
+- `[[blog-title:标题]]` 更适合临时写作，但要求标题唯一
+- 如果两篇文章标题相同，构建会报错，并提示你改用 `[[blog:slug]]`
 
-### 设计系统：Academic Slate
+### 构建失败的情况
 
-完整设计规范见 `stitch/academic_slate/DESIGN.md`。以下是核心要点：
+以下情况会直接让 `python3 generate.py` 或 `npm run build` 失败：
 
-#### 色彩体系
+- 写了不存在的 slug
+- 写了不存在的标题
+- 用 `blog-title:` 引用了一个重复标题
+- 写成了空引用，例如 `[[blog:]]`
 
-| Token | 色值 | 用途 |
-|---|---|---|
-| `primary` | `#000666` | 标题、链接、品牌色 |
-| `primary-container` | `#1a237e` | 渐变终点、深色强调 |
-| `surface` | `#fbf9f8` | 页面背景 |
-| `surface-container-low` | `#f6f3f2` | 侧边栏、次要区块背景 |
-| `surface-container-lowest` | `#ffffff` | 卡片浮层 |
-| `on-surface` | `#1b1c1c` | 正文文字（**不要用纯黑**） |
-| `on-surface-variant` | `#454652` | 辅助文字 |
-| `secondary-container` | `#cfe6f2` | 标签/徽章背景 |
-| `on-tertiary-container` | `#ae945c` | 分类标注文字 |
-| `outline-variant` | `#c6c5d4` | 边框（仅 15% 不透明度） |
+这样做的目的是避免静默生成坏链接。
 
-#### 排版
+### 想原样显示这段语法怎么办
 
-- **标题**：`Noto Serif`（font-headline），权威感
-- **正文**：`Inter`（font-body），可读性
-- **标签**：`Inter`（font-label），大写 + 宽字距
+用反引号包起来即可：
 
-#### 核心规则
-
-1. **No-Line Rule**：禁止使用 1px 实线边框分隔区块，用背景色层级区分
-2. **Tonal Depth**：通过 `surface` → `surface-container-low` → `surface-container-lowest` 的色调叠层创建层次
-3. **Glassmorphism**：导航栏使用 `bg-surface/80 backdrop-blur-xl`
-4. **Ghost Border**：如必须有边框，使用 `outline-variant` 的 15% 不透明度（`border-outline-variant/15`）
-5. **Ambient Shadow**：阴影用 `shadow-[0_10px_40px_rgba(0,7,103,0.06)]`（带品牌色调的漫射投影）
-6. **CTA 渐变**：主按钮使用 `bg-gradient-to-r from-primary to-primary-container`
-
-#### Tailwind CSS 关键类速查
-
-```
-页面背景:     bg-surface
-侧边栏背景:   bg-surface-container-low
-卡片:         bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)]
-卡片悬停:     hover:shadow-[0_10px_40px_rgba(0,7,103,0.06)] hover:border-primary
-节标题:       font-headline text-3xl font-black text-primary
-小节标题:     font-headline text-xl font-bold text-primary
-正文:         text-on-surface-variant leading-relaxed font-body
-标签:         font-label text-xs uppercase tracking-widest
-圆角标签:     px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold
-导航链接:     font-headline font-bold text-on-surface/70 hover:text-primary
-导航栏:       fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl
+```markdown
+`[[blog:notes-from-discussions-about-ai-with-friends]]`
 ```
 
-### 修改指南
+### 一个完整示例
 
-| 想改什么 | 改哪个文件 |
-|---|---|
-| 个人信息（姓名、职称、链接） | `config.yaml` |
-| 论文、基金、教学经历、学术服务 | `content/index.md` 的 YAML front matter |
-| 主页 About 介绍文本 | `content/index.md` 的 Markdown 正文 |
-| Blog 首页介绍文字 | `content/blog.md` |
-| Blog 文章 | `content/blog_posts/*.md` |
-| 课程内容（大纲、考核、资料链接） | `content/neural-networks.md` |
-| 页面布局、HTML 结构 | `templates/*.html` |
-| 导航栏、侧边栏、页脚 | `templates/base.html` |
-| 颜色、字体、Tailwind 主题 | `tailwind.config.js` |
-| 新增页面模板 | 在 `templates/` 中新建 `.html`，继承 `base.html` |
+在 `content/index.md` 的正文里这样写：
 
-### 构建与验证
-
-```bash
-npm run build:css                # 先构建 CSS
-python3 generate.py                # 构建
-python3 localServe                 # 本地预览 http://localhost:4000/
+```markdown
+I recently wrote [[blog:notes-from-discussions-about-ai-with-friends|a long note on AI, teaching, and academic life]].
 ```
 
-修改 `tailwind.config.js`、`assets/tailwind.css`、`templates/*.html` 中涉及类名的内容后，需要重新运行 `npm run build:css`。
-修改任何 `config.yaml`、`content/*.md`、`templates/*.html` 后，都需要重新运行 `generate.py`。
-`localServe` 会自动监测 `content/` 的变化并重新构建。
+构建后，首页 `About Me` 区块会自动生成一个指向对应博客文章的可点击链接。
 
-### Blog 用法
+## Blog 写作规则
 
 - Blog 首页内容来自 `content/blog.md`
 - Blog 文章源文件放在 `content/blog_posts/`
 - 每篇文章会自动生成到 `/blog/<slug>/index.html`
 - Blog 首页会自动按日期倒序列出文章
 
-支持直接复制类似 Hexo 的文章 markdown，生成器目前只会读取这些字段：
+目前生成器会读取这些常用 front matter 字段：
 
 ```yaml
 title:
 date:
 excerpt:
 summary:
-slug:        # 可选；不写就按文件名自动生成
+slug:
 ```
 
-其余 front matter 会被忽略，不影响生成。文章正文会按普通 Markdown 渲染，图片和链接都可以直接使用。
+- `slug` 可选；不写就按文件名自动生成
+- 文章正文按普通 Markdown 渲染
+- 正文中的本地图片会被复制到对应的 `blog/<slug>/` 目录
+
+## 常用操作
+
+### 改主页内容
+
+- `About Me` 正文：编辑 `content/index.md` 的 markdown body
+- 论文、基金、课程等结构化信息：编辑 `content/index.md` 的 YAML front matter
+
+### 构建
+
+```bash
+npm run build
+```
+
+或者分开执行：
+
+```bash
+npm run build:css
+python3 generate.py
+```
+
+### 本地预览
+
+```bash
+python3 localServe
+```
+
+### 发布
+
+- 构建完成后提交并推送 `master`
+- GitHub Pages 直接从仓库静态文件发布
+
+## 修改约定
+
+- 不直接编辑生成文件，除非只是核对构建结果
+- 改了 Tailwind 类名、模板或 `assets/tailwind.css` 之后，要重新生成 CSS
+- 仓库里可能会有无关的 `.DS_Store` 变动，除非明确需要，不要带进提交

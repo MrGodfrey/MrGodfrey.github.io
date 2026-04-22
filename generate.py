@@ -28,6 +28,11 @@ TEMPLATE_DIR = "templates"
 BLOG_SOURCE = os.path.join(CONTENT_DIR, "blog.md")
 BLOG_POSTS_DIR = os.path.join(CONTENT_DIR, "blog_posts")
 BLOG_OUTPUT_DIR = "blog"
+BLOG_REFERENCE_PATTERN = re.compile(r"\[\[\s*(blog|blog-title)\s*:(.+?)\]\]")
+MARKDOWN_CODE_PATTERN = re.compile(
+    r"(^```.*\n[\s\S]*?^```[ \t]*$|^~~~.*\n[\s\S]*?^~~~[ \t]*$|`[^`\n]*`)",
+    re.MULTILINE,
+)
 
 
 def load_config():
@@ -58,6 +63,10 @@ def render_markdown(text):
 
 def normalize_whitespace(text):
     return re.sub(r"\s+", " ", text).strip()
+
+
+def title_lookup_key(value):
+    return normalize_whitespace(str(value)).casefold()
 
 
 def strip_html(text):
@@ -123,6 +132,93 @@ def slugify(value):
 
     digest = hashlib.sha1(value.encode("utf-8")).hexdigest()[:10]
     return f"post-{digest}"
+
+
+def escape_markdown_link_text(text):
+    return text.replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]")
+
+
+def build_blog_reference_index(posts):
+    reference_index = {
+        "slug": {},
+        "title": {},
+        "duplicate_titles": set(),
+    }
+
+    for post in posts:
+        reference_index["slug"][post["slug"]] = post
+
+        title_key = title_lookup_key(post["title"])
+        if title_key in reference_index["title"]:
+            reference_index["duplicate_titles"].add(title_key)
+        else:
+            reference_index["title"][title_key] = post
+
+    for title_key in reference_index["duplicate_titles"]:
+        reference_index["title"].pop(title_key, None)
+
+    return reference_index
+
+
+def resolve_blog_reference(ref_kind, raw_target, blog_reference_index, source_path):
+    target = normalize_whitespace(raw_target)
+    if not target:
+        raise ValueError(f"{source_path}: 空的博客引用，语法应为 [[blog:slug]] 或 [[blog-title:标题]]")
+
+    if ref_kind == "blog":
+        slug_key = target.lower()
+        post = blog_reference_index["slug"].get(slug_key) or blog_reference_index["slug"].get(slugify(target))
+        if post:
+            return post
+        raise ValueError(f"{source_path}: 找不到 slug 为 {target!r} 的博客文章")
+
+    title_key = title_lookup_key(target)
+    if title_key in blog_reference_index["duplicate_titles"]:
+        raise ValueError(f"{source_path}: 标题 {target!r} 对应多篇博客文章，请改用 [[blog:slug]]")
+
+    post = blog_reference_index["title"].get(title_key)
+    if post:
+        return post
+
+    raise ValueError(f"{source_path}: 找不到标题为 {target!r} 的博客文章")
+
+
+def replace_blog_references(text, blog_reference_index, source_path):
+    if not text or "[[blog" not in text:
+        return text
+
+    if blog_reference_index is None:
+        raise ValueError(f"{source_path}: 博客引用功能未初始化")
+
+    protected_segments = {}
+
+    def stash_code(match):
+        token = f"\0BLOG_CODE_{len(protected_segments)}\0"
+        protected_segments[token] = match.group(0)
+        return token
+
+    protected_text = MARKDOWN_CODE_PATTERN.sub(stash_code, text)
+
+    def replacer(match):
+        ref_kind = match.group(1)
+        payload = match.group(2).strip()
+        raw_target, has_separator, raw_label = payload.partition("|")
+
+        post = resolve_blog_reference(ref_kind, raw_target, blog_reference_index, source_path)
+        label = normalize_whitespace(raw_label) if has_separator else ""
+        link_text = escape_markdown_link_text(label or post["title"])
+        return f"[{link_text}]({post['url']})"
+
+    replaced_text = BLOG_REFERENCE_PATTERN.sub(replacer, protected_text)
+    for token, original in protected_segments.items():
+        replaced_text = replaced_text.replace(token, original)
+
+    return replaced_text
+
+
+def render_body_markdown(body_md, source_path, blog_reference_index=None):
+    resolved_body_md = replace_blog_references(body_md, blog_reference_index, source_path)
+    return render_markdown(resolved_body_md)
 
 
 def collect_local_assets(body_md):
@@ -206,9 +302,9 @@ def render_page(config, env, page, body_html, output_path, source_path, template
 
 # ------------------------------------------------------------------ build
 
-def build_page(md_path, config, env, output_path=None, template_name=None, extra_context=None):
+def build_page(md_path, config, env, output_path=None, template_name=None, extra_context=None, blog_reference_index=None):
     page, body_md = read_markdown_page(md_path)
-    body_html = render_markdown(body_md)
+    body_html = render_body_markdown(body_md, md_path, blog_reference_index=blog_reference_index)
 
     for key in ("articles", "preprints"):
         for paper in page.get(key, []):
@@ -253,7 +349,6 @@ def load_blog_posts():
                 suffix += 1
             used_slugs.add(slug)
 
-            excerpt_source = page.get("excerpt") or page.get("summary") or excerpt_from_markdown(body_md)
             posts.append(
                 {
                     "title": normalize_whitespace(str(page.get("title") or os.path.splitext(fname)[0])),
@@ -261,7 +356,6 @@ def load_blog_posts():
                     "url": f"/blog/{slug}/",
                     "display_date": format_display_date(page.get("date"), file_timestamp),
                     "sort_date": sort_date(page.get("date"), file_timestamp),
-                    "excerpt": normalize_whitespace(str(excerpt_source)),
                     "body_md": body_md,
                     "local_assets": collect_local_assets(body_md),
                     "source_path": source_path,
@@ -274,24 +368,46 @@ def load_blog_posts():
     return posts
 
 
-def build_blog(config, env):
+def prepare_blog_posts(posts, blog_reference_index):
+    prepared_posts = []
+
+    for post in posts:
+        prepared_post = dict(post)
+        prepared_post["page"] = dict(post["page"])
+        resolved_body_md = replace_blog_references(post["body_md"], blog_reference_index, post["source_path"])
+        excerpt_source = (
+            prepared_post["page"].get("excerpt")
+            or prepared_post["page"].get("summary")
+            or excerpt_from_markdown(resolved_body_md)
+        )
+        prepared_post["resolved_body_md"] = resolved_body_md
+        prepared_post["excerpt"] = normalize_whitespace(str(excerpt_source))
+        prepared_posts.append(prepared_post)
+
+    return prepared_posts
+
+
+def build_blog(config, env, posts=None, blog_reference_index=None):
     if not os.path.isfile(BLOG_SOURCE):
         return
 
     if os.path.isdir(BLOG_OUTPUT_DIR):
         shutil.rmtree(BLOG_OUTPUT_DIR)
 
-    posts = load_blog_posts()
+    posts = posts if posts is not None else load_blog_posts()
+    blog_reference_index = blog_reference_index or build_blog_reference_index(posts)
+    prepared_posts = prepare_blog_posts(posts, blog_reference_index)
 
     build_page(
         BLOG_SOURCE,
         config,
         env,
         output_path=os.path.join(BLOG_OUTPUT_DIR, "index.html"),
-        extra_context={"blog_posts": posts},
+        extra_context={"blog_posts": prepared_posts},
+        blog_reference_index=blog_reference_index,
     )
 
-    for post in posts:
+    for post in prepared_posts:
         page = dict(post["page"])
         page.setdefault("title", post["title"])
         page.setdefault("template", "blog_post")
@@ -300,7 +416,7 @@ def build_blog(config, env):
             config,
             env,
             page,
-            render_markdown(post["body_md"]),
+            render_markdown(post["resolved_body_md"]),
             post["output_path"],
             post["source_path"],
             template_name="blog_post.html",
@@ -330,6 +446,9 @@ def copy_blog_assets(post):
 
 
 def build_default_site(config, env):
+    posts = load_blog_posts()
+    blog_reference_index = build_blog_reference_index(posts)
+
     for root, dirs, files in os.walk(CONTENT_DIR):
         dirs[:] = [d for d in dirs if not is_inside(os.path.join(root, d), BLOG_POSTS_DIR)]
         for fname in sorted(files):
@@ -338,13 +457,15 @@ def build_default_site(config, env):
             path = os.path.join(root, fname)
             if is_blog_home(path):
                 continue
-            build_page(path, config, env)
+            build_page(path, config, env, blog_reference_index=blog_reference_index)
 
-    build_blog(config, env)
+    build_blog(config, env, posts=posts, blog_reference_index=blog_reference_index)
 
 
 def build_requested_paths(paths, config, env):
     should_build_blog = False
+    posts = load_blog_posts()
+    blog_reference_index = build_blog_reference_index(posts)
 
     for path in paths:
         if not (path.endswith(".md") and os.path.isfile(path)):
@@ -355,10 +476,10 @@ def build_requested_paths(paths, config, env):
             should_build_blog = True
             continue
 
-        build_page(path, config, env)
+        build_page(path, config, env, blog_reference_index=blog_reference_index)
 
     if should_build_blog:
-        build_blog(config, env)
+        build_blog(config, env, posts=posts, blog_reference_index=blog_reference_index)
 
 
 def main():
