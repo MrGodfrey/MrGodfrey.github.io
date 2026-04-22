@@ -4,8 +4,10 @@ template: blog_home
 heading: "Concerning Yu Wang"
 list_label: "Articles"
 ---
-我是王宇。你也许先在我的[学术主页](/)上认识我，那里记录的是论文、课程和更正式的身份说明。这里则更像一个安静的角落，用来写一些不那么适合放进简历里的东西。
+我是王宇，在高校任教，主要关注数学和人工智能方向。比起被潮流裹挟，我更愿意与 AI 一起，进行更深入的思考、写作与行动。
 
-我现在在西南交通大学数学学院任教，也在持续建设自己的[课程页面](/neural-networks.html)。如果说学术主页回答的是“我做过什么”，那么这个 Blog 更想回答“我为什么在做这些事”，以及我怎样理解研究、教学、生活和 AI 之间的关系。
+在 AI 的浪潮里，我喜欢将目光放在更具体的地方：它如何进入你我的日常工作流，例如我搭建了基于 AI 的[[blog:information-flow-between-warehouses-and-intelligent-agents|个人操作系统]]，也[[blog:my-first-app-kala-journal|做了 app]]。同时，我在持续关注它给工作与生活带来的[[blog:new-age|新景象]]。
 
-这里的文字会尽量写给不需要专业背景的人。它们可能谈数学，也可能谈旅行、阅读、课堂、技术，或者那些仍然没有完全想清楚、但值得留下来的判断。
+数学不仅是我的专业背景，也是我看待世界的一种审美方式。我会留心 AI 是否会[[blog:notes-from-discussions-about-ai-with-friends|代替我们进行深度思考]]，并探索 [[blog:academic-writing-in-the-ai-era|AI for math 的可能性]]。
+
+教育是我当下投入的实践。我一边在[[blog:ai-times-and-university|重构人工智能的大学课程]]，一边在接触社会上的可能性。我想做的教育，是[[blog:the-education-i-want-to-create-helps-us-grow-together|帮助彼此成长]]。
