@@ -39,37 +39,37 @@
   <div class="flex flex-col lg:flex-row gap-12">
     <!-- Sidebar -->
     <aside class="lg:w-72 xl:w-80 shrink-0">
-      <div id="sidebar-inner" class="sticky top-24 h-fit rounded-xl p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
-        <div class="w-full aspect-square bg-surface-container-high rounded-xl overflow-hidden mb-1">
-          <img alt="{{ config.name_en }}" class="w-full h-full object-cover" src="{{ config.avatar }}" onerror="this.onerror=null;this.src='/img/profile.png'">
+      <div id="sidebar-inner" class="sticky top-24 h-fit rounded-xl p-5 sm:p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
+        <div class="w-full max-w-[14rem] sm:max-w-[16rem] lg:max-w-none aspect-square bg-surface-container-high rounded-xl overflow-hidden mb-1 mx-auto lg:mx-0">
+          <img alt="{{ config.name_en }}" class="w-full h-full object-cover object-center" src="{{ config.avatar }}" onerror="this.onerror=null;this.src='/img/profile.png'">
         </div>
-        <div class="space-y-1">
-          <h1 class="font-headline text-2xl font-bold text-primary">{{ config.name }}</h1>
+        <div class="space-y-1 text-center lg:text-left max-w-sm mx-auto lg:max-w-none lg:mx-0">
+          <h1 class="font-headline text-2xl font-bold text-primary leading-tight">{{ config.name }}</h1>
           <p class="text-sm font-label tracking-wide uppercase text-slate-600">{{ config.position }}</p>
         </div>
-        <div class="space-y-3">
+        <div class="space-y-3 w-full max-w-sm mx-auto lg:max-w-none lg:mx-0">
           {% for link in config.links %}
-          <a class="flex items-center gap-3 text-slate-600 hover:text-primary transition-all duration-200 hover:translate-x-1" href="{{ link.url }}" {% if not link.url.startswith('mailto') %}target="_blank" rel="noopener"{% endif %}>
+          <a class="flex items-center justify-center lg:justify-start gap-3 text-slate-600 hover:text-primary transition-all duration-200 lg:hover:translate-x-1" href="{{ link.url }}" {% if not link.url.startswith('mailto') %}target="_blank" rel="noopener"{% endif %}>
             {% if link.icon is defined %}
             <span class="material-symbols-outlined text-lg">{{ link.icon }}</span>
             {% elif link.icon_img is defined %}
             <img src="{{ link.icon_img }}" alt="" class="w-4 h-4">
             {% endif %}
-            <span class="text-sm font-body">{{ link.label }}</span>
+            <span class="text-sm font-body text-center lg:text-left">{{ link.label }}</span>
           </a>
           {% endfor %}
         </div>
         {% if config.research_interests %}
-        <div class="pt-4 border-t border-outline-variant/15">
+        <div class="pt-4 border-t border-outline-variant/15 w-full text-center lg:text-left">
           <h3 class="text-[10px] font-label font-bold tracking-widest uppercase text-on-surface-variant mb-3">Research Interests</h3>
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
             {% for interest in config.research_interests %}
             <span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold">{{ interest }}</span>
             {% endfor %}
           </div>
         </div>
         {% endif %}
-        <a class="mt-3 block w-full py-3.5 bg-gradient-to-r from-primary to-primary-container text-white text-center rounded-lg font-medium shadow-lg hover:shadow-xl transition-all active:scale-95 text-sm" href="{{ config.cv.url }}" target="_blank" rel="noopener">
+        <a class="mt-3 block w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 py-3.5 bg-gradient-to-r from-primary to-primary-container text-white text-center rounded-lg font-medium shadow-lg hover:shadow-xl transition-all active:scale-95 text-sm" href="{{ config.cv.url }}" target="_blank" rel="noopener">
           {{ config.cv.label }}
         </a>
         {% block sidebar_extra %}{% endblock %}
