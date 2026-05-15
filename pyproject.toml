@@ -1,0 +1,13 @@
+[project]
+name = "mrgodfrey-github-io"
+version = "0.1.0"
+description = "Static academic homepage generator for Yu Wang's academic portfolio."
+requires-python = ">=3.9"
+dependencies = [
+    "jinja2",
+    "markdown",
+    "pyyaml",
+]
+
+[tool.uv]
+package = false

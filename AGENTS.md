@@ -7,11 +7,12 @@
 - 源文件主要在 `config.yaml`、`content/*.md`、`templates/*.html`。
 - 生成产物在仓库根目录：`index.html`、`neural-networks.html`。
 - `assets/site.css` 由 Tailwind 构建生成，不要手改。
+- Python 环境由 `uv` 通过 `pyproject.toml` 和 `uv.lock` 管理。
 
 ## 常用操作
 - 改内容：优先修改 `content/index.md`。
 - 构建：`npm run build`。
-- 本地预览：`python3 localServe`。
+- 本地预览：`uv run python localServe`。
 - 发布：构建后提交并推送 `master`，GitHub Pages 直接从仓库静态文件发布。
 
 ## 修改约定

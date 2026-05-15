@@ -121,12 +121,12 @@
             {% endif %}
           </div>
           <ul class="space-y-2">
-            {% for event in talk.events %}
+            {%- for event in talk.events %}
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
               {{ icon("arrow_right", "mt-0.5 text-[14px] text-primary") }}
               <span>{{ event.venue }}, <strong>{{ event.date }}</strong></span>
             </li>
-            {% endfor %}
+            {%- endfor %}
           </ul>
         </div>
         {% endfor %}

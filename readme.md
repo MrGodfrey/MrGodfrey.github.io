@@ -5,13 +5,14 @@
 ## 快速开始
 
 ```bash
-pip install -r requirements.txt
+uv sync
 npm install
 npm run build
-python3 localServe
+uv run python localServe
 ```
 
-- `npm run build` 会先生成 `assets/site.css`，再运行 `python3 generate.py`
+- Python 环境由 `uv` 根据 `pyproject.toml` 和 `uv.lock` 管理
+- `npm run build` 会先生成 `assets/site.css`，再运行 `uv run python generate.py`
 - 本地预览默认在 `http://localhost:4000/`
 - `assets/site.css` 是 Tailwind 构建产物，不要手改
 
@@ -163,13 +164,13 @@ npm run build
 
 ```bash
 npm run build:css
-python3 generate.py
+uv run python generate.py
 ```
 
 ### 本地预览
 
 ```bash
-python3 localServe
+uv run python localServe
 ```
 
 ### 发布
