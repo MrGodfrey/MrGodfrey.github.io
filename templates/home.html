@@ -55,6 +55,31 @@
       <h2 class="font-headline text-3xl lg:text-4xl font-black text-primary">Publications</h2>
     </div>
 
+    <!-- Books -->
+    <div>
+      <div class="flex items-center gap-4 mb-6">
+        <h3 class="text-xl font-headline font-bold text-primary">Books</h3>
+        <div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+      </div>
+      <div class="space-y-6">
+        {% for book in page.books %}
+        <div class="group p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)] hover:shadow-[0_10px_40px_rgba(0,7,103,0.06)] transition-all duration-300 border-l-4 border-transparent hover:border-primary">
+          <div class="space-y-2 mb-3">
+            <h4 class="font-headline text-lg font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">{{ book.title }}</h4>
+            <p class="text-sm text-on-surface-variant font-body">{{ book.authors | replace('**', '') }}{% if book.journal %} | <strong>{{ book.journal }}</strong>{% endif %}{% if book.info %}, {{ book.info }}{% endif %}</p>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            {% for link in book.links %}
+            <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="{{ link.url }}" target="_blank" rel="noopener">
+              {{ icon("article" if link.label == "ArXiv" else "description", "text-[14px]") }} [{{ link.label }}]
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
     <!-- Articles -->
     <div>
       <div class="flex items-center gap-4 mb-6">

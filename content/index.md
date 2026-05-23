@@ -29,6 +29,20 @@ education:
     place: "Sichuan University"
 
 # ============================================================
+# Publications — Books
+# ============================================================
+books:
+  - authors: "Q. Lü, **Y. Wang**"
+    title: "Inverse Problems for Stochastic Partial Differential Equations"
+    journal: "SpringerBriefs on PDEs and Data Science"
+    info: "Springer Nature Singapore, 2026. ISBN 9789819590476"
+    links:
+      - label: Book
+        url: "https://doi.org/10.1007/978-981-95-9047-6"
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2411.05534"
+
+# ============================================================
 # Publications — Articles
 # ============================================================
 articles:
@@ -117,13 +131,6 @@ preprints:
     links:
       - label: ArXiv
         url: "https://arxiv.org/abs/2405.03257"
-
-  - authors: "Q. Lü, **Y. Wang**"
-    title: "Inverse problems for stochastic partial differential equations"
-    status: "Submitted"
-    links:
-      - label: ArXiv
-        url: "https://arxiv.org/abs/2411.05534"
 
 # ============================================================
 # Invited Talks
