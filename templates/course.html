@@ -109,10 +109,19 @@
           <div class="p-5">
             <h4 class="text-lg font-bold text-on-surface mb-2">{{ project.title }}</h4>
             <p class="text-sm text-on-surface-variant mb-3">{{ project.description }}</p>
-            <div class="flex justify-between items-center">
+            <div class="flex flex-wrap justify-between gap-3 items-center">
               <span class="text-xs font-bold text-primary">{{ project.team }}</span>
-              {% if project.url %}
-              <a href="{{ project.url }}" class="text-primary transition-transform group-hover:translate-x-1">{{ icon("arrow_forward") }}</a>
+              {% if project.links %}
+              <div class="flex flex-wrap gap-3">
+                {% for link in project.links %}
+                <a href="{{ link.url }}" class="inline-flex items-center gap-1 text-xs font-bold text-primary transition-colors hover:text-primary-container" target="_blank" rel="noopener">
+                  {{ icon(link.icon if link.icon is defined else "arrow_forward", "text-[14px]") }}
+                  {{ link.label }}
+                </a>
+                {% endfor %}
+              </div>
+              {% elif project.url %}
+              <a href="{{ project.url }}" class="text-primary transition-transform group-hover:translate-x-1" target="_blank" rel="noopener">{{ icon("arrow_forward") }}</a>
               {% endif %}
             </div>
           </div>
