@@ -19,3 +19,4 @@
 - 不直接编辑生成文件，除非是在核对构建结果。
 - 涉及 Tailwind 类名、模板或 `assets/tailwind.css` 的改动后，要重新生成 CSS。
 - 这个仓库可能有无关的 `.DS_Store` 改动，除非用户要求，不要顺手带进提交。
+- 当用户要求把学生优秀项目添加到课程主页时，在 `content/neural-networks.md` 的 `projects` 列表新增项目条目，按现有格式填写 `title`、`description`、`team` 以及 GitHub/Bilibili 链接，然后运行 `npm run build` 更新生成页面。

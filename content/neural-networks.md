@@ -64,6 +64,40 @@ projects:
       - label: "Bilibili"
         icon: present_to_all
         url: "https://www.bilibili.com/video/BV1ELVr6nEmp/?vd_source=2894cd2823296fe1295ebb3045c91c71"
+  - title: "WriteAI · 学术英语写作辅助平台"
+    description: "基于 DeepSeek AI 与 arXiv 公开 API 构建的学术英语写作辅助 Web 应用，支持学术论文写作分析、AI 润色与文献检索。"
+    team: "@yue260203-5114 · 2026 年春季学期"
+    links:
+      - label: "GitHub"
+        icon: code
+        url: "https://github.com/yue260203-5114/WriteAI"
+      - label: "Bilibili"
+        icon: present_to_all
+        url: "https://www.bilibili.com/video/BV1QW7r6UEMx/"
+  - title: "ViT³：解锁视觉领域的测试时训练复现实验"
+    description: "基于 PyTorch 复现并优化 ViT³ 视觉测试时训练模型，适配 CIFAR-10 图像分类任务，并针对 CPU 环境进行轻量化改造与训练稳定性优化。"
+    team: "@yyh0502 · 2026 年春季学期"
+    links:
+      - label: "Gitee"
+        icon: code
+        url: "https://gitee.com/yyh0502/mid-term-neural-network"
+      - label: "Bilibili"
+        icon: present_to_all
+        url: "https://www.bilibili.com/video/BV1sAJG6tEoA/?share_source=copy_web&vd_source=fb61ca1ba49bb54a6074c29abc5ff7b1"
+  - title: "AI 速写猜谜 (AI Sketch Guesser)"
+    description: "基于 CNN 的手绘草图识别 Web 应用，用户在画布上作画，AI 实时识别飞机、汽车、猫、狗、房子、树等物体类别。"
+    team: "@peihuaihuaihuai · 2026 年春季学期"
+    links:
+      - label: "GitHub"
+        icon: code
+        url: "https://github.com/peihuaihuaihuai/ai-sketch-game"
+  - title: "HelloAgents 智能旅行助手"
+    description: "基于 HelloAgents 框架构建的智能旅行规划助手，集成高德地图 MCP 服务与 RAG 知识库，支持多智能体协作生成个性化旅行计划。"
+    team: "@Tian-ai-xxu · 2026 年春季学期"
+    links:
+      - label: "GitHub"
+        icon: code
+        url: "https://github.com/Tian-ai-xxu/hello-agent-demo"
 ---
 
 This course covers fundamental concepts of machine learning, feedforward neural networks, convolutional neural networks, recurrent neural networks, network optimization and regularization, as well as attention mechanisms and external memory. Designed for mathematics majors, the course emphasizes both theoretical foundations and practical applications.
