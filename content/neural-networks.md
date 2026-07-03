@@ -85,12 +85,18 @@ projects:
         icon: present_to_all
         url: "https://www.bilibili.com/video/BV1sAJG6tEoA/?share_source=copy_web&vd_source=fb61ca1ba49bb54a6074c29abc5ff7b1"
   - title: "AI 速写猜谜 (AI Sketch Guesser)"
-    description: "基于 CNN 的手绘草图识别 Web 应用，用户在画布上作画，AI 实时识别飞机、汽车、猫、狗、房子、树等物体类别。"
+    description: "基于 CNN 的手绘草图识别 Web 应用，用户在画布上作画，AI 实时识别飞机、汽车、猫、狗、房子、树等物体类别；项目已通过 Docker SDK 部署到 Hugging Face Spaces，也可运行 app.py 后本地访问 http://localhost:5000。"
     team: "@peihuaihuaihuai · 2026 年春季学期"
     links:
       - label: "GitHub"
         icon: code
         url: "https://github.com/peihuaihuaihuai/ai-sketch-game"
+      - label: "Demo"
+        icon: cloud_upload
+        url: "https://huggingface.co/spaces/peihuaihuaihuai/ai-sketch-game"
+      - label: "Bilibili"
+        icon: present_to_all
+        url: "https://www.bilibili.com/video/BV1tEjS6wEbH/"
   - title: "HelloAgents 智能旅行助手"
     description: "基于 HelloAgents 框架构建的智能旅行规划助手，集成高德地图 MCP 服务与 RAG 知识库，支持多智能体协作生成个性化旅行计划。"
     team: "@Tian-ai-xxu · 2026 年春季学期"
@@ -98,6 +104,26 @@ projects:
       - label: "GitHub"
         icon: code
         url: "https://github.com/Tian-ai-xxu/hello-agent-demo"
+  - title: "AI K歌声乐训练平台"
+    description: "基于 Swift-F0 深度学习模型的智能 K 歌声乐训练平台，提供实时音高检测、参考音高曲线对比、AI 声乐点评和个性化改进建议。"
+    team: "@zumingzyfq · 2026 年春季学期"
+    links:
+      - label: "GitHub"
+        icon: code
+        url: "https://github.com/zumingzyfq/ai-karaoke-platform"
+      - label: "Bilibili"
+        icon: present_to_all
+        url: "https://www.bilibili.com/video/BV11L7b6iExZ/"
+  - title: "奶龙 / 奶蛙图像分类识别实验"
+    description: "基于 PyTorch 的二分类图像识别实验项目，用于区分奶龙与奶蛙图片，包含数据准备、CNN 训练、预训练模型微调、本地 Web UI 和多算法对比报告。"
+    team: "@whxoperator · 2026 年春季学期"
+    links:
+      - label: "GitHub"
+        icon: code
+        url: "https://github.com/whxoperator/nailongnaiwa"
+      - label: "Bilibili"
+        icon: present_to_all
+        url: "https://www.bilibili.com/video/BV1QnLf6oE7r/"
 ---
 
 This course covers fundamental concepts of machine learning, feedforward neural networks, convolutional neural networks, recurrent neural networks, network optimization and regularization, as well as attention mechanisms and external memory. Designed for mathematics majors, the course emphasizes both theoretical foundations and practical applications.

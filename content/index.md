@@ -198,6 +198,7 @@ journals:
   - "Neural Networks"
   - "Science China Mathematics"
   - "SIAM Journal on Control and Optimization"
+  - "Systems & Control Letters"
 
 reviewing:
   - "Mathematical Reviews / MathSciNet (American Mathematical Society) — reviewer"
