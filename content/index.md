@@ -118,6 +118,10 @@ articles:
 # Publications — Preprints
 # ============================================================
 preprints:
+  - authors: "Y. Li, Q. Lü, M. Qian, **Y. Wang**"
+    title: "A Geometric Inverse Source Problem for Stochastic Parabolic Equations"
+    status: "Submitted"
+
   - authors: "Z. Li, Q. Lü, **Y. Wang**, H. Yang"
     title: "Exact controllability for stochastic first-order multi-dimensional hyperbolic systems"
     status: "Submitted"
