@@ -38,7 +38,7 @@ links:
     url: "https://zbmath.org/authors/wang.yu.106"
   - icon_img: "/img/mathreview.png"
     label: "MR: 1609675"
-    url: "https://mathscinet.ams.org/mathscinet/author?authorId=1609675"
+    url: "https://mathscinet.ams.org/mathscinet/MRAuthorID/1609675"
 
 research_interests:
   - "Control Theory"
