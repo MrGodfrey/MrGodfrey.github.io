@@ -196,8 +196,10 @@ grants:
 # ============================================================
 journals:
   - "Applied Mathematics & Optimization"
+  - "Asian Journal of Control"
   - "Chinese Annals of Mathematics, Series B"
   - "ESAIM: Control, Optimisation and Calculus of Variations"
+  - "IMA Journal of Mathematical Control and Information"
   - "Inverse Problems"
   - "Journal of Differential Equations"
   - "Journal of Mathematical Analysis and Applications"
