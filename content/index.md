@@ -146,6 +146,8 @@ talks:
   - title: "Inverse problems for stochastic partial differential equations"
     slides_url: "/files/slides-inverse-problems-for-stochastic-partial-differential-equations.pdf"
     events:
+      - venue: "第34届长江偏微分方程会议"
+        date: "Aug. 22, 2026"
       - venue: "第十五届全国反问题、成像及其应用会议暨CSIAM反问题与成像专委会2026年学术年会"
         date: "May 17, 2026"
       - venue: "EDP and Applied Mathematics Seminar"
