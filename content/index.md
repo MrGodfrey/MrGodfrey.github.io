@@ -118,9 +118,16 @@ articles:
 # Publications — Preprints
 # ============================================================
 preprints:
-  - authors: "C. An, **Y. Wang**, Q. Ye, Z. Zhang, Q. Zhuang"
-    title: "Carleman Estimates for Wave Equations on the Half-Line: Al-Assisted Weights and Applications"
+  - authors: "Q. Lü, **Y. Wang**"
+    title: "Stability Estimates for the Inverse Recovery of Drift and Diffusion Point Sources in Stochastic Parabolic Equations"
     status: "Submitted"
+
+  - authors: "C. An, **Y. Wang**, Q. Ye, Z. Zhang, Q. Zhuang"
+    title: "Carleman Estimates for Wave Equations on the Half-Line: AI-Assisted Weights and Applications"
+    status: "Submitted"
+    links:
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2609.06283"
 
   - authors: "Y. Li, Q. Lü, M. Qian, **Y. Wang**"
     title: "A Geometric Inverse Source Problem for Stochastic Parabolic Equations"
