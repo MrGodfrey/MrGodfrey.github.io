@@ -118,9 +118,12 @@ articles:
 # Publications — Preprints
 # ============================================================
 preprints:
-  - authors: "Q. Lü, **Y. Wang**"
+  - authors: "**Y. Wang**, Q. Lü"
     title: "Stability Estimates for the Inverse Recovery of Drift and Diffusion Point Sources in Stochastic Parabolic Equations"
     status: "Submitted"
+    links:
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2609.14009"
 
   - authors: "C. An, **Y. Wang**, Q. Ye, Z. Zhang, Q. Zhuang"
     title: "Carleman Estimates for Wave Equations on the Half-Line: AI-Assisted Weights and Applications"
