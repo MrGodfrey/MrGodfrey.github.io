@@ -118,7 +118,7 @@ articles:
 # Publications — Preprints
 # ============================================================
 preprints:
-  - authors: "**Y. Wang**, Q. Lü"
+  - authors: "Q. Lü, **Y. Wang**"
     title: "Stability Estimates for the Inverse Recovery of Drift and Diffusion Point Sources in Stochastic Parabolic Equations"
     status: "Submitted"
     links:
