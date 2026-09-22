@@ -46,6 +46,22 @@ books:
 # Publications — Articles
 # ============================================================
 articles:
+  - authors: "Z. Li, Q. Lü, **Y. Wang**, H. Yang"
+    title: "Exact controllability for stochastic first-order multi-dimensional hyperbolic systems"
+    journal: "SIAM J. Control Optim."
+    info: "Accepted"
+    links:
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2601.18270"
+
+  - authors: "**Y. Wang**, Q. Zhao"
+    title: "Null controllability for stochastic fourth order semi-discrete parabolic equations"
+    journal: "ESAIM Control Optim. Calc. Var."
+    info: "Accepted"
+    links:
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2405.03257"
+
   - authors: "L. Gan, H. Meng, Y. Chen, **Y. Wang**"
     title: "scDCL: A multi-view single-cell RNA sequencing clustering method based on dual contrastive learning"
     journal: "Computational Biology and Chemistry"
@@ -138,20 +154,6 @@ preprints:
     links:
       - label: ArXiv
         url: "https://arxiv.org/abs/2608.01351"
-
-  - authors: "Z. Li, Q. Lü, **Y. Wang**, H. Yang"
-    title: "Exact controllability for stochastic first-order multi-dimensional hyperbolic systems"
-    status: "Submitted"
-    links:
-      - label: ArXiv
-        url: "https://arxiv.org/abs/2601.18270"
-
-  - authors: "**Y. Wang**, Q. Zhao"
-    title: "Null controllability for stochastic fourth order semi-discrete parabolic equations"
-    status: "Submitted"
-    links:
-      - label: ArXiv
-        url: "https://arxiv.org/abs/2405.03257"
 
 # ============================================================
 # Invited Talks
