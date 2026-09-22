@@ -56,7 +56,7 @@ articles:
 
   - authors: "**Y. Wang**, Q. Zhao"
     title: "Null controllability for stochastic fourth order semi-discrete parabolic equations"
-    journal: "ESAIM Control Optim. Calc. Var."
+    journal: "Appl. Math. Optim."
     info: "Accepted"
     links:
       - label: ArXiv
