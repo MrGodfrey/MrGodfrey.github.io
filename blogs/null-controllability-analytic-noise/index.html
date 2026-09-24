@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Null Controllability of a Stochastic Parabolic Equation with a Space-Dependent Analytic Noise Coefficient - Yu Wang</title>
+<title>Why One Control Can Be Enough for a Stochastic Heat Equation - Yu Wang</title>
 <meta name="author" content="Yu Wang">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -67,18 +67,114 @@
     <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.75 12H5.25" />
   <path d="m11.25 6.75-5.25 5.25 5.25 5.25" /></svg> Back to Publications
   </a>
-  <header class="border-b border-outline-variant/30 pb-8 mb-10">
+  <header class="mb-7">
     <p class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold mb-4">Paper Notes</p>
-    <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">Null Controllability of a Stochastic Parabolic Equation with a Space-Dependent Analytic Noise Coefficient</h1>
+    <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">Why One Control Can Be Enough for a Stochastic Heat Equation</h1>
     <p class="text-sm text-on-surface-variant mb-4">Q. Lü, <strong>Y. Wang</strong></p>
     <div class="flex flex-wrap gap-4 items-center">
   
   
 </div>
   </header>
-  
-  <p class="font-headline text-on-surface-variant leading-loose">这篇论文的解读正在准备中。</p>
-  
+
+<figure class="mb-10">
+  <img src="/img/blog/null-controllability-analytic-noise.png" alt="A noisy blue wave settles to zero while local control acts on the highlighted region G." width="1672" height="941" class="block w-full h-auto rounded-xl" decoding="async" fetchpriority="high">
+
+</figure>
+
+
+  <div class="paper-prose"><p>Can we bring a temperature profile exactly to zero when its evolution is subject to noise—and our control acts only on a small part of the domain?</p>
+<p>For a deterministic heat equation, this is a familiar control problem. With space-dependent multiplicative noise, an extra unknown appears in the equation used to design the control. The usual arguments struggle to get rid of it.</p>
+<p>Our paper finds a way through when the noise coefficient is spatially analytic. The mechanism involves two exponentials: one in space, to handle frequency mixing, and one in time, to close an energy estimate.<sup id="fnref:paper"><a class="footnote-ref" href="#fn:paper">1</a></sup></p>
+<h2>A small example with the real difficulty</h2>
+<p>Consider the stochastic heat equation on a circle,</p>
+<div class="arithmatex">\[
+dy=(y_{xx}+\mathbf 1_Gu)\,dt+\cos x\,y\,dW_t,
+\qquad x\in\mathbb T=\mathbb R/(2\pi\mathbb Z).
+\]</div>
+<p>Here <span class="arithmatex">\(G\)</span> is a nonempty arc, and <span class="arithmatex">\(u\)</span> can use only the information available up to the current time. Can this one drift control drive every square-integrable initial profile to <span class="arithmatex">\(y(T)=0\)</span> at a prescribed time <span class="arithmatex">\(T&gt;0\)</span>—almost surely, not merely on average?</p>
+<p>The answer is yes. The choice <span class="arithmatex">\(b(x)=\cos x\)</span> is simple, but it already contains the obstacle created by spatial dependence.</p>
+<h2>Where the familiar arguments get stuck</h2>
+<p>Duality turns the control problem into an observation problem for the backward equation</p>
+<div class="arithmatex">\[
+dz=-(z_{xx}+\cos x\,Z)\,dt+Z\,dW_t.
+\]</div>
+<p>There are two unknowns: the state <span class="arithmatex">\(z\)</span> and the martingale integrand <span class="arithmatex">\(Z\)</span>. A single drift control requires an estimate using only observations of <span class="arithmatex">\(z\)</span> on <span class="arithmatex">\(G\)</span>.</p>
+<p>The usual stochastic Carleman estimates leave a term involving <span class="arithmatex">\(Z\)</span> on the observation side. A second control acting in the diffusion can account for it, but that changes the problem.</p>
+<p>Spectral arguments face a different obstruction. A spatially constant coefficient preserves each Fourier mode. Multiplication by <span class="arithmatex">\(\cos x\)</span> does not:</p>
+<div class="arithmatex">\[
+\cos x\,e^{ikx}
+=\tfrac12e^{i(k+1)x}+\tfrac12e^{i(k-1)x}.
+\]</div>
+<p>A mode just outside a spectral cutoff can therefore feed into the retained modes through <span class="arithmatex">\(Z\)</span>. The low-frequency equation no longer closes as it did for spatially constant noise.</p>
+<p>So the difficulty is not simply that noise produces oscillations. It is that <strong>spatial mixing brings an unobserved unknown into the frequencies we are trying to estimate.</strong></p>
+<h2>The first exponential: look at mixing in a different norm</h2>
+<p>Analyticity does not stop modes from moving. It makes their movement manageable under exponential Fourier weights.</p>
+<p>Write <span class="arithmatex">\(D=-i\partial_x\)</span>. The operator <span class="arithmatex">\(e^{\sigma D}\)</span> multiplies the <span class="arithmatex">\(k\)</span>th Fourier mode by <span class="arithmatex">\(e^{\sigma k}\)</span>, which is exactly what happens under the complex translation <span class="arithmatex">\(x\mapsto x-i\sigma\)</span>.</p>
+<p>To see the mechanism, work with finite Fourier approximations and leave the projections implicit. Set <span class="arithmatex">\(X=e^{\sigma D}z\)</span> and <span class="arithmatex">\(Y=e^{\sigma D}Z\)</span>. Then the coupling transforms as</p>
+<div class="arithmatex">\[
+e^{\sigma D}(bZ)=b_\sigma Y,
+\qquad
+b_\sigma(x)=\cos(x-i\sigma),
+\qquad
+|b_\sigma(x)|\le\cosh\rho
+\quad (|\sigma|\le\rho).
+\]</div>
+<p>The weighted <span class="arithmatex">\(Y\)</span> may be enormous. What matters is that the coupling is still <strong>a bounded coefficient times that same <span class="arithmatex">\(Y\)</span></strong>.</p>
+<p>For a general periodic analytic coefficient, the Fourier picture is equally suggestive: the transfer from frequency <span class="arithmatex">\(k\)</span> to frequency <span class="arithmatex">\(m\)</span> has coefficient <span class="arithmatex">\(\widehat b(m-k)\)</span>, with an exponentially decaying bound in <span class="arithmatex">\(|m-k|\)</span>. The cosine example only transfers between neighboring modes.</p>
+<p>There is one more choice that makes the argument work. On a time interval <span class="arithmatex">\([t,s]\)</span>, let</p>
+<div class="arithmatex">\[
+\sigma(r)=\rho\frac{s-r}{s-t}.
+\]</div>
+<p>At the earlier time <span class="arithmatex">\(t\)</span>, we measure an exponentially weighted spatial norm. At <span class="arithmatex">\(s\)</span>, the translation has vanished. Thus the estimate can start from ordinary <span class="arithmatex">\(L^2\)</span> terminal data: no terminal analyticity is needed.</p>
+<h2>The second exponential: what to do with the negative remainder</h2>
+<p>Apply Itô's formula to <span class="arithmatex">\(\|X\|^2\)</span>. Its quadratic-variation term supplies <span class="arithmatex">\(+\|Y\|^2\)</span>, which pairs with the coupling in an exact identity:</p>
+<div class="arithmatex">\[
+\|Y\|^2-2\operatorname{Re}\langle X,b_\sigma Y\rangle
+=
+\|Y-\overline{b_\sigma}X\|^2-\|b_\sigma X\|^2.
+\]</div>
+<p>All norms here are spatial <span class="arithmatex">\(L^2\)</span> norms. The unknown <span class="arithmatex">\(Y\)</span> now sits inside a nonnegative square. But there is a negative remainder. Have we merely exchanged one problem for another?</p>
+<p>The crucial difference is that the remainder contains <strong>only the state</strong>:</p>
+<div class="arithmatex">\[
+-\|b_\sigma X\|^2\ge-\cosh^2\rho\,\|X\|^2.
+\]</div>
+<p>The moving translation also creates a first-order term. Pairing it with the Laplacian's energy leaves another state-only loss, <span class="arithmatex">\(-\tfrac12|\sigma'|^2\|X\|^2\)</span>. Altogether,</p>
+<div class="arithmatex">\[
+d\|X\|^2\ge-a\|X\|^2\,dr+dM_r,
+\qquad
+a=\cosh^2\rho+\frac{\rho^2}{2(s-t)^2},
+\]</div>
+<p>where the martingale term disappears after taking expectations.</p>
+<p>Now multiply by the time weight <span class="arithmatex">\(\Gamma(r)=e^{a(r-t)}\)</span>. Its derivative supplies exactly the term needed to compensate for the negative remainder. Integrating and taking expectations gives</p>
+<div class="arithmatex">\[
+\mathbb E\|e^{\rho D}z(t)\|^2
+\le e^{a(s-t)}\mathbb E\|z(s)\|^2.
+\]</div>
+<p>Repeating the calculation with the opposite translation controls both signs of the Fourier frequencies. Passing from the finite approximations to the limit gives quantitative spatial analyticity of <span class="arithmatex">\(z(t)\)</span>, without assuming spatial analyticity of <span class="arithmatex">\(Z\)</span>.</p>
+<p>The two exponentials have distinct jobs: <strong>the spatial one preserves a usable coupling structure; the temporal one compensates for the losses left by completing the squares.</strong></p>
+<h2>From analytic smoothing to one control</h2>
+<p>At a fixed time, view <span class="arithmatex">\(x\mapsto z(t,x)\)</span> as an analytic function taking values in <span class="arithmatex">\(L^2(\Omega)\)</span>. Propagation of smallness converts its local observation on <span class="arithmatex">\(G\)</span>, together with its global analytic bound, into control of the whole spatial norm. The Hilbert-valued estimate follows by applying the scalar estimate to inner products with unit vectors.</p>
+<p>A geometric time subdivision and a telescoping sum then remove the intermediate global norms, leaving</p>
+<div class="arithmatex">\[
+\|z(0)\|_{L^2(\mathbb T)}
+\le C\int_0^T
+\left(\mathbb E\|z(t)\|_{L^2(G)}^2\right)^{1/2}\,dt.
+\]</div>
+<p>Only <span class="arithmatex">\(z\)</span> appears on the right. This is precisely the dual estimate needed for a single adapted drift control.</p>
+<p>The full result allows higher-dimensional tori, any measurable spatial control set of positive measure, and coefficients depending jointly on time, space, and the sample point. Their holomorphic extensions must share a positive strip width, and the squared analytic norms must have a pathwise uniform time-integral bound. That last condition keeps the corresponding time exponential under control.</p>
+<p>Beyond this setting, two obstacles remain for the method: general smooth coefficients need not admit complex translations, and translations need not preserve boundary conditions. These are limits of the argument, not proofs that one control must fail.</p>
+<p>The central idea is to make the unobserved term disappear from the estimate—not by assuming it is small, but by putting it into a form that the equation's own quadratic variation can handle, and then paying for the remaining state terms with a time weight.</p>
+<hr />
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:paper">
+<p>Qi Lü and Yu Wang, <em>Null Controllability of a Stochastic Parabolic Equation with a Space-Dependent Analytic Noise Coefficient</em>, manuscript. This post presents a one-dimensional example of the proof mechanism. See Section 2 for the analytic energy estimate, Sections 3–4 for propagation of smallness, telescoping, and duality, and Section 6 for the scope of the method.&#160;<a class="footnote-backref" href="#fnref:paper" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></div>
+
 </article>
 
     </div>

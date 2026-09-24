@@ -20,7 +20,7 @@
 
     {% if blog_posts %}
     <div class="mt-[30px] space-y-10">
-      {% for post in blog_posts %}
+{% for post in blog_posts %}
       <article class="group max-w-3xl">
         <time class="mb-5 block text-slate-400" style="font-family: 'Playfair Display', 'Noto Serif', serif; font-size: 12px; font-feature-settings: normal; font-variation-settings: normal;">{{ post.display_date }}</time>
         <h2 class="mb-[18px] max-w-3xl font-blog text-[1.28rem] font-semibold leading-[1.45] tracking-[-0.02em] text-slate-900 transition-colors group-hover:text-primary md:text-[1.4rem]{% if loop.first %} text-primary{% endif %}">
@@ -32,7 +32,7 @@
           {{ icon("arrow_right_alt", "text-[1.25rem] transition-transform group-hover:translate-x-1") }}
         </a>
       </article>
-      {% endfor %}
+{% endfor %}
     </div>
     {% else %}
     <div class="mt-[30px] font-blog text-lg text-slate-500">

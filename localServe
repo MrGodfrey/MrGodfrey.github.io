@@ -12,6 +12,7 @@ WATCH_PATHS = [
     'tailwind.config.js',
     'package.json',
     'generate.py',
+    'generate_cv.py',
 ]
 
 

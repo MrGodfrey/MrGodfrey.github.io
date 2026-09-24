@@ -12,8 +12,9 @@
 ## 常用操作
 - 改内容：优先修改 `content/index.md`。
 - 构建：`npm run build`。
+- 构建会通过 `generate_cv.py` 自动更新 `files/cv-yu-wang.pdf`；单独更新用 `npm run build:cv`。CV 复用主页源数据，基金列金额，不收录报告；不要直接编辑 PDF。
 - 本地预览：`uv run python localServe`。
-- 发布：构建后提交并推送 `master`，GitHub Pages 直接从仓库静态文件发布。
+- 发布：`npm run deploy`（可用 `npm run deploy -- "提交说明"`），自动构建、commit 并 push `master`。GitHub Pages 直接从仓库静态文件发布。此命令会提交全部未被忽略的网站修改，仅在用户授权发布时执行。
 
 ## 修改约定
 - 不直接编辑生成文件，除非是在核对构建结果。

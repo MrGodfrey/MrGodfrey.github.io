@@ -15,6 +15,11 @@ email: "yuwangmath@163.com"
 cv:
   url: "/files/cv-yu-wang.pdf"
   label: "Download CV"
+  # CV-only contact details retained from the previous PDF.
+  phone: "+8613308021591"
+  date_of_birth: "July 13, 1995"
+
+site_url: "https://mrgodfrey.github.io"
 
 # Sidebar Links
 links:

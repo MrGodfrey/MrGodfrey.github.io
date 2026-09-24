@@ -20,6 +20,7 @@
   }
 
   .paper-prose > * + * { margin-top: 1.5rem; }
+  .paper-prose [id] { scroll-margin-top: 7rem; }
   .paper-prose h2 { @apply text-2xl font-bold text-primary; margin-top: 2.75rem; line-height: 1.4; }
   .paper-prose h3 { @apply text-xl font-bold text-primary; margin-top: 2rem; line-height: 1.5; }
   .paper-prose a { @apply text-primary underline underline-offset-4; }

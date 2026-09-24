@@ -91,7 +91,7 @@
         {% for paper in page.articles %}
         <div {% if paper.anchor %}id="{{ paper.anchor }}"{% endif %} class="group scroll-mt-28 p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)] hover:shadow-[0_10px_40px_rgba(0,7,103,0.06)] transition-all duration-300 border-l-4 border-transparent hover:border-primary">
           <div class="space-y-2 mb-3">
-            <h4 class="font-headline text-lg font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">{{ paper.title }}</h4>
+            <h4 class="font-headline text-lg font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">{% if paper.blog_url %}<a href="{{ paper.blog_url }}" class="hover:underline underline-offset-4">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}</h4>
             <p class="text-sm text-on-surface-variant font-body">{{ paper.authors | replace('**', '') }}{% if paper.journal %} | <strong>{{ paper.journal }}</strong>{% endif %}{% if paper.info %}, {{ paper.info }}{% endif %}</p>
           </div>
           {{ publication_links(paper) }}
@@ -109,7 +109,7 @@
       <div class="space-y-6">
         {% for paper in page.preprints %}
         <div {% if paper.anchor %}id="{{ paper.anchor }}"{% endif %} class="group scroll-mt-28">
-          <h4 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-1 leading-snug">{{ paper.title }}</h4>
+          <h4 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-1 leading-snug">{% if paper.blog_url %}<a href="{{ paper.blog_url }}" class="hover:underline underline-offset-4">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}</h4>
           <p class="text-sm font-body text-on-surface-variant mb-3">{{ paper.authors | replace('**', '') }} — {{ paper.status }}</p>
           {{ publication_links(paper) }}
         </div>
@@ -135,7 +135,7 @@
             {% endif %}
           </div>
           <ul class="space-y-2">
-            {%- for event in talk.events %}
+            {%- for event in talk.recent_events %}
             <li class="text-sm text-on-surface-variant flex items-start gap-2">
               {{ icon("arrow_right", "mt-0.5 text-[14px] text-primary") }}
               <span>{{ event.venue }}, <strong>{{ event.date }}</strong></span>
@@ -157,9 +157,8 @@
         <div class="flex items-start gap-4">
           {{ icon("payments", "mt-0.5 text-on-tertiary-container") }}
           <div>
-            <p class="font-bold text-on-surface">{{ grant.title_en }}, {{ grant.period }}, {{ grant.amount }}.</p>
+            <p class="font-bold text-on-surface">{{ grant.title_en }}, {{ grant.period }}.</p>
             <p class="text-sm text-secondary">{{ grant.source }}</p>
-            {% if grant.title_cn %}<p class="text-sm text-on-surface-variant mt-2">{{ grant.title_cn }}</p>{% endif %}
           </div>
         </div>
       </div>

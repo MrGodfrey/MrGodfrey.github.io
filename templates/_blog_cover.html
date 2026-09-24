@@ -1,0 +1,8 @@
+{% if page.cover and page.cover.image %}
+<figure class="mb-10">
+  <img src="{{ page.cover.image | e }}" alt="{{ page.cover.alt | default('') | e }}"{% if page.cover.width and page.cover.height %} width="{{ page.cover.width }}" height="{{ page.cover.height }}"{% endif %} class="block w-full h-auto rounded-xl" decoding="async" fetchpriority="high">
+{% if page.cover.caption %}
+  <figcaption class="mt-3 text-center text-sm leading-relaxed text-slate-500">{{ page.cover.caption | e }}</figcaption>
+{% endif %}
+</figure>
+{% endif %}

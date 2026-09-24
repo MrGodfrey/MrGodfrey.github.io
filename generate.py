@@ -97,12 +97,22 @@ def coerce_datetime(value):
         return datetime.combine(value, datetime.min.time())
     if isinstance(value, str):
         cleaned = normalize_whitespace(value)
-        for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d", "%Y/%m/%d %H:%M:%S", "%Y/%m/%d"):
+        for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d", "%Y/%m/%d %H:%M:%S", "%Y/%m/%d", "%b. %d, %Y", "%b %d, %Y", "%B %d, %Y"):
             try:
                 return datetime.strptime(cleaned, fmt)
             except ValueError:
                 continue
     return None
+
+
+def sorted_talk_events(events):
+    """Sort full source history by actual date, without changing the source list."""
+    def event_date(event):
+        parsed = coerce_datetime(event.get("date"))
+        if parsed is None:
+            raise ValueError(f"Invalid talk date: {event.get('date')!r}")
+        return parsed
+    return sorted(events, key=event_date, reverse=True)
 
 
 def format_display_date(value, fallback_ts=None):
@@ -327,6 +337,9 @@ def build_page(md_path, config, env, output_path=None, template_name=None, extra
                 paper["blog_url"] = post["url"]
                 paper["anchor"] = f"paper-{post['slug']}"
 
+    for talk in page.get("talks", []):
+        talk["recent_events"] = sorted_talk_events(talk.get("events", []))[:3]
+
     final_output = output_path or (os.path.splitext(os.path.basename(md_path))[0] + ".html")
     render_page(
         config,
@@ -535,6 +548,9 @@ def main():
         build_requested_paths(sys.argv[1:], config, env)
     else:
         build_default_site(config, env)
+
+    from generate_cv import build_from_source
+    build_from_source()
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ uv run python localServe
 ```
 
 - Python 环境由 `uv` 根据 `pyproject.toml` 和 `uv.lock` 管理
-- `npm run build` 会先生成 `assets/site.css`，再运行 `uv run python generate.py`
+- `npm run build` 会更新 MathJax 资源和 `assets/site.css`，再生成网站与 PDF CV
 - 本地预览默认在 `http://localhost:4000/`
 - `assets/site.css` 是 Tailwind 构建产物，不要手改
 
@@ -147,6 +147,23 @@ slug:
 - 文章正文按普通 Markdown 渲染
 - 正文中的本地图片会被复制到对应的 `blogs/<slug>/` 目录
 
+### 博客题图
+
+普通博客与论文解读都支持可选的 `cover`。题图位于标题及作者/日期信息之后、正文之前，按原图比例完整显示并适应屏幕宽度。未配置时不显示题图区块。
+
+把图片放在 `img/blog/`，并在文章的 front matter 中添加：
+
+```yaml
+cover:
+  image: "/img/blog/null-controllability-analytic-noise.png"
+  alt: "A noisy blue wave settles to zero while local control acts on region G."
+  width: 1672
+  height: 941
+  # caption: "可选的图注"
+```
+
+`width` 和 `height` 填原始像素尺寸，浏览器据此提前预留空间；`alt` 为图片的文字描述。图片不会被裁切或拉伸。
+
 ## 论文解读（Paper Notes）
 
 论文解读复用 `content/blog_posts/` 和 `/blogs/<slug>/` 的生成流程，用 `paper_post` 模板沿用学术主页的版式。
@@ -167,9 +184,9 @@ slug:
 2. 在 `content/index.md` 对应的 `articles` 或 `preprints` 条目中添加 `blog: "my-paper-notes"`（与 `title`、`links` 同级）。
 3. 在 front matter 后写正文，运行 `npm run build`。
 
-主页会在该论文已有链接后追加同样样式的 `[Blog]`，在当前标签页打开。没有 `blog` 字段的论文保持原样；引用不存在的博客会让构建报错。阅读页的作者和 Article/ArXiv 链接直接复用论文条目的信息，返回链接定位到原论文。
+主页会在该论文已有链接后追加同样样式的 `[Blog]`，论文标题也会链接到同一篇解读，在当前标签页打开。没有 `blog` 字段的论文保持原样；引用不存在的博客会让构建报错。阅读页的作者和 Article/ArXiv 链接直接复用论文条目的信息，返回链接定位到原论文。
 
-首篇已预留在 `content/blog_posts/null-controllability-analytic-noise.md`。目前正文为空，页面显示准备中；`listed: false` 只控制它暂不出现在日常 Blog 首页，仍可从论文条目的 Blog 链接访问，也可以预览已写入的正文。完成后改为 `listed: true` 即可同时列入 Blog 首页。只有首页显示个人资料侧栏；课程介绍、论文解读及其他二级页面不生成侧栏，也没有展开或收起按钮。日常博客保留原有版式。
+首篇解读在 `content/blog_posts/null-controllability-analytic-noise.md`，正文可直接用 Markdown 编辑。`listed: true` 会同时列入 Blog 首页；改为 `listed: false` 后仅从论文条目的 Blog 链接访问，仍能预览正文。空正文会显示准备中的提示。只有首页显示个人资料侧栏；课程介绍、论文解读及其他二级页面不生成侧栏，也没有展开或收起按钮。日常博客保留原有版式。
 
 ### 数学公式
 
@@ -203,6 +220,27 @@ $$
 
 - `About Me` 正文：编辑 `content/index.md` 的 markdown body
 - 论文、基金、课程等结构化信息：编辑 `content/index.md` 的 YAML front matter
+- 主页基金只显示英文项目名、期限和来源；`title_cn` 与 `amount` 仍保留在源文件中
+- 每个报告话题只显示按日期倒序排列的最近三次活动，`events` 中的完整记录仍保留
+
+### 自动生成 PDF CV
+
+`npm run build` 和 `uv run python generate.py` 都会自动更新 `files/cv-yu-wang.pdf`。发布时提交这个生成文件，主页的 Download CV 就会提供当前版本，无须再单独维护 PDF。
+
+只更新 CV：
+
+```bash
+npm run build:cv
+```
+
+- `generate_cv.py` 从 `config.yaml` 与 `content/index.md` 读取姓名、联系方式、研究简介、任职、教育、论文、基金、教学和学术服务信息
+- CV 使用英文，基金保留 `amount` 金额；不收录 Invited Talks
+- 仅在 CV 中使用的联系方式放在 `config.yaml` 的 `cv` 下；主页地址来自 `site_url`
+- PDF 页脚自动显示构建日期；相同日期和数据生成相同文件，避免无意义的版本变动
+- PDF 字体使用随仓库保存的 DejaVu Sans，支持论文标题中的希腊字母；字体和许可证在 `assets/fonts/cv/`
+- 不直接修改 PDF。修改上述源文件后重新构建，本地预览也会自动更新
+
+检查生成逻辑：`uv run python -m unittest discover -s tests`。
 
 ### 构建
 
@@ -225,8 +263,26 @@ uv run python localServe
 
 ### 发布
 
-- 构建完成后提交并推送 `master`
-- GitHub Pages 直接从仓库静态文件发布
+在仓库目录执行一条命令即可：
+
+```bash
+npm run deploy
+```
+
+它会检查远端 `master`，运行完整构建（网页、CSS、MathJax 和 PDF CV），提交仓库中所有未被忽略的修改、新文件和删除，然后推送到 `origin/master`。不需要先手动 build、git add、commit 或 push。GitHub Pages 收到推送后自动更新线上页面。
+
+也可以写这次的提交说明：
+
+```bash
+npm run deploy -- "Update publications and CV"
+```
+
+- 默认提交说明为 `Update academic homepage`；没有文件变化时跳过 commit，仍会推送已有的本地提交
+- `.DS_Store` 不会加入提交；发布前请确认仓库内其他未被忽略的文件都是准备发布的内容
+- 构建或 Git 操作失败时立即停止；修复后重新执行即可，推送失败时已有的本地提交会保留
+- 仅从 `master` 发布；若远端有本地未包含的提交，会停止并提示先合并，不会自动覆盖或强制推送
+- 实现在 `scripts/publish.cjs`；原来的 `npm run build` 仍只构建，不提交、不推送
+- 发布脚本的临时仓库集成检查：`npm run test:publish`
 
 ## 修改约定
 
