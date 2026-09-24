@@ -111,7 +111,20 @@ dX=f\,dt+g\,dW_t,
 \operatorname{Var}X(T)=g^2T.
 \]</div>
 <p>The average remembers the steady input <span class="arithmatex">\(f\)</span>. The fluctuations remember the size of the random input <span class="arithmatex">\(g\)</span>. Averaging is useful, but it also throws away part of the story. Even this toy model has a limit: the variance alone cannot distinguish <span class="arithmatex">\(g\)</span> from <span class="arithmatex">\(-g\)</span>.</p>
-<p>For a spatial equation, information must also travel. A source heats its neighborhood, diffusion spreads the heat, and measurements are collected somewhere else. A wave carries information differently, with a finite travel time. What can be reconstructed therefore depends on both the randomness and the geometry of observation.</p>
+<p>For a spatial equation, information must also travel. A source heats its neighborhood, diffusion spreads the heat, and measurements are collected somewhere else. A wave carries information with a finite travel time. The random structure can also change which unknowns these measurements determine.</p>
+<h2>A wave source that cannot stay hidden</h2>
+<p>Consider a membrane fixed along its boundary, with displacement <span class="arithmatex">\(z\)</span> driven by a random force:</p>
+<div class="arithmatex">\[
+dz_t-\Delta z\,dt=g(t,x)\,dW_t,
+\qquad z|_{\partial G}=0.
+\]</div>
+<p>Here <span class="arithmatex">\(W_t\)</span> is Brownian motion and <span class="arithmatex">\(g\)</span> is the unknown force intensity. Under the book's geometric and observation-time assumptions, the boundary slope <span class="arithmatex">\(\partial_\nu z\)</span> on a suitable part of the boundary, together with the final displacement <span class="arithmatex">\(z(T)\)</span>, uniquely determines <span class="arithmatex">\(g\)</span> and both initial displacement and velocity.<sup id="fnref:wave"><a class="footnote-ref" href="#fn:wave">2</a></sup> The data are the random observations themselves, beyond just their averages.</p>
+<p>Compare this with an ordinary wave equation:</p>
+<div class="arithmatex">\[
+u_{tt}-\Delta u=f(t,x).
+\]</div>
+<p>Choose a nonzero smooth motion <span class="arithmatex">\(u\)</span> that vanishes near the boundary and near both <span class="arithmatex">\(t=0\)</span> and <span class="arithmatex">\(t=T\)</span>. Set <span class="arithmatex">\(f=u_{tt}-\Delta u\)</span>. This nonzero force produces motion inside, yet both the boundary slope and final displacement vanish. These measurements cannot determine an arbitrary <span class="arithmatex">\(f\)</span>.</p>
+<p>The stochastic equation has extra structure. Itô's formula contributes a positive term involving <span class="arithmatex">\(g^2\)</span>, which the weighted estimate uses to bound the unknown source. This gives a uniqueness result that fails for an unrestricted deterministic force. Randomness itself changes what can be recovered.</p>
 <h2>Turn the question around</h2>
 <p>The useful starting point is often not “How do we reconstruct the unknown?” but “Could two different unknowns produce almost the same measurements?”</p>
 <p>Subtract their equations. The reconstruction problem becomes a question about whether a solution can hide from our sensors.</p>
@@ -120,12 +133,15 @@ dX=f\,dt+g\,dW_t,
 <h2>From an estimate to a reconstruction</h2>
 <p>There is still a practical obstacle. An unstable inverse problem can fit measurement noise extremely well. Regularization asks for more than a good fit: it also penalizes implausibly large or irregular reconstructions. The estimates then explain when, and in what sense, the reconstructed quantity approaches the true one as the noise and regularization are reduced.</p>
 <p>The book develops this progression for selected stochastic heat and wave problems: identify what the measurements can see, quantify that information, and use it in reconstruction. It is not a claim that every hidden coefficient or source can be recovered from every observation.</p>
-<p>The central lesson is simple: <strong>in a random system, deciding what counts as data is already part of solving the inverse problem.</strong></p>
+<p>The central lesson is simple: <strong>randomness can carry information and change what an inverse problem allows us to recover.</strong> Choosing what to measure is part of making that information useful.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:book">
 <p>Qi Lü and Yu Wang, <em>Inverse Problems for Stochastic Partial Differential Equations</em>, SpringerBriefs on PDEs and Data Science, 2026. <a href="https://doi.org/10.1007/978-981-95-9047-6">Book</a> · <a href="https://arxiv.org/abs/2411.05534">Author version</a>. Chapters 2–3 develop the parabolic and hyperbolic problems; the scalar model above is an illustration, not a theorem from the book.&#160;<a class="footnote-backref" href="#fnref:book" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:wave">
+<p>See Section 3.1.2, Theorem 3.4.1 and Remark 3.4.2 in the <a href="https://arxiv.org/html/2411.05534v1#S3.S4">author version</a>. The displayed stochastic equation is a special case with the lower-order coefficients and drift source set to zero. Uniqueness compares solutions driven by the same Brownian motion, with equality of their observations almost surely. The deterministic example follows Remark 3.4.2.&#160;<a class="footnote-backref" href="#fnref:wave" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></div>

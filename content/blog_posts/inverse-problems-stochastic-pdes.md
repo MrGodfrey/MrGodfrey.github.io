@@ -41,7 +41,28 @@ $$
 
 The average remembers the steady input $f$. The fluctuations remember the size of the random input $g$. Averaging is useful, but it also throws away part of the story. Even this toy model has a limit: the variance alone cannot distinguish $g$ from $-g$.
 
-For a spatial equation, information must also travel. A source heats its neighborhood, diffusion spreads the heat, and measurements are collected somewhere else. A wave carries information differently, with a finite travel time. What can be reconstructed therefore depends on both the randomness and the geometry of observation.
+For a spatial equation, information must also travel. A source heats its neighborhood, diffusion spreads the heat, and measurements are collected somewhere else. A wave carries information with a finite travel time. The random structure can also change which unknowns these measurements determine.
+
+## A wave source that cannot stay hidden
+
+Consider a membrane fixed along its boundary, with displacement $z$ driven by a random force:
+
+$$
+dz_t-\Delta z\,dt=g(t,x)\,dW_t,
+\qquad z|_{\partial G}=0.
+$$
+
+Here $W_t$ is Brownian motion and $g$ is the unknown force intensity. Under the book's geometric and observation-time assumptions, the boundary slope $\partial_\nu z$ on a suitable part of the boundary, together with the final displacement $z(T)$, uniquely determines $g$ and both initial displacement and velocity.[^wave] The data are the random observations themselves, beyond just their averages.
+
+Compare this with an ordinary wave equation:
+
+$$
+u_{tt}-\Delta u=f(t,x).
+$$
+
+Choose a nonzero smooth motion $u$ that vanishes near the boundary and near both $t=0$ and $t=T$. Set $f=u_{tt}-\Delta u$. This nonzero force produces motion inside, yet both the boundary slope and final displacement vanish. These measurements cannot determine an arbitrary $f$.
+
+The stochastic equation has extra structure. Itô's formula contributes a positive term involving $g^2$, which the weighted estimate uses to bound the unknown source. This gives a uniqueness result that fails for an unrestricted deterministic force. Randomness itself changes what can be recovered.
 
 ## Turn the question around
 
@@ -59,6 +80,8 @@ There is still a practical obstacle. An unstable inverse problem can fit measure
 
 The book develops this progression for selected stochastic heat and wave problems: identify what the measurements can see, quantify that information, and use it in reconstruction. It is not a claim that every hidden coefficient or source can be recovered from every observation.
 
-The central lesson is simple: **in a random system, deciding what counts as data is already part of solving the inverse problem.**
+The central lesson is simple: **randomness can carry information and change what an inverse problem allows us to recover.** Choosing what to measure is part of making that information useful.
 
 [^book]: Qi Lü and Yu Wang, *Inverse Problems for Stochastic Partial Differential Equations*, SpringerBriefs on PDEs and Data Science, 2026. [Book](https://doi.org/10.1007/978-981-95-9047-6) · [Author version](https://arxiv.org/abs/2411.05534). Chapters 2–3 develop the parabolic and hyperbolic problems; the scalar model above is an illustration, not a theorem from the book.
+
+[^wave]: See Section 3.1.2, Theorem 3.4.1 and Remark 3.4.2 in the [author version](https://arxiv.org/html/2411.05534v1#S3.S4). The displayed stochastic equation is a special case with the lower-order coefficients and drift source set to zero. Uniqueness compares solutions driven by the same Brownian motion, with equality of their observations almost surely. The deterministic example follows Remark 3.4.2.
