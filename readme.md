@@ -183,7 +183,7 @@ cover:
    ---
    ```
 
-2. 在 `content/index.md` 对应的 `articles` 或 `preprints` 条目中添加 `blog: "my-paper-notes"`（与 `title`、`links` 同级）。
+2. 在 `content/index.md` 对应的 `books`、`articles` 或 `preprints` 条目中添加 `blog: "my-paper-notes"`（与 `title`、`links` 同级）。书籍解读可在文章 front matter 中设置 `kicker: "Book Notes"`，默认标签为 `Paper Notes`。
 3. 在 front matter 后写正文，运行 `npm run build`。
 
 主页会在该论文已有链接后追加同样样式的 `[Blog]`，论文标题也会链接到同一篇解读，在当前标签页打开。没有 `blog` 字段的论文保持原样；引用不存在的博客会让构建报错。阅读页的作者和 Article/ArXiv 链接直接复用论文条目的信息，返回链接定位到原论文。

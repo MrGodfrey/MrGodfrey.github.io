@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What a Grid Lets Us Control - Yu Wang</title>
+<meta name="author" content="Yu Wang">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script defer src="/assets/math-config.js"></script>
+<script defer src="/assets/vendor/mathjax/tex-chtml.js"></script>
+
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/80 backdrop-blur-xl border-b border-outline-variant/10">
+  <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
+    <a href="/" class="text-2xl font-headline italic font-bold text-primary tracking-tight">Academic Portfolio</a>
+    <div class="hidden lg:flex items-center gap-8">
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg text-primary border-b-2 border-primary pb-1" href="/#Publications">Publications</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Grants">Grants</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Service">Service</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Courses">Teaching</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/blogs/">Blog</a>
+      
+    </div>
+    <button aria-label="Toggle navigation" class="p-2 text-primary lg:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 border-t border-outline-variant/10 bg-surface/95 backdrop-blur-xl">
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Publications">Publications</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Grants">Grants</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Service">Service</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Courses">Teaching</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/blogs/">Blog</a>
+    
+  </div>
+</nav>
+
+<main class="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+
+    <!-- Main Content Area -->
+    <div id="main-content" class="flex-1 min-w-0">
+      
+<article class="paper-reading mx-auto max-w-3xl">
+  <a href="/#paper-fourth-order-semidiscrete-control" class="mb-8 inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.75 12H5.25" />
+  <path d="m11.25 6.75-5.25 5.25 5.25 5.25" /></svg> Back to Publications
+  </a>
+  <header class="mb-7">
+    <p class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold mb-4">Paper Notes</p>
+    <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">What a Grid Lets Us Control</h1>
+    <p class="text-sm text-on-surface-variant mb-4"><strong>Y. Wang</strong>, Q. Zhao</p>
+    <div class="flex flex-wrap gap-4 items-center">
+  
+  <a class="publication-link" href="https://arxiv.org/abs/2405.03257" target="_blank" rel="noopener">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
+  </a>
+  
+  
+</div>
+  </header>
+
+<figure class="mb-10">
+  <img src="/assets/generated/covers/fourth-order-semidiscrete-control-da151dc4cc-1600.webp?v=0bf4b6a27867" srcset="/assets/generated/covers/fourth-order-semidiscrete-control-da151dc4cc-480.webp?v=4778576b3e1a 480w, /assets/generated/covers/fourth-order-semidiscrete-control-da151dc4cc-960.webp?v=508421ce3bd7 960w, /assets/generated/covers/fourth-order-semidiscrete-control-da151dc4cc-1600.webp?v=0bf4b6a27867 1600w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 816px) calc(100vw - 48px), 768px" alt="A thin blue chain of grid points bends gently above a straight baseline, with a short amber cluster marking local actuation." width="1600" height="900" class="block w-full h-auto rounded-xl" decoding="async" fetchpriority="high">
+
+</figure>
+
+
+  <div class="paper-prose"><p>Replace a smooth spatial profile by its values at a row of grid points. Surely a control theorem should become easier: an infinite-dimensional equation has become a finite system.</p>
+<p>There is a catch. We want the controls to remain affordable as the grid becomes finer. A statement that works separately on every grid, with a cost that explodes as the spacing tends to zero, does not answer that question.</p>
+<p>Our paper studies this issue for a stochastic fourth-order parabolic equation.<sup id="fnref:paper"><a class="footnote-ref" href="#fn:paper">1</a></sup> The objective is to steer the grid values very close to zero while keeping the control cost bounded independently of the mesh size.</p>
+<h2>A small calculation reveals the obstruction</h2>
+<p>Carleman estimates use rapidly varying weights. On a continuous line, the exponential weight satisfies</p>
+<div class="arithmatex">\[
+\frac{d}{dx}e^{sx}=s e^{sx}.
+\]</div>
+<p>On a grid with spacing <span class="arithmatex">\(h\)</span>, the corresponding difference is</p>
+<div class="arithmatex">\[
+\frac{e^{s(x+h)}-e^{sx}}{h}
+=e^{sx}\frac{e^{sh}-1}{h}.
+\]</div>
+<p>The two expressions resemble each other when <span class="arithmatex">\(sh\)</span> is small. They need not resemble each other when the weight varies substantially between neighboring nodes.</p>
+<p>This is the conflict: the proof wants a strong weight, while the grid only resolves weights up to a mesh-dependent scale. Higher-order differences make the bookkeeping more demanding, not less.</p>
+<h2>Keep the cost; allow a tiny remainder</h2>
+<p>The discrete Carleman argument retains the terms created by the grid rather than treating them as if exact differentiation rules still applied. The weight parameter is chosen in a range compatible with <span class="arithmatex">\(h\)</span>.</p>
+<p>That restriction leaves a remainder in the observability estimate. By duality, it becomes a small terminal error in the control problem. Schematically, the result has the form</p>
+<div class="arithmatex">\[
+\mathbb E\|y_h(T)\|_h^2
+\le C e^{-c/h}\,\mathbb E\|y_h(0)\|_h^2,
+\]</div>
+<p>together with a control-energy bound whose constant does not deteriorate as <span class="arithmatex">\(h\to0\)</span>.</p>
+<p>The controlled equation has a localized drift control and a diffusion control. Both belong in the picture. The displayed estimate is not exact null controllability at a fixed mesh, and its residual is not a floating-point rounding error: it is part of the proved mathematical guarantee.</p>
+<h2>Why this is a useful target</h2>
+<p>The remainder becomes extraordinarily small on fine grids, while the controls stay uniformly bounded. This balances two requirements that an isolated finite-dimensional rank calculation would not capture: accuracy and robustness under refinement.</p>
+<p>The interesting question is therefore not merely “Can this grid be controlled?” It is <strong>“What survives when we keep refining the grid?”</strong></p>
+<p>Removing the residual without losing the uniform cost would require additional information beyond this estimate. The present result identifies a regime where the discrete problem remains quantitatively connected to its continuous counterpart, despite the extra high-frequency behavior introduced by the mesh.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:paper">
+<p>Yu Wang and Qingmei Zhao, <em>Null controllability for stochastic fourth order semi-discrete parabolic equations</em>. <a href="https://arxiv.org/abs/2405.03257">Author version</a>, system (1.3), Theorems 1.1–1.2 and Remark 1.1. The exponential-difference calculation is a toy illustration of the mesh–weight interaction.&#160;<a class="footnote-backref" href="#fnref:paper" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></div>
+
+</article>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-10 px-6 md:px-12 border-t border-outline-variant/10">
+  <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-4">
+    <div class="text-xs uppercase tracking-widest text-slate-500 font-label">
+      ©2023-2026 Yu Wang. All rights reserved.
+    </div>
+    <div class="flex gap-8">
+      <a class="text-xs font-label uppercase tracking-widest text-slate-500 hover:text-primary transition-colors" href="mailto:yuwangmath@163.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }
+  });
+});
+
+
+</script>
+
+</body>
+</html>

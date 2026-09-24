@@ -8,7 +8,7 @@
     {{ icon("arrow_back") }} Back to Publications
   </a>
   <header class="{% if page.cover and page.cover.image %}mb-7{% else %}border-b border-outline-variant/30 pb-8 mb-10{% endif %}">
-    <p class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold mb-4">Paper Notes</p>
+    <p class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold mb-4">{{ page.kicker | default("Paper Notes") }}</p>
     <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">{{ post.title }}</h1>
     <p class="text-sm text-on-surface-variant mb-4">{{ post.paper.authors }}</p>
     {{ publication_links(post.paper) }}

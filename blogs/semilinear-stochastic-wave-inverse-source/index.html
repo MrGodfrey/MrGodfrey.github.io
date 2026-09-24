@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reconstructing the Pluck from a Noisy Wave - Yu Wang</title>
+<meta name="author" content="Yu Wang">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script defer src="/assets/math-config.js"></script>
+<script defer src="/assets/vendor/mathjax/tex-chtml.js"></script>
+
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/80 backdrop-blur-xl border-b border-outline-variant/10">
+  <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
+    <a href="/" class="text-2xl font-headline italic font-bold text-primary tracking-tight">Academic Portfolio</a>
+    <div class="hidden lg:flex items-center gap-8">
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg text-primary border-b-2 border-primary pb-1" href="/#Publications">Publications</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Grants">Grants</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Service">Service</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Courses">Teaching</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/blogs/">Blog</a>
+      
+    </div>
+    <button aria-label="Toggle navigation" class="p-2 text-primary lg:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 border-t border-outline-variant/10 bg-surface/95 backdrop-blur-xl">
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Publications">Publications</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Grants">Grants</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Service">Service</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Courses">Teaching</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/blogs/">Blog</a>
+    
+  </div>
+</nav>
+
+<main class="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+
+    <!-- Main Content Area -->
+    <div id="main-content" class="flex-1 min-w-0">
+      
+<article class="paper-reading mx-auto max-w-3xl">
+  <a href="/#paper-semilinear-stochastic-wave-inverse-source" class="mb-8 inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.75 12H5.25" />
+  <path d="m11.25 6.75-5.25 5.25 5.25 5.25" /></svg> Back to Publications
+  </a>
+  <header class="mb-7">
+    <p class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold mb-4">Paper Notes</p>
+    <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">Reconstructing the Pluck from a Noisy Wave</h1>
+    <p class="text-sm text-on-surface-variant mb-4">Q. Lü, <strong>Y. Wang</strong></p>
+    <div class="flex flex-wrap gap-4 items-center">
+  
+  <a class="publication-link" href="https://iopscience.iop.org/article/10.1088/1361-6420/ae1da0" target="_blank" rel="noopener">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
+  </a>
+  
+  <a class="publication-link" href="https://arxiv.org/abs/2504.17398" target="_blank" rel="noopener">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
+  </a>
+  
+  
+</div>
+  </header>
+
+<figure class="mb-10">
+  <img src="/assets/generated/covers/semilinear-stochastic-wave-inverse-source-4041c0b33f-1600.webp?v=49ed182774dd" srcset="/assets/generated/covers/semilinear-stochastic-wave-inverse-source-4041c0b33f-480.webp?v=09d199cf4277 480w, /assets/generated/covers/semilinear-stochastic-wave-inverse-source-4041c0b33f-960.webp?v=b2da56be1ff8 960w, /assets/generated/covers/semilinear-stochastic-wave-inverse-source-4041c0b33f-1600.webp?v=49ed182774dd 1600w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 816px) calc(100vw - 48px), 768px" alt="An elegant blue vibrating string carries faint ghost profiles of an earlier pluck toward small amber boundary sensors." width="1600" height="900" class="block w-full h-auto rounded-xl" decoding="async" fetchpriority="high">
+
+</figure>
+
+
+  <div class="paper-prose"><p>A string is plucked, released from rest, and watched at its boundary. Can we work backward to the shape of the original pluck?</p>
+<p>Now add a nonlinear restoring effect and random forcing proportional to the displacement. The boundary trace is no longer a simple replay of the initial profile. Yet the initial disturbance still leaves a recoverable signature.</p>
+<p>This is the inverse source problem studied in our paper: the unknown is the <strong>initial displacement</strong>, with initial velocity prescribed to be zero.<sup id="fnref:paper"><a class="footnote-ref" href="#fn:paper">1</a></sup> It is not an arbitrary unknown force acting throughout the experiment.</p>
+<h2>Why the obvious iteration can fail</h2>
+<p>Think of a globally Lipschitz nonlinearity such as <span class="arithmatex">\(F(u)=\sin u\)</span>. If a trial wave <span class="arithmatex">\(w\)</span> were already known, then replacing <span class="arithmatex">\(\sin u\)</span> by <span class="arithmatex">\(\sin w\)</span> would leave a linear reconstruction problem.</p>
+<p>That suggests an iteration: guess a wave, freeze its nonlinear term, reconstruct a new wave, and repeat.</p>
+<p>But simply repeating a linear solver does not ensure that the guesses move closer to the truth. Inverse problems can magnify errors. A small mistake in the frozen nonlinearity may cause a larger mistake in the next reconstructed state.</p>
+<p>The key question is not whether the subproblem is linear. It is whether the entire update is a contraction in a useful norm.</p>
+<h2>Choose the norm so that the equation helps</h2>
+<p>The paper builds the reconstruction around a Carleman weight. Instead of treating all space–time errors equally, the weighted objective is arranged so that the wave equation gives a coercive estimate.</p>
+<p>Each update solves a regularized quadratic minimization problem with the nonlinearity frozen at the previous iterate. The Carleman estimate controls the new error by a reduced portion of the previous error, plus contributions from measurement noise and regularization.</p>
+<p>The stochastic equation is handled in an integrated form. There is no need to pretend that a Brownian path has an ordinary time derivative.</p>
+<p>The result is a globally convergent reconstruction iteration under the paper's hypotheses: the argument does not require an initial guess already close to the unknown solution. “Globally” describes this convergence property, not access to arbitrary sources from arbitrary sensors.</p>
+<h2>Convergence does not mean ignoring the noise</h2>
+<p>The data include boundary displacement and the specified normal-derivative observations. With imperfect data and a nonzero regularization parameter, the error estimate has an accuracy floor. Iterating longer contracts the initial-guess error; it does not make those other errors vanish by magic.</p>
+<p>This distinction is useful in practice. An algorithm should stop because it has extracted the available information, not because it has learned to fit every fluctuation.</p>
+<p>The mechanism to remember is <strong>freeze, solve, contract</strong>. The nonlinear problem becomes approachable not by assuming that the nonlinearity is negligible, but by choosing a weighted reconstruction in which its effect can be controlled from one iteration to the next.</p>
+<p>Extending the same strategy beyond the stated Lipschitz and observation assumptions remains a separate problem.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:paper">
+<p>Qi Lü and Yu Wang, <em>An Inverse Source Problem for Semilinear Stochastic Hyperbolic Equations</em>, Inverse Problems 41 (2025), 115014. <a href="https://doi.org/10.1088/1361-6420/ae1da0">Paper</a> · <a href="https://arxiv.org/abs/2504.17398">Author version</a>. See problem (1.2), Problem 1 and Theorem 3.2 for the reconstruction and its error estimate.&#160;<a class="footnote-backref" href="#fnref:paper" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></div>
+
+</article>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-10 px-6 md:px-12 border-t border-outline-variant/10">
+  <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-4">
+    <div class="text-xs uppercase tracking-widest text-slate-500 font-label">
+      ©2023-2026 Yu Wang. All rights reserved.
+    </div>
+    <div class="flex gap-8">
+      <a class="text-xs font-label uppercase tracking-widest text-slate-500 hover:text-primary transition-colors" href="mailto:yuwangmath@163.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }
+  });
+});
+
+
+</script>
+
+</body>
+</html>

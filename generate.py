@@ -332,7 +332,7 @@ def build_page(md_path, config, env, output_path=None, template_name=None, extra
         math_enabled=page.get("math", False),
     )
 
-    for key in ("articles", "preprints"):
+    for key in ("books", "articles", "preprints"):
         for paper in page.get(key, []):
             if "authors" in paper:
                 paper["authors"] = render_authors(paper["authors"])
@@ -401,7 +401,7 @@ def load_blog_posts():
     # Reuse publication metadata so a future ArXiv URL only needs adding once.
     publications, _ = read_markdown_page(os.path.join(CONTENT_DIR, "index.md"))
     reference_index = build_blog_reference_index(posts)
-    for key in ("articles", "preprints"):
+    for key in ("books", "articles", "preprints"):
         for paper in publications.get(key, []):
             if paper.get("blog"):
                 post = resolve_blog_reference("blog", paper["blog"], reference_index, "content/index.md")

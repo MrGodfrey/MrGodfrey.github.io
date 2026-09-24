@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finding Cell Families from Incomplete Portraits - Yu Wang</title>
+<meta name="author" content="Yu Wang">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script defer src="/assets/math-config.js"></script>
+<script defer src="/assets/vendor/mathjax/tex-chtml.js"></script>
+
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/80 backdrop-blur-xl border-b border-outline-variant/10">
+  <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
+    <a href="/" class="text-2xl font-headline italic font-bold text-primary tracking-tight">Academic Portfolio</a>
+    <div class="hidden lg:flex items-center gap-8">
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg text-primary border-b-2 border-primary pb-1" href="/#Publications">Publications</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Grants">Grants</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Service">Service</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Courses">Teaching</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/blogs/">Blog</a>
+      
+    </div>
+    <button aria-label="Toggle navigation" class="p-2 text-primary lg:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 border-t border-outline-variant/10 bg-surface/95 backdrop-blur-xl">
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Publications">Publications</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Grants">Grants</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Service">Service</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Courses">Teaching</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/blogs/">Blog</a>
+    
+  </div>
+</nav>
+
+<main class="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+
+    <!-- Main Content Area -->
+    <div id="main-content" class="flex-1 min-w-0">
+      
+<article class="paper-reading mx-auto max-w-3xl">
+  <a href="/#paper-scdcl-cell-families" class="mb-8 inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.75 12H5.25" />
+  <path d="m11.25 6.75-5.25 5.25 5.25 5.25" /></svg> Back to Publications
+  </a>
+  <header class="mb-7">
+    <p class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold mb-4">Paper Notes</p>
+    <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">Finding Cell Families from Incomplete Portraits</h1>
+    <p class="text-sm text-on-surface-variant mb-4">L. Gan, H. Meng, Y. Chen, <strong>Y. Wang</strong></p>
+    <div class="flex flex-wrap gap-4 items-center">
+  
+  <a class="publication-link" href="https://doi.org/10.1016/j.compbiolchem.2026.108998" target="_blank" rel="noopener">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [Article]
+  </a>
+  
+  
+</div>
+  </header>
+
+<figure class="mb-10">
+  <img src="/assets/generated/covers/scdcl-cell-families-f43df531aa-1600.webp?v=e75c4fa86ffd" srcset="/assets/generated/covers/scdcl-cell-families-f43df531aa-480.webp?v=5cb972e558e8 480w, /assets/generated/covers/scdcl-cell-families-f43df531aa-960.webp?v=6efef8c2434e 960w, /assets/generated/covers/scdcl-cell-families-f43df531aa-1600.webp?v=e75c4fa86ffd 1600w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 816px) calc(100vw - 48px), 768px" alt="Small translucent cells form three loose blue, teal and amber families, with a few fine connections suggesting shared structure." width="1600" height="900" class="block w-full h-auto rounded-xl" decoding="async" fetchpriority="high">
+
+</figure>
+
+
+  <div class="paper-prose"><p>Suppose you are asked to sort portraits into families, but many of their features are missing. Looking at each portrait alone wastes the resemblance between relatives. Looking only at who resembles whom can make an early mistake spread through the whole collection.</p>
+<p>This is a useful way to think about clustering single-cell RNA sequencing data. Each cell comes with a long vector of gene counts, and many entries are zero. A zero can be biologically meaningful; it can also reflect limitations of measurement. The clustering method has to work with that ambiguity.<sup id="fnref:paper"><a class="footnote-ref" href="#fn:paper">1</a></sup></p>
+<h2>Do not build the neighborhood too soon</h2>
+<p>As a toy example, compare the count vectors <span class="arithmatex">\((5,5,0)\)</span> and <span class="arithmatex">\((5,0,0)\)</span>. Their difference might separate two cell types—or it might be an incomplete observation of otherwise similar cells. Three numbers cannot decide. The point is that a graph built immediately from noisy counts may turn an uncertain comparison into a firm neighborhood connection.</p>
+<p>Once a graph neural network starts sharing information along that connection, the initial mistake can influence other representations.</p>
+<p>The first choice in scDCL is therefore <strong>denoise, then build the graph</strong>. A masked autoencoder learns a representation using a count model designed to accommodate sparsity and overdispersion. It tries to extract a useful cell portrait before deciding which portraits belong near each other.</p>
+<h2>A portrait and a map tell different stories</h2>
+<p>Even a better portrait is not the whole answer. Imagine cells arranged along a curved developmental trajectory. Nearby cells reveal local similarity, but the shape of the trajectory contains information that isolated pairwise distances may miss.</p>
+<p>scDCL constructs two kinds of graph from the learned representations: a nearest-neighbor graph and a diffusion-map graph. The first emphasizes local neighborhoods; the second contributes a broader view of connectivity. Graph-based filtering and graph neural networks then produce several representations of the same cells.</p>
+<p>These are constructed views of one dataset, not four independently measured biological modalities.</p>
+<h2>Make the views agree without making everything identical</h2>
+<p>A useful representation needs two properties at once. Different views of the same underlying structure should remain consistent. At the same time, meaningful differences between cells and clusters should not disappear.</p>
+<p>The dual contrastive objective combines these aims: it improves discrimination within representations while encouraging consistency between them. The refined views are combined, and clustering is performed on the resulting embedding.</p>
+<p>The interesting part is the order and interaction of the steps. Denoising protects graph construction; graphs supply relationships missing from isolated portraits; the learning objectives prevent those relationships from erasing individuality.</p>
+<p>The paper evaluates this combination on benchmark datasets. Such experiments test a clustering method, not the biological truth of every inferred group. Robustness to new tissues, measurement protocols and rare cell populations remains an important question.</p>
+<p>The central idea is modest but powerful: <strong>understand a cell both by its own features and by where it sits among other cells—and do not let the noisiest measurements decide the map too early.</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:paper">
+<p>Lin Gan, Hua Meng, Yuxu Chen and Yu Wang, <em>scDCL: A multi-view single-cell RNA sequencing clustering method based on dual contrastive learning</em>, Computational Biology and Chemistry 123 (2026), 108998. <a href="https://doi.org/10.1016/j.compbiolchem.2026.108998">Paper</a>. See Section 2 for the denoise-then-graph pipeline and dual contrastive learning. The portrait analogy and three-gene example are explanatory illustrations.&#160;<a class="footnote-backref" href="#fnref:paper" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></div>
+
+</article>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-10 px-6 md:px-12 border-t border-outline-variant/10">
+  <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-4">
+    <div class="text-xs uppercase tracking-widest text-slate-500 font-label">
+      ©2023-2026 Yu Wang. All rights reserved.
+    </div>
+    <div class="flex gap-8">
+      <a class="text-xs font-label uppercase tracking-widest text-slate-500 hover:text-primary transition-colors" href="mailto:yuwangmath@163.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }
+  });
+});
+
+
+</script>
+
+</body>
+</html>

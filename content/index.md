@@ -34,6 +34,7 @@ education:
 books:
   - authors: "Q. Lü, **Y. Wang**"
     title: "Inverse Problems for Stochastic Partial Differential Equations"
+    blog: "inverse-problems-stochastic-pdes"
     journal: "SpringerBriefs on PDEs and Data Science"
     info: "Springer Nature Singapore, 2026. ISBN 9789819590476"
     links:
@@ -48,6 +49,7 @@ books:
 articles:
   - authors: "Z. Li, Q. Lü, **Y. Wang**, H. Yang"
     title: "Exact controllability for stochastic first-order multi-dimensional hyperbolic systems"
+    blog: "stochastic-hyperbolic-boundary-control"
     journal: "SIAM J. Control Optim."
     info: "Accepted"
     links:
@@ -56,6 +58,7 @@ articles:
 
   - authors: "**Y. Wang**, Q. Zhao"
     title: "Null controllability for stochastic fourth order semi-discrete parabolic equations"
+    blog: "fourth-order-semidiscrete-control"
     journal: "Appl. Math. Optim."
     info: "Accepted"
     links:
@@ -64,6 +67,7 @@ articles:
 
   - authors: "L. Gan, H. Meng, Y. Chen, **Y. Wang**"
     title: "scDCL: A multi-view single-cell RNA sequencing clustering method based on dual contrastive learning"
+    blog: "scdcl-cell-families"
     journal: "Computational Biology and Chemistry"
     info: "(2026), 108998"
     links:
@@ -72,6 +76,7 @@ articles:
 
   - authors: "Q. Lü, **Y. Wang**"
     title: "An Inverse Source Problem for Semilinear Stochastic Hyperbolic Equations"
+    blog: "semilinear-stochastic-wave-inverse-source"
     journal: "Inverse Problems"
     info: "41(11) (2025), 115014"
     links:
@@ -82,6 +87,7 @@ articles:
 
   - authors: "**Y. Wang**, Q. Zhao"
     title: "The ϕ-null controllability for semi-discrete stochastic semilinear parabolic equations"
+    blog: "semilinear-semidiscrete-control"
     journal: "ESAIM Control Optim. Calc. Var."
     info: "31 (2025), Paper No. 98"
     links:
@@ -92,6 +98,7 @@ articles:
 
   - authors: "Q. Lü, **Y. Wang**"
     title: "Exact controllability for a refined stochastic plate equation"
+    blog: "refined-stochastic-plate"
     journal: "Chinese Ann. Math. Ser. B"
     info: "46(3) (2025), 415–442"
     links:
@@ -102,6 +109,7 @@ articles:
 
   - authors: "F. Dou, P. Lü, **Y. Wang**"
     title: "Stability and regularization for ill-posed Cauchy problem of a stochastic parabolic differential equation"
+    blog: "stochastic-parabolic-cauchy"
     journal: "Inverse Problems"
     info: "40(11) (2024), 115005"
     links:
@@ -112,6 +120,7 @@ articles:
 
   - authors: "**Y. Wang**"
     title: "Null controllability for stochastic coupled systems of fourth order parabolic equations"
+    blog: "coupled-fourth-order-one-control"
     journal: "J. Math. Anal. Appl."
     info: "538 (2024), 128426"
     links:
@@ -122,6 +131,7 @@ articles:
 
   - authors: "Q. Lü, **Y. Wang**"
     title: "Null controllability for fourth order stochastic parabolic equations"
+    blog: "fourth-order-stochastic-null-control"
     journal: "SIAM J. Control Optim."
     info: "60 (2022), 1563–1590"
     links:
@@ -142,6 +152,7 @@ preprints:
 
   - authors: "Q. Lü, **Y. Wang**"
     title: "Stability Estimates for the Inverse Recovery of Drift and Diffusion Point Sources in Stochastic Parabolic Equations"
+    blog: "stochastic-drift-diffusion-point-sources"
     status: "Submitted"
     links:
       - label: ArXiv
@@ -149,6 +160,7 @@ preprints:
 
   - authors: "C. An, **Y. Wang**, Q. Ye, Z. Zhang, Q. Zhuang"
     title: "Carleman Estimates for Wave Equations on the Half-Line: AI-Assisted Weights and Applications"
+    blog: "half-line-wave-ai-assisted-weights"
     status: "Submitted"
     links:
       - label: ArXiv
@@ -156,6 +168,7 @@ preprints:
 
   - authors: "Y. Li, Q. Lü, M. Qian, **Y. Wang**"
     title: "A Geometric Inverse Source Problem for Stochastic Parabolic Equations"
+    blog: "geometric-stochastic-inverse-sources"
     status: "Submitted"
     links:
       - label: ArXiv
