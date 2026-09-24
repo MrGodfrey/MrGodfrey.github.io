@@ -6,6 +6,7 @@ requires-python = ">=3.9"
 dependencies = [
     "jinja2",
     "markdown",
+    "pillow>=10.4,<13",
     "pymdown-extensions>=10.21,<11",
     "pyyaml",
     "reportlab>=4.4,<5",

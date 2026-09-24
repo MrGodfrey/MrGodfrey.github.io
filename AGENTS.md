@@ -13,6 +13,7 @@
 - 改内容：优先修改 `content/index.md`。
 - 构建：`npm run build`。
 - 构建会通过 `generate_cv.py` 自动更新 `files/cv-yu-wang.pdf`；单独更新用 `npm run build:cv`。CV 复用主页源数据，基金列金额，不收录报告；不要直接编辑 PDF。
+- CV 的 `.meta.json` 生成记录随 PDF 一起提交，保证内容不变时跨天构建也不变更日期。博客题图由 `generate_images.py` 自动生成响应式 WebP，原图保留；不要手改 `assets/generated/covers/`。
 - 本地预览：`uv run python localServe`。
 - 发布：`npm run deploy`（可用 `npm run deploy -- "提交说明"`），自动构建、commit 并 push `master`。GitHub Pages 直接从仓库静态文件发布。此命令会提交全部未被忽略的网站修改，仅在用户授权发布时执行。
 

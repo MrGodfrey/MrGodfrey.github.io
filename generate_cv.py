@@ -4,10 +4,13 @@ Run `uv run python generate_cv.py`, or use the normal site build.
 """
 
 import html
+import hashlib
+import json
 import os
 import re
 import tempfile
 from datetime import date
+from io import BytesIO
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -38,10 +41,8 @@ def escaped(value):
     return html.escape(plain(value), quote=True)
 
 
-def build_cv(config, page, profile_md, output_path=None, as_of=None):
-    as_of = as_of or date.today()
-    output_path = Path(output_path) if output_path else ROOT / config['cv']['url'].lstrip('/')
-    output_path.parent.mkdir(parents=True, exist_ok=True)
+def render_cv(config, page, profile_md, updated_on):
+    """Render deterministic PDF bytes; the caller chooses the content date."""
     font_dir = ROOT / 'assets' / 'fonts' / 'cv'
     for name, file in [('CV', 'DejaVuSans.ttf'), ('CV-Bold', 'DejaVuSans-Bold.ttf')]:
         if name not in pdfmetrics.getRegisteredFontNames():
@@ -159,20 +160,58 @@ def build_cv(config, page, profile_md, output_path=None, as_of=None):
         canvas.setFont('CV', 7.5)
         canvas.setFillColor(MUTED)
         canvas.drawString(44, 23, f"{config['name_en']} | Curriculum Vitae")
-        canvas.drawCentredString(A4[0] / 2, 23, 'Updated ' + as_of.strftime('%d %b %Y'))
+        canvas.drawCentredString(A4[0] / 2, 23, 'Updated ' + updated_on.strftime('%d %b %Y'))
         canvas.drawRightString(A4[0] - 44, 23, str(doc.page))
         canvas.restoreState()
 
-    # Atomic replacement keeps downloads intact while the preview rebuilds.
+    buffer = BytesIO()
+    document = SimpleDocTemplate(buffer, pagesize=A4, rightMargin=44, leftMargin=44, topMargin=40, bottomMargin=48, title=f"{config['name_en']} - Curriculum Vitae", author=config['name_en'], invariant=1)
+    document.build(story, onFirstPage=footer, onLaterPages=footer)
+    return buffer.getvalue()
+
+
+def write_if_changed(output_path, content):
+    """Preserve unchanged files and replace changed downloads atomically."""
+    if output_path.exists() and output_path.read_bytes() == content:
+        return
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=output_path.parent, suffix='.pdf', delete=False) as tmp:
+        tmp.write(content)
         temporary_path = Path(tmp.name)
     try:
-        document = SimpleDocTemplate(str(temporary_path), pagesize=A4, rightMargin=44, leftMargin=44, topMargin=40, bottomMargin=48, title=f"{config['name_en']} - Curriculum Vitae", author=config['name_en'], invariant=1)
-        document.build(story, onFirstPage=footer, onLaterPages=footer)
         os.replace(temporary_path, output_path)
     finally:
         temporary_path.unlink(missing_ok=True)
-    print(f'✓ Current homepage data → {output_path}')
+
+
+def build_cv(config, page, profile_md, output_path=None, as_of=None):
+    """Keep the previous content date across builds, machines and checkouts.
+
+    Hash a rendering with a fixed date so only changes visible in the CV (or
+    its links/layout) count. Homepage-only fields such as talks do not count.
+    The tiny metadata file is committed alongside the PDF.
+    """
+    today = as_of or date.today()
+    output_path = Path(output_path) if output_path else ROOT / config['cv']['url'].lstrip('/')
+    state_path = output_path.with_suffix('.meta.json')
+    previous = json.loads(state_path.read_text(encoding='utf-8')) if state_path.exists() else {}
+    fingerprint = hashlib.sha256(render_cv(config, page, profile_md, date(2000, 1, 1))).hexdigest()
+    unchanged = previous.get('content_sha256') == fingerprint
+    updated_on = date.fromisoformat(previous['updated_on']) if unchanged else today
+    if (unchanged and output_path.exists()
+            and hashlib.sha256(output_path.read_bytes()).hexdigest() == previous.get('pdf_sha256')):
+        print(f'✓ CV unchanged (updated {updated_on}) → {output_path}')
+        return output_path
+
+    pdf = render_cv(config, page, profile_md, updated_on)
+    state = {
+        'content_sha256': fingerprint,
+        'updated_on': updated_on.isoformat(),
+        'pdf_sha256': hashlib.sha256(pdf).hexdigest(),
+    }
+    write_if_changed(output_path, pdf)
+    write_if_changed(state_path, (json.dumps(state, indent=2) + '\n').encode('utf-8'))
+    print(f'✓ CV updated {updated_on} → {output_path}')
     return output_path
 
 

@@ -19,6 +19,7 @@ from datetime import datetime
 import markdown
 import yaml
 from jinja2 import Environment, FileSystemLoader
+from generate_images import prepare_cover
 
 # ------------------------------------------------------------------ helpers
 
@@ -300,6 +301,9 @@ def is_blog_post(md_path):
 
 
 def render_page(config, env, page, body_html, output_path, source_path, template_name=None, extra_context=None):
+    page = dict(page)
+    if page.get('cover'):
+        page['cover'] = prepare_cover(page['cover'], source_path)
     template_file = template_name or (page.get("template", "home") + ".html")
     template = env.get_template(template_file)
 
