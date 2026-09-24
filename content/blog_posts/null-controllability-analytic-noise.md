@@ -9,11 +9,10 @@ listed: true
 excerpt: Two exponentials turn an unobserved stochastic coupling into a closed analytic energy estimate.
 kicker: Paper Notes
 cover:
-  image: /img/blog/null-controllability-analytic-noise.webp
-  alt: A cool blue circular heat domain has a short amber control arc, with delicate fluctuations around the ring
-    becoming a calm continuous outline.
-  width: 1600
-  height: 900
+  image: /img/blog/null-controllability-analytic-noise.png
+  alt: A noisy blue wave settles to zero while local control acts on the highlighted region G.
+  width: 1672
+  height: 941
 ---
 
 Can a control acting on a small arc bring an entire noisy temperature profile exactly to zero?
