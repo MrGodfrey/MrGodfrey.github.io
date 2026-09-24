@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% from "_icons.html" import icon %}
-<html lang="en">
+<html lang="{{ page.lang or 'en' }}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
 <link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
+{% if page.math %}{% include "_math.html" %}{% endif %}
 {% block extra_head %}{% endblock %}
 </head>
 <body class="bg-surface font-body text-on-surface">
@@ -20,17 +21,17 @@
 <nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/80 backdrop-blur-xl border-b border-outline-variant/10">
   <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
     <a href="/" class="text-2xl font-headline italic font-bold text-primary tracking-tight">{{ config.site_title }}</a>
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden lg:flex items-center gap-8">
       {% for item in config.nav %}
       <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg{% if active_nav == item.label %} text-primary border-b-2 border-primary pb-1{% endif %}" href="{{ item.url }}">{{ item.label }}</a>
       {% endfor %}
     </div>
-    <button aria-label="Toggle navigation" class="p-2 text-primary md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+    <button aria-label="Toggle navigation" class="p-2 text-primary lg:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
       {{ icon("menu") }}
     </button>
   </div>
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 border-t border-outline-variant/10 bg-surface/95 backdrop-blur-xl">
+  <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 border-t border-outline-variant/10 bg-surface/95 backdrop-blur-xl">
     {% for item in config.nav %}
     <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="{{ item.url }}">{{ item.label }}</a>
     {% endfor %}
@@ -39,8 +40,9 @@
 
 <main class="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   <div class="flex flex-col lg:flex-row gap-12">
+    {% if show_sidebar %}
     <!-- Sidebar -->
-    <aside class="lg:w-72 xl:w-80 shrink-0">
+    <aside id="site-sidebar" class="lg:w-72 xl:w-80 shrink-0" aria-label="个人资料">
       <div id="sidebar-inner" class="sticky top-24 h-fit rounded-xl p-5 sm:p-6 lg:p-8 bg-surface-container-low shadow-[0_10px_40px_rgba(0,7,103,0.06)] flex flex-col gap-5">
         <div class="w-full max-w-[14rem] sm:max-w-[16rem] lg:max-w-none aspect-square bg-surface-container-high rounded-xl overflow-hidden mb-1 mx-auto lg:mx-0">
           <img alt="{{ config.name_en }}" class="w-full h-full object-cover object-center" decoding="async" fetchpriority="high" height="640" src="{{ config.avatar }}" width="640" onerror="this.onerror=null;this.src='/img/avatar.jpg'">
@@ -74,12 +76,12 @@
         <a class="mt-3 block w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 py-3.5 bg-gradient-to-r from-primary to-primary-container text-white text-center rounded-lg font-medium shadow-lg hover:shadow-xl transition-all active:scale-95 text-sm" href="{{ config.cv.url }}" target="_blank" rel="noopener">
           {{ config.cv.label }}
         </a>
-        {% block sidebar_extra %}{% endblock %}
       </div>
     </aside>
+    {% endif %}
 
     <!-- Main Content Area -->
-    <div class="flex-1 min-w-0">
+    <div id="main-content" class="flex-1 min-w-0">
       {% block content %}{% endblock %}
     </div>
   </div>
@@ -101,24 +103,28 @@
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
+    const target = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     }
   });
 });
 
-// Bidirectional sticky sidebar
+{% if show_sidebar %}
+// Bidirectional sticky sidebar on the homepage.
 (function() {
   const sidebar = document.getElementById('sidebar-inner');
   if (!sidebar) return;
+  const desktop = window.matchMedia('(min-width: 1024px)');
   const navHeight = 96;
   let lastScrollTop = window.pageYOffset;
   let currentTop = navHeight;
+
   sidebar.style.top = currentTop + 'px';
 
   function onScroll() {
+    if (!desktop.matches) return;
     const sidebarHeight = sidebar.offsetHeight;
     const windowHeight = window.innerHeight;
     if (sidebarHeight + navHeight <= windowHeight) {
@@ -138,6 +144,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
 })();
+{% endif %}
 </script>
 {% block extra_scripts %}{% endblock %}
 </body>

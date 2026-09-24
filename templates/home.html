@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% from "_icons.html" import icon %}
+{% from "_publication_links.html" import publication_links %}
 
 {% block content %}
 <div class="space-y-16 lg:space-y-20">
@@ -88,18 +89,12 @@
       </div>
       <div class="space-y-6">
         {% for paper in page.articles %}
-        <div class="group p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)] hover:shadow-[0_10px_40px_rgba(0,7,103,0.06)] transition-all duration-300 border-l-4 border-transparent hover:border-primary">
+        <div {% if paper.anchor %}id="{{ paper.anchor }}"{% endif %} class="group scroll-mt-28 p-6 bg-surface-container-lowest rounded-xl shadow-[0_2px_10px_rgba(0,7,103,0.02)] hover:shadow-[0_10px_40px_rgba(0,7,103,0.06)] transition-all duration-300 border-l-4 border-transparent hover:border-primary">
           <div class="space-y-2 mb-3">
             <h4 class="font-headline text-lg font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">{{ paper.title }}</h4>
             <p class="text-sm text-on-surface-variant font-body">{{ paper.authors | replace('**', '') }}{% if paper.journal %} | <strong>{{ paper.journal }}</strong>{% endif %}{% if paper.info %}, {{ paper.info }}{% endif %}</p>
           </div>
-          <div class="flex flex-wrap gap-4 items-center">
-            {% for link in paper.links %}
-            <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="{{ link.url }}" target="_blank" rel="noopener">
-              {{ icon("article" if link.label == "ArXiv" else "description", "text-[14px]") }} [{{ link.label }}]
-            </a>
-            {% endfor %}
-          </div>
+          {{ publication_links(paper) }}
         </div>
         {% endfor %}
       </div>
@@ -113,16 +108,10 @@
       </div>
       <div class="space-y-6">
         {% for paper in page.preprints %}
-        <div class="group">
+        <div {% if paper.anchor %}id="{{ paper.anchor }}"{% endif %} class="group scroll-mt-28">
           <h4 class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-1 leading-snug">{{ paper.title }}</h4>
           <p class="text-sm font-body text-on-surface-variant mb-3">{{ paper.authors | replace('**', '') }} — {{ paper.status }}</p>
-          <div class="flex flex-wrap gap-4 items-center">
-            {% for link in paper.links %}
-            <a class="text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1" href="{{ link.url }}" target="_blank" rel="noopener">
-              {{ icon("article", "text-[14px]") }} [{{ link.label }}]
-            </a>
-            {% endfor %}
-          </div>
+          {{ publication_links(paper) }}
         </div>
         {% endfor %}
       </div>

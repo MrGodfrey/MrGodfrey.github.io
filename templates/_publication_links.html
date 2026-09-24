@@ -1,0 +1,15 @@
+{% from "_icons.html" import icon %}
+{% macro publication_links(paper) -%}
+<div class="flex flex-wrap gap-4 items-center">
+  {% for link in paper.links %}
+  <a class="publication-link" href="{{ link.url }}" target="_blank" rel="noopener">
+    {{ icon("article" if link.label == "ArXiv" else "description", "text-[14px]") }} [{{ link.label }}]
+  </a>
+  {% endfor %}
+  {% if paper.blog_url %}
+  <a class="publication-link" href="{{ paper.blog_url }}">
+    {{ icon("auto_stories", "text-[14px]") }} [Blog]
+  </a>
+  {% endif %}
+</div>
+{%- endmacro %}

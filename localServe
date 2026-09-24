@@ -11,6 +11,7 @@ WATCH_PATHS = [
     'config.yaml',
     'tailwind.config.js',
     'package.json',
+    'generate.py',
 ]
 
 
@@ -38,6 +39,10 @@ def snapshot_mtimes():
 
 
 def build_site():
+    math_result = subprocess.run(['npm', 'run', 'build:math'])
+    if math_result.returncode != 0:
+        print('MathJax build failed. Preview not refreshed.')
+        return
     print('Building Tailwind CSS...')
     css_result = subprocess.run(['npm', 'run', 'build:css'])
     if css_result.returncode != 0:

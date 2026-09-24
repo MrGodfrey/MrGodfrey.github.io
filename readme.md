@@ -147,6 +147,56 @@ slug:
 - 文章正文按普通 Markdown 渲染
 - 正文中的本地图片会被复制到对应的 `blogs/<slug>/` 目录
 
+## 论文解读（Paper Notes）
+
+论文解读复用 `content/blog_posts/` 和 `/blogs/<slug>/` 的生成流程，用 `paper_post` 模板沿用学术主页的版式。
+
+1. 在 `content/blog_posts/` 新建 Markdown 文件，例如：
+
+   ```yaml
+   ---
+   title: "解读标题"
+   slug: "my-paper-notes"
+   template: "paper_post"
+   date: 2026-09-24
+   math: true
+   listed: true
+   ---
+   ```
+
+2. 在 `content/index.md` 对应的 `articles` 或 `preprints` 条目中添加 `blog: "my-paper-notes"`（与 `title`、`links` 同级）。
+3. 在 front matter 后写正文，运行 `npm run build`。
+
+主页会在该论文已有链接后追加同样样式的 `[Blog]`，在当前标签页打开。没有 `blog` 字段的论文保持原样；引用不存在的博客会让构建报错。阅读页的作者和 Article/ArXiv 链接直接复用论文条目的信息，返回链接定位到原论文。
+
+首篇已预留在 `content/blog_posts/null-controllability-analytic-noise.md`。目前正文为空，页面显示准备中；`listed: false` 只控制它暂不出现在日常 Blog 首页，仍可从论文条目的 Blog 链接访问，也可以预览已写入的正文。完成后改为 `listed: true` 即可同时列入 Blog 首页。只有首页显示个人资料侧栏；课程介绍、论文解读及其他二级页面不生成侧栏，也没有展开或收起按钮。日常博客保留原有版式。
+
+### 数学公式
+
+论文解读默认开启 MathJax；日常博客也可以通过 `math: true` 开启。公式先由 Arithmatex 保护，再交给 MathJax 排版，避免 Markdown 改写下标、星号、反斜杠和矩阵换行。
+
+```markdown
+行内公式：$u_0 \in L^2(G)$，或 \(u(T)=0\)。
+
+$$
+\mathbb{E}\int_0^T \|u(t)\|_{L^2(G)}^2\,dt < \infty.
+$$
+
+\begin{equation}
+  a^2+b^2=c^2 \label{eq:example}
+\end{equation}
+
+见公式 $\eqref{eq:example}$。
+```
+
+- 独立公式前后留空行；支持 `$$…$$`、`\[…\]`、`equation` 和 `align` 环境。
+- 支持 AMS 自动编号、`\label` / `\eqref`；代码块中的公式保持原样。
+- 长公式可以在公式区域内横向滚动，不会撑宽手机页面。
+- MathJax 4.1.3 及字体由 `npm run build:math` 从锁定的 npm 依赖复制到 `assets/vendor/`，随静态站点发布；阅读时不依赖外部 CDN。不要手改这些生成文件。
+- 配置在 `assets/math-config.js`，需要额外的 LaTeX 宏时可在这里统一添加。
+
+实现参考：[MathJax 本地托管](https://docs.mathjax.org/en/latest/web/hosting.html)、[Arithmatex 公式保护](https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/)。
+
 ## 常用操作
 
 ### 改主页内容

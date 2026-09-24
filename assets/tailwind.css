@@ -9,6 +9,44 @@
 }
 
 @layer components {
+  .publication-link {
+    @apply text-[11px] font-label font-bold tracking-widest uppercase text-primary border-b border-primary/30 hover:border-primary transition-all pb-0.5 flex items-center gap-1;
+  }
+
+  .paper-prose {
+    @apply font-headline text-base text-on-surface;
+    line-height: 1.95;
+    overflow-wrap: break-word;
+  }
+
+  .paper-prose > * + * { margin-top: 1.5rem; }
+  .paper-prose h2 { @apply text-2xl font-bold text-primary; margin-top: 2.75rem; line-height: 1.4; }
+  .paper-prose h3 { @apply text-xl font-bold text-primary; margin-top: 2rem; line-height: 1.5; }
+  .paper-prose a { @apply text-primary underline underline-offset-4; }
+  .paper-prose ul { list-style: disc; padding-left: 1.5rem; }
+  .paper-prose ol { list-style: decimal; padding-left: 1.5rem; }
+  .paper-prose li + li { margin-top: 0.5rem; }
+  .paper-prose blockquote { @apply border-l-2 border-primary/30 pl-5 text-on-surface-variant; }
+  .paper-prose pre { @apply p-5 rounded-lg bg-surface-container; overflow-x: auto; }
+  .paper-prose code { @apply text-sm bg-surface-container rounded px-1; }
+  .paper-prose img { max-width: 100%; height: auto; margin-inline: auto; }
+  .paper-prose table { display: block; overflow-x: auto; border-collapse: collapse; }
+  .paper-prose th, .paper-prose td { @apply border border-outline-variant/40 px-4 py-2; }
+
+  div.arithmatex {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-block: 0.5rem;
+  }
+
+  [id^="mjx-eqn"] { scroll-margin-top: 7rem; }
+
+  @media print {
+    #site-sidebar, body > nav, body > footer { display: none !important; }
+    #main-content { padding-top: 0 !important; }
+  }
+
   .editorial-link {
     position: relative;
     text-decoration: none;

@@ -58,8 +58,15 @@ def render_authors(text):
     return re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
 
 
-def render_markdown(text):
-    return markdown.markdown(text, extensions=["extra"])
+def render_markdown(text, math_enabled=False):
+    extensions = ["extra"]
+    if math_enabled:
+        extensions.append("pymdownx.arithmatex")
+    return markdown.markdown(
+        text,
+        extensions=extensions,
+        extension_configs={"pymdownx.arithmatex": {"generic": True}},
+    )
 
 
 def normalize_whitespace(text):
@@ -217,9 +224,9 @@ def replace_blog_references(text, blog_reference_index, source_path):
     return replaced_text
 
 
-def render_body_markdown(body_md, source_path, blog_reference_index=None):
+def render_body_markdown(body_md, source_path, blog_reference_index=None, math_enabled=False):
     resolved_body_md = replace_blog_references(body_md, blog_reference_index, source_path)
-    return render_markdown(resolved_body_md)
+    return render_markdown(resolved_body_md, math_enabled=math_enabled)
 
 
 def collect_local_assets(body_md):
@@ -292,6 +299,7 @@ def render_page(config, env, page, body_html, output_path, source_path, template
         "body": body_html,
         "page_title": page.get("title", "Untitled"),
         "active_nav": page.get("active_nav", ""),
+        "show_sidebar": os.path.abspath(source_path) == os.path.abspath(os.path.join(CONTENT_DIR, "index.md")),
     }
     if extra_context:
         context.update(extra_context)
@@ -305,12 +313,19 @@ def render_page(config, env, page, body_html, output_path, source_path, template
 
 def build_page(md_path, config, env, output_path=None, template_name=None, extra_context=None, blog_reference_index=None):
     page, body_md = read_markdown_page(md_path)
-    body_html = render_body_markdown(body_md, md_path, blog_reference_index=blog_reference_index)
+    body_html = render_body_markdown(
+        body_md, md_path, blog_reference_index=blog_reference_index,
+        math_enabled=page.get("math", False),
+    )
 
     for key in ("articles", "preprints"):
         for paper in page.get(key, []):
             if "authors" in paper:
                 paper["authors"] = render_authors(paper["authors"])
+            if paper.get("blog"):
+                post = resolve_blog_reference("blog", paper["blog"], blog_reference_index, md_path)
+                paper["blog_url"] = post["url"]
+                paper["anchor"] = f"paper-{post['slug']}"
 
     final_output = output_path or (os.path.splitext(os.path.basename(md_path))[0] + ".html")
     render_page(
@@ -358,12 +373,26 @@ def load_blog_posts():
                     "display_date": format_display_date(page.get("date"), file_timestamp),
                     "sort_date": sort_date(page.get("date"), file_timestamp),
                     "body_md": body_md,
+                    "has_body": bool(re.sub(r"<!--[\s\S]*?-->", "", body_md).strip()),
                     "local_assets": collect_local_assets(body_md),
                     "source_path": source_path,
                     "page": page,
                     "output_path": os.path.join(BLOG_OUTPUT_DIR, slug, "index.html"),
                 }
             )
+
+    # Reuse publication metadata so a future ArXiv URL only needs adding once.
+    publications, _ = read_markdown_page(os.path.join(CONTENT_DIR, "index.md"))
+    reference_index = build_blog_reference_index(posts)
+    for key in ("articles", "preprints"):
+        for paper in publications.get(key, []):
+            if paper.get("blog"):
+                post = resolve_blog_reference("blog", paper["blog"], reference_index, "content/index.md")
+                if post.get("paper"):
+                    raise ValueError(f"Multiple papers link to blog {post['slug']!r}")
+                post["paper"] = dict(paper)
+                post["paper"]["authors"] = render_authors(paper.get("authors", ""))
+                post["paper"]["url"] = f"/#paper-{post['slug']}"
 
     posts.sort(key=lambda post: (post["sort_date"], post["title"].lower()), reverse=True)
     return posts
@@ -406,7 +435,7 @@ def build_blog(config, env, posts=None, blog_reference_index=None):
         config,
         env,
         output_path=os.path.join(BLOG_OUTPUT_DIR, "index.html"),
-        extra_context={"blog_posts": prepared_posts},
+        extra_context={"blog_posts": [post for post in prepared_posts if post["page"].get("listed", True)]},
         blog_reference_index=blog_reference_index,
     )
 
@@ -415,14 +444,20 @@ def build_blog(config, env, posts=None, blog_reference_index=None):
         page.setdefault("title", post["title"])
         page.setdefault("template", "blog_post")
         page.setdefault("active_nav", "Blog")
+        if page["template"] == "paper_post":
+            if not post.get("paper"):
+                raise ValueError(f"{post['source_path']}: paper_post needs a publication with a matching blog slug")
+            page.setdefault("math", True)
+            page.setdefault("lang", "zh-CN")
+            page["active_nav"] = "Publications"
         render_page(
             config,
             env,
             page,
-            render_markdown(post["resolved_body_md"]),
+            render_markdown(post["resolved_body_md"], math_enabled=page.get("math", False)),
             post["output_path"],
             post["source_path"],
-            template_name="blog_post.html",
+            template_name=page["template"] + ".html",
             extra_context={"post": post},
         )
         copy_blog_assets(post)

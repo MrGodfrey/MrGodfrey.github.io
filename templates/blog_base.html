@@ -12,7 +12,8 @@
 <link rel="preload" href="/assets/fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts.css">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css">{% if page.math %}
+{% include "_math.html" %}{% endif %}
 {% block extra_head %}{% endblock %}
 </head>
 <body class="min-h-screen bg-white font-blog text-[#1b2233] selection:bg-primary/10">

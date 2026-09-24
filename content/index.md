@@ -138,6 +138,7 @@ preprints:
     title: "Null Controllability of a Stochastic Parabolic Equation with a Space-Dependent Analytic Noise Coefficient"
     status: "Submitted"
     links: []
+    blog: "null-controllability-analytic-noise"
 
   - authors: "Q. Lü, **Y. Wang**"
     title: "Stability Estimates for the Inverse Recovery of Drift and Diffusion Point Sources in Stochastic Parabolic Equations"
