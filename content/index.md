@@ -241,8 +241,8 @@ courses:
     name: "Introduction to Major (专业导论)"
 ---
 
-I am an Assistant Professor in the School of Mathematics at Southwest Jiaotong University. My research interests lie in **control theory** and **inverse problems** for stochastic partial differential equations, with particular emphasis on the interplay between rigorous analysis and numerical approximation.
+My research concerns fundamental questions in control theory and inverse problems for partial differential equations. I am particularly interested in how controllability, observability, unique continuation, and identifiability are preserved, weakened, or lost under randomness, discretization, and partial observation.
 
-In control theory, I study the null and exact controllability of stochastic evolutionary systems, primarily through global Carleman estimates and duality methods. I am also interested in the controllability of semi-discrete approximations, especially in understanding how discretization affects control properties and numerical implementation.
+A major part of my work studies the transfer of control and observability mechanisms across different mathematical settings. This includes understanding when deterministic control structures can be lifted to stochastic systems, and when continuous estimates and unique continuation properties remain valid, uniformly and quantitatively, after numerical discretization.
 
-In inverse problems, I investigate the identification and reconstruction of unknown quantities, such as source terms, coefficients, and initial or boundary data, from partial observations. My work focuses on conditional stability analysis and iterative regularization methods for ill-posed stochastic systems.
+On the inverse-problem side, I study what can be recovered from limited or indirect observations, with emphasis on identifiability and quantitative stability for unknown sources and related structures. More broadly, I am interested in the mathematical boundary between what information a PDE system retains and what is irretrievably lost.
