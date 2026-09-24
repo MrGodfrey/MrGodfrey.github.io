@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Boundary Can Steer a Wave—Once There Is Time - Yu Wang</title>
+<title>Steering a Stochastic Transport System—Once There Is Time - Yu Wang</title>
 <meta name="author" content="Yu Wang">
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
@@ -69,7 +69,7 @@
   </a>
   <header class="mb-7">
     <p class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold mb-4">Paper Notes</p>
-    <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">A Boundary Can Steer a Wave—Once There Is Time</h1>
+    <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">Steering a Stochastic Transport System—Once There Is Time</h1>
     <p class="text-sm text-on-surface-variant mb-4">Z. Li, Q. Lü, <strong>Y. Wang</strong>, H. Yang</p>
     <div class="flex flex-wrap gap-4 items-center">
   
@@ -84,38 +84,31 @@
   </header>
 
 <figure class="mb-10">
-  <img src="/assets/generated/covers/stochastic-hyperbolic-boundary-control-b34bb1684c-1600.webp?v=20f22794e2df" srcset="/assets/generated/covers/stochastic-hyperbolic-boundary-control-b34bb1684c-480.webp?v=b27c26199d9b 480w, /assets/generated/covers/stochastic-hyperbolic-boundary-control-b34bb1684c-960.webp?v=bf6307876a63 960w, /assets/generated/covers/stochastic-hyperbolic-boundary-control-b34bb1684c-1600.webp?v=20f22794e2df 1600w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 816px) calc(100vw - 48px), 768px" alt="A blue pulse travels along a clean translucent ribbon from a small amber segment at its left boundary." width="1600" height="900" class="block w-full h-auto rounded-xl" decoding="async" fetchpriority="high">
+  <img src="/assets/generated/covers/stochastic-hyperbolic-boundary-control-b34bb1684c-1600.webp?v=a0d9f2534c0d" srcset="/assets/generated/covers/stochastic-hyperbolic-boundary-control-b34bb1684c-480.webp?v=4f8df7aed27c 480w, /assets/generated/covers/stochastic-hyperbolic-boundary-control-b34bb1684c-960.webp?v=b66591c0f8e5 960w, /assets/generated/covers/stochastic-hyperbolic-boundary-control-b34bb1684c-1600.webp?v=a0d9f2534c0d 1600w" sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 816px) calc(100vw - 48px), 768px" alt="Two coupled fields cross a two-dimensional region, blue to the right and teal diagonally upward. Amber marks incoming boundary channels; noise and internal control act throughout the interior. A second panel shows both fields at zero at time T." width="1600" height="900" class="block w-full h-auto rounded-xl" decoding="async" fetchpriority="high">
+
+  <figcaption class="mt-3 text-center text-sm leading-relaxed text-slate-500">A schematic of two coupled fields. Amber marks their incoming boundary channels; control of the random term also acts inside. The target is zero throughout the region at time T.</figcaption>
 
 </figure>
 
 
-  <div class="paper-prose"><p>Imagine sending instructions down a moving conveyor belt. You can choose what enters at one end, but an instruction cannot reach the other end before the belt carries it there.</p>
-<p>The simplest transport equation makes this picture exact:</p>
-<div class="arithmatex">\[
-y_t+c\,y_x=0,\qquad 0&lt;x&lt;L,\qquad y(t,0)=h(t),
-\]</div>
-<p>with <span class="arithmatex">\(c&gt;0\)</span>. Once <span class="arithmatex">\(T&gt;L/c\)</span>, every point of the final profile comes from the controlled boundary:</p>
-<div class="arithmatex">\[
-y(T,x)=h(T-x/c).
-\]</div>
-<p>To produce a desired profile <span class="arithmatex">\(y_T(x)\)</span>, prescribe the right boundary history. Before that travel time, some of the original profile has not yet passed through the boundary's influence.</p>
-<p>This elementary calculation is the doorway into our work on stochastic first-order hyperbolic systems.<sup id="fnref:paper"><a class="footnote-ref" href="#fn:paper">1</a></sup></p>
-<h2>What changes for a system?</h2>
-<p>There may be several components, moving in different directions and exchanging information. On a multidimensional boundary, some components enter the domain while others leave. A boundary control must be placed in the incoming channels, not indiscriminately imposed on every component.</p>
-<p>Following a single characteristic is no longer enough. Instead, the proof uses a function whose increase is compatible with the system's propagation matrices. It gives a quantitative way to say that information can escape toward the observed boundary. Its variation across the domain determines the time scale in the controllability result.</p>
-<p>The same geometric idea appears in a weighted estimate for the adjoint equation: if the final state were large, it could not remain invisible at the relevant boundary throughout a sufficiently long observation period.</p>
-<h2>Randomness adds a second kind of steering</h2>
-<p>A new difficulty appears when the desired terminal profile is itself random. A boundary decision made now cannot anticipate a Brownian increment that arrives later. Travel time and information time are different constraints.</p>
-<p>The system studied in the paper therefore has both an incoming-boundary control and a control in the diffusion term. The latter provides a channel for steering the random part of the evolution. The result is exact controllability under the stated structural and geometric assumptions, once the control time exceeds the specified threshold.</p>
-<p>This is not the single-drift-control mechanism of the analytic-noise heat equation. The available control channels are part of the theorem.</p>
-<h2>The idea worth keeping</h2>
-<p>For the scalar conveyor belt, the boundary formula tells us directly what to do. For a stochastic system, a carefully designed Carleman estimate replaces that explicit formula. It turns propagation geometry into an observability inequality, and duality turns that inequality into controls.</p>
-<p>The natural next question is how far these geometric assumptions can be weakened, or how the necessary control channels change for more structured systems. The guiding picture remains the same: <strong>a control must reach the right place, through the right channel, with the right information available in time.</strong></p>
+  <div class="paper-prose"><p>Imagine two signals spread across a flat region. The blue one travels to the right; the teal one travels diagonally upward and to the right. They occupy the same space and influence each other: a change in one can feed into the other, carrying its effect in a new direction. Random forcing keeps changing their strengths as they travel.</p>
+<p>This is a small picture of a <strong>stochastic first-order hyperbolic system</strong>: several interacting quantities, moving through space under uncertainty. Our paper asks how to steer such a system across an entire region.<sup id="fnref:paper"><a class="footnote-ref" href="#fn:paper">1</a></sup></p>
+<h2>The boundary has entrances and exits</h2>
+<p>Draw the region as a rectangle. Blue enters at the left and leaves at the right. Teal enters at the left or bottom and leaves at the top or right. The amber edges in the picture mark where we can prescribe the incoming signals. Along the bottom, for example, we prescribe teal; blue travels parallel to that edge.</p>
+<p>An entrance belongs to a direction of propagation. Controlling the incoming channels lets us send changes into the region, where coupling passes their influence between components.</p>
+<h2>Enough time for the whole system</h2>
+<p>Think of the target as bringing both fields to zero everywhere at a chosen time. The changes we introduce need time to cross the region.</p>
+<p>The paper's geometric assumption gives all propagation modes a common sense of progress toward the boundary. None can remain trapped inside. That geometry supplies a sufficient control time.</p>
+<h2>Steering also has to keep up with randomness</h2>
+<p>A boundary decision cannot know tomorrow's Brownian increment. The system therefore has a second control, acting on the random term throughout the interior, alongside the incoming-boundary control.</p>
+<p>Under the paper's assumptions, these two controls can bring the whole system to any admissible random target once enough time has passed. Zero is one such target: every component vanishes throughout the region at the prescribed final time.</p>
+<p>A Carleman estimate makes this possible by turning propagation geometry into an observability inequality; duality then gives the controls.</p>
+<p>The idea to keep is <strong>to reach every component through its incoming channels, allow time for propagation, and retain a way to steer the randomness.</strong></p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:paper">
-<p>Z. Li, Q. Lü, Y. Wang and H. Yang, <em>Exact controllability for stochastic first-order multi-dimensional hyperbolic systems</em>. <a href="https://arxiv.org/abs/2601.18270">Author version</a>, Section 1, the controlled and adjoint systems, Condition 1.1 and Theorem 1.1. The scalar transport calculation is an illustrative special model.&#160;<a class="footnote-backref" href="#fnref:paper" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Z. Li, Q. Lü, Y. Wang and H. Yang, <em>Exact controllability for stochastic first-order multi-dimensional hyperbolic systems</em>. <a href="https://arxiv.org/abs/2601.18270">Author version</a>, system (1.3), Condition 1.1, Theorem 1.1 and Section 2. The rectangle and its two colored fields are an illustrative schematic; the theorem is stated for smooth domains.&#160;<a class="footnote-backref" href="#fnref:paper" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></div>
