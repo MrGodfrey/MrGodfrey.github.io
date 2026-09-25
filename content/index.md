@@ -147,7 +147,9 @@ preprints:
   - authors: "Q. Lü, **Y. Wang**"
     title: "Null Controllability of a Stochastic Parabolic Equation with a Space-Dependent Analytic Noise Coefficient"
     status: "Submitted"
-    links: []
+    links:
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2609.28937"
     blog: "null-controllability-analytic-noise"
 
   - authors: "Q. Lü, **Y. Wang**"
