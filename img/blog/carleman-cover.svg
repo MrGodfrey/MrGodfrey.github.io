@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+<title id="title">Continuous to discrete: an auxiliary lift</title>
+<desc id="desc">A smooth curve at left transfers to a piecewise linear curve over a triangular finite-element mesh at right. A returning arrow marks the auxiliary lift.</desc>
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.8" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#158A87" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<rect width="960" height="480" fill="#F7F4EA"/>
+<path d="M64 84H896M64 418H896" stroke="#142D40" stroke-opacity=".16"/>
+<g font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" letter-spacing="2.5" fill="#142D40">
+<text x="92" y="63">CONTINUOUS</text><text x="580" y="63">DISCRETE</text>
+</g>
+<g stroke="#142D40" stroke-opacity=".10" stroke-width="1">
+<path d="M92 178H384M92 229H384M92 280H384M144 128V330M196 128V330M248 128V330M300 128V330M352 128V330"/>
+</g>
+<path d="M92 269C119 262 127 189 167 175S216 198 239 239S278 301 310 278S351 226 384 231L384 330H92Z" fill="#158A87" fill-opacity=".075"/>
+<path d="M92 330H392M92 338V128" fill="none" stroke="#142D40" stroke-opacity=".42" stroke-width="1.4"/>
+<path d="M92 269C119 262 127 189 167 175S216 198 239 239S278 301 310 278S351 226 384 231" fill="none" stroke="#142D40" stroke-width="3.5" stroke-linecap="round"/>
+
+<path d="M580 269L619 213L659 175L700 204L740 269L780 287L820 259L872 231L872 330H580Z" fill="#158A87" fill-opacity=".075"/>
+<path d="M580 330L619 330L659 330L700 330L740 330L780 330L820 330L872 330M580 309.667L619 291L659 278.333L700 288L740 309.667L780 315.667L820 306.333L872 297M580 289.333L619 252L659 226.667L700 246L740 289.333L780 301.333L820 282.667L872 264M580 269L619 213L659 175L700 204L740 269L780 287L820 259L872 231M580 330L580 269M619 330L619 213M659 330L659 175M700 330L700 204M740 330L740 269M780 330L780 287M820 330L820 259M872 330L872 231M580 330L619 291M619 330L659 278.333M659 330L700 288M700 330L740 309.667M740 330L780 315.667M780 330L820 306.333M820 330L872 297M580 309.667L619 252M619 291L659 226.667M659 278.333L700 246M700 288L740 289.333M740 309.667L780 301.333M780 315.667L820 282.667M820 306.333L872 264M580 289.333L619 213M619 252L659 175M659 226.667L700 204M700 246L740 269M740 289.333L780 287M780 301.333L820 259M820 282.667L872 231" fill="none" stroke="#158A87" stroke-opacity=".34" stroke-width="1"/>
+<path d="M580 330H880M580 338V128" fill="none" stroke="#142D40" stroke-opacity=".42" stroke-width="1.4"/>
+<polyline points="580,269 619,213 659,175 700,204 740,269 780,287 820,259 872,231" fill="none" stroke="#142D40" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="580" cy="269" r="4.2" fill="#F7F4EA" stroke="#158A87" stroke-width="2"/>
+<circle cx="619" cy="213" r="4.2" fill="#F7F4EA" stroke="#158A87" stroke-width="2"/>
+<circle cx="659" cy="175" r="4.2" fill="#F7F4EA" stroke="#158A87" stroke-width="2"/>
+<circle cx="700" cy="204" r="4.2" fill="#F7F4EA" stroke="#158A87" stroke-width="2"/>
+<circle cx="740" cy="269" r="4.2" fill="#F7F4EA" stroke="#158A87" stroke-width="2"/>
+<circle cx="780" cy="287" r="4.2" fill="#F7F4EA" stroke="#158A87" stroke-width="2"/>
+<circle cx="820" cy="259" r="4.2" fill="#F7F4EA" stroke="#158A87" stroke-width="2"/>
+<circle cx="872" cy="231" r="4.2" fill="#F7F4EA" stroke="#158A87" stroke-width="2"/>
+<path d="M432 222H528" fill="none" stroke="#158A87" stroke-width="2.6" marker-end="url(#arrow)"/>
+<path d="M559 343C559 377 538 383 480 383S401 377 401 343" fill="none" stroke="#158A87" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="480" y="407" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#657780">AUXILIARY LIFT</text>
+<circle cx="65" cy="446" r="3" fill="#158A87"/>
+<path d="M78 446H132" stroke="#158A87" stroke-opacity=".40" stroke-width="1.4"/>
+<g fill="#142D40" fill-opacity=".18"><circle cx="880" cy="445" r="2"/><circle cx="888" cy="445" r="2"/><circle cx="896" cy="445" r="2"/></g>
+</svg>

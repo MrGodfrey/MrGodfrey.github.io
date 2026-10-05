@@ -150,6 +150,7 @@ preprints:
     links:
       - label: ArXiv
         url: "https://arxiv.org/abs/2610.02983"
+    blog: "continuous-to-discrete-carleman"
 
   - authors: "Q. Lü, **Y. Wang**"
     title: "Null Controllability of a Stochastic Parabolic Equation with a Space-Dependent Analytic Noise Coefficient"

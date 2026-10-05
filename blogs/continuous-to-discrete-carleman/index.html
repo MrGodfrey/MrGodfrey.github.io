@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>从 Poisson 方程看 Carleman 估计如何走向离散 - Yu Wang</title>
+<meta name="author" content="Yu Wang">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/noto-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script defer src="/assets/math-config.js"></script>
+<script defer src="/assets/vendor/mathjax/tex-chtml.js"></script>
+
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/80 backdrop-blur-xl border-b border-outline-variant/10">
+  <div class="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
+    <a href="/" class="text-2xl font-headline italic font-bold text-primary tracking-tight">Academic Portfolio</a>
+    <div class="hidden lg:flex items-center gap-8">
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg text-primary border-b-2 border-primary pb-1" href="/#Publications">Publications</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Grants">Grants</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Service">Service</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/#Courses">Teaching</a>
+      
+      <a class="font-headline font-bold text-on-surface/70 hover:text-primary transition-all duration-300 text-lg" href="/blogs/">Blog</a>
+      
+    </div>
+    <button aria-label="Toggle navigation" class="p-2 text-primary lg:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4 border-t border-outline-variant/10 bg-surface/95 backdrop-blur-xl">
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Publications">Publications</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Grants">Grants</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Service">Service</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/#Courses">Teaching</a>
+    
+    <a class="block py-3 font-headline font-bold text-on-surface/70 hover:text-primary" href="/blogs/">Blog</a>
+    
+  </div>
+</nav>
+
+<main class="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+
+    <!-- Main Content Area -->
+    <div id="main-content" class="flex-1 min-w-0">
+      
+<article class="paper-reading mx-auto max-w-3xl">
+  <a href="/#paper-continuous-to-discrete-carleman" class="mb-8 inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18.75 12H5.25" />
+  <path d="m11.25 6.75-5.25 5.25 5.25 5.25" /></svg> Back to Publications
+  </a>
+  <header class="mb-7">
+    <p class="font-label text-xs uppercase tracking-[0.2rem] text-on-tertiary-container font-bold mb-4">Paper Notes</p>
+    <h1 class="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-primary leading-snug mb-5">从 Poisson 方程看 Carleman 估计如何走向离散</h1>
+    <p class="text-sm text-on-surface-variant mb-4">Q. Lü, <strong>Y. Wang</strong></p>
+    <div class="flex flex-wrap gap-4 items-center">
+  
+  <a class="publication-link" href="https://arxiv.org/abs/2610.02983" target="_blank" rel="noopener">
+    <svg aria-hidden="true" class="inline-block h-[1em] w-[1em] shrink-0 text-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.25 3.75h6l3 3v13.5H8.25a1.5 1.5 0 0 1-1.5-1.5V5.25a1.5 1.5 0 0 1 1.5-1.5Z" />
+  <path d="M14.25 3.75v3h3" />
+  <path d="M9.75 11.25h4.5M9.75 14.25h4.5M9.75 17.25h3" /></svg> [ArXiv]
+  </a>
+  
+  
+</div>
+  </header>
+
+<figure class="mb-10">
+  <img src="/img/blog/carleman-cover.svg" alt="连续曲线与离散折线之间，通过辅助问题提升和估计传递相互连接。" width="960" height="480" class="block w-full h-auto rounded-xl" decoding="async" fetchpriority="high">
+
+</figure>
+
+
+  <div class="paper-prose"><p>连续方程的 Carleman 估计已经有了。把方程离散以后，能不能直接把这个估计搬过去？</p>
+<p>这个问题关系到数值控制。热方程的数值解收敛，并不自动保证算出来的控制也有一致的代价。网格越细，控制会不会越来越大？终端误差能不能趋于零？这些都需要离散层面的估计。</p>
+<p>我和吕琦的这篇新文章，研究的就是如何从连续 Carleman 估计出发，通过加权数值误差估计，得到全离散格式的 Carleman 估计。<sup id="fnref:paper"><a class="footnote-ref" href="#fn:paper">1</a></sup> 先把时间变量放在一边，用论文引言里的 Poisson 例子，可以把核心构造看得更清楚。</p>
+<h2>为什么「离散格式收敛」还不够</h2>
+<p>在区间 <span class="arithmatex">\((0,1)\)</span> 上，考虑零边界条件下的正弦模态。连续算子 <span class="arithmatex">\(-\Delta\)</span> 与中心差分算子的对应特征值分别是</p>
+<div class="arithmatex">\[
+\lambda_j=(j\pi)^2,
+\qquad
+\lambda_{h,j}=4h^{-2}\sin^2\!\left(\frac{j\pi h}{2}\right),
+\qquad h=\frac1J.
+\]</div>
+<p>固定 <span class="arithmatex">\(j\)</span>，让 <span class="arithmatex">\(h\to0\)</span>，两者的相对误差确实趋于零。但是，如果 <span class="arithmatex">\(j\)</span> 随网格一起增大，取最高频率 <span class="arithmatex">\(j=J-1\)</span>，就有</p>
+<div class="arithmatex">\[
+\left|\frac{\lambda_{h,J-1}}{\lambda_{J-1}}-1\right|
+\longrightarrow 1-\frac4{\pi^2}&gt;0.
+\]</div>
+<p>也就是说，对固定光滑函数成立的一致性，不能给出整个离散空间上的小扰动。网格尺度的振荡仍然在那里。</p>
+<p>Carleman 估计还有一个大参数 <span class="arithmatex">\(s\)</span>。它越大，指数权重变化越快，吸收误差的条件也越严格。在这里相关的扰动论证中，需要控制的是类似 <span class="arithmatex">\(Cs\|\varepsilon\|_\infty^2\)</span> 的量。一个不会随网格缩小的相对误差，无法支持不断增大的 <span class="arithmatex">\(s\)</span>。</p>
+<p>直接把离散函数插值成连续函数，也没有解决这个问题。例如，分片线性有限元函数一般只有 <span class="arithmatex">\(H^1\)</span> 正则性；逐单元计算二阶导数，会漏掉跨单元面的梯度跳跃。连续算子的残差不能就这样换成离散残差。</p>
+<h2>反过来，为离散函数找一个连续问题</h2>
+<p>现在考虑正方形 <span class="arithmatex">\(\Omega=(0,1)^2\)</span>，取满足论文网格条件的协调 <span class="arithmatex">\(P_1\)</span> 有限元空间 <span class="arithmatex">\(V_h\subset H_0^1(\Omega)\)</span>。离散算子 <span class="arithmatex">\(A_h\)</span> 由</p>
+<div class="arithmatex">\[
+(A_hu_h,v_h)_{L^2(\Omega)}
+=(\nabla u_h,\nabla v_h)_{L^2(\Omega)}
+\qquad(v_h\in V_h)
+\]</div>
+<p>定义。</p>
+<p>给定任意 <span class="arithmatex">\(u_h\in V_h\)</span>，记 <span class="arithmatex">\(f_h=A_hu_h\)</span>。我们为它构造连续辅助问题</p>
+<div class="arithmatex">\[
+\begin{cases}
+(-\Delta+Ks^2)U=f_h+Ks^2u_h &amp; \text{在 }\Omega,\\
+U=0 &amp; \text{在 }\partial\Omega.
+\end{cases}
+\]</div>
+<p>这里 <span class="arithmatex">\(K\)</span> 是一个充分大的固定常数，与 <span class="arithmatex">\(h,s\)</span> 无关。增加的正零阶项，为加权误差分析提供所需的强制性。</p>
+<p>为什么选择这个右端？把 <span class="arithmatex">\(u_h\)</span> 代入辅助问题的有限元方程，对任意 <span class="arithmatex">\(v_h\in V_h\)</span>，恰好有</p>
+<div class="arithmatex">\[
+(\nabla u_h,\nabla v_h)+Ks^2(u_h,v_h)
+=(f_h+Ks^2u_h,v_h).
+\]</div>
+<p>所以，<strong>这个连续辅助问题的有限元解，恰好就是最初给定的 <span class="arithmatex">\(u_h\)</span>。</strong></p>
+<p>这一步把一个任意离散函数，放进了一个可以使用数值误差分析的连续问题里。我们不需要预先假设 <span class="arithmatex">\(u_h\)</span> 来自某个固定光滑解，也不需要先删掉高频模态。</p>
+<h2>关键消去发生在哪里</h2>
+<p>记 <span class="arithmatex">\(e=U-u_h\)</span>。辅助方程立即给出</p>
+<div class="arithmatex">\[
+-\Delta U=f_h-Ks^2e.
+\]</div>
+<p>原来的离散残差 <span class="arithmatex">\(f_h\)</span> 留了下来。新增的移位项只作用在误差 <span class="arithmatex">\(e\)</span> 上。</p>
+<p>设 <span class="arithmatex">\(\theta=e^{s\rho}\)</span> 是合适的空间权重。在 <span class="arithmatex">\(hs\)</span> 充分小的条件下，论文证明的加权误差估计给出</p>
+<div class="arithmatex">\[
+\|\theta\nabla e\|_{L^2(\Omega)}
++h^{-1}\|\theta e\|_{L^2(\Omega)}
+\le Ch\|\theta(f_h+Ks^2u_h)\|_{L^2(\Omega)}.
+\]</div>
+<p>常数对整个 <span class="arithmatex">\(V_h\)</span> 一致，包括网格尺度的振荡。现在可以先对 <span class="arithmatex">\(U\)</span> 使用连续 Carleman 估计，再用这条误差估计，把能量项和观测项换回 <span class="arithmatex">\(u_h\)</span>。</p>
+<p>看一下最严格的误差项，就能理解参数限制从哪里来。连续估计除以 <span class="arithmatex">\(s\)</span> 后，残差中出现</p>
+<div class="arithmatex">\[
+s^{-1}\|\theta Ks^2e\|^2
+=K^2s^3\|\theta e\|^2.
+\]</div>
+<p>而误差估计中的状态贡献是 <span class="arithmatex">\(\|\theta e\|\lesssim h^2s^2\|\theta u_h\|\)</span>。代回去，得到 <span class="arithmatex">\(Ch^4s^7\|\theta u_h\|^2\)</span>。左端用于吸收它的状态项是 <span class="arithmatex">\(s^2\|\theta u_h\|^2\)</span>，因此需要</p>
+<div class="arithmatex">\[
+Ch^4s^5&lt;1.
+\]</div>
+<p>这就给出了充分的参数范围 <span class="arithmatex">\(s_0\le s\le ch^{-4/5}\)</span>。其他误差项也必须逐一检查；这里提取的是决定这个尺度的一项。</p>
+<p>最后得到的椭圆模型估计可以写成</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\|\theta\nabla u_h\|_{L^2(\Omega)}^2
++s^2\|\theta u_h\|_{L^2(\Omega)}^2
+\le C\bigl(&amp;s^{-1}\|\theta A_hu_h\|_{L^2(\Omega)}^2\\
+&amp;+\|\theta\nabla u_h\|_{L^2(\omega)}^2
++s^2\|\theta u_h\|_{L^2(\omega)}^2\bigr).
+\end{aligned}
+\]</div>
+<p>其中 <span class="arithmatex">\(\omega\)</span> 是内部观测区域。这个 Poisson 模型对应论文第 1.3 节；文章的主体，是把这套构造推进到含时间离散的抛物问题。</p>
+<h2>加上时间以后，什么必须保留下来</h2>
+<p>对热方程，时间采用后向 Euler 格式。给定离散状态序列，同样可以选择辅助右端，让连续辅助问题的全离散解恰好等于这个序列。</p>
+<p>这里的辅助估计针对首尾匹配的序列；应用到具有指定终值的伴随问题时，先作时间截断。</p>
+<p>随后要同时比较时间误差和空间误差，并检查重构、载荷与观测之间的兼容性。一般框架还允许物理质量与重构质量不同，以及可控的刚度误差。只知道通常的不加权收敛阶，还不足以完成这些验证。</p>
+<p>完成传递后，估计右端保留的是<strong>原格式的离散残差和原格式的观测量</strong>。这很重要：控制问题最终能使用的，正是这些量。</p>
+<p>论文验证了两类热方程离散：二维、三维局部渐变网格上的一致质量矩阵 <span class="arithmatex">\(P_1\)</span> 有限元，以及任意固定维数的标准 Cartesian 有限差分。在论文的权重归一化和其余假设下，可用的 Carleman 参数达到</p>
+<div class="arithmatex">\[
+s\le \kappa\min\{h^{-4/5},(\delta t)^{-2/5}\}.
+\]</div>
+<p>这个范围是证明给出的充分范围，不能据此宣称它最优。空间与时间可以独立细化，但较粗的一项会限制当前可用的参数。</p>
+<h2>最后回到数值控制</h2>
+<p>对于带有有界实值时空势的热方程，传递后的估计导出带有指数小余项的观测不等式。通过对偶方法，可以构造代价对网格和时间步一致有界的控制，终端状态满足形如</p>
+<div class="arithmatex">\[
+\|y_{h,\delta t}(T)\|
+\le C\exp\!\left[-c\min\{h^{-4/5},(\delta t)^{-2/5}\}\right]
+\|y_{0,h}\|
+\]</div>
+<p>的界。对于固定的初值和势函数，若离散初值与势的近似满足论文的一致性条件，并且 <span class="arithmatex">\(h,\delta t\to0\)</span>，重构控制的弱聚点就是相应连续方程的零控制。</p>
+<p>这里得到的是终端误差随细化指数衰减的近似零控制，并不意味着每个固定网格上都以一致代价精确达到零。论文还讨论了通过终端空间过滤吸收观测余项的情形。</p>
+<p>这套方法把工作分成了两个可以分别处理的部分：连续方程提供 Carleman 估计，数值格式提供统一的加权逼近与兼容性。把两者连接起来的，就是那个为每个离散状态量身构造的辅助问题。</p>
+<p>先让给定的离散函数，成为一个连续问题的离散解。然后再谈估计如何传递。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:paper">
+<p>Qi Lü and Yu Wang, <em>From Continuous to Fully Discrete Carleman Estimates: A Transfer Principle for Parabolic Schemes</em>, arXiv:2610.02983v1, 2026. <a href="https://arxiv.org/abs/2610.02983">预印本</a> · <a href="https://arxiv.org/pdf/2610.02983">全文</a>。Poisson 模型见第 1.3 节，抽象传递见定理 2.1 及第 5 节，热方程参数范围见推论 2.3，离散格式验证与控制结论见第 6、7 节。&#160;<a class="footnote-backref" href="#fnref:paper" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></div>
+
+</article>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-10 px-6 md:px-12 border-t border-outline-variant/10">
+  <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-4">
+    <div class="text-xs uppercase tracking-widest text-slate-500 font-label">
+      ©2023-2026 Yu Wang. All rights reserved.
+    </div>
+    <div class="flex gap-8">
+      <a class="text-xs font-label uppercase tracking-widest text-slate-500 hover:text-primary transition-colors" href="mailto:yuwangmath@163.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }
+  });
+});
+
+
+</script>
+
+</body>
+</html>
