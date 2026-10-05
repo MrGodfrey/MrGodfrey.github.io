@@ -1,29 +1,29 @@
 ---
-title: 从 Poisson 方程看 Carleman 估计如何走向离散
+title: Bringing Carleman Estimates to the Grid
 slug: continuous-to-discrete-carleman
 template: paper_post
 date: '2026-10-05'
-lang: zh-CN
+lang: en
 math: true
 listed: true
-excerpt: 给定一个离散函数，反过来构造连续辅助问题，让它的离散解恰好就是这个函数。这样，连续估计与数值误差才能真正接起来。
+excerpt: "A Poisson problem reveals the key construction: choose a continuous auxiliary equation whose discrete solution is exactly the state you started with."
 kicker: Paper Notes
 cover:
   image: /img/blog/carleman-cover.svg
-  alt: 连续曲线与离散折线之间，通过辅助问题提升和估计传递相互连接。
+  alt: A smooth continuous curve and a discrete finite-element profile connected by an auxiliary lift and a transfer of estimates.
   width: 960
   height: 480
 ---
 
-连续方程的 Carleman 估计已经有了。把方程离散以后，能不能直接把这个估计搬过去？
+Suppose a continuous equation already has a Carleman estimate. Can we carry that estimate over to a numerical scheme?
 
-这个问题关系到数值控制。热方程的数值解收敛，并不自动保证算出来的控制也有一致的代价。网格越细，控制会不会越来越大？终端误差能不能趋于零？这些都需要离散层面的估计。
+For numerical control, this matters beyond convergence of the state equation. A convergent approximation of the heat equation does not automatically produce controls whose cost stays bounded as the grid is refined. Nor does it guarantee a vanishing terminal error.
 
-我和吕琦的这篇新文章，研究的就是如何从连续 Carleman 估计出发，通过加权数值误差估计，得到全离散格式的 Carleman 估计。[^paper] 先把时间变量放在一边，用论文引言里的 Poisson 例子，可以把核心构造看得更清楚。
+Our paper develops a transfer principle based on weighted numerical error estimates.[^paper] Before adding time discretization, a Poisson problem from the introduction makes the central construction visible.
 
-## 为什么「离散格式收敛」还不够
+## Convergence misses the highest frequencies
 
-在区间 $(0,1)$ 上，考虑零边界条件下的正弦模态。连续算子 $-\Delta$ 与中心差分算子的对应特征值分别是
+On $(0,1)$ with homogeneous Dirichlet conditions, the sine modes have continuous and centered-difference eigenvalues
 
 $$
 \lambda_j=(j\pi)^2,
@@ -32,89 +32,89 @@ $$
 \qquad h=\frac1J.
 $$
 
-固定 $j$，让 $h\to0$，两者的相对误差确实趋于零。但是，如果 $j$ 随网格一起增大，取最高频率 $j=J-1$，就有
+For a fixed $j$, the relative error tends to zero as $h\to0$. But the highest discrete mode behaves differently:
 
 $$
 \left|\frac{\lambda_{h,J-1}}{\lambda_{J-1}}-1\right|
 \longrightarrow 1-\frac4{\pi^2}>0.
 $$
 
-也就是说，对固定光滑函数成立的一致性，不能给出整个离散空间上的小扰动。网格尺度的振荡仍然在那里。
+Consistency on fixed smooth functions does not give a small perturbation uniformly over the discrete space. Mesh-scale oscillations remain.
 
-Carleman 估计还有一个大参数 $s$。它越大，指数权重变化越快，吸收误差的条件也越严格。在这里相关的扰动论证中，需要控制的是类似 $Cs\|\varepsilon\|_\infty^2$ 的量。一个不会随网格缩小的相对误差，无法支持不断增大的 $s$。
+A Carleman estimate also carries a large parameter $s$. Increasing it makes the exponential weight vary more sharply and tightens the error-absorption condition. The perturbation argument discussed in the paper requires a quantity of the form $Cs\|\varepsilon\|_\infty^2$ to be small. A relative error that stays away from zero cannot support a growing range of $s$.
 
-直接把离散函数插值成连续函数，也没有解决这个问题。例如，分片线性有限元函数一般只有 $H^1$ 正则性；逐单元计算二阶导数，会漏掉跨单元面的梯度跳跃。连续算子的残差不能就这样换成离散残差。
+Simply interpolating the discrete state does not remove the difficulty. A piecewise-linear finite-element function generally has only $H^1$ regularity. Taking its second derivatives element by element misses the jumps in its gradient across interfaces. The continuous residual cannot simply be replaced by the discrete one.
 
-## 反过来，为离散函数找一个连续问题
+## Build a continuous problem around the discrete state
 
-现在考虑正方形 $\Omega=(0,1)^2$，取满足论文网格条件的协调 $P_1$ 有限元空间 $V_h\subset H_0^1(\Omega)$。离散算子 $A_h$ 由
+Take $\Omega=(0,1)^2$ and a conforming $P_1$ finite-element space $V_h\subset H_0^1(\Omega)$ on a mesh satisfying the paper's assumptions. Define the discrete operator by
 
 $$
 (A_hu_h,v_h)_{L^2(\Omega)}
 =(\nabla u_h,\nabla v_h)_{L^2(\Omega)}
-\qquad(v_h\in V_h)
+\qquad(v_h\in V_h).
 $$
 
-定义。
-
-给定任意 $u_h\in V_h$，记 $f_h=A_hu_h$。我们为它构造连续辅助问题
+Start with any $u_h\in V_h$, set $f_h=A_hu_h$, and solve the continuous auxiliary problem
 
 $$
 \begin{cases}
-(-\Delta+Ks^2)U=f_h+Ks^2u_h & \text{在 }\Omega,\\
-U=0 & \text{在 }\partial\Omega.
+(-\Delta+Ks^2)U=f_h+Ks^2u_h & \text{in }\Omega,\\
+U=0 & \text{on }\partial\Omega.
 \end{cases}
 $$
 
-这里 $K$ 是一个充分大的固定常数，与 $h,s$ 无关。增加的正零阶项，为加权误差分析提供所需的强制性。
+Here $K$ is a sufficiently large fixed constant, independent of $h$ and $s$. The positive shift provides the coercivity needed for the weighted error analysis.
 
-为什么选择这个右端？把 $u_h$ 代入辅助问题的有限元方程，对任意 $v_h\in V_h$，恰好有
+Why this particular right-hand side? For every $v_h\in V_h$,
 
 $$
 (\nabla u_h,\nabla v_h)+Ks^2(u_h,v_h)
 =(f_h+Ks^2u_h,v_h).
 $$
 
-所以，**这个连续辅助问题的有限元解，恰好就是最初给定的 $u_h$。**
+Thus **the Galerkin solution of the auxiliary problem is exactly the prescribed state $u_h$**.
 
-这一步把一个任意离散函数，放进了一个可以使用数值误差分析的连续问题里。我们不需要预先假设 $u_h$ 来自某个固定光滑解，也不需要先删掉高频模态。
+We have placed an arbitrary discrete function inside a continuous problem to which numerical error analysis applies. There is no need to assume that $u_h$ approximates a fixed smooth solution, or to discard its high frequencies first.
 
-## 关键消去发生在哪里
+## The shift cancels where it matters
 
-记 $e=U-u_h$。辅助方程立即给出
+Set $e=U-u_h$. The auxiliary equation gives the identity
 
 $$
 -\Delta U=f_h-Ks^2e.
 $$
 
-原来的离散残差 $f_h$ 留了下来。新增的移位项只作用在误差 $e$ 上。
+The original discrete residual survives. The shift now acts only on the comparison error.
 
-设 $\theta=e^{s\rho}$ 是合适的空间权重。在 $hs$ 充分小的条件下，论文证明的加权误差估计给出
+For a suitable spatial weight $\theta=e^{s\rho}$, the weighted error estimate reads
 
 $$
 \|\theta\nabla e\|_{L^2(\Omega)}
 +h^{-1}\|\theta e\|_{L^2(\Omega)}
-\le Ch\|\theta(f_h+Ks^2u_h)\|_{L^2(\Omega)}.
+\le Ch\|\theta(f_h+Ks^2u_h)\|_{L^2(\Omega)},
 $$
 
-常数对整个 $V_h$ 一致，包括网格尺度的振荡。现在可以先对 $U$ 使用连续 Carleman 估计，再用这条误差估计，把能量项和观测项换回 $u_h$。
+provided $hs$ is sufficiently small. Its constant is uniform over all of $V_h$, including mesh-scale oscillations.
 
-看一下最严格的误差项，就能理解参数限制从哪里来。连续估计除以 $s$ 后，残差中出现
+We can now apply the continuous Carleman estimate to $U$ and use this error bound to return its energy and observation terms to $u_h$.
+
+One term explains the limiting parameter scale. After dividing the continuous estimate by $s$, the shifted residual contributes
 
 $$
 s^{-1}\|\theta Ks^2e\|^2
 =K^2s^3\|\theta e\|^2.
 $$
 
-而误差估计中的状态贡献是 $\|\theta e\|\lesssim h^2s^2\|\theta u_h\|$。代回去，得到 $Ch^4s^7\|\theta u_h\|^2$。左端用于吸收它的状态项是 $s^2\|\theta u_h\|^2$，因此需要
+The state-dependent part of the error bound has size $h^2s^2\|\theta u_h\|$. Squaring and substituting produces $Ch^4s^7\|\theta u_h\|^2$. The state energy available on the left is $s^2\|\theta u_h\|^2$, so absorption requires
 
 $$
 Ch^4s^5<1.
 $$
 
-这就给出了充分的参数范围 $s_0\le s\le ch^{-4/5}$。其他误差项也必须逐一检查；这里提取的是决定这个尺度的一项。
+This yields the sufficient range $s_0\le s\le ch^{-4/5}$. The other error terms also need checking; this is the contribution that determines the scale.
 
-最后得到的椭圆模型估计可以写成
+The resulting elliptic model estimate is
 
 $$
 \begin{aligned}
@@ -122,46 +122,46 @@ $$
 +s^2\|\theta u_h\|_{L^2(\Omega)}^2
 \le C\bigl(&s^{-1}\|\theta A_hu_h\|_{L^2(\Omega)}^2\\
 &+\|\theta\nabla u_h\|_{L^2(\omega)}^2
-+s^2\|\theta u_h\|_{L^2(\omega)}^2\bigr).
++s^2\|\theta u_h\|_{L^2(\omega)}^2\bigr),
 \end{aligned}
 $$
 
-其中 $\omega$ 是内部观测区域。这个 Poisson 模型对应论文第 1.3 节；文章的主体，是把这套构造推进到含时间离散的抛物问题。
+where $\omega$ is an interior observation region. This Poisson example is the model in Section 1.3 of the paper. The main argument extends the construction to fully discrete parabolic problems.
 
-## 加上时间以后，什么必须保留下来
+## What must survive time discretization
 
-对热方程，时间采用后向 Euler 格式。给定离散状态序列，同样可以选择辅助右端，让连续辅助问题的全离散解恰好等于这个序列。
+For the heat equation, time is discretized by backward Euler. Given a discrete state sequence, we again choose an auxiliary load so that the fully discrete solution of the continuous auxiliary problem is exactly that sequence.
 
-这里的辅助估计针对首尾匹配的序列；应用到具有指定终值的伴随问题时，先作时间截断。
+The auxiliary estimate uses sequences with matching time endpoints. To apply it to an adjoint problem with prescribed terminal data, we first introduce a time cutoff.
 
-随后要同时比较时间误差和空间误差，并检查重构、载荷与观测之间的兼容性。一般框架还允许物理质量与重构质量不同，以及可控的刚度误差。只知道通常的不加权收敛阶，还不足以完成这些验证。
+The comparison must now control both temporal and spatial errors, together with compatibility of the reconstruction, load, and observation maps. The abstract framework also allows distinct physical and reconstruction masses and a controlled stiffness defect. Ordinary unweighted convergence rates alone do not verify these requirements.
 
-完成传递后，估计右端保留的是**原格式的离散残差和原格式的观测量**。这很重要：控制问题最终能使用的，正是这些量。
+After transfer, the right-hand side retains **the residual and observation of the original scheme**. These are the quantities the numerical control problem actually supplies.
 
-论文验证了两类热方程离散：二维、三维局部渐变网格上的一致质量矩阵 $P_1$ 有限元，以及任意固定维数的标准 Cartesian 有限差分。在论文的权重归一化和其余假设下，可用的 Carleman 参数达到
+The paper verifies the framework for consistent-mass $P_1$ finite elements on locally graded meshes in two and three dimensions, and for standard Cartesian finite differences in any fixed dimension. Under the paper's weight normalization and remaining hypotheses, the admissible Carleman scale is
 
 $$
 s\le \kappa\min\{h^{-4/5},(\delta t)^{-2/5}\}.
 $$
 
-这个范围是证明给出的充分范围，不能据此宣称它最优。空间与时间可以独立细化，但较粗的一项会限制当前可用的参数。
+This is a sufficient range established by the proof, not a claim of optimality. Space and time may be refined independently, while the coarser of the two scales limits the usable parameter.
 
-## 最后回到数值控制
+## Back to numerical control
 
-对于带有有界实值时空势的热方程，传递后的估计导出带有指数小余项的观测不等式。通过对偶方法，可以构造代价对网格和时间步一致有界的控制，终端状态满足形如
+For the heat equation with a bounded real-valued space-time potential, the transferred estimate yields relaxed observability with an exponentially small remainder. Duality then provides controls with a cost bounded uniformly in the mesh and time step, and a terminal estimate of the form
 
 $$
 \|y_{h,\delta t}(T)\|
 \le C\exp\!\left[-c\min\{h^{-4/5},(\delta t)^{-2/5}\}\right]
-\|y_{0,h}\|
+\|y_{0,h}\|.
 $$
 
-的界。对于固定的初值和势函数，若离散初值与势的近似满足论文的一致性条件，并且 $h,\delta t\to0$，重构控制的弱聚点就是相应连续方程的零控制。
+For a fixed initial datum and potential, with discrete approximations satisfying the paper's consistency assumptions, weak accumulation points of the reconstructed controls are continuous null controls as $h,\delta t\to0$.
 
-这里得到的是终端误差随细化指数衰减的近似零控制，并不意味着每个固定网格上都以一致代价精确达到零。论文还讨论了通过终端空间过滤吸收观测余项的情形。
+The terminal error vanishes exponentially under refinement. This does not assert exact cancellation at every fixed mesh with a uniform control cost. The paper also studies terminal-space filtering that allows the observability remainder to be absorbed.
 
-这套方法把工作分成了两个可以分别处理的部分：连续方程提供 Carleman 估计，数值格式提供统一的加权逼近与兼容性。把两者连接起来的，就是那个为每个离散状态量身构造的辅助问题。
+The method separates two tasks: the continuous equation supplies the Carleman analysis, and the discretization supplies uniform weighted approximation and compatibility estimates. The auxiliary problem is what connects them.
 
-先让给定的离散函数，成为一个连续问题的离散解。然后再谈估计如何传递。
+First make the prescribed discrete state the discrete solution of a suitable continuous problem. Then transfer the estimate through the error between the two.
 
-[^paper]: Qi Lü and Yu Wang, *From Continuous to Fully Discrete Carleman Estimates: A Transfer Principle for Parabolic Schemes*, arXiv:2610.02983v1, 2026. [预印本](https://arxiv.org/abs/2610.02983) · [全文](https://arxiv.org/pdf/2610.02983)。Poisson 模型见第 1.3 节，抽象传递见定理 2.1 及第 5 节，热方程参数范围见推论 2.3，离散格式验证与控制结论见第 6、7 节。
+[^paper]: Qi Lü and Yu Wang, *From Continuous to Fully Discrete Carleman Estimates: A Transfer Principle for Parabolic Schemes*, arXiv:2610.02983v1, 2026. [Preprint](https://arxiv.org/abs/2610.02983) · [Full text](https://arxiv.org/pdf/2610.02983). See Section 1.3 for the Poisson model, Theorem 2.1 and Section 5 for the abstract transfer, Corollary 2.3 for the heat-equation parameter range, and Sections 6–7 for the discretizations and control results, including Theorems 7.2–7.3 and Corollary 7.9.
