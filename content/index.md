@@ -145,6 +145,13 @@ articles:
 # ============================================================
 preprints:
   - authors: "Q. Lü, **Y. Wang**"
+    title: "From Continuous to Fully Discrete Carleman Estimates: A Transfer Principle for Parabolic Schemes"
+    status: "Preprint"
+    links:
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2610.02983"
+
+  - authors: "Q. Lü, **Y. Wang**"
     title: "Null Controllability of a Stochastic Parabolic Equation with a Space-Dependent Analytic Noise Coefficient"
     status: "Submitted"
     links:
