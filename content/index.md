@@ -145,6 +145,14 @@ articles:
 # ============================================================
 preprints:
   - authors: "Q. Lü, **Y. Wang**"
+    title: "A Unified Kalman-Type Classification of Controllability for Linear Stochastic Systems"
+    blog: "kalman-type-stochastic-controllability"
+    status: "Submitted"
+    links:
+      - label: PDF
+        url: "/files/kalman-type-stochastic-controllability.pdf"
+
+  - authors: "Q. Lü, **Y. Wang**"
     title: "From Continuous to Fully Discrete Carleman Estimates: A Transfer Principle for Parabolic Schemes"
     status: "Preprint"
     links:
