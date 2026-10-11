@@ -8,6 +8,9 @@ math: true
 listed: true
 excerpt: A finite sequence of subspaces classifies four controllability properties, while the joint diffusion rank separates exact steering from exact return to zero.
 kicker: Paper Notes
+cover:
+  image: /img/blog/kalman-type-stochastic-controllability.png
+  alt: Blue and teal stochastic trajectories converge to zero on the left and reach distinct realizations of a random target on the right, all at terminal time T.
 ---
 
 Suppose a controller must bring a system to rest at a prescribed time. Now ask it to meet a target that depends on the entire noise history up to that time. Both are terminal control problems, but randomness makes the second requirement stronger.
