@@ -35,6 +35,7 @@ books:
   - authors: "Q. Lü, **Y. Wang**"
     title: "Inverse Problems for Stochastic Partial Differential Equations"
     blog: "inverse-problems-stochastic-pdes"
+    updated_pdf: "/files/inverse-problems-stochastic-pdes-updated.pdf"
     journal: "SpringerBriefs on PDEs and Data Science"
     info: "Springer Nature Singapore, 2026. ISBN 9789819590476"
     links:

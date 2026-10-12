@@ -222,6 +222,7 @@ $$
 
 - `About Me` 正文：编辑 `content/index.md` 的 markdown body
 - 论文、基金、课程等结构化信息：编辑 `content/index.md` 的 YAML front matter
+- 图书或论文的最新修订版：将 PDF 放在 `files/`，在对应条目添加 `updated_pdf: "/files/文件名.pdf"`。主页会在现有链接（包括 Blog）后追加 `[Updated PDF]` 下载链接。
 - 主页基金只显示英文项目名、期限和来源；`title_cn` 与 `amount` 仍保留在源文件中
 - 每个报告话题只显示按日期倒序排列的最近三次活动，`events` 中的完整记录仍保留
 

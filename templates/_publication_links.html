@@ -10,6 +10,9 @@
   <a class="publication-link" href="{{ paper.blog_url }}">
     {{ icon("auto_stories", "text-[14px]") }} [Blog]
   </a>
-  {% endif %}
+  {% endif %}{% if paper.updated_pdf %}
+  <a class="publication-link" href="{{ paper.updated_pdf }}" download title="Download the latest corrected version">
+    {{ icon("description", "text-[14px]") }} [Updated PDF]
+  </a>{% endif %}
 </div>
 {%- endmacro %}
