@@ -150,6 +150,8 @@ preprints:
     blog: "kalman-type-stochastic-controllability"
     status: "Submitted"
     links:
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2610.14975"
       - label: PDF
         url: "/files/kalman-type-stochastic-controllability.pdf"
 
