@@ -152,8 +152,6 @@ preprints:
     links:
       - label: ArXiv
         url: "https://arxiv.org/abs/2610.14975"
-      - label: PDF
-        url: "/files/kalman-type-stochastic-controllability.pdf"
 
   - authors: "Q. Lü, **Y. Wang**"
     title: "From Continuous to Fully Discrete Carleman Estimates: A Transfer Principle for Parabolic Schemes"

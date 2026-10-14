@@ -119,4 +119,4 @@ The complete manuscript includes a two-state, two-noise example with three input
 
 This makes the classification useful before solving a steering problem: first identify which terminal requirements the available inputs can meet, then design a control for the requirement that is actually feasible.
 
-[^paper]: Qi Lü and Yu Wang, *A Unified Kalman-Type Classification of Controllability for Linear Stochastic Systems*, 2026. [Complete manuscript (PDF)](/files/kalman-type-stochastic-controllability.pdf). The paper contains the geometric classification, the finite-energy feedback construction, rank criteria, and the orthogonal elimination algorithm with numerical comparisons.
+[^paper]: Qi Lü and Yu Wang, *A Unified Kalman-Type Classification of Controllability for Linear Stochastic Systems*, 2026. [ArXiv preprint](https://arxiv.org/abs/2610.14975). The paper contains the geometric classification, the finite-energy feedback construction, rank criteria, and the orthogonal elimination algorithm with numerical comparisons.
