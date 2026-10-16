@@ -156,11 +156,13 @@ preprints:
   - authors: "Q. Lü, **Y. Wang**"
     title: "A Unified Kalman-Type Classification of Controllability for Linear Stochastic Systems"
     blog: "kalman-type-stochastic-controllability"
-    updated_pdf: "/files/kalman-type-stochastic-controllability-updated.pdf"
+    updated_pdf: "/files/kalman-type-stochastic-controllability-updated.pdf?v=f1860832"
     status: "Submitted"
     links:
       - label: ArXiv
         url: "https://arxiv.org/abs/2610.14975"
+      - label: Lean
+        url: "https://github.com/MrGodfrey/LeanForCriteriaForLinearStochastic"
 
   - authors: "Q. Lü, **Y. Wang**"
     title: "From Continuous to Fully Discrete Carleman Estimates: A Transfer Principle for Parabolic Schemes"
