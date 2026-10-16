@@ -44,4 +44,4 @@ A Carleman estimate makes this possible by turning propagation geometry into an 
 
 The idea to keep is **to reach every component through its incoming channels, allow time for propagation, and retain a way to steer the randomness.**
 
-[^paper]: Z. Li, Q. Lü, Y. Wang and H. Yang, *Exact controllability for stochastic first-order multi-dimensional hyperbolic systems*. [Updated version](/files/stochastic-hyperbolic-boundary-control-updated.pdf), Assumption 1.1, Condition 1.1, Theorem 1.1 and Section 2; [original author version](https://arxiv.org/abs/2601.18270). The rectangle and its two colored fields are an illustrative schematic; the theorem is stated for smooth domains.
+[^paper]: Z. Li, Q. Lü, Y. Wang and H. Yang, *Exact controllability for stochastic first-order multi-dimensional hyperbolic systems*. [Updated version](/files/stochastic-hyperbolic-boundary-control-updated.pdf?v=1ccb53ad), Assumption 1.1, Condition 1.1, Theorem 1.1 and Section 2; [original author version](https://arxiv.org/abs/2601.18270). The rectangle and its two colored fields are an illustrative schematic; the theorem is stated for smooth domains.
