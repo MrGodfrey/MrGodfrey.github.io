@@ -38,8 +38,10 @@ A boundary decision cannot know tomorrow's Brownian increment. The system theref
 
 Under the paper's assumptions, these two controls can bring the whole system to any admissible random target once enough time has passed. Zero is one such target: every component vanishes throughout the region at the prescribed final time.
 
+The updated theorem uses smooth domains and principal coefficients, a two-sided nested condition on the boundary spectral subspaces, and incoming controls measured in the boundary flux norm. It includes systems whose principal matrices do not commute; the stated control time is sufficient and is not claimed to be optimal.
+
 A Carleman estimate makes this possible by turning propagation geometry into an observability inequality; duality then gives the controls.
 
 The idea to keep is **to reach every component through its incoming channels, allow time for propagation, and retain a way to steer the randomness.**
 
-[^paper]: Z. Li, Q. Lü, Y. Wang and H. Yang, *Exact controllability for stochastic first-order multi-dimensional hyperbolic systems*. [Author version](https://arxiv.org/abs/2601.18270), system (1.3), Condition 1.1, Theorem 1.1 and Section 2. The rectangle and its two colored fields are an illustrative schematic; the theorem is stated for smooth domains.
+[^paper]: Z. Li, Q. Lü, Y. Wang and H. Yang, *Exact controllability for stochastic first-order multi-dimensional hyperbolic systems*. [Updated version](/files/stochastic-hyperbolic-boundary-control-updated.pdf), Assumptions 1.1–1.2, Theorem 1.1 and Section 2; [original author version](https://arxiv.org/abs/2601.18270). The rectangle and its two colored fields are an illustrative schematic; the theorem is stated for smooth domains.

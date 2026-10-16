@@ -51,6 +51,7 @@ articles:
   - authors: "Z. Li, Q. Lü, **Y. Wang**, H. Yang"
     title: "Exact controllability for stochastic first-order multi-dimensional hyperbolic systems"
     blog: "stochastic-hyperbolic-boundary-control"
+    updated_pdf: "/files/stochastic-hyperbolic-boundary-control-updated.pdf"
     journal: "SIAM J. Control Optim."
     info: "Accepted"
     links:
