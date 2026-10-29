@@ -59,12 +59,14 @@ articles:
         url: "https://arxiv.org/abs/2601.18270"
 
   - authors: "**Y. Wang**, Q. Zhao"
-    title: "Null controllability for stochastic fourth order semi-discrete parabolic equations"
+    title: "The ϕ-null controllability for stochastic fourth order semi-discrete parabolic equations"
     blog: "fourth-order-semidiscrete-control"
     updated_pdf: "/files/fourth-order-semidiscrete-control-updated.pdf"
     journal: "Appl. Math. Optim."
-    info: "Accepted"
+    info: "(2026)"
     links:
+      - label: Article
+        url: "https://doi.org/10.1007/s00245-026-10527-8"
       - label: ArXiv
         url: "https://arxiv.org/abs/2405.03257"
 
