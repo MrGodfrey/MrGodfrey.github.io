@@ -63,7 +63,7 @@ articles:
     blog: "fourth-order-semidiscrete-control"
     updated_pdf: "/files/fourth-order-semidiscrete-control-updated.pdf"
     journal: "Appl. Math. Optim."
-    info: "(2026)"
+    info: "95 (2027), Paper No. 3"
     links:
       - label: Article
         url: "https://doi.org/10.1007/s00245-026-10527-8"
