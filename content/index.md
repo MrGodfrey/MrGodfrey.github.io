@@ -157,6 +157,7 @@ articles:
 preprints:
   - authors: "Q. Lü, **Y. Wang**"
     title: "A Transfer Principle for Elliptic Carleman Estimates: Application to Discrete Calderón Stability"
+    blog: "elliptic-transfer-calderon"
     status: "Preprint"
     links:
       - label: ArXiv

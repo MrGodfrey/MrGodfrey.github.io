@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-labelledby="title desc">
+<title id="title">From a continuous estimate to two boundary patches</title>
+<desc id="desc">A smooth curve and a triangular mesh illustrate transfer of estimates. A schematic domain has an input patch on the left and a measurement patch on the right. A shaded collar marks the boundary region where the potentials agree. The drawing is schematic, not a numerical reconstruction.</desc>
+<defs>
+ <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="#158A87" stroke-width="1.4"/></marker>
+ <pattern id="mesh" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 0H40V40H0V0L40 40" fill="none" stroke="#158A87" stroke-opacity=".25" stroke-width="1"/></pattern>
+</defs>
+<rect width="960" height="480" fill="#F7F4EA"/>
+<path d="M64 84H896M64 418H896" stroke="#142D40" stroke-opacity=".16"/>
+<g fill="#142D40" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="600" letter-spacing="2">
+ <text x="78" y="63">TRANSFER THE ESTIMATE</text>
+ <text x="550" y="63">LOCALIZE THE DATA</text>
+</g>
+<g fill="none" stroke="#142D40">
+ <path d="M88 235H226M88 235V143" stroke-opacity=".3"/>
+ <path d="M92 215C115 211 122 151 151 156S184 220 218 178" stroke-width="3" stroke-linecap="round"/>
+</g>
+<path d="M290 235V195L322 158L354 172L386 217L418 180V235Z" fill="url(#mesh)" stroke="#158A87" stroke-opacity=".5"/>
+<path d="M290 195L322 158L354 172L386 217L418 180" fill="none" stroke="#142D40" stroke-width="3" stroke-linejoin="round"/>
+<path d="M239 190H272" fill="none" stroke="#158A87" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M354 263C354 300 154 300 154 263" fill="none" stroke="#158A87" stroke-width="1.6" marker-end="url(#arrow)"/>
+<g font-family="Arial,Helvetica,sans-serif" text-anchor="middle" fill="#657780" font-size="12">
+ <text x="155" y="129">continuous</text><text x="354" y="129">discrete</text>
+ <text x="254" y="319">shifted continuous companion</text>
+</g>
+<rect x="578" y="129" width="260" height="220" rx="0" fill="#158A87" fill-opacity=".12" stroke="#142D40" stroke-width="2"/>
+<rect x="600" y="151" width="216" height="176" fill="#F7F4EA"/>
+<rect x="578" y="129" width="260" height="220" fill="url(#mesh)"/>
+<path d="M578 205V263" stroke="#158A87" stroke-width="7"/>
+<path d="M838 214V272" stroke="#B87542" stroke-width="7"/>
+<path d="M534 234H568" fill="none" stroke="#158A87" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M847 243H883" fill="none" stroke="#B87542" stroke-width="2"/>
+<path d="M877 238L884 243L877 248" fill="none" stroke="#B87542" stroke-width="1.6"/>
+<g font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#142D40">
+ <text x="532" y="195">input</text><text x="850" y="204">flux</text>
+ <text x="708" y="242" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="25">q</text>
+ <text x="708" y="380" text-anchor="middle" fill="#657780">potentials agree in the boundary collar</text>
+</g>
+<circle cx="65" cy="446" r="3" fill="#158A87"/>
+<path d="M78 446H132" stroke="#158A87" stroke-opacity=".4" stroke-width="1.4"/>
+<text x="896" y="450" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="10" letter-spacing="1" fill="#657780">SCHEMATIC · THEOREM IN d ≥ 3</text>
+</svg>
