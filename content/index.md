@@ -156,6 +156,14 @@ articles:
 # ============================================================
 preprints:
   - authors: "Q. Lü, **Y. Wang**"
+    title: "A Transfer Principle for Elliptic Carleman Estimates: Application to Discrete Calderón Stability"
+    blog: "elliptic-transfer-calderon"
+    status: "Preprint"
+    links:
+      - label: ArXiv
+        url: "https://arxiv.org/abs/2610.39750"
+
+  - authors: "Q. Lü, **Y. Wang**"
     title: "A Unified Kalman-Type Classification of Controllability for Linear Stochastic Systems"
     blog: "kalman-type-stochastic-controllability"
     updated_pdf: "/files/kalman-type-stochastic-controllability-updated.pdf?v=f1860832"
