@@ -60,27 +60,27 @@ assets/
 ### 用法 1：按 slug 引用，链接文字自动使用文章标题
 
 ```markdown
-[[blog:notes-from-discussions-about-ai-with-friends]]
+[[blog:continuous-to-discrete-carleman]]
 ```
 
-会被展开成指向 `/blogs/notes-from-discussions-about-ai-with-friends/` 的链接，链接文字默认就是该文章标题。
+会被展开成指向 `/blogs/continuous-to-discrete-carleman/` 的链接，链接文字默认就是该文章标题。
 
 ### 用法 2：按 slug 引用，并自定义链接文字
 
 ```markdown
-我最近写过 [[blog:notes-from-discussions-about-ai-with-friends|一篇关于 AI 边界的长文]]。
+我最近写过 [[blog:continuous-to-discrete-carleman|一篇关于 Carleman 估计的文章]]。
 ```
 
 ### 用法 3：按文章标题引用，链接文字自动使用文章标题
 
 ```markdown
-[[blog-title:与不同领域的朋友讨论 AI 的记录，AI 能做什么，以及 AI 的局限]]
+[[blog-title:Bringing Carleman Estimates to the Grid]]
 ```
 
 ### 用法 4：按文章标题引用，并自定义链接文字
 
 ```markdown
-我最近写过 [[blog-title:与不同领域的朋友讨论 AI 的记录，AI 能做什么，以及 AI 的局限|一篇关于 AI 的讨论记录]]。
+我最近写过 [[blog-title:Bringing Carleman Estimates to the Grid|一篇关于 Carleman 估计的文章]]。
 ```
 
 ### 解析规则
@@ -113,7 +113,7 @@ assets/
 用反引号包起来即可：
 
 ```markdown
-`[[blog:notes-from-discussions-about-ai-with-friends]]`
+`[[blog:continuous-to-discrete-carleman]]`
 ```
 
 ### 一个完整示例
@@ -121,7 +121,7 @@ assets/
 在 `content/index.md` 的正文里这样写：
 
 ```markdown
-I recently wrote [[blog:notes-from-discussions-about-ai-with-friends|a long note on AI, teaching, and academic life]].
+I recently wrote [[blog:continuous-to-discrete-carleman|a note on Carleman estimates]].
 ```
 
 构建后，首页 `About Me` 区块会自动生成一个指向对应博客文章的可点击链接。
